@@ -4,6 +4,7 @@ permalink: /:categories/:year/:month/:day/:title
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 highlighter: pygments
+#pygments: true
 
 
 # Themes are encouraged to use these universal variables 
@@ -17,6 +18,8 @@ author      :
   github    : hongyusu
   twitter   : hongyusu
   feedburner: feedname
+
+markdown: kramdown
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
