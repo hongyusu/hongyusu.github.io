@@ -20,9 +20,9 @@ I did my **PhD** in the field of Information and Computer Science from <a href="
 
 ##Outside Research
 
-I enjoyed aggressive sport like basketball before I broke my knee cruciate ligament. Now I opt to bouldering, scuba diving (holding <a href="http://www.padi.com/scuba-diving/padi-courses/course-catalog/open-water-diver/">OWD license</a>), snowboarding (downhill) that explores the unknown part of my life. I also enjoy hiking and traveling a lot for which I share some of the pictures on <a href="https://www.flickr.com/photos/123885344@N02/">flickr</a>.
+I enjoyed aggressive sport like basketball before I broke my knee cruciate ligament. Now I opt to bouldering, scuba diving (holding <a href="http://www.padi.com/scuba-diving/padi-courses/course-catalog/open-water-diver/">OWD license</a>), snowboarding (downhill) that explores the unknown part of my life. I also enjoy hiking and traveling a lot for which I share some of the pictures on <a href="https://www.flickr.com/photos/123885344@N02/">Flickr</a>.
 
-##Recent Activity
+##Recent Activities
 
   - We won the ***Best Hack in Fitness*** :bowtie: in the <a href="http://datasciencehackathon.cs.hut.fi">Aalto Data Science Hackathon 2015</a> with a <a href="http://hongyusu.github.io/AaltoHackathon2015/">***Personalized Track Recommendation System***</a>.
   - I defended my <a href="https://aaltodoc.aalto.fi/handle/123456789/15362">dissertation</a> on 27th March 2015.
