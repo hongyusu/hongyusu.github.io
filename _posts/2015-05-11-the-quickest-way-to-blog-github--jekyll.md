@@ -18,15 +18,15 @@ First, make sure you have a line of `highlighter: pygments` in `./_config.yml` f
 
 If we write the following piece of Python code 
 
-<!--
-```
-\{% highlight python %}
+
+{% raw %}
+{% highlight python %}
 for i in range(10):
   i = i + 1
   print i
-\{% endhighlight %}
-```
--->
+{% endhighlight %}
+{% endraw %}
+
 
 {% highlight python %}
 for i in range(10):
