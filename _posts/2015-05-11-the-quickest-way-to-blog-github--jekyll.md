@@ -52,15 +52,44 @@ Yes, it is quite complicated to modify the website, update GitHub, and check the
 Instead, we can run the website locally by Jekyll.
 Run the following command in the website folder
 
-{% highlight c++ %}
-jekyll server --watch
-{% endhighlight %}
+	{% highlight c++ %}
+	jekyll server --watch
+	{% endhighlight %}
 
 We can access the website locally by the following address `http://localhost:4000`.
 
 ## Configuration
 
+Next, I need to modify the `./_config.yml` file to e.g., change the name of the website template.
 
+## Start to write things
+
+Writing a new post can be initialized with the following Rake command
+
+	{% highlight c++ %}
+	rake post title="title of the post"
+	{% endhighlight %}
+
+The command will essentially generate a post page in `_posts/`.
+The name of the post will follow the order of year, month, day, title.
+Then I start to add content of the post by editing the file with my favourite editor `vim`. 
+First, I add the meta information about this post e.g.,
+
+{% highlight c++ %}
+layout: post
+title: "The quickest way to blog, GitHub + Jekyll"
+description: ""
+category: Programming
+tags: [Introduction, Programming, Jekyll, GitHub]
+{% endhighlight s%}
+
+Then I edit the content with [make down language](https://help.github.com/articles/markdown-basics/) or HTML.
+
+After editing, the new content can be preview with the following Rake command
+
+	{%highlight c++%}
+	rake preview
+	{%endhighlight%}
 
 ##Add support the syntax highlight
 
@@ -91,16 +120,38 @@ A piece of Javascript code
 
 ~~~
 {% raw %}{% highlight javascript %}
-var s = "JavaScript syntax highlighting";
-alert(s);
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Operators</h1>
+<p>The + operator concatenates (adds) strings.</p>
+<p id="demo"></p>
+<script>
+var txt1 = "What a very";
+var txt2 = "nice day";
+document.getElementById("demo").innerHTML = txt1 + txt2;
+</script>
+</body>
+</html>
 {% endhighlight %}{% endraw %}
 ~~~
 
 will appear as
 
 {% highlight javascript %}
-var s = "JavaScript syntax highlighting";
-alert(s);
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Operators</h1>
+<p>The + operator concatenates (adds) strings.</p>
+<p id="demo"></p>
+<script>
+var txt1 = "What a very";
+var txt2 = "nice day";
+document.getElementById("demo").innerHTML = txt1 + txt2;
+</script>
+</body>
+</html>
 {% endhighlight %}
 
 
@@ -110,19 +161,19 @@ The original Makedown language lacks the support of editing mathematics equation
 Meanwhile, mathematical notations and equations are crucial in data science to convert exact ideas.
 To enable Latex in Jekyll, we modify the head of each individual page or the `default.html` by adding the following JaveScript
 
-{% highlight javascript %}
-<script type="text/javascript"
- src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-{% endhighlight %}
+	{% highlight javascript %}
+	<script type="text/javascript"
+	 src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+	{% endhighlight %}
 
 As a results, for example, when we write down the following optimization problem of the Support Vector Machines
 
-{% highlight latex %}
-$$ \underset{\mathbf{w},\xi}{\min}\quad  \frac{1}{2}||\mathbf{w}||^2 + C\sum_{i=1}^{n}\xi_i\\\text{s.t.}\quad C\ge0, \xi_i\ge0, \forall i\in\{1,\cdots,n\}.$$
-{% endhighlight %}
+	{% highlight latex %}
+	$$ \underset{\mathbf{w},\xi}{\min}\quad  \frac{1}{2}||\mathbf{w}||^2 + C\sum_{i=1}^{n}\xi_i\\\text{s.t.}\quad C\ge0, \xi_i\ge0, \forall i\in\{1,\cdots,n\}.$$
+	{% endhighlight %}
 
-It will appear as
+it will appear as
 
 $$ \underset{\mathbf{w},\xi}{\min}\quad  \frac{1}{2}||\mathbf{w}||^2 + C\sum_{i=1}^{n}\xi_i\\\text{s.t.}\quad C\ge0, \xi_i\ge0, \forall i\in\{1,\cdots,n\}.$$
 
