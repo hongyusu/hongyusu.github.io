@@ -29,7 +29,7 @@ markdown: kramdown
 # Else if you are pushing to username.github.io, replace with your username.
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
-production_url : http://hongyusu.github.io
+#production_url : http://hongyusu.github.io
 
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
@@ -84,7 +84,8 @@ JB :
   # Set 'provider' to false to turn commenting off globally.
   #
   comments :
-    provider : disqus
+    provider : false
+    #provider : disqus
     disqus :
       short_name : jekyllbootstrap
     livefyre :
@@ -102,24 +103,25 @@ JB :
   # Set 'provider' to false to turn analytics off globally.
   #        
   analytics :
-    provider : google 
+    provider : false 
+    #provider : google 
     google : 
         tracking_id : 'UA-123-12'
     getclicky :
       site_id : 
     mixpanel :
         token : '_MIXPANEL_TOKEN_'
-    piwik :
-        baseURL : 'myserver.tld/piwik' # Piwik installation address (without protocol)
-        idsite : '1'                   # the id of the site on Piwik
+    #piwik :
+    #    baseURL : 'myserver.tld/piwik' # Piwik installation address (without protocol)
+    #    idsite : '1'                   # the id of the site on Piwik
 
   # Settings for sharing helper. 
   # Sharing is for things like tweet, plusone, like, reddit buttons etc.
   # Set 'provider' to the sharing provider you want to use.
   # Set 'provider' to false to turn sharing off globally.
   #
-  sharing :
-    provider : false
+  #sharing :
+  #  provider : false
     
   # Settings for all other include helpers can be defined by creating 
   # a hash with key named for the given helper. ex:
