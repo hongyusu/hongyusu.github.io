@@ -24,7 +24,7 @@ I enjoyed aggressive sport like basketball before I broke my knee cruciate ligam
 
 ##Recent Activities
 
-  - We won the ***Best Hack in Fitness*** :bowtie: in the <a href="http://datasciencehackathon.cs.hut.fi">Aalto Data Science Hackathon 2015</a> with a <a href="http://hongyusu.github.io/AaltoHackathon2015/">***Personalized Track Recommendation System***</a>.
+  - We won the ***Best Hack in Fitness*** in the <a href="http://datasciencehackathon.cs.hut.fi">Aalto Data Science Hackathon 2015</a> with a <a href="http://hongyusu.github.io/AaltoHackathon2015/">***Personalized Track Recommendation System***</a>.
   - I defended my <a href="https://aaltodoc.aalto.fi/handle/123456789/15362">dissertation</a> on 27th March 2015.
   - I will join the evaluation process of the applications for Master programme in Machine Learning and Data Mining 2015 (Macademia).
   - With Prof. John Shawe-Taylor, Prof. Mario Marchand, Prof. Juho Rousu, Assi. Prof. Emilie Morvant, we are presenting out paper on <b>NIPS 2014</b> conference.
