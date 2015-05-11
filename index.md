@@ -15,13 +15,9 @@ tagline:
 I am a Postdoctoral researcher affiliated with <a href="http://www.hiit.fi">Helsinki Institute for Information Technology HIIT</a> and <a href="http://ics.aalto.fi/en/">CS Department Aalto University</a>. My research is along the direction of Machine Learning for Structured Data. Currently I focus on developing accurate learning models for structured output prediction. In general, I am interested in 
 
   - Structured Output Prediction / Max-Margin Learning for Multilabel Classification
-
   - Kernel Methods for Complex Data
-
   - Optimization Methods for Large-scale Data
-
   - Social Network / Influence Network Data Analysis
-
   - Bioinformatics, Metagenomics
 
 
@@ -115,34 +111,24 @@ Artificial Intelligence and Statistics (<b>AISTATS 2012</b>)</i>, long abstract 
 ###Reviewer
 
    - IEEE Transactions on Knowledge and Data Engineering (TKDE). 
-
    - IEEE Transactions on Neural Networks and learning Systems (TNNLS).
-
    - The 6th ACM International Conference on Web Search and Data Mining (WDSM2013).
-
    - The 26th Annual Conference on Neural Information Processing Systems (NIPS2012).
 
 
 ###Research Visit
 
    - Prof. Mario Marchand, Prof. Francois Laviolett, Laval University, Quebec city, Canada, December 11 - December 19, 2014
-
    - Prof. Jinzhi Lei, Tsinghua University, Beijing, China, June, 2014
-
    - Prof. John Shawe-Taylor, University College London, March 20 - April 1, 2014
-
    - Dr. Wei Bian, University of Technology, Sydney, November 15 - November 18, 2013
 
 
 ###Teaching
    - Lecture in <i><a href="https://noppa.aalto.fi/noppa/kurssi/t-61.6080/etusivu">T-61.6080 Special Course in Bioinformatics II</a></i>, Aalto University, Spring 2015.
-
    - Assistant in <i><a href="https://noppa.aalto.fi/noppa/kurssi/t-61.5910/esite">T-61.5910 Research Project in Computer and Information Science</a></i>, Aalto University, Autumn 2014.
-
    - Lecture and assistant in <i><a href="https://noppa.aalto.fi/noppa/kurssi/t-61.6020/materiaali">T-61.6020 Special Course in Computer and Information Science II</a></i>, Aalto University, Spring 2013.	
-
    - Assistant in <i><a href="https://noppa.aalto.fi/noppa/kurssi/t-61.5910/esite">T-61.5910 Research Project in Computer and Information Science</a></i>, Aalto University, Autumn 2013.
-
    - Assistant in <i><a href="http://www.cs.helsinki.fi/en/courses/582653/2012/k/k/1">582653 Computational Methods of System Biology</a></i>, University of Helsinki, Spring 2012.
         
 

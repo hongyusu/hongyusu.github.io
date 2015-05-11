@@ -14,9 +14,12 @@ tags: [Introduction, Programming, Jekyll, GitHub]
 
 ##Add support the syntax highlight
 
-First, make sure you have a line of `highlighter: pygments` in `./_config.yml` file.
+It would be great if my code can be highlighted by languages.
+This is of course possible.
+First, make sure there is a line of `highlighter: pygments` in `./_config.yml` file.
+Then [Pygments](http://pygments.org) will do the trick.
 
-If we write the following piece of Python code 
+For example, if we write the following piece of Python code 
 
 ~~~
 {% raw %}{% highlight python %}
@@ -36,6 +39,7 @@ for i in range(10):
 
 
 ##Add support for Latex
+
 The original Makedown language lacks the support of editing mathematics equation.
 Meanwhile, mathematical notations and equations are crucial in data science to convert exact ideas.
 To enable Latex in Jekyll, we modify the head of each individual page or the `default.html` by adding the following JaveScript
