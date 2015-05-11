@@ -61,6 +61,7 @@ We can access the website locally by the following address `http://localhost:400
 ## Configuration
 
 
+
 ##Add support the syntax highlight
 
 It would be great if my code can be highlighted by languages.
@@ -86,10 +87,10 @@ for i in range(10):
   print i
 {% endhighlight %}
 
-A piece of Java code
+A piece of Javascript code
 
 ~~~
-{% raw %}{% highlight java %}
+{% raw %}{% highlight javascript %}
 var s = "JavaScript syntax highlighting";
 alert(s);
 {% endhighlight %}{% endraw %}
