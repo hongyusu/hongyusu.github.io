@@ -16,7 +16,7 @@ I am a Postdoctoral researcher affiliated with <a href="http://www.hiit.fi">Hels
 
 ##Educations
 
-I did my PhD in the field of Information and Computer Science from <a href="http://ics.aalto.fi/en/">Aalto University</a> and <a href="http://www.hiit.fi">Helsinki Institute for Information Technology HIIT</a> during 2012.3 - 2015.4. Before that, I got my MSc from <a href="http://cs.helsinki.fi">University of Helsinki</a> and <a href="http://www.hiit.fi">HIIT</a> in 2010. I got my BEng from <a href="http://www.xidian.edu.cn">Xidian University</a> in 2007.
+I did my **PhD** in the field of Information and Computer Science from <a href="http://ics.aalto.fi/en/">Aalto University</a> and <a href="http://www.hiit.fi">Helsinki Institute for Information Technology HIIT</a> during 2012.3 - 2015.4. Before that, I got my **MSc** from <a href="http://cs.helsinki.fi">University of Helsinki</a> and <a href="http://www.hiit.fi">HIIT</a> in 2010. I got my **BEng** from <a href="http://www.xidian.edu.cn">Xidian University</a> in 2007.
 
 ##Outside Research
 
