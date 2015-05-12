@@ -99,7 +99,7 @@ This is of course possible.
 First, make sure there is a line of `highlighter: pygments` in `./_config.yml` file.
 Then [Pygments](http://pygments.org) will do the trick.
 
-For example, if we write the following piece of Python code 
+For example, it I write down the following piece of Python code
 
 ~~~
 {% raw %}{% highlight python %}
@@ -117,7 +117,7 @@ for i in range(10):
   print i
 {% endhighlight %}
 
-A piece of Javascript code
+The following piece of Javascript code
 
 ~~~
 {% raw %}{% highlight javascript %}
