@@ -34,12 +34,13 @@ git push -u origin-hongyusu master
 
 The website can be accessed from `hongyuu.github.io`.
 To make it fancier, I will _borrow_ the [UI theme](http://themes.jekyllbootstrap.com) for [Jekyll-Bootstrap](http://jekyllbootstrap.com).
-In particular, my website is based on the [Mark-Reid theme](http://themes.jekyllbootstrap.com/preview/mark-reid/) which can be added to the Jekyll website by running following command in the website folder
+In particular, this website is based on the [Hooligan Theme](http://themes.jekyllbootstrap.com/preview/hooligan/) which can be added to the Jekyll website by running following command in the website folder
 
 {% highlight c++ %}
-rake theme:install git="git://github.com/jekyllbootstrap/theme-mark-reid.git"
+rake theme:install git="https://github.com/dhulihan/hooligan.git"
 {% endhighlight %}
 
+One of the good thing I can think of the Hooligan theme is that the syntax highlight of the programming code is very well displayed (see the following section).
 I saw someone is using [_twitter_ theme](http://themes.jekyllbootstrap.com/preview/twitter/).
 However, it does not work well with me because of the following reasons
 
