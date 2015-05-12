@@ -41,12 +41,13 @@ rake theme:install git="https://github.com/dhulihan/hooligan.git"
 {% endhighlight %}
 
 One of the good thing I can think of the Hooligan theme is that the syntax highlight of the programming code is very well displayed (see the following section).
-I saw someone is using [_twitter_ theme](http://themes.jekyllbootstrap.com/preview/twitter/).
+I saw someone is using [_twitter_ theme](http://themes.jekyllbootstrap.com/preview/twitter/) or _mark-reid_ theme.
 However, it does not work well with me because of the following reasons
 
-   - I have to fix few bugs to make 'supporting tagline' work.
-   - This theme does not work well with syntax highlights.
-
+   - For _twitter_ theme, I have to fix few bugs to make 'supporting tagline' work.
+   - Also the _twitter_ theme does not work well with syntax highlights.
+   - _mark-reid_ theme does not get along well with code block highlight. In particular, line change looks weird. 
+ 
 Remember to add and commit new files to GitHub after installing the theme.
 
 Yes, it is quite complicated to modify the website, update GitHub, and check the revision from `hongyusu.github.com`.

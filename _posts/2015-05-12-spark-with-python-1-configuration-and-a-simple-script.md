@@ -17,7 +17,7 @@ tags: [Introduction, Programming, Spark, Python, BigData]
 
 For now, let's assume we have the Spark running in the background.
 Configure a Spark-Python script to make it running on cluster seems to be straight forward.
-For example, I would like to have run a _logistic regression_ in machine learning toolbox with Python API.
+For example, I would like to run a _logistic regression_ in machine learning toolbox with Python API.
 The first thing I should do is to include some Python packages
 
 {% highlight python%}
