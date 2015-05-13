@@ -60,7 +60,10 @@ trainErr = labelsAndPreds.filter(lambda (v, p): v != p).count() / float(parsedDa
 print("Training Error = " + str(trainErr))
 {% endhighlight%}
 
-As I already mentioned that running this script is very simple with the following command
+##Submit the script to Spark
+
+As I already mentioned that running this script is very simple.
+In practice this can be done with the following command
 {%highlight bash%}
 ../spark-1.3.0-bin-hadoop2.4/bin/spark-submit spark-python-lregression.py
 {%endhighlight%} 
