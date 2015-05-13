@@ -85,6 +85,7 @@ For more information, I would recommend the [documentation](https://spark.apache
 ##Gradient methods in Spark-Python machine learning API
 
 The convex optimization problem is solved in [MLlib](https://spark.apache.org/docs/latest/mllib-optimization.html#update-schemes-for-distributed-sgd) include
+   
    -. Stochastic gradient descent
    -. Limit-memory BFGS
 
