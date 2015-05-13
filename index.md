@@ -50,7 +50,7 @@ I enjoyed aggressive sport like basketball before I broke my knee cruciate ligam
 
 ###Journal Articles
 
-  - Su, Hongyu; Rousu, Juho. <b>Multilabel Classification through Random Graph Ensembles</b>. <b><i>Machine Learning</i></b>, Volume 99, Issue 2 (2015), Page 231-256, DOI: 10.1007/s10994-014-5465-9. [<a href="http://link.springer.com/article/10.1007/s10994-014-5465-9?sa_campaign=email/event/articleAuthor/onlineFirst">online</a>] [<a href="./publications/su14b_authorcopy.pdf">preprint</a>]
+  - Su, Hongyu; Rousu, Juho. <b>Multilabel Classification through Random Graph Ensembles</b>. <b><i>Machine Learning</i></b>, Volume 99, Issue 2 (2015), Page 231-256, DOI: 10.1007/s10994-014-5465-9. [<a href="http://link.springer.com/article/10.1007/s10994-014-5465-9?sa_campaign=email/event/articleAuthor/onlineFirst">online</a>] [<a href="./_publications/su14b_authorcopy.pdf">preprint</a>]
 
 
 ###Conference Articles
@@ -71,7 +71,7 @@ I enjoyed aggressive sport like basketball before I broke my knee cruciate ligam
 
 ###Doctoral Dissertation
 
-   - Su, Hongyu. <b>Multilabel Classification through Structured Output Learning - Methods and Applications.</b> Doctoral Dissertation, Aalto University School of Science, Feb 2015. [<a href="http://urn.fi/URN:ISBN:978-952-60-6106-1">Library</a>] [<a href="https://github.com/hongyusu/dissertation/blob/master/dissertation.pdf?raw=true">GitHub</a>] [<a href="./publications/255031_Aalto_DD_028_2015_Hongyu_Su_vedos.pdf">Draft</a>] [<a href="https://github.com/hongyusu/Posters_and_Presentations/raw/master/Presentations/Defence_presentation_20150327/example.pdf">Slides</a>]
+   - Su, Hongyu. <b>Multilabel Classification through Structured Output Learning - Methods and Applications.</b> Doctoral Dissertation, Aalto University School of Science, Feb 2015. [<a href="http://urn.fi/URN:ISBN:978-952-60-6106-1">Library</a>] [<a href="https://github.com/hongyusu/dissertation/blob/master/dissertation.pdf?raw=true">GitHub</a>] [<a href="./_publications/255031_Aalto_DD_028_2015_Hongyu_Su_vedos.pdf">Draft</a>] [<a href="https://github.com/hongyusu/Posters_and_Presentations/raw/master/Presentations/Defence_presentation_20150327/example.pdf">Slides</a>]
 
 
 
