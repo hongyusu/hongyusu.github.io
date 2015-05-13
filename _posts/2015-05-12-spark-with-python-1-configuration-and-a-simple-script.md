@@ -46,14 +46,11 @@ The rest of the script is
 def parsePoint(line):
     values = [float(x) for x in line.split(' ')]
     return LabeledPoint(values[0], values[1:])
-
 sc = SparkContext(conf=conf)
 data = sc.textFile("../spark-1.3.0-bin-hadoop2.4/data/mllib/sample_svm_data.txt")
 parsedData = data.map(parsePoint)
-
 # Build the model
 model = LogisticRegressionWithSGD.train(parsedData)
-
 # Evaluating the model on training data
 labelsAndPreds = parsedData.map(lambda p: (p.label, model.predict(p.features)))
 trainErr = labelsAndPreds.filter(lambda (v, p): v != p).count() / float(parsedData.count())
