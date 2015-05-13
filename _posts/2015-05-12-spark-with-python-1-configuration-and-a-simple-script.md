@@ -82,6 +82,11 @@ app-20150512225125-0013 spark-python-svm 80 512.0 MB 2015/05/12 22:51:25 su FINI
 For more information, I would recommend the [documentation](https://spark.apache.org/docs/latest/mllib-guide.html) of Spark machine learning API.
 
 
+##Gradient methods in Spark-Python machine learning API
+
+The convex optimization problem is solved in [MLlib](https://spark.apache.org/docs/latest/mllib-optimization.html#update-schemes-for-distributed-sgd) include
+   -. Stochastic gradient descent
+   -. Limit-memory BFGS
 
 
 
