@@ -122,10 +122,9 @@ I will briefly present several gradient based methods as follows
 ###[Stochastic gradient descent (SGD)]()
    - Stochastic gradient descent (SGD) where gradient is computed as the summation over a subset of examples (_minibatch_) located in RDD.
 
-
 ###[BFGS](https://en.wikipedia.org/wiki/Broyden–Fletcher–Goldfarb–Shanno_algorithm)
 
-###[Limit-memory BFGS (L-BFGS)]()
+###[Limit-memory BFGS (L-BFGS)](https://en.wikipedia.org/wiki/Limited-memory_BFGS)
 
 
 
