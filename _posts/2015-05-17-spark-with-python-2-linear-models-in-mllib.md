@@ -14,12 +14,14 @@ tags: [Introduction, Programming, Spark, Python, BigData]
 
 ##Linear models
    - Classification
-      - Support vector machines (svm)
-      - Logistic regreion
+       - Support vector machines (SVM)
+       - Logistic regression
+
    - Regression
       - Least square regression
       - Lasso regression
       - Ridge regression
+
    - Regression with streaming data
 
 ##Dimensionality reduction
