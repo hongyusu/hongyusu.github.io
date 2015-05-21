@@ -7,12 +7,14 @@ tags: [Introduction, Programming, Spark, Python, BigData]
 ---
 {% include JB/setup %}
 
+
 <script type="text/javascript"
  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
 
 ##Linear models
+
    - Classification
        - Support vector machines (SVM)
        - Logistic regression
@@ -25,5 +27,11 @@ tags: [Introduction, Programming, Spark, Python, BigData]
    - Regression with streaming data
 
 ##Dimensionality reduction
+
    - Singular value decomposition (SVD): Scala, Java
    - Principle component analysis (PCA): Scala, Java
+
+
+##Collaborative filtering
+
+[Tutorial](https://databricks-training.s3.amazonaws.com/movie-recommendation-with-mllib.html)
