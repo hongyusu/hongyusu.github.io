@@ -26,4 +26,3 @@ Start to track my exercises. Could be fun.
 |2015|5|19|40|0|0|100|
 
 
-
