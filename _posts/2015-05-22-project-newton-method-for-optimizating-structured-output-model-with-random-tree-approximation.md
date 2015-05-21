@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Project Newton method for optimizing structured output model with random tree approximation"
+title: "Projected Newton method for optimizing structured output model with random tree approximation"
 description: ""
 category: Research
 tags: [Research, Optimization, Newton method]
