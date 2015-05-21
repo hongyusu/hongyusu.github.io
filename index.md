@@ -11,29 +11,28 @@ tagline:
 
 
 
+I am a postdoctoral researcher affiliated with <a href="http://www.hiit.fi">Helsinki Institute for Information Technology HIIT</a> and <a href="http://ics.aalto.fi/en/">Aalto University</a>. My research is along the direction of Machine Learning for Structured Data. Currently I focus on developing accurate learning models for structured output prediction. In general, I am interested in 
 
-I am a Postdoctoral researcher affiliated with <a href="http://www.hiit.fi">Helsinki Institute for Information Technology HIIT</a> and <a href="http://ics.aalto.fi/en/">CS Department Aalto University</a>. My research is along the direction of Machine Learning for Structured Data. Currently I focus on developing accurate learning models for structured output prediction. In general, I am interested in 
-
-  - Structured Output Prediction / Max-Margin Learning for Multilabel Classification
-  - Kernel Methods for Complex Data
-  - Optimization Methods for Large-scale Data
-  - Social Network / Influence Network Data Analysis
-  - Bioinformatics, Metagenomics
+ - Structured output prediction / max-margin learning / multilabel classification
+ - Kernel methods for complex data
+ - Optimization methods for large-scale data
+ - Social network / influence network analysis
+ - Bioinformatics and metagenomics
 
 
 ##Educations
 
-I did my **PhD** in the field of Information and Computer Science from <a href="http://ics.aalto.fi/en/">Aalto University</a> and <a href="http://www.hiit.fi">Helsinki Institute for Information Technology HIIT</a> during 2012.3 - 2015.4. Before that, I got my **MSc** from <a href="http://cs.helsinki.fi">University of Helsinki</a> and <a href="http://www.hiit.fi">HIIT</a> in 2010. I got my **BEng** from <a href="http://www.xidian.edu.cn">Xidian University</a> in 2007.
+I did my **PhD** in the field of Information and Computer Science from <a href="http://ics.aalto.fi/en/">Aalto University</a> and <a href="http://www.hiit.fi">Helsinki Institute for Information Technology HIIT</a> during 2012.3 - 2015.4. Before that, I got my **MSc** from <a href="http://cs.helsinki.fi">University of Helsinki</a> and <a href="http://www.hiit.fi">HIIT</a> in 2010. I got my **BEng** from <a href="http://www.xidian.edu.cn">Xidian University, China</a> in 2007.
 
 ##Outside Research
 
-I enjoyed aggressive sport like basketball before I broke my knee cruciate ligament. Now I opt to bouldering, scuba diving (holding <a href="http://www.padi.com/scuba-diving/padi-courses/course-catalog/open-water-diver/">OWD license</a>), snowboarding (downhill) that explores the unknown part of my life. I also enjoy hiking and traveling a lot for which I share some of the pictures on <a href="https://www.flickr.com/photos/123885344@N02/">Flickr</a>.
+I enjoy aggressive sport like basketball before I broke my knee cruciate ligament. Now I opt to bouldering, scuba diving (holding <a href="http://www.padi.com/scuba-diving/padi-courses/course-catalog/open-water-diver/">OWD license</a>), snowboarding (downhill) that explores the unknown part of my life. I also enjoy hiking and traveling a lot for which I share some of the pictures on <a href="https://www.flickr.com/photos/123885344@N02/">Flickr</a>.
 
 ##Recent Activities
 
   - We won the ***Best Hack in Fitness*** in the <a href="http://datasciencehackathon.cs.hut.fi">Aalto Data Science Hackathon 2015</a> with a <a href="http://hongyusu.github.io/AaltoHackathon2015/">***Personalized Track Recommendation System***</a>.
-  - I defended my <a href="https://aaltodoc.aalto.fi/handle/123456789/15362">dissertation</a> on 27th March 2015.
-  - I will join the evaluation process of the applications for Master programme in Machine Learning and Data Mining 2015 (Macademia).
+  - I defended my <a href="https://aaltodoc.aalto.fi/handle/123456789/15362">dissertation 'Multilabel classification through structured output learning'</a> in lecture hall T2 <a href="http://sci.aalto.fi/en/">School of Science</a> on 27th March 2015.
+  - I will join the evaluation process of the applications for Master programme in Machine Learning and Data Mining (Macademia) 2015.
   - With Prof. John Shawe-Taylor, Prof. Mario Marchand, Prof. Juho Rousu, Assi. Prof. Emilie Morvant, we are presenting out paper on <b>NIPS 2014</b> conference.
   - My talk at the International Conference on Machine Learning (<b>ICML2014</b>) is now online at <a href="http://techtalks.tv/talks/structured-prediction-of-network-response/60915/">TechTalk</a>.
 
@@ -127,7 +126,7 @@ Artificial Intelligence and Statistics (<b>AISTATS 2012</b>)</i>, long abstract 
 ###Teaching
    - Lecture in <i><a href="https://noppa.aalto.fi/noppa/kurssi/t-61.6080/etusivu">T-61.6080 Special Course in Bioinformatics II</a></i>, Aalto University, Spring 2015.
    - Assistant in <i><a href="https://noppa.aalto.fi/noppa/kurssi/t-61.5910/esite">T-61.5910 Research Project in Computer and Information Science</a></i>, Aalto University, Autumn 2014.
-   - Lecture and assistant in <i><a href="https://noppa.aalto.fi/noppa/kurssi/t-61.6020/materiaali">T-61.6020 Special Course in Computer and Information Science II</a></i>, Aalto University, Spring 2013.	
+   - Lecture in <i><a href="https://noppa.aalto.fi/noppa/kurssi/t-61.6020/materiaali">T-61.6020 Special Course in Computer and Information Science II</a></i>, Aalto University, Spring 2013.	
    - Assistant in <i><a href="https://noppa.aalto.fi/noppa/kurssi/t-61.5910/esite">T-61.5910 Research Project in Computer and Information Science</a></i>, Aalto University, Autumn 2013.
    - Assistant in <i><a href="http://www.cs.helsinki.fi/en/courses/582653/2012/k/k/1">582653 Computational Methods of System Biology</a></i>, University of Helsinki, Spring 2012.
         
