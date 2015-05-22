@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Spark with Python (1): configuration and a simple script"
+title: "Spark with Python (1): configuration and a simple Python script"
 description: ""
 category: Programming
 tags: [Introduction, Programming, Spark, Python, BigData]
