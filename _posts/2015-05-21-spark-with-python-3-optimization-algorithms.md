@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Spark with Python (3): optimization algorithms"
+title: "Spark with Python: optimization algorithms"
 description: ""
 category: 
 tags: []
