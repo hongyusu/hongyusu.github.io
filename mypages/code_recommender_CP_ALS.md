@@ -1,4 +1,11 @@
-
+---
+layout: page
+title: "Spark with Python: collaborative filtering code"
+description: ""
+category: Code
+tags: [Programming, Spark, Python, Code]
+---
+{% include JB/setup %}
 
 
 {%highlight python%}
