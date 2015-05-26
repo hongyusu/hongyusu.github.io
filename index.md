@@ -129,6 +129,12 @@ Artificial Intelligence and Statistics (<b>AISTATS 2012</b>)</i>, long abstract 
    - Lecture in <i><a href="https://noppa.aalto.fi/noppa/kurssi/t-61.6020/materiaali">T-61.6020 Special Course in Computer and Information Science II</a></i>, Aalto University, Spring 2013.	
    - Assistant in <i><a href="https://noppa.aalto.fi/noppa/kurssi/t-61.5910/esite">T-61.5910 Research Project in Computer and Information Science</a></i>, Aalto University, Autumn 2013.
    - Assistant in <i><a href="http://www.cs.helsinki.fi/en/courses/582653/2012/k/k/1">582653 Computational Methods of System Biology</a></i>, University of Helsinki, Spring 2012.
+
+
+###Instructor of Master Thesis
+- Nicole Althermeler, Metagenomics data analysis, 2012
+- Jinmin Lei, Protein-Protein interaction prediction, 2014
+- Jane Bridie, Metabolic pathway analysis via graph mining, 2015
         
 
 
