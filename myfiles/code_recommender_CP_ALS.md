@@ -1,5 +1,7 @@
-#!/usr/bin/env python
 
+
+
+{%highlight python%}
 import sys
 import itertools
 from math import sqrt
@@ -83,7 +85,7 @@ if __name__ == "__main__":
 
     # shut down spark
     sc.stop()
-
+{%endhighlight%}
 
 
 
