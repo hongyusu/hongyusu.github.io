@@ -39,7 +39,7 @@ where $$\lambda$$ is the regularization parameter, and $$n_{u_i}$$ is the number
 - The following text combines the introduction of CF available from [MLlib](https://spark.apache.org/docs/latest/mllib-collaborative-filtering.html) and the [Tutorial](https://databricks-training.s3.amazonaws.com/movie-recommendation-with-mllib.html) for recommender system in Spark.
 - The data file used here is from MovieLens `./spark-1.3.0-bin-hadoop2.4/data/mllib/als/sample_movielens_ratings.txt` with format `UserID::MovieID::Rating::Time`.
 - The basic idea of the script is first to learn a ALS model on the training data with parameter selection on the validation data, and then to make predictions on the test data to measure the performance of the ALS model.
-- See [THIS](http://hongyusu.github.io/mypages/code_recommender_CP_ALS.md) for the complete Python script.
+- See [THIS](http://hongyusu.github.io/mypages/code_recommender_CP_ALS.html) for the complete Python script.
 
 ###Details of the [Python script](http://hongyusu.github.io/myfiles/recommender_CP_ALS.py)
 - To use Spark Python interface we have to include Spark-Python package
