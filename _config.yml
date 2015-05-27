@@ -10,10 +10,10 @@ highlighter: pygments
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title       : Hongyu Su
+title       : Hongyu Su <h4>&#23487;&#24344;&#23431;</h4>
 tagline     : Site Tagline
 author      :
-  name      : Hongyu Su
+  name      : Hongyu Su  
   email     : hongyu.su@me.com
   github    : hongyusu
   twitter   : hongyusu

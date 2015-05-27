@@ -10,7 +10,6 @@ tagline:
 </script>
 
 
-
 I am a postdoctoral researcher affiliated with <a href="http://www.hiit.fi">Helsinki Institute for Information Technology HIIT</a> and <a href="http://ics.aalto.fi/en/">Aalto University</a>. My research is along the direction of Machine Learning for Structured Data. Currently I focus on developing accurate learning models for structured output prediction. In general, I am interested in 
 
  - Structured output prediction / max-margin learning / multilabel classification
