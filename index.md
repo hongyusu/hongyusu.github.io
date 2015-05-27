@@ -132,8 +132,8 @@ Artificial Intelligence and Statistics (<b>AISTATS 2012</b>)</i>, long abstract 
 
 ###Instructor of Master Thesis
 - Nicole Althermeler, Metagenomics data analysis, 2012
-- Jinmin Lei, Protein-Protein interaction prediction, 2014
-- Jane Bridie, Metabolic pathway analysis via graph mining, 2015
+- Jinmin Lei, Protein-Protein interaction prediction with graph kernels and multiple kernel learnings, 2014
+- Jane Brodie, Metabolic pathway analysis with graph mining algorithms, 2015
         
 
 
