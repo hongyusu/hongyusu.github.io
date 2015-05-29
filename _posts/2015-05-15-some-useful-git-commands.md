@@ -31,5 +31,5 @@ git checkout 955cd428160a6d61a260564b193b175ae26f43c2
 - Repeat a string
 {%highlight python%}
 'this is a string' * 100
-{%endlighlight%}
+{%endhighlight%}
 
