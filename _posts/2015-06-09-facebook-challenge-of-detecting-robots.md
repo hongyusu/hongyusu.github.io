@@ -155,20 +155,21 @@ The following is about the final strategy I decided to use in the competetion. I
    4. Best model is then used for prediction.
    5. We use the implementation of SVM from LibSVM toolbox.
    6. The basic MATLAB usage example is 
-   
-                model = svmtrain(Ytr,Xtr,sprintf('-q -s 0 -c %.2f -t 2 -g %s -b 1',c,g));
-                [~,~,Yprobsvm] = svmpredict(Yts,Xts, model ,'-b 1'); 
-                [~,~,~,AUC] = perfcurve(Yts,Yprobsvm,1);
+      {%highlight matlab%}
+      model = svmtrain(Ytr,Xtr,sprintf('-q -s 0 -c %.2f -t 2 -g %s -b 1',c,g));
+      [~,~,Yprobsvm] = svmpredict(Yts,Xts, model ,'-b 1'); 
+      [~,~,~,AUC] = perfcurve(Yts,Yprobsvm,1);
+      {%endhighlight%}
 
 2. Random Forest 
    1. We use build-in function in MATLAB.
    2. We tune the parameter of the number of trees with 10 fold cross validation.
    3. The best model is then used for prediction.
    4. The basic MATLAB usage example is 
-
-        model = TreeBagger(c,Xtr,Ytr, 'Method', 'classification');
-        [~,Yprobtree] = predict(model, Xts);
-
+      {%highlight matlab%}
+      model = TreeBagger(c,Xtr,Ytr, 'Method', 'classification');
+      [~,Yprobtree] = predict(model, Xts);
+      {%endhighlight%}
    5. Be careful with the order of the probability outputs.
 
 ### Measure the performance
