@@ -20,11 +20,11 @@ author      :
   github    : hongyusu
   twitter   : hongyusu
   feedburner: feedname
-  pinterest : 
   linkedin  : https://fi.linkedin.com/in/hongyusu
-  resume    : 
-  bio       : 
-  email_md5 : 
+  pinterest : abc
+  resume    : abc
+  bio       : abc
+  email_md5 : abc
 
 markdown: kramdown
 
