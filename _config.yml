@@ -6,6 +6,8 @@ exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 highlighter: pygments
 #pygments: true
 
+paginate: 10 #pagination based on number of posts
+paginate_path: "page:num"
 
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
@@ -18,6 +20,11 @@ author      :
   github    : hongyusu
   twitter   : hongyusu
   feedburner: feedname
+  pinterest : 
+  linkedin  : https://fi.linkedin.com/in/hongyusu
+  resume    : 
+  bio       : 
+  email_md5 : 
 
 markdown: kramdown
 
