@@ -19,12 +19,12 @@ author      :
   email     : hongyu.su@me.com
   github    : hongyusu
   twitter   : hongyusu
-  feedburner: feedname
-  linkedin  : https://fi.linkedin.com/in/hongyusu
-  pinterest : abc
-  resume    : abc
-  bio       : abc
-  email_md5 : abc
+  feedburner: abcfeed
+  linkedin  : hongyusu
+  pinterest : 
+  resume    : 
+  bio       : 
+  email_md5 : 
 
 markdown: kramdown
 

@@ -29,13 +29,14 @@ I enjoy aggressive sport like basketball before I broke my knee cruciate ligamen
 
 ##Recent Activities
 
+  - [***My ensemble model***](http://hongyusu.github.io/FacebookChallenge) is ranked ***52th***/985 with AUC score ***93.269%***/94.254% in the [Facebook challenge](https://www.kaggle.com/c/facebook-recruiting-iv-human-or-bot) of detecting robots in the online bidding environment.
   - I won the ***Best Hack in Fitness*** in the <a href="http://datasciencehackathon.cs.hut.fi">Aalto Data Science Hackathon 2015</a> with a <a href="http://hongyusu.github.io/AaltoHackathon2015/">***Personalized Track Recommendation System***</a>.
   - I defended my <a href="https://aaltodoc.aalto.fi/handle/123456789/15362">dissertation 'Multilabel classification through structured output learning'</a> in lecture hall T2 <a href="http://sci.aalto.fi/en/">School of Science</a> on 27th March 2015.
-  - I will join the evaluation process of the applications for Master programme in Machine Learning and Data Mining (Macademia) 2015.
   - With Prof. John Shawe-Taylor, Prof. Mario Marchand, Prof. Juho Rousu, Assi. Prof. Emilie Morvant, we are presenting out paper on <b>NIPS 2014</b> conference.
   - My talk at the International Conference on Machine Learning (<b>ICML2014</b>) is now online at <a href="http://techtalks.tv/talks/structured-prediction-of-network-response/60915/">TechTalk</a>.
 
 <!-- 
+  - I will join the evaluation process of the applications for Master programme in Machine Learning and Data Mining (Macademia) 2015.
    - Our paper <b>Multilabel Structured Output Learning with Random Spanning Trees of Max-Margin Markov Networks</b> got accepted and will appear in <b>NIPS 2014</b> 
    - Take a look at the preliminary version of my <b>Doctoral Dissertation</b> [<a href="https://github.com/hongyusu/dissertation/blob/master/dissertation.pdf?raw=true">GitHub</a>]
    - Our paper <b>Multilabel Classification through Random Graph Ensembles</b> got accepted and will appear in <b><i>Machine Learning</i></b>. DOI: 10.1007/s10994-014-5465-9.
@@ -91,6 +92,33 @@ Artificial Intelligence and Statistics (<b>AISTATS 2012</b>)</i>, long abstract 
 
 ##Academic Activities
 
+###Research Visits
+
+   - Prof. Mario Marchand, Prof. Francois Laviolett, Laval University, Quebec city, Canada, December 11 - December 19, 2014
+   - Prof. Jinzhi Lei, Tsinghua University, Beijing, China, June, 2014
+   - Prof. John Shawe-Taylor, University College London, March 20 - April 1, 2014
+   - Dr. Wei Bian, University of Technology, Sydney, November 15 - November 18, 2013
+
+###Reviewers
+
+   - IEEE Transactions on Knowledge and Data Engineering (TKDE). 
+   - IEEE Transactions on Neural Networks and learning Systems (TNNLS).
+   - The 6th ACM International Conference on Web Search and Data Mining (WDSM2013).
+   - The 26th Annual Conference on Neural Information Processing Systems (NIPS2012).
+
+###Teachings
+
+   - Lecture in <i><a href="https://noppa.aalto.fi/noppa/kurssi/t-61.6080/etusivu">T-61.6080 Special Course in Bioinformatics II</a></i>, Aalto University, Spring 2015.
+   - Assistant in <i><a href="https://noppa.aalto.fi/noppa/kurssi/t-61.5910/esite">T-61.5910 Research Project in Computer and Information Science</a></i>, Aalto University, Autumn 2014.
+   - Lecture in <i><a href="https://noppa.aalto.fi/noppa/kurssi/t-61.6020/materiaali">T-61.6020 Special Course in Computer and Information Science II</a></i>, Aalto University, Spring 2013.	
+   - Assistant in <i><a href="https://noppa.aalto.fi/noppa/kurssi/t-61.5910/esite">T-61.5910 Research Project in Computer and Information Science</a></i>, Aalto University, Autumn 2013.
+   - Assistant in <i><a href="http://www.cs.helsinki.fi/en/courses/582653/2012/k/k/1">582653 Computational Methods of System Biology</a></i>, University of Helsinki, Spring 2012.
+
+###Supervision of Master Thesis
+- Nicole Althermeler, Metagenomics data analysis, 2012
+- Jinmin Lei, Protein-Protein interaction prediction with graph kernels and multiple kernel learnings, 2014
+- Jane Brodie, Metabolic pathway analysis with graph mining algorithms, 2015
+
 ###Presentations and Posters
 
    - Mario Marchand, Hongyu Su, Emilie Morvant, Juho Rousu, John Shawe-Taylor <b>Multilabel Structured Output Learning with Random Spanning Trees of Max-Margin Markov Networks</b>. In <i>Annual Conference on Advances in Neural Information Processing Systems (<b>NIPS 2014</b>)</i>, Montreal, Canada, December 8 - December 13, 2014 [<a href="">poster</a>]
@@ -106,35 +134,11 @@ Artificial Intelligence and Statistics (<b>AISTATS 2012</b>)</i>, long abstract 
    - Su, Hongyu; Heinonen, Markus; Rousu, Juho. <b>Multilabel Classification of Drug-like Molecules via Max-margin Conditional Random Fields</b>. In <i>the 5th European Workshop on Probabilistic Graphical Models (<b>PGM 2010</b>)</i>, Helsinki, Finland, September 13 - September 15, 2010 [<a href="">poster</a>, <a href="">slides</a>]
 
 
-###Reviewer
-
-   - IEEE Transactions on Knowledge and Data Engineering (TKDE). 
-   - IEEE Transactions on Neural Networks and learning Systems (TNNLS).
-   - The 6th ACM International Conference on Web Search and Data Mining (WDSM2013).
-   - The 26th Annual Conference on Neural Information Processing Systems (NIPS2012).
 
 
-###Research Visit
-
-   - Prof. Mario Marchand, Prof. Francois Laviolett, Laval University, Quebec city, Canada, December 11 - December 19, 2014
-   - Prof. Jinzhi Lei, Tsinghua University, Beijing, China, June, 2014
-   - Prof. John Shawe-Taylor, University College London, March 20 - April 1, 2014
-   - Dr. Wei Bian, University of Technology, Sydney, November 15 - November 18, 2013
 
 
-###Teaching
-   - Lecture in <i><a href="https://noppa.aalto.fi/noppa/kurssi/t-61.6080/etusivu">T-61.6080 Special Course in Bioinformatics II</a></i>, Aalto University, Spring 2015.
-   - Assistant in <i><a href="https://noppa.aalto.fi/noppa/kurssi/t-61.5910/esite">T-61.5910 Research Project in Computer and Information Science</a></i>, Aalto University, Autumn 2014.
-   - Lecture in <i><a href="https://noppa.aalto.fi/noppa/kurssi/t-61.6020/materiaali">T-61.6020 Special Course in Computer and Information Science II</a></i>, Aalto University, Spring 2013.	
-   - Assistant in <i><a href="https://noppa.aalto.fi/noppa/kurssi/t-61.5910/esite">T-61.5910 Research Project in Computer and Information Science</a></i>, Aalto University, Autumn 2013.
-   - Assistant in <i><a href="http://www.cs.helsinki.fi/en/courses/582653/2012/k/k/1">582653 Computational Methods of System Biology</a></i>, University of Helsinki, Spring 2012.
 
-
-###Instructor of Master Thesis
-- Nicole Althermeler, Metagenomics data analysis, 2012
-- Jinmin Lei, Protein-Protein interaction prediction with graph kernels and multiple kernel learnings, 2014
-- Jane Brodie, Metabolic pathway analysis with graph mining algorithms, 2015
-        
 
 
 
