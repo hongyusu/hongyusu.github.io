@@ -44,6 +44,15 @@ I enjoy aggressive sport like basketball before I broke my knee cruciate ligamen
    - Our work <b>Structured Prediction of Network Response</b> got accepted for oral presentation in <i>International Workshop on Multi-Target Prediction - <b>ECML 2014 workshop</b>.
 -->
 
+##Projects
+
+- _Facebook challenge_ of detecting robots in online bidding environment [Github](http://hongyusu.github.io/FacebookChallenge).
+- _Personalised route recommendation system_ for Aalto Data Science Hackathon 2015 [Github](http://hongyusu.github.io/AaltoHackathon2015/). 
+- Conditional gradient optimization with convex combination of multiple update directions (_L2RTA_) in random spanning tree approximation algorithm [Github](https://github.com/hongyusu/RTA).
+- Random spanning tree approximation (_RTA_) for structured output learning on complete output graph [Github](https://github.com/hongyusu/RTA).
+- Structured output prediction of network response (_SPIN_) for social network analysis [Github](https://github.com/hongyusu/SPIN)
+- _Multiple kernel learning_ for classifying small graph structured in molecular classification problem [Github](http://hongyusu.github.io/Molecular_Classification).
+- Writings of my doctoral dissertation [Github](http://hongyusu.github.io/Dissertation/).
 
 ##Refereed Publications
 
