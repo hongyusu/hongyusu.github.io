@@ -124,9 +124,9 @@ Artificial Intelligence and Statistics (<b>AISTATS 2012</b>)</i>, long abstract 
    - Assistant in <i><a href="http://www.cs.helsinki.fi/en/courses/582653/2012/k/k/1">582653 Computational Methods of System Biology</a></i>, University of Helsinki, Spring 2012.
 
 ###Supervision of Master Thesis
-- Nicole Althermeler, Metagenomics data analysis, 2012
-- Jinmin Lei, Protein-Protein interaction prediction with graph kernels and multiple kernel learnings, 2014
-- Jane Brodie, Metabolic pathway analysis with graph mining algorithms, 2015
+- MSc. Nicole Althermeler, Large-scale Metagenomics data analysis, 2012
+- BSc. Jinmin Lei, Graph kernels and multiple kernel learning for PPI prediction, 2014
+- BSc. Jane Brodie, Community detection for large-scale metagenomics data, 2015
 
 ###Presentations and Posters
 
