@@ -44,7 +44,7 @@ I enjoy aggressive sport like basketball before I broke my knee cruciate ligamen
    - Our work <b>Structured Prediction of Network Response</b> got accepted for oral presentation in <i>International Workshop on Multi-Target Prediction - <b>ECML 2014 workshop</b>.
 -->
 
-##Projects
+##Selected Projects and Softwares
 
 - _Facebook challenge_ of detecting robots in online bidding environment [Github](http://hongyusu.github.io/FacebookChallenge).
 - _Personalised route recommendation system_ for Aalto Data Science Hackathon 2015 [Github](http://hongyusu.github.io/AaltoHackathon2015/). 
