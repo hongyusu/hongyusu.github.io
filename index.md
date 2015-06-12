@@ -54,6 +54,13 @@ I enjoy aggressive sport like basketball before I broke my knee cruciate ligamen
 - _Multiple kernel learning_ for classifying small graph structured in molecular classification problem [Github](http://hongyusu.github.io/Molecular_Classification).
 - Writings of my doctoral dissertation [Github](http://hongyusu.github.io/Dissertation/).
 
+##Fundings and Awards
+- Chinese government award for outstanding doctoral students for [top 500 students world wide](http://www.csc.edu.cn/chuguo/b922167aeb84451b9e48d10407865c52.shtml), 2014
+- Fully funded position from Helsinki Doctoral Programme in Computer Science (HeCSE), 2011-2014
+- Master thesis grant from Center of Excellence Grant 118653 ALGODAN, 2010
+- International Master's Degree Student Award, University of Helsinki, 2008
+
+
 ##Refereed Publications
 
 ###Journal Articles
