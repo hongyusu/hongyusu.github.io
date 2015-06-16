@@ -14,7 +14,7 @@ tags: [Programming, BLAST, Bioinformatics]
 
 1. Locate a random place in disk and unpack the `.tar.gz` file with the following command
 
-   	tar -xzvf ncbi-blast-2.2.31+-src.tar.gz
+   `tar -xzvf ncbi-blast-2.2.31+-src.tar.gz`
 
 1. something	
 	
