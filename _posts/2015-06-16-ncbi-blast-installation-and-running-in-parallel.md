@@ -2,8 +2,8 @@
 layout: post
 title: "NCBI BLAST installation and running in parallel"
 description: ""
-category: 
-tags: [Programming, BLAST]
+category: Lessons
+tags: [Programming, BLAST, Bioinformatics]
 ---
 {% include JB/setup %}
 
