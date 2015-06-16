@@ -31,6 +31,8 @@ This post is about how to install NCBI BLAST sequence alignment tool in your loc
 1. Compile the c++ code with following command
 
 	`cd ReleaseMT/build; make all_r`
+
+   The compiling process gona take a while, so be patient.
 	
 ### Install BLAST database
 
