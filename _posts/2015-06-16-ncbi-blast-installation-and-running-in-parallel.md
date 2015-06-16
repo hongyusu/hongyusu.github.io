@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Large-scale sequence alignment with NCBI BLAST - (Installation and running in parallel)"
+title: "Large-scale multiple sequence alignment with NCBI BLAST"
 description: ""
 category: Lessons
 tags: [Programming, BLAST, Bioinformatics]
