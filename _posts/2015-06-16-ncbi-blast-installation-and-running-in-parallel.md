@@ -3,7 +3,7 @@ layout: post
 title: "NCBI BLAST installation and running in parallel"
 description: ""
 category: 
-tags: []
+tags: [Programming, BLAST]
 ---
 {% include JB/setup %}
 
