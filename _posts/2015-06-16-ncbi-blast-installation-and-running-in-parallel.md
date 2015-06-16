@@ -8,7 +8,7 @@ tags: [Programming, BLAST, Bioinformatics]
 {% include JB/setup %}
 
 
-# NCBI BLAST installation and running in parallel
+## BLAST installation
 
 1. NCBI BLAST tool can be obtained from the [software download page](http://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download). In particular, I downloaded the source code package `ncbi-blast-2.2.31+-src.tar.gz` from the NCBI FTP server.
 
