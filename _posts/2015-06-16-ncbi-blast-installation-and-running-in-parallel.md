@@ -8,7 +8,8 @@ tags: [Programming, BLAST, Bioinformatics]
 {% include JB/setup %}
 
 
-This post is about how to install NCBI BLAST sequence alignment tool in your local computer and run BLAST in parallel.
+
+This post will illustrate how to install NCBI BLAST package on your local compute, how to install private sequence databases for BLAST search, how to run BLAST search with sequence databases, and how to write a parallel python script for running BLAST search no a computer cluster.
 
 ## BLAST installation
 
@@ -61,19 +62,19 @@ This post is about how to install NCBI BLAST sequence alignment tool in your loc
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 	
 ## Run BLAST in parallel
 
-1. 
+1. TO BE COMPLETED
+
+
+
+
+
+
+
+
+
+
+
+
