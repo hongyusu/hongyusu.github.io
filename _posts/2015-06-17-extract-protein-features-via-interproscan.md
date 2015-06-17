@@ -123,7 +123,20 @@ As scanning a protein sequence is time consuming even on a local machine, we ins
 
       `./interproscan.sh -i ../../../Data/tcdb -iprlookup -f tsv`
 
-   1. 
+   1. As we have downloaded the database for lookup service, we can start the service with the local machine via the following command
+
+      `java -Xmx2000m -jar server-5.12-52.0-jetty-console.war`
+
+      This command will take a while. The output will indicate the host and the port of the service e.g. in my case
+
+      `1166522 [main] INFO org.eclipse.jetty.server.AbstractConnector - Started @0.0.0.0:8080`
+
+   1. Now we have to modify the `interproscan.properties` file to acknowledge InterProScan use local lookup service. In particular, we are modifying the following line in the file
+
+      `precalculated.match.lookup.service.url=http://0.0.0.0:8080`
+
+
+    1.   
 
 
 
