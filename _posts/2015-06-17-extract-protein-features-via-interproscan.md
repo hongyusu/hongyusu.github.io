@@ -82,6 +82,7 @@ As scanning a protein sequence is time consuming even on a local machine, we ins
    1. Then change the line in InterProScan configuration file 'interproscan.properties' to the following
 
       `binary.tmhmm.path=bin/tmhmm/2.0/bin/decodeanhmm.Linux_x86_64`
+      `tmhmm.model.path=bin/tmhmm/2.0/lib/TMHMM2.0.model`
 
       Then you are done!
 
@@ -112,11 +113,12 @@ As scanning a protein sequence is time consuming even on a local machine, we ins
    |TIGRFAM|15.0|TIGRFAMs are protein families based on Hidden Markov Models or HMMs|
    |PrositePatterns||PROSITE consists of documentation entries describing protein domains, families and functional sites as well as associated patterns and profiles to identify them|
    |Coils|2.2|Prediction of Coiled Coil Regions in Proteins|
-   |TMHMM| 2.0| Analysis TMHMM-2.0c| 
-   |SignalP_GRAM_NEGATIVE |4.0|Analysis SignalP_GRAM_NEGATIVE-4.0 |
-   |Phobius |1.01|Analysis Phobius-1.01 |
-   |SignalP_EUK |4.0|Analysis SignalP_EUK-4.0 |
-   |SignalP_GRAM_POSITIVE |4.0|Analysis SignalP_GRAM_POSITIVE-4.0 |
+   |TMHMM| 2.0| Prediction of transmembrane helices in proteins|
+   |Phobius |1.01|A combined transmembrane topology and signal peptide predictor|
+   |SignalP_GRAM_NEGATIVE |4.0|SignalP (organism type gram-negative prokaryotes) predicts the presence and location of signal peptide cleavage sites in amino acid sequences for gram-negative prokaryotes|
+   |SignalP_EUK |4.0|SignalP (organism type eukaryotes) predicts the presence and location of signal peptide cleavage sites in amino acid sequences for eukaryotes.|
+   |SignalP_GRAM_POSITIVE |4.0|SignalP (organism type gram-positive prokaryotes) predicts the presence and location of signal peptide cleavage sites in amino acid sequences for gram-positive prokaryotes|
+
 
 
 1. Install lookup service
