@@ -52,6 +52,8 @@ As scanning a protein sequence is time consuming even on a local machine, we ins
 
 1. Install lookup service
 
+   1. Lookup service enables extracting features of known proteins without scanning the sequences.
+
    1. Lookup service can be installed in any directory with the following command
 
       `mkdir i5_lookup_service`
@@ -70,6 +72,8 @@ As scanning a protein sequence is time consuming even on a local machine, we ins
 
       `tar -pxvzf lookup_service_5.12-52.0.tar.gz`
 
+      This takes very long, so be patient.
+
 ## Run InterProScan
 
 1. Some instruction of running InterProScan can be found from [Google code documentation](https://code.google.com/p/interproscan/wiki/HowToRun).
@@ -77,5 +81,9 @@ As scanning a protein sequence is time consuming even on a local machine, we ins
 1. Simply, the software can be invoked with the following command for the test protein sequence in the InterProScan home directory
 
    `./interproscan.sh -i test_proteins.fasta`
+
+1. We can also take a look at the command line usage of InterProScan with the following command
+
+   `./interproscan.sh`
 
 1. 
