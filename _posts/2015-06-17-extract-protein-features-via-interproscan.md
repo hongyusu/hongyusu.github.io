@@ -135,8 +135,11 @@ As scanning a protein sequence is time consuming even on a local machine, we ins
 
       `precalculated.match.lookup.service.url=http://0.0.0.0:8080`
 
+   1. To verify that InterProScan is using lookup services, we use the command line option `-goterms` to force the software extract GO terms from the lookup database as in the following command
 
-    1.   
+      `/interproscan.sh -i ../../../Data/tcdb -iprlookup -f tsv --goterms`
+
+      If there are GO annotation in the result file, the lookup service is running fine.   
 
 
 
