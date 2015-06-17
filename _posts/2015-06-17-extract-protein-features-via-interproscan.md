@@ -85,8 +85,8 @@ As scanning a protein sequence is time consuming even on a local machine, we ins
 
       Then you are done!
 
-1. Installation of [_Signalp_](http://www.cbs.dtu.dk/services/doc/signalp-4.1.readme) is similar as intallations of TMHMM and Phobius.
-
+1. Installation of [_Signalp_](http://www.cbs.dtu.dk/services/doc/signalp-4.1.readme)
+   1. Installation of [_Signalp_](http://www.cbs.dtu.dk/services/doc/signalp-4.1.readme) is similar as intallations of TMHMM and Phobius.
    1. A brief instruction can be found from [Signalp project](http://www.cbs.dtu.dk/services/doc/signalp-4.1.readme).
    2. Finally, change the line in InterProScan configuration file 'interproscan.properties' to the following
 
