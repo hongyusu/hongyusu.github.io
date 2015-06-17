@@ -63,7 +63,7 @@ This post will demonstrate how to run InterProScan to get features of UniProt pr
 
    1. Check the MD5 checksum to make the download is successful with the following commnand
 
-     `md5sum -c lookup_service_5.12-52.0.tar.gz.md5`
+      `md5sum -c lookup_service_5.12-52.0.tar.gz.md5`
 
    1. Unpack the download package with the following command
 
