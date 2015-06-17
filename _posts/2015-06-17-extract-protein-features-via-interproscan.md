@@ -76,14 +76,24 @@ As scanning a protein sequence is time consuming even on a local machine, we ins
 
 ## Run InterProScan
 
-1. Some instruction of running InterProScan can be found from [Google code documentation](https://code.google.com/p/interproscan/wiki/HowToRun).
+1. In scanning mode
 
-1. Simply, the software can be invoked with the following command for the test protein sequence in the InterProScan home directory
+   1. InterProScan in scanning mode will align/scan protein sequences based on various databases.
+   1. Some instruction of running InterProScan can be found from [Google code documentation](https://code.google.com/p/interproscan/wiki/HowToRun).
 
-   `./interproscan.sh -i test_proteins.fasta`
+   1. Simply, the software can be invoked with the following command for the test protein sequence in the InterProScan home directory
 
-1. We can also take a look at the command line usage of InterProScan with the following command
+      `./interproscan.sh -i test_proteins.fasta`
 
-   `./interproscan.sh`
+   1. We can also take a look at the command line usage of InterProScan with the following command
 
-1. 
+      `./interproscan.sh`
+
+1. In lookup mode 
+
+   1. In loopup mode, the software will extract sequence features from the database directly without scanning the sequence assuming that the sequence information is  known, e.g., all sequences in UniProtKB.
+
+
+
+
+
