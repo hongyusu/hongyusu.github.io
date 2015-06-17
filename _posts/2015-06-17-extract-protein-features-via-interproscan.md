@@ -70,6 +70,11 @@ As scanning a protein sequence is time consuming even on a local machine, we ins
    |TIGRFAM|15.0|TIGRFAMs are protein families based on Hidden Markov Models or HMMs|
    |PrositePatterns||PROSITE consists of documentation entries describing protein domains, families and functional sites as well as associated patterns and profiles to identify them|
    |Coils|2.2|Prediction of Coiled Coil Regions in Proteins|
+   |TMHMM| 2.0| Analysis TMHMM-2.0c| 
+   |SignalP_GRAM_NEGATIVE |4.0|Analysis SignalP_GRAM_NEGATIVE-4.0 |
+   |Phobius |1.01|Analysis Phobius-1.01 |
+   |SignalP_EUK |4.0|Analysis SignalP_EUK-4.0 |
+   |SignalP_GRAM_POSITIVE |4.0|Analysis SignalP_GRAM_POSITIVE-4.0 |
 
 
 1. Install lookup service
@@ -114,7 +119,7 @@ As scanning a protein sequence is time consuming even on a local machine, we ins
 1. In lookup mode 
 
    1. In lookup mode, the software will extract sequence features from the database directly without scanning the sequence assuming that the sequence information is  known, e.g., all sequences in UniProtKB.
-   1. The lookup mode can be activated with option `-iprlookup` and by default, it will check the services provided by the remove EBI server. The command for enable lookup model is shown as follows
+   1. The lookup mode can be activated with option `-iprlookup` and by default, it will check the services provided by the remove EBI server. The command for enabling lookup model is shown as follows
 
       `./interproscan.sh -i ../../../Data/tcdb -iprlookup -f tsv`
 
