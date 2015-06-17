@@ -51,6 +51,48 @@ As scanning a protein sequence is time consuming even on a local machine, we ins
 
       `tar -pxvzf panther-data-9.0.tar.gz`
 
+1. Install [_Phobius_](http://software.sbc.su.se/cgi-bin/request.cgi?project=phobius)
+   1. Standalone Phobius tool can be obtained from [Phobius website](http://software.sbc.su.se/cgi-bin/request.cgi?project=phobius).
+   1. Download the `.tar.gz` file `phobius101_linux.tar.gz`.
+   1. Unpack the file with the following command
+
+      `tar -xzvf phobius101_linux.tar.gz`
+
+   1. Copy all files to the Phobius folder under InterProScan home directory with the following command
+
+      `mv phobius/* interproscan-5.13-52.0/bin/phobius/1.01/`
+
+   1. Then change the line in InterProScan configuration file 'interproscan.properties' to the following
+
+      `binary.phobius.pl.path.1.01=bin/phobius/1.01/phobius.pl`
+
+      Then you are done!
+
+1. Install [_TMHMM_](http://www.cbs.dtu.dk/services/TMHMM/)
+   1. The software can be obtain from the [TMHMM](http://www.cbs.dtu.dk/services/TMHMM/).
+   2. Download the `.tar.gz ` package and unpack with the following command
+      
+      `tar -xzvf tmhmm-2.0c.Linux.tar.gz `
+   
+   3. Copy all file to the TMHMM directory under InterProScan directory
+
+      `mv tmhmm-2.0c/* interproscan-5.13-52.0/bin/tmhmm/2.0/`
+
+   1. Insert the correct path for perl 5.x in the first line of the scripts bin/tmhmm and bin/tmhmmformat.pl (if not /usr/local/bin/perl).
+   1. Then change the line in InterProScan configuration file 'interproscan.properties' to the following
+
+      `binary.tmhmm.path=bin/tmhmm/2.0/bin/decodeanhmm.Linux_x86_64`
+
+      Then you are done!
+
+1. Installation of [_Signalp_](http://www.cbs.dtu.dk/services/doc/signalp-4.1.readme) is similar as intallations of TMHMM and Phobius.
+
+   1. A brief instruction can be found from [Signalp project](http://www.cbs.dtu.dk/services/doc/signalp-4.1.readme).
+   2. Finally, change the line in InterProScan configuration file 'interproscan.properties' to the following
+
+      `binary.signalp.4.0.path=bin/signalp/4.1/signalp`
+
+   1. Then you are done!
 
 1. Current version of InterProScan supports several databases. The name and the version information are listed in the following table
 
