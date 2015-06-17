@@ -36,6 +36,7 @@ As scanning a protein sequence is time consuming even on a local machine, we ins
       `tar -pxvzf interproscan-5.13-52.0-*-bit.tar.gz`
 
 1. Install Panther models
+   1. Panther is one of the database used in InterProScan and requires a separate installation.
    1. Panther model should be install in the `data` directory under the directory of InterProScan.
    1. Down load the Panther model with the following command
 
@@ -51,7 +52,7 @@ As scanning a protein sequence is time consuming even on a local machine, we ins
       `tar -pxvzf panther-data-9.0.tar.gz`
 
 
-   1. Current version of InterProScan supports several databases listed in the following table
+1. Current version of InterProScan supports several databases. The name and the version information are listed in the following table
 
    |Software and databases|Version|Information|
    |---:|---:|---:|
