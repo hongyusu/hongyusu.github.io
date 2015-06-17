@@ -9,7 +9,8 @@ tags: [Programming, InterProScan, Bioinformatics, Feature Extraction, Protein]
 
 # InterProScan
 
-This post will demonstrate how to run InterProScan to get features of UniProt protein sequences. In particular, other than running InterProScan, we can use precomputed lookup table to just retrieve sequence features.
+This post aims to illustrate the installation and running InterProScan on a local machine. InterProScan is frequently used in Bioinformatics data analysis the goal of which is to extract various protein features based on sequence alignment of database search.
+As scanning a protein sequence is time consuming even on a local machine, we install the lookup database based on which features of known protein can be directed extracted from the database.
 
 ## Installation
 
