@@ -50,6 +50,27 @@ As scanning a protein sequence is time consuming even on a local machine, we ins
 
       `tar -pxvzf panther-data-9.0.tar.gz`
 
+
+   1. Current version of InterProScan supports several databases listed in the following table
+
+   |Software and databases|Version|Information|
+   |---:|---:|---:|
+   |InterProScan|5.13-52.0|InterProScan package|
+   |ProDom|2006.1|ProDom is a comprehensive set of protein domain families automatically generated from the UniProt Knowledge Database.|
+   |HAMAP||High-quality Automated and Manual Annotation of Microbial Proteomes|
+   |SMART|6.2|SMART allows the identification and analysis of domain architectures based on Hidden Markov Models or HMMs|
+   |SuperFamily|1.75|SUPERFAMILY is a database of structural and functional annotation for all proteins and genomes.|
+   |PRINTS|42.0|A fingerprint is a group of conserved motifs used to characterise a protein family|
+   |Panther|9.0|The PANTHER (Protein ANalysis THrough Evolutionary Relationships) Classification System is a unique resource that classifies genes by their functions, using published scientific experimental evidence and evolutionary relationships to predict function even in the absence of direct experimental evidence.|
+   |Gene3d|3.5.0|Structural assignment for whole genes and genomes using the CATH domain structure database|
+   |PIRSF|3.01|The PIRSF concept is being used as a guiding principle to provide comprehensive and non-overlapping clustering of UniProtKB sequences into a hierarchical order to reflect their evolutionary relationships.|
+   |PfamA|27.0|A large collection of protein families, each represented by multiple sequence alignments and hidden Markov models (HMMs)|
+   |PrositeProfiles||PROSITE consists of documentation entries describing protein domains, families and functional sites as well as associated patterns and profiles to identify them|
+   |TIGRFAM|15.0|TIGRFAMs are protein families based on Hidden Markov Models or HMMs|
+   |PrositePatterns||PROSITE consists of documentation entries describing protein domains, families and functional sites as well as associated patterns and profiles to identify them|
+   |Coils|2.2|Prediction of Coiled Coil Regions in Proteins|
+
+
 1. Install lookup service
 
    1. Lookup service enables extracting features of known proteins without scanning the sequences.
@@ -91,7 +112,15 @@ As scanning a protein sequence is time consuming even on a local machine, we ins
 
 1. In lookup mode 
 
-   1. In loopup mode, the software will extract sequence features from the database directly without scanning the sequence assuming that the sequence information is  known, e.g., all sequences in UniProtKB.
+   1. In lookup mode, the software will extract sequence features from the database directly without scanning the sequence assuming that the sequence information is  known, e.g., all sequences in UniProtKB.
+   1. The lookup mode can be activated with option `-iprlookup` and by default, it will check the services provided by the remove EBI server. The command for enable lookup model is shown as follows
+
+      `./interproscan.sh -i ../../../Data/tcdb -iprlookup -f tsv`
+
+   1. 
+
+
+
 
 
 
