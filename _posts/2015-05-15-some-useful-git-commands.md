@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Some useful git commands"
+title: "Some useful Coding techniques"
 description: ""
 category: Programming
-tags: [Programming, GitHub]
+tags: [Programming, GitHub, Python]
 ---
 {% include JB/setup %}
 
@@ -29,7 +29,14 @@ git checkout 955cd428160a6d61a260564b193b175ae26f43c2
 
 ###Python
 - Repeat a string
-{%highlight python%}
-'this is a string' * 100
-{%endhighlight%}
+   {%highlight python%}
+   'this is a string' * 100
+   {%endhighlight%}
+
+- Sort a list `nums` and return index
+   {%highlight python%}
+
+   >>> nums=[1,2,3,4,2,2,1,2,3,2,1,2,3,4,5]
+   >>> ind = sorted(range(len(nums)), key = lambda x: nums[x])
+   {%endhighlight%}
 

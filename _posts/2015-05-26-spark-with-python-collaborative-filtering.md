@@ -15,14 +15,14 @@ tags: [Introduction, Programming, Algorithm, Spark, Python, BigData]
 ##Collaborative filtering
 
 ###Algorithm
-The algorithm implemented for collaborative filtering in Scala MLlib package is 'Alternative Least Squares with Weight Regularization'. The algorithm is described in the article ['Large-scale Parallel Collaborative Filtering for the Netflix Prize'](http://dl.acm.org/citation.cfm?id=1424269). Personally I would assume there are some other better algorithms out there. However, ALS is the one implemented in MLlib.
+The algorithm implemented for collaborative filtering (CF) in Scala MLlib is 'Alternative Least Squares (ALS) with Weight Regularization'. The algorithm is described in the research paper ['Large-scale Parallel Collaborative Filtering for the Netflix Prize'](http://dl.acm.org/citation.cfm?id=1424269). I would assume some other better algorithms do exist out there. However, ALS is the one implemented in MLlib. So don't complaint. 
 
-- The ALS assume that the rating matrix $$R$$ can be factorized into two matrices, a user-preference matrix $$U$$ and a preference matrix $$M$$.
-- The loss function used in ALS is _rooted mean square error (RMSE)_ defined as 
+- The idea is similar as matrix factorization. In particular, ALS assumes that the rating matrix $$R$$ can be factorized into two matrices, a user-preference matrix $$U$$ and a preference-rating matrix $$M$$.
+- The loss function used in ALS is so called _rooted mean square error (RMSE)_ defined as 
 
-$$\mathcal{L}(R,U,M) = \frac{1}{n}\sum_{i,j}(r_{i,j} - <u_{i},m_{j}>)^2$$,
+   $$\mathcal{L}(R,U,M) = \frac{1}{n}\sum_{i,j}(r_{i,j} - <u_{i},m_{j}>)^2$$,
 
-where $$n$$ is the number of entries of the rating matrix $$R$$.
+   where $$n$$ is the number of entries in the rating matrix $$R$$.
 
 - The method uses L$$_2$$-norm regularization on the parameter space $$U$$ and $$M$$. Combining the loss function, the objective function of ALS can be defined as
 
