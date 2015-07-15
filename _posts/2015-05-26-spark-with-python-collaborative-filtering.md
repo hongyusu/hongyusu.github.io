@@ -12,7 +12,7 @@ tags: [Introduction, Programming, Algorithm, Spark, Python, BigData]
  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-##Collaborative filtering
+##Collaborative filtering in Spark MLlib
 
 ###Algorithm
 The algorithm implemented for collaborative filtering (CF) in Scala MLlib is 'Alternative Least Squares (ALS) with Weight Regularization'. The algorithm is described in the research paper ['Large-scale Parallel Collaborative Filtering for the Netflix Prize'](http://dl.acm.org/citation.cfm?id=1424269). I would assume some other better algorithms do exist out there. However, ALS is the one implemented in MLlib. So don't complaint. 
