@@ -29,11 +29,11 @@ The algorithm implemented for collaborative filtering (CF) in Scala MLlib is 'Al
 
    $$\underset{U,M}{\min} \frac{1}{n}\sum_{i,j}(r_{i,j} - <u_{i},m_{j}>)^2 + \lambda (\sum_{i} n_{n_i} u_i^2+\sum_{i} n_{m_i} m_i^2)$$,
 
-   where $$\lambda$$ is the regularization parameter that controls the balance of the loss term and the regularization term, $$n_{u_i}$$ is the number of movies rated by user $$i$$, and $$n_{m_i}$$ is the number of users that rates movies $$i$$.
+   where $$\lambda$$ is the regularization parameter that controls the balance of the loss term and the regularization term, $$n_{u_i}$$ is the number of movies rated by user $$i$$, and $$n_{m_i}$$ is the number of users that rate movies $$i$$.
 
-- The above optimization problem is convex in terms of either $$U$$ and $$M$$. Therefore, it can be solved with an iterative approach where solving $$U$$ whiling fixing $$M$$ and vice versa.
+- The above optimization problem is convex in terms of either $$U$$ and $$M$$. Therefore, it can be solved with an iterative approach where solving $$U$$ whiling fixing $$M$$, and vice versa.
 - When fixing $$M$$ and optimizing $$U$$, the problem is equivalent to a collection of ridge regression problems where each subproblem takes $$u_i$$ as parameter and $$R, M$$ as constance. Therefore, it can be optimized in parallel in terms of $$u_i$$.
-- In particular, the subproblem can be solve analytically as ridge regression.
+- In particular, the subproblem can be solve analytically as a ridge regression.
 
 ###General information
 - Collaborative filtering (CF) is heavily used in recommender system where the task is to find the missing values in the user-item association matrix.
