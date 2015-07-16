@@ -11,7 +11,8 @@ tags: [Programming, GitHub, Python]
  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-## Git
+##Git
+
 ###Revert to some previous commit
 - Check all previous commits by
 {% highlight bash%}
@@ -54,6 +55,7 @@ git commit -m'commit message'
 {%endhighlight%}
 
 ##Python
+
 ###Repeat a string
 {%highlight python%}
 'this is a string' * 100
