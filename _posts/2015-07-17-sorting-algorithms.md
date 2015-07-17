@@ -9,7 +9,11 @@ tags: [Algorithm]
 
 
 ### Insert sort
+
 ### Quick sort
+
 ### Merge sort
+
 ### Counting sort
+
 ### Bucket sort
