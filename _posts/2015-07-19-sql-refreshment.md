@@ -8,14 +8,12 @@ tags: [programming, SQL]
 {% include JB/setup %}
 
 
-1. `select` statement.
+1. `select` statement, pay attention to `distinct` and `like` in `where` statement.
    {%highlight SQL%}
    select distinct name
    from empinfo
    where age > 40 and firstname like 'bob'
    {%endhighlight%}
-
-   pay attention to `distinct` and `like` in `where` statement.
 
 1. Aggregate functions include `min`, `max`, `sum`, `avg`, `count`, and `count(*)` where return the number of rows.
 
