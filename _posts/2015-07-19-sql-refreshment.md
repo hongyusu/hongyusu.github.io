@@ -8,8 +8,7 @@ tags: [programming, SQL]
 {% include JB/setup %}
 
 
-- `select` statement.
-
+1. `select` statement.
    {%highlight SQL%}
    select distinct name
    from empinfo
