@@ -8,7 +8,7 @@ tags: [programming, SQL]
 {% include JB/setup %}
 
 
-1. `select` statement.
+-. `select` statement.
 
    {%highlight SQL%}
    select distinct name
