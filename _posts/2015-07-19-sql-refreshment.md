@@ -7,10 +7,8 @@ tags: [programming, SQL]
 ---
 {% include JB/setup %}
 
-##Good references
-1. A very good online tutorial and exercise is available from [sqlzoo](http://sqlzoo.net/wiki/SELECT_basics).
 
-##Some brief overview of the laugange
+##A brief overview of important SQL statements
 
 ### `select` statement
 1. pay attention to `distinct` and `like` in `where` statement.
@@ -71,13 +69,18 @@ order by salary DESC, name ASC
 
 ###`in` and `between` statements
 1. `in` and `between` statements can be combined to make more powerful boolean clauses.
-1. An example code is given as the following:
+1. Two example codes are given as the following:
 
 {%highlight SQL%}
 select employee_id, salary, department, firstname, lastname
 from empinfor
 where firstname in ('John', 'Bob', 'William')
 and (salary between 2000 and 5000)
+{%endhighlight%} 
+
+{%highlight SQL%}
+select title from movie
+where id in ('11768','11955','21191')
 {%endhighlight%} 
 
 ###`join` statement
@@ -118,22 +121,137 @@ where w1.Temperature < w2.Temperature
 {%endhighlight%}
 
 
+###`coalesce` statement
+1. `coalesce` statement will replace the `null` entries with `0`.
+1. Two example codes are given as the following, which is the answer to the 13th question from the [exerciese](http://sqlzoo.net/wiki/The_JOIN_operation).
+{%highlight SQL%}
+select name,coalesce(mobile,'07986 444 2266')
+from teacher
+{%endhighlight%}
+{%highlight SQL%}
+select c.m1,team1,COALESCE(s1,0),team2,COALESCE(s2,0)
+from
+(
+select id id1,mdate m1,team1,s1
+from game
+left join
+(
+select id tmpid,m1,team1 tmpteam1,sum(score1) s1
+from
+(
+SELECT id,mdate m1,team1,
+  CASE WHEN teamid=team1 THEN 1 ELSE 0 END score1
+  FROM game JOIN goal ON matchid = id
+)a
+group by tmpid
+)b
+on id = tmpid
+)c
+join
+(
+select id id2,mdate m2,team2,s2
+from game
+left join
+(
+select id tmpid,m2,team2 tmpteam2,sum(score2) s2
+from
+(
+SELECT id,mdate m2,team2,
+  CASE WHEN teamid=team2 THEN 1 ELSE 0 END score2
+  FROM game JOIN goal ON matchid = id
+)d
+group by tmpid
+)e
+on id = tmpid
+)f
+on c.id1 = f.id2
+order by m1
+{%endhighlight%}
 
+###`isnull()` function
+1. `isnull()` function is usually worked with `where` to form boolean claus.
+1. An example code is given as the followings which is the solution to the [first exercise](http://sqlzoo.net/wiki/Using_Null).
+{%highlight SQL%}
+select name from teacher where isnull(dept)
+{%endhighlight%}
 
+### Different `join` statements
+1. There are several join statements include `inner join`, `left outer join`, and `full outer join`.
+1. The following illustration is based on [a post](http://stackoverflow.com/questions/38549/difference-between-inner-and-outer-joins) from stackoverflow.
+   1. Suppose there are two tables
 
+      |a|b|
+      |:-:|:-:|
+      |1|3|
+      |2|4|
+      |3|5|
+      |4|6|
 
+   1. `inner join` is the intersection of two tables. For example, the query `select * from a INNER JOIN b on a.a = b.b` will generate the following table
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+      |a|b|
+      |:-:|:-:|
+      |3|3|
+      |4|4|
    
+   1. `left outer join` will also be the intersection of two tables. In addition, it keeps the elements from the first table and keep `null` values from the second one. For example, the query `select * from a left outer join b on a.a = b.b` will generate the following table
+
+      |a|b|
+      |:-:|:-:|
+      |1|null|
+      |2|null|
+      |3|3|
+      |4|4|
+
+   1. `full outer join` is the union of two tables. For example, the query `select * from a FULL OUTER JOIN b on a.a = b.b` will generate the following table
+      
+      |a|b|
+      |:-:|:-:|
+      |1|null|
+      |2|null|
+      |3|3|
+      |4|4|
+      |null|5|
+      |null|6|
+1. In addition, `left join` is the same as `left outer join`, and `right join` is the same as `right outer join`.
+1. A nice image illustration is given as the following 
+![SQL join illustration]({{ site.url }}/myimages/hMKKt.jpg)
+
+###`case` statement
+1. `case` allows SQL query returns different values under different conditions.
+1. If there is no conditions match then `Null` is returned.
+1. `case` statement takes the following form
+
+   	CASE WHEN condition1 THEN value1 
+   		WHEN condition2 THEN value2  
+   		ELSE def_value 
+   	END
+1. Example codes are given as the following where the third code is from the [sqlzoo](http://sqlzoo.net/wiki/CASE).
+{%highlight SQL%}
+select name,
+case when dept=1 or dept=2 then 'Sci' else 'Art' end
+from teacher
+{%endhighlight%}
+{%highlight SQL%}
+SELECT id,mdate m2,team2,
+  CASE WHEN teamid=team2 THEN 1 ELSE 0 END score2
+  FROM game JOIN goal ON matchid = id
+{%endhighlight%}
+{%highlight SQL%}
+SELECT name, population
+      ,CASE WHEN population<1000000 
+            THEN 'small'
+            WHEN population<10000000 
+            THEN 'medium'
+            ELSE 'large'
+       END
+  FROM bbc
+{%endhighlight%}
+
+###`cast()` function
+1. Use `cast()` function to transfer, e.g., `char` to `int`.
+1. An example code is `ORDER BY CAST(thecolumn AS int)`.
+
+##Some good external references
+1. Some of this post is based on a very good online tutorial and exercise available from [sqlzoo](http://sqlzoo.net/wiki/SELECT_basics).
+
