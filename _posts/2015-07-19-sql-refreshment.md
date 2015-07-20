@@ -252,6 +252,71 @@ SELECT name, population
 1. Use `cast()` function to transfer, e.g., `char` to `int`.
 1. An example code is `ORDER BY CAST(thecolumn AS int)`.
 
+###`concat()` function
+1. `concat()` function is used to combine, e.g., two strings.
+1. An example code of using `concat()` function is given as the following which is the solution to the fifth exercise in [sqlzoo](http://sqlzoo.net/wiki/SELECT_within_SELECT_Tutorial).
+{%highlight SQL%}
+select name, concat(round(population/(select population from world where name = 'Germany')*100),'%')
+from world
+where continent = 'Europe'
+{%endhighlight%}
+
+
+###`all` statement
+1. `all` statement allows boolean operators `>`,`<`,`>=`,`<=` act on a set of numbers.
+1. One can also apply `max()` or `min()` operators first on the set of numbers.
+1. An example code is given as the following
+{%highlight SQL%}
+select name from world
+where gdp >= all(select coalesce(gdp,0) from world where continent = 'Europe') and continent != 'Europe'
+{%endhighlight%}
+
+###Nested `select` statements
+1. Variables in the outer `select` statement can be used in the inner `select` statement.
+1. An example code is given as following which is the solution to the 7th exercises in [sqlzoo](http://sqlzoo.net/wiki/SELECT_within_SELECT_Tutorial).
+{%highlight SQL%}
+select continent, name,area
+from world x
+where area >= all
+(select area from world y
+where x.continent = y.continent and y.area > 0)
+{%endhighlight%}
+
+###`not exist` statement
+1. The solution to the 9th exercises in [sqlzoo](http://sqlzoo.net/wiki/SELECT_within_SELECT_Tutorial).
+{%highlight SQL%}
+select name,continent,population
+from world x
+where not exists (
+select *
+from world y
+where y.continent = x.continent and y.population> 25000000
+)
+{%endhighlight%}
+
+###More about `in` statement
+1. The expression `in` can be used as a value - it will be 0 or 1.
+1. An example code is given as the following
+{%highlight SQL%}
+SELECT winner, subject, subject IN ('Physics','Chemistry') ord
+  FROM nobel
+ WHERE yr=1984
+ ORDER BY ord,subject,winner
+{%endhighlight%}
+
+
+
+
 ##Some good external references
 1. Some of this post is based on a very good online tutorial and exercise available from [sqlzoo](http://sqlzoo.net/wiki/SELECT_basics).
+
+
+
+
+
+
+
+
+
+
 
