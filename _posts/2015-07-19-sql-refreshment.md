@@ -337,13 +337,17 @@ join Department on mytable.DepartmentId = Department.Id
 where mytable.Counter<=3
 {%endhighlight%}
 
+###`delete` statement
+1. `delete` statement is used to delete one item from the database table following the form `delete from table where [clause]`.
+1. The table to be modified cannot appear in the `where` clause.
+
 
 
 
 
 ##Some good external references
 1. Some of this post is based on a very good online tutorial and exercise available from [sqlzoo](http://sqlzoo.net/wiki/SELECT_basics).
-1. [LeetCode SQL](https://leetcode.com/problemset/database/) question is also a very good source to practice.
+1. [LeetCode SQL exercise](https://leetcode.com/problemset/database/) is also a very good source to practice.
 
 
 
