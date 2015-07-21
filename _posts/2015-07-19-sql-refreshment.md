@@ -315,12 +315,12 @@ limit 1 offset N
 {%endhighlight%}
 
 
-###Order and get rank of some attribute
+###Order and get the rank of some attribute
 1. Sometimes we need to rank and select according to some attribute value, e.g., we are required to select top N largest country from each continent, to select top N high salary from all employees.
 1. In principle, the ranking can be done by join the table with itself.
 1. Use `count()` and `group by` statement to obtain the number of items that has value smaller/greater than the current value.
 1. Use `distinct` statement to allow ranking same value twice.
-1. An example code is given as the following which is the solution to the [SQL exercise](https://leetcode.com/problems/department-top-three-salaries/) from LeetCode.
+1. An example code is given as the following which is the solution to the [SQL exercise: Department Top Three Salaries](https://leetcode.com/problems/department-top-three-salaries/) from LeetCode.
 {%highlight SQL%}
 select Department.Name,mytable.Name,mytable.Salary
 from 
@@ -330,7 +330,7 @@ Employee as e1 join Employee as e2 on e1.DepartmentId = e2.DepartmentId and e1.S
 group by e1.Name) as mytable
 join Department on mytable.DepartmentId = Department.Id
 where mytable.Counter<=3
-{%end highlight%}
+{%endhighlight%}
 
 
 
@@ -339,24 +339,6 @@ where mytable.Counter<=3
 ##Some good external references
 1. Some of this post is based on a very good online tutorial and exercise available from [sqlzoo](http://sqlzoo.net/wiki/SELECT_basics).
 1. [LeetCode SQL](https://leetcode.com/problemset/database/) question is also a very good source to practice.
-
-
-
-
-select Department.Name,tmp2.name,tmp2.Salary
-from
-(select *
-from
-(select Employee1.DepartmentId as DepartmentId, Employee1.Name as Name,Employee1.Salary as Salary, count(distinct Employee2.Salary) as Counter
-from Employee as Employee1 join Employee as Employee2 on Employee1.DepartmentId = Employee2.DepartmentId and Employee1.Salary<=Employee2.Salary
-group by Employee1.Name) as tmp1
-where Counter!=0) tmp2
-join Department
-where tmp2.DepartmentId = Department.Id and tmp2.Counter<=3
-order by Department.Name,tmp2.Salary desc
-
-
-
 
 
 
