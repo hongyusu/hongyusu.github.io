@@ -316,10 +316,15 @@ limit 1 offset N
 
 
 ###Order and get the rank of some attribute
-1. Sometimes we need to rank and select according to some attribute value, e.g., we are required to select top N largest country from each continent, to select top N high salary from all employees.
-1. In principle, the ranking can be done by join the table with itself.
+1. Sometime we need to do the following operations:
+   1. Get the greatest value
+   1. Get the smallest value
+   1. Get top N best values
+   1. Get the rank of all values
+1. This can be, e.g., to select top N largest country from each continent, to select top N high salary from all employees.
+1. In principle, these operations can be done by join the table with itself.
 1. Use `count()` and `group by` statement to obtain the number of items that has value smaller/greater than the current value.
-1. Use `distinct` statement to allow ranking same value twice.
+1. Use `count(distinct )` statement to allow ranking same value twice.
 1. An example code is given as the following which is the solution to the [SQL exercise: Department Top Three Salaries](https://leetcode.com/problems/department-top-three-salaries/) from LeetCode.
 {%highlight SQL%}
 select Department.Name,mytable.Name,mytable.Salary
