@@ -75,6 +75,7 @@ This post is about how to set up Spark for Python. In particular, it shows the s
 
 ### Example: count lines
 
+- The question is to count the number of lines in a big file.
 - The first thing you should do is to include some necessary Python libraries
 
 {% highlight Python%}
@@ -96,6 +97,7 @@ sc = SparkContext(conf=conf)
 {%highlight Python%}
 lines = sc.textFile("../spark-1.4.1-bin-hadoop2.6/README.md")
 lineLength = lines.map(lambda s: len(s))
+lineLengths.persist()
 totalLength = lineLength.reduce(lambda a,b:a+b)
 print totalLength
 {%endhighlight%}
@@ -114,6 +116,7 @@ def count_lines():
   # core part of the script
   lines = sc.textFile("../spark-1.4.1-bin-hadoop2.6/README.md")
   lineLength = lines.map(lambda s: len(s))
+  lineLengths.persist()
   totalLength = lineLength.reduce(lambda a,b:a+b)
   # output results
   print totalLength
@@ -130,22 +133,89 @@ if __name__ == '__main__':
 - The above Python script use `lambda` expression to realize `map-reduce` operation. This can be replaced with functions that define more complicated operations. For example, the following code does the same function without `lambda` expression.
 
 {%highlight Python%}
+from pyspark import SparkContext
+from pyspark import SparkConf
+def count_lines_functioncall():
+  # configuration
+  APP_NAME = 'count lines'
+  conf = SparkConf().setAppName(APP_NAME)
+  conf = conf.setMaster('spark://ukko178:7077')
+  sc = SparkContext(conf=conf)
+  # core part of the script
+  lines = sc.textFile("../spark-1.4.1-bin-hadoop2.6/README.md")
+  lineLength = lines.map(count_lines_single)
+  totalLength = lineLength.reduce(reducer)
+  # output results
+  print totalLength
+def count_lines_single(lines):
+  return len(lines)
+def reducer(length1,length2):
+  return length1+length2
+if __name__ == '__main__':
+  count_lines_functioncall()
 {%endhighlight%}
 
 ### Example: word counts
 
+- The question is to summary the word count in a big file.
 - An example Python solution is described as the following
 
 {%highlight Python%}
+from pyspark import SparkContext
+from pyspark import SparkConf
+def word_count_lambdaexpression():
+  # configuration
+  APP_NAME = 'word count'
+  conf = SparkConf().setAppName(APP_NAME)
+  conf = conf.setMaster('spark://ukko178:7077')
+  sc = SparkContext(conf=conf)
+  # core part of the script
+  lines = sc.textFile("../spark-1.4.1-bin-hadoop2.6/README.md")
+  words = lines.flatMap(lambda x: x.split(' '))
+  pairs = words.map(lambda x: (x,1))
+  count = pairs.reduceByKey(lambda x,y: x+y)
+  # output results
+  for x in count.collect():
+    print x
+if __name__ == '__main__':
+  word_count_lambdaexpression()
 {%endhighlight%}
 
 - The above Python solution uses `lambda` expression which can be replace with functions that allow more complicated operations. For example, the following code also does the word counts
 
 {%highlight Python%}
+from pyspark import SparkContext
+from pyspark import SparkConf
+def word_count_functioncall():
+  # configuration
+  APP_NAME = 'word count'
+  conf = SparkConf().setAppName(APP_NAME)
+  conf = conf.setMaster('spark://ukko178:7077')
+  sc = SparkContext(conf=conf)
+  # core part of the script
+  lines = sc.textFile("../spark-1.4.1-bin-hadoop2.6/README.md")
+  table = lines.map(mapper)
+  totalTable = table.reduce(reducer)
+  # output results
+  print totalTable 
+def mapper(line):
+  table={}
+  words = line.strip().split(' ')
+  for word in words:
+    if not word in table:
+      table[word] = 0
+    table[word] += 1
+  return table
+def reducer(table1, table2):
+  for word in table1.keys():
+    if word not in table2.keys():
+      table2[word] = table1[word]
+    else:
+      table2[word] += table1[word]
+  return table2
+if __name__ == '__main__':
+  word_count_functioncall()
 {%endhighlight%}
-
-
-
 
 
 
