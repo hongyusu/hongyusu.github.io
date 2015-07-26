@@ -181,7 +181,7 @@ if __name__ == '__main__':
   word_count_lambdaexpression()
 {%endhighlight%}
 
-- The above Python solution uses `lambda` expression which can be replace with functions that allow more complicated operations. For example, the following code also does the word counts
+- The above Python solution uses `lambda` expression which can be replaced with functions that allow more complicated operations. For example, the following code also does the word counts
 
 {%highlight Python%}
 from pyspark import SparkContext
