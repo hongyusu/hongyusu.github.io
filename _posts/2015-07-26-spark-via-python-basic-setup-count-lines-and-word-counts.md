@@ -194,25 +194,15 @@ def word_count_functioncall():
   sc = SparkContext(conf=conf)
   # core part of the script
   lines = sc.textFile("../spark-1.4.1-bin-hadoop2.6/README.md")
-  table = lines.map(mapper)
-  totalTable = table.reduce(reducer)
-  # output results
-  print totalTable 
-def mapper(line):
-  table={}
-  words = line.strip().split(' ')
-  for word in words:
-    if not word in table:
-      table[word] = 0
-    table[word] += 1
-  return table
-def reducer(table1, table2):
-  for word in table1.keys():
-    if word not in table2.keys():
-      table2[word] = table1[word]
-    else:
-      table2[word] += table1[word]
-  return table2
+  table = lines.flatMap(flatmapper).map(mapper).reduceByKey(reducer)
+  for x in table.collect():
+    print x
+def flatmapper(lines):
+  return lines.split(' ')
+def mapper(word):
+  return (word,1)
+def reducer(a, b):
+  return a+b
 if __name__ == '__main__':
   word_count_functioncall()
 {%endhighlight%}
