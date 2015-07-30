@@ -58,5 +58,3 @@ def solution(matrix):
     if len(matrix) == 2: print matrix 
     return res**2
 {%endhighlight%}
-
-### [Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/)
