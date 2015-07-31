@@ -11,6 +11,9 @@ tags: [Kaggle, Competition, Machine Learning, Facebook, Bidding, SVM, Random For
  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
+# Table of content
+* auto-gen TOC:
+{:toc}
 
 #Facebook challenge of detecting bots in the online bidding environment
 

@@ -7,7 +7,9 @@ tags: [Programming, BLAST, Bioinformatics, Sequence alignment]
 ---
 {% include JB/setup %}
 
-
+# Table of content
+* auto-gen TOC:
+{:toc}
 
 This post will illustrate how to install NCBI BLAST package on your local compute, how to install private sequence databases for BLAST search, how to run BLAST search with sequence databases, and how to write a parallel python script for running BLAST search no a computer cluster.
 

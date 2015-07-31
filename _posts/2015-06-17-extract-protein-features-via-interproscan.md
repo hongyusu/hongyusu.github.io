@@ -7,6 +7,10 @@ tags: [Programming, InterProScan, Bioinformatics, Feature Extraction, Protein se
 ---
 {% include JB/setup %}
 
+# Table of content
+* auto-gen TOC:
+{:toc}
+
 # InterProScan
 
 This post aims to illustrate the installation and running InterProScan on a local machine. InterProScan is frequently used in Bioinformatics data analysis the goal of which is to extract various protein features based on sequence alignment of database search.
