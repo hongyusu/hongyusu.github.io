@@ -19,4 +19,4 @@ tags: [Emoji, Programming, Jekyll, GitHub]
 
 1. And you are ready to go.
 
-1. For example, you can generate a page like [this](http://hongyusu.github.io/2015/08/12/outstanding-doctoral-candidate-award-2014/).
+1. For example, you can generate a page like [this](http://hongyusu.github.io/life/2015/08/12/outstanding-doctoral-candidate-award-2014/).

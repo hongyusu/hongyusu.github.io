@@ -12,7 +12,7 @@ On 5th August 2015 (last Wednesday), I received from our ambassador  the **Chine
 This award eventually marks the end of my life being a *student* :relaxed:.
 Now I am trying to briefly write here my 20ish years' memories and experience just in case that I will forget some of these someday.
 
-First, the photo taken in the Chinese embassy Finland with our ambassador YU Qingtai (middle) and first secretary GAO Yuhang (left).
+First, the photo taken at the Chinese embassy Finland with our ambassador YU Qingtai (middle) and first secretary GAO Yuhang (left).
 ![photo1]({{ site.url }}/myimages/outstandingphdaward.jpg)
 
 My journey started when I was 6 or 7 years old like any non-exceptional Chinese kid.
