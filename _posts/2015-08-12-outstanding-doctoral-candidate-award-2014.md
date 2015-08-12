@@ -49,6 +49,8 @@ Oh by the way I was born in July and Leo is my sign. I always think sign and lif
 
 To be continued ...
 
-  
+With these, I want to thank my parents, my supervisors, my friends of being there to make my day everyday over the past many many years.
+I also want to thank myself personally for pursuing my dream so hard although I don't remember at all what I have dreamed about when I weak up :laughing:.
+So keep pushing myself. 
 
 
