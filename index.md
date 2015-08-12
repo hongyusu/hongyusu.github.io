@@ -28,7 +28,7 @@ I did my **PhD** in the field of Information and Computer Science from <a href="
 I enjoy aggressive sport like basketball before I broke my knee cruciate ligament (ACL). Now I opt to bouldering, scuba diving (holding <a href="http://www.padi.com/scuba-diving/padi-courses/course-catalog/open-water-diver/">OWD license</a>), snowboarding (downhill) that explores the unknown part of my life. I also enjoy hiking and traveling a lot for which I share some of the pictures on <a href="https://www.flickr.com/photos/123885344@N02/">Flickr</a>.
 
 ##Recent Activities
-- I received from our ambassador the [**Chinese government award for outstanding doctoral candidate of 2014**](http://hongyusu.github.io/2015/08/12/outstanding-doctoral-candidate-award-2014/).
+- I received from our ambassador the [**Chinese government award for outstanding doctoral candidate of 2014**](http://hongyusu.github.io/life/2015/08/12/outstanding-doctoral-candidate-award-2014/).
 - [***My ensemble model***](http://hongyusu.github.io/FacebookChallenge) ranked ***52th***/985 with AUC score ***93.269%***/94.254% in the [Facebook challenge](https://www.kaggle.com/c/facebook-recruiting-iv-human-or-bot) of detecting robots in the online bidding environment.
 - I won the ***Best Hack in Fitness*** in the <a href="http://datasciencehackathon.cs.hut.fi">Aalto Data Science Hackathon 2015</a> with a <a href="http://hongyusu.github.io/AaltoHackathon2015/">***Personalized Track Recommendation System***</a>.
 - I defended my <a href="https://aaltodoc.aalto.fi/handle/123456789/15362">dissertation 'Multilabel classification through structured output learning'</a> in lecture hall T2 <a href="http://sci.aalto.fi/en/">School of Science</a> on 27th March 2015.
