@@ -43,7 +43,9 @@ This is very good for most college students who have to prepare themselves for t
 However, I suddenly realized that I should go out and see the world outside when I was still young and nothing to worry about.
 Then I went to University of Helsinki in 2008 and finished my MSc in 2010. 
 I have to admit that life during my MSc could have been more excited if I would enjoy myself more.
-But unfortunately, my peers they are just crazy about knowlege which gave me no choice but join them and study.
+But unfortunately, my peers they are just crazy about knowlege which gave me no choice but being a aggressive competitor.
+I realized by that time I have a belief deep in my head of winning things.
+Oh by the way I was born in July and Leo is my sign. I always think sign and life are not scientifically independent since one can not prove the dependency of one on the other. But one cannot prove the independency either. So, now I just assume there is some causal relation between these two major thing and work it out in a positive manner.
 
 To be continued ...
 
