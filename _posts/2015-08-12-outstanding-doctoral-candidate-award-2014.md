@@ -20,7 +20,7 @@ I would assume exception kids would probably go to school earlier and therefore 
 Anyway, I went to primary school in 1991 and was there for 5 years.
 I don't have much to say about my primary school although I was a *powerful* kid among my peers :smile:. I have good grade as expected by my parents and excellent social skills which I don't even have nowadays :worried:.
 The thing I want to mention here is that I have the most diverse schoolmate in primary school than any other schools or college. 
-They are nowadays police officer, government officials, criminals, scientists, artists, running bars, and even drug dealers.
+They are nowadays police officers, government officials, criminals, scientists, artists, bar owners, and even drug dealers.
 
 I began my junior high school in 1996 when I went to the best school in my city.
 There I met some of my best friends of my life. 
