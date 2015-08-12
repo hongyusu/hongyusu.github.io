@@ -28,12 +28,12 @@ I did my **PhD** in the field of Information and Computer Science from <a href="
 I enjoy aggressive sport like basketball before I broke my knee cruciate ligament. Now I opt to bouldering, scuba diving (holding <a href="http://www.padi.com/scuba-diving/padi-courses/course-catalog/open-water-diver/">OWD license</a>), snowboarding (downhill) that explores the unknown part of my life. I also enjoy hiking and traveling a lot for which I share some of the pictures on <a href="https://www.flickr.com/photos/123885344@N02/">Flickr</a>.
 
 ##Recent Activities
-
-  - [***My ensemble model***](http://hongyusu.github.io/FacebookChallenge) is ranked ***52th***/985 with AUC score ***93.269%***/94.254% in the [Facebook challenge](https://www.kaggle.com/c/facebook-recruiting-iv-human-or-bot) of detecting robots in the online bidding environment.
-  - I won the ***Best Hack in Fitness*** in the <a href="http://datasciencehackathon.cs.hut.fi">Aalto Data Science Hackathon 2015</a> with a <a href="http://hongyusu.github.io/AaltoHackathon2015/">***Personalized Track Recommendation System***</a>.
-  - I defended my <a href="https://aaltodoc.aalto.fi/handle/123456789/15362">dissertation 'Multilabel classification through structured output learning'</a> in lecture hall T2 <a href="http://sci.aalto.fi/en/">School of Science</a> on 27th March 2015.
-  - With Prof. John Shawe-Taylor, Prof. Mario Marchand, Prof. Juho Rousu, Assi. Prof. Emilie Morvant, we are presenting out paper on <b>NIPS 2014</b> conference.
-  - My talk at the International Conference on Machine Learning (<b>ICML2014</b>) is now online at <a href="http://techtalks.tv/talks/structured-prediction-of-network-response/60915/">TechTalk</a>.
+- I received from our ambassador the [**Chinese government award for outstanding doctoral candidate of 2014**]().
+- [***My ensemble model***](http://hongyusu.github.io/FacebookChallenge) is ranked ***52th***/985 with AUC score ***93.269%***/94.254% in the [Facebook challenge](https://www.kaggle.com/c/facebook-recruiting-iv-human-or-bot) of detecting robots in the online bidding environment.
+- I won the ***Best Hack in Fitness*** in the <a href="http://datasciencehackathon.cs.hut.fi">Aalto Data Science Hackathon 2015</a> with a <a href="http://hongyusu.github.io/AaltoHackathon2015/">***Personalized Track Recommendation System***</a>.
+- I defended my <a href="https://aaltodoc.aalto.fi/handle/123456789/15362">dissertation 'Multilabel classification through structured output learning'</a> in lecture hall T2 <a href="http://sci.aalto.fi/en/">School of Science</a> on 27th March 2015.
+- With Prof. John Shawe-Taylor, Prof. Mario Marchand, Prof. Juho Rousu, Assi. Prof. Emilie Morvant, we are presenting out paper on <b>NIPS 2014</b> conference.
+- My talk at the International Conference on Machine Learning (<b>ICML2014</b>) is now online at <a href="http://techtalks.tv/talks/structured-prediction-of-network-response/60915/">TechTalk</a>.
 
 <!-- 
   - I will join the evaluation process of the applications for Master programme in Machine Learning and Data Mining (Macademia) 2015.
@@ -45,8 +45,6 @@ I enjoy aggressive sport like basketball before I broke my knee cruciate ligamen
 -->
 
 ##Selected Projects and Softwares
-
-- I received from our ambassador the ![_Chinese government award for outstanding doctoral candidate of 2014_]({{ site.url }}/myimages/outstandingphdaward.jpg).
 - _Facebook challenge_ of detecting robots in online bidding environment [Github](http://hongyusu.github.io/FacebookChallenge).
 - _Personalised route recommendation system_ for Aalto Data Science Hackathon 2015 [Github](http://hongyusu.github.io/AaltoHackathon2015/). 
 - Conditional gradient optimization with convex combination of multiple update directions (_L2RTA_) in random spanning tree approximation algorithm [Github](https://github.com/hongyusu/RTA).
