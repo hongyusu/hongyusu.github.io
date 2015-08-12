@@ -11,6 +11,10 @@ tags: [Programming, GitHub, Python]
  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
+# Table of content
+* auto-gen TOC:
+{:toc}
+
 ##Git
 
 ###Revert to some previous commit
@@ -65,5 +69,24 @@ git commit -m'commit message'
 {%highlight python%}
 >>> nums=[1,2,3,4,2,2,1,2,3,2,1,2,3,4,5]
 >>> ind = sorted(range(len(nums)), key = lambda x: nums[x])
+{%endhighlight%}
+
+###Iterate over a list with index and value
+{%highlight Python%}
+for i,v in enumerate(mylist):
+  print i,v
+{%endhighlight%}
+
+###Pair up value in lists
+{%highlight Python%}
+for v1,v2 in zip(None,v1List,v2List):
+  print v1,v2
+{%endhighlight%}
+
+###Product of lists
+{%highlight Python%}
+import itertools
+for v1,v2 in list(itertools.product(v1List,v2List))
+  print v1,v2 
 {%endhighlight%}
 

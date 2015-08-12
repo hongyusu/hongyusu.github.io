@@ -16,7 +16,7 @@ tags: [Life, Exercise]
 
 Start to track my exercises. Could be fun.
 
-|Year|Month|Date|Pull up|Push up|Ab wheel rollout|Parallel bar dip|Gym|Arm|
+|Year|Month|Date|Pull up|Push up|Ab wheel rollout|Bar dip|Gym|Arm|
 |--:|---:|:---:|:----:|:----:|:----:|:----:|:----:|:----:|
 |2015|5|8 |20|100|0 |0  |0|0|
 |2015|5|11|20|100|0 |0  |0|0|
@@ -36,6 +36,7 @@ Start to track my exercises. Could be fun.
 |2015|7|25|20|30 |0 |130 |1|60|
 |2015|7|28|40|0 |0 |130 |1|60|
 |2015|7|31|40|0 |0 |130 |1|60|
+|2015|8|12|0|100 |0 |0 |0|0|
 
 
 
