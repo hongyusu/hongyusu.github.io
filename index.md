@@ -45,7 +45,8 @@ I enjoy aggressive sport like basketball before I broke my knee cruciate ligamen
 -->
 
 ##Selected Projects and Softwares
-
+![SQL join illustration]({{ site.url }}/myimages/hMKKt.jpg)
+- I received from our ambassador the ![_Chinese government award for outstanding doctoral candidate of 2014_]({{ site.url }}/myimages/outstandingphdaward.jpg).
 - _Facebook challenge_ of detecting robots in online bidding environment [Github](http://hongyusu.github.io/FacebookChallenge).
 - _Personalised route recommendation system_ for Aalto Data Science Hackathon 2015 [Github](http://hongyusu.github.io/AaltoHackathon2015/). 
 - Conditional gradient optimization with convex combination of multiple update directions (_L2RTA_) in random spanning tree approximation algorithm [Github](https://github.com/hongyusu/RTA).
