@@ -25,7 +25,7 @@ I did my **PhD** in the field of Information and Computer Science from <a href="
 
 ##Outside Research
 
-I enjoy aggressive sport like basketball before I broke my knee cruciate ligament (ACL). Now I opt to bouldering, scuba diving (holding <a href="http://www.padi.com/scuba-diving/padi-courses/course-catalog/open-water-diver/">OWD license</a>), snowboarding (downhill) that explores the unknown part of my life. I also enjoy hiking and traveling a lot for which I share some of the pictures on <a href="https://www.flickr.com/photos/123885344@N02/">Flickr</a>.
+I enjoy aggressive sport like basketball before I broke my knee cruciate ligament (ACL). Now I opt to bouldering, scuba diving (holding <a href="http://www.padi.com/scuba-diving/padi-courses/course-catalog/open-water-diver/">OWD license</a>), snowboarding (downhill) that explores the unknown part of my life. I also enjoy hiking and traveling a lot for which I share some of the pictures on <a href="http://www.flickr.com/photos/123885344@N02/" title="See my photos on Flickr!"><img src="https://s.yimg.com/pw/images/goodies/white-flickr.png" width="40" height="20" alt=""></a>
 
 ##Recent Activities
 - I received from our ambassador the [**Chinese government award for outstanding doctoral candidate of 2014**](http://hongyusu.github.io/life/2015/08/12/outstanding-doctoral-candidate-award-2014/).
