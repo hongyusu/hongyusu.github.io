@@ -38,6 +38,7 @@ The installation of Scikit-learn package does not require admin right. Just foll
 
 1. Scikit uses an implementation of SVMs from [libSVM](https://www.csie.ntu.edu.tw/~cjlin/libsvm/).
 1. Use `sklearn.datasets` module to load MNIST data. There are 70000 handwriting digit in MNIST dataset.
+1. For now, we use preprocessed handwriting digit data from [here](https://github.com/mnielsen/neural-networks-and-deep-learning/blob/master/data/mnist.pkl.gz).
 1. `sklearn.cross_validation` module is used to randomly split the original MNIST dataset into training and test sets. In particular, we use 60000 handwriting digit for training and 10000 digits for test.
 1. In this demo, we use linear SVMs without parameter selection. One can always use kernel functions (e.g., Gaussian kernel) with parameter tuning to achieve better result.
 1. The script is shown as the following
