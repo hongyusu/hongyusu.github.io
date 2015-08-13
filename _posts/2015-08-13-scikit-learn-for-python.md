@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Scikit learn for Python"
+title: "Scikit: A machine learning package for Python"
 description: ""
 category: Programming
 tags: [Python, Programming, Scikit]
@@ -38,6 +38,10 @@ The installation of Scikit-learn package does not require admin right. Just foll
 
 ## Support vector machines for MNIST dataset
 
+1. Scikit uses an implementation of SVMs from [libSVM](https://www.csie.ntu.edu.tw/~cjlin/libsvm/).
+1. Use `sklearn.datasets` module to load MNIST data.
+1. `sklearn.cross_validation` module is used to randomly sample training and test set.
+1. We use linear SVMs for training and prediction.
 1. The script is shown as the following
 
 {% highlight python linenos %}
