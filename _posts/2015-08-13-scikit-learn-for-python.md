@@ -39,7 +39,8 @@ The installation of Scikit-learn package does not require admin right. Just foll
 ## Support vector machines for MNIST dataset
 
 1. The script is shown as the following
-   ``` python
+
+{% highlight python linenos %}
 from sklearn.datasets import fetch_mldata
 from sklearn import svm
 from sklearn.cross_validation import train_test_split
@@ -55,4 +56,4 @@ def svm_baseline():
   pass
 if __name__ == '__main__':
   svm_baseline()
-   ```
+{% endhighlight %}

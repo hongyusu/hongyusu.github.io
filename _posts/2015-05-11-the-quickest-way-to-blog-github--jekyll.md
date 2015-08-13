@@ -58,6 +58,13 @@ Run the following command in the website folder
 	jekyll server --watch
 	{% endhighlight %}
 
+In addition, I need lines to be number in my code. Therefore, I add the following two line in `syntax.css` file
+
+```
+.highlight .lineno { color: #ccc; display:inline-block; padding: 0 5px; border-right:1px solid #ccc; }
+.highlight pre code { display: block; white-space: pre; overflow-x: auto; word-wrap: normal; }
+```
+
 We can access the website locally by the following address `http://localhost:4000`.
 
 ## Configuration
