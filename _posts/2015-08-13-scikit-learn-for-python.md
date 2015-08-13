@@ -41,6 +41,7 @@ The installation of Scikit-learn package does not require admin right. Just foll
 1. For now, we use preprocessed handwriting digit data from [here](https://github.com/mnielsen/neural-networks-and-deep-learning/blob/master/data/mnist.pkl.gz).
 1. `sklearn.cross_validation` module is used to randomly split the original MNIST dataset into training and test sets. In particular, we use 60000 handwriting digit for training and 10000 digits for test.
 1. In this demo, we use linear SVMs without parameter selection. One can always use kernel functions (e.g., Gaussian kernel) with parameter tuning to achieve better result.
+1. For the above setting, I get 9435/10000 writings correct.
 1. The script is shown as the following
 
 {% highlight python linenos %}
@@ -66,5 +67,48 @@ def svm_baseline():
   pass
 if __name__ == '__main__':
   svm_baseline()
+{% endhighlight %}
+
+## Random Forest for MNIST dataset
+
+1. Random forest classifier is implemented in `sklearn.ensemble` package.
+1. For a random forest classifier the following paraemters should be specified.
+   1. `n_estimators`, the number of trees in the forest.
+   1. `max_depth`, the maximum depth of a tree.
+1. In this demo, we use a random forest classifier with 10, 100, 500 random trees.
+1. The result is shown in the following table
+
+   |`n_estimators`|Performance|
+   |:---:|:--:|
+   |10  |9466/10000|
+   |100 |9679/10000|
+   |500 |9706/10000|
+
+1. The training time of a random forest classifier is much faster that SVMs.
+1. The Python script is shown as the following.
+
+{% highlight python linenos %}
+from sklearn.datasets import fetch_mldata
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.cross_validation import train_test_split
+import numpy as np
+from collections import Counter
+import cPickle
+import gzip
+def rf_baseline():
+  #mnist = fetch_mldata('MNIST original', data_home='../ScikitData')
+  #Xtr,Xts,Ytr,Yts = train_test_split(mnist.data, mnist.target, test_size=10000, random_state=42)
+  f = gzip.open('../ScikitData/mnist.pkl.gz','rb')
+  training_data,validation_data,test_data=cPickle.load(f)
+  f.close()
+  model = RandomForestClassifier(n_estimators=1000, max_depth=None, min_samples_split=1, random_state=0)
+  model.fit(training_data[0],training_data[1])
+  predictions = [int(a) for a in model.predict(test_data[0])]
+  num_corr = sum(int(a==y) for a,y in zip(predictions,test_data[1]))
+  print "Baseline classifier using an Random Forest."
+  print "%s of %s values correct." % (num_corr, len(test_data[1]))
+  pass
+if __name__ == '__main__':
+  rf_baseline()
 {% endhighlight %}
 
