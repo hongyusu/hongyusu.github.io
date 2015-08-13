@@ -24,9 +24,7 @@ The installation of Scikit-learn package does not require admin right. Just foll
 
    `python install.py --user`
 
-1. Compile the package with the following command
-
-   `make`
+1. Compile the package with `make`
 
 1. Now you are ready for Scikit-learn. Open a Python interpreter and import the package 
 
@@ -39,9 +37,9 @@ The installation of Scikit-learn package does not require admin right. Just foll
 ## Support vector machines for MNIST dataset
 
 1. Scikit uses an implementation of SVMs from [libSVM](https://www.csie.ntu.edu.tw/~cjlin/libsvm/).
-1. Use `sklearn.datasets` module to load MNIST data.
-1. `sklearn.cross_validation` module is used to randomly sample training and test set.
-1. We use linear SVMs for training and prediction.
+1. Use `sklearn.datasets` module to load MNIST data. There are 70000 handwriting digit in MNIST dataset.
+1. `sklearn.cross_validation` module is used to randomly split the original MNIST dataset into training and test sets. In particular, we use 60000 handwriting digit for training and 10000 digits for test.
+1. In this demo, we use linear SVMs without parameter selection. One can always use kernel functions (e.g., Gaussian kernel) with parameter tuning to achieve better result.
 1. The script is shown as the following
 
 {% highlight python linenos %}
@@ -61,3 +59,4 @@ def svm_baseline():
 if __name__ == '__main__':
   svm_baseline()
 {% endhighlight %}
+
