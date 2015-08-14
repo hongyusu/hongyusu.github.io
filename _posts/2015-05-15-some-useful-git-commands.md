@@ -17,11 +17,12 @@ tags: [Programming, GitHub, Python]
 
 ##Git
 
+###Remove bad commit from remote
+- Move head to the good commit `git reset --hard <good commit id>`
+- Force push the good commit to git `git push origin HEAD --force`
+
 ###Revert to some previous commit
-- Check all previous commits by
-{% highlight bash%}
-git log
-{% endhighlight%}
+- Check all previous commits by `git log`
 - Pick up a commit by commit code, e.g., 
 
 	commit 955cd428160a6d61a260564b193b175ae26f43c2
