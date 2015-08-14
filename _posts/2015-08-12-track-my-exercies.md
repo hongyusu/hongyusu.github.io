@@ -7,14 +7,18 @@ tags: [Life, Exercise]
 ---
 {% include JB/setup %}
 
-
-
 <script type="text/javascript"
  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
 
-Start to track my exercises. Could be fun.
+At the age of 30, I start to care more about myself :smiley: Later I decide to record the amount of exercises I have done with the hope that it will fire me up :gun: to do more and more. Basically, the exercises I love to do include
+
+1. `push up`, for my chest muscle
+1. `pull up`, for my back muscle
+1. `bar dip`, for my back muscle
+1. `wheel roll`, for my abs :laughing:
+1. some lifting exercises, for my arms :muscle:
 
 | Year | Month | Date | Pull up | Push up | Ab wheel rollout | Bar dip | Gym | Arm lift| 
 |--:|---:|:---:|:----:|:----:|:----:|:----:|:----:|:----:|
