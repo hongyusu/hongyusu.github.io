@@ -83,6 +83,7 @@ if __name__ == '__main__':
    |10  |9466/10000|
    |100 |9679/10000|
    |500 |9706/10000|
+   |1000|9711/10000|
 
 1. The training time of a random forest classifier is much faster that SVMs.
 1. The Python script is shown as the following.
