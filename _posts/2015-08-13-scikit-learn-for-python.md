@@ -14,7 +14,7 @@ tags: [Python, Programming, Scikit]
 
 # Installation
 
-The installation of Scikit-learn package does not require admin right. Just following the following instructions. 
+The installation of Scikit-learn package seems to require an administration right of the system. For example, if you install the package with `pip install`. However, it does not necessarily require an admin right. You can just install the package under your own directory, e.g., if you are on a computer cluster with shared filesystem. Just follow the following simple instructions.
 
 1. Get the Scikit-learn package from its [Github page](https://github.com/scikit-learn/scikit-learn) with the following command
 
