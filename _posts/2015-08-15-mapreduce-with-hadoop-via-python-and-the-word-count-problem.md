@@ -21,7 +21,7 @@ In this article I will try to set up an example of running mapreduce functions o
 1. The _mapper_ function will take in the raw text file and convert it into a collection of key-value pairs. Each key is a word, and all keys (words) will have a value of 1.
 1. The _reducer_ function will summary all key-value pairs in which the values of the same key are combined. The result is a list of unique key with the count of appearance.
 
-# Implement the mapreduce function for word count
+## Implement the mapreduce function for word count
 
 1. With Hadoop streaming API, we aim to write a Python script acting as a mapper and a Python script acting as reducer.
 1. In addition the scripts should work with data stream similar as the following
@@ -36,7 +36,7 @@ In this article I will try to set up an example of running mapreduce functions o
 1. The magic is to use Hadoop stream API which allows data pass Hadoop through `STDIN` and `STDOUT`.
 1. We will be using Python `sys.stdin` and `sys.stdout` to read and write data. Hadoop will take care of other matters.
 
-## Implement `mapper` function
+### Implement `mapper` function
 
 - The first thing we need to do is to write a mapper function. 
 - Let us call the mapper function `mapper.py`.
@@ -58,7 +58,7 @@ if __name__ == "__main__":
 - It is worth noting that the first line is important which make the script executable by Hadoop.
 - Make sure `mapper.py` are accessible by executing the command `chmod a+X mapper.py`
 
-## _shuffle_ procedure
+### _shuffle_ procedure
 
 - The operation between mapper reducer is sometimes called _shuffle_
   - All key-value pairs are sorted according to the key before send to reducer.
@@ -67,7 +67,7 @@ if __name__ == "__main__":
   - As the reducer are reading data stream, if it comes across a key that is different from the previous one, it knows that the previous key will never appear again.
   - If all key-value pair share the same key, it ends up with only one reducer. There is no parallelization in this case.
 
-## Implement `reducer` function
+### Implement `reducer` function
 
 - Now we are going to implement `reducer.py`.
 - The function will get input from standard output stream `STDOUT` which is the output of the mapper function, process the data and write to `STDOUT`.
@@ -99,9 +99,9 @@ if __name__=='__main__':
 
 - Make sure `reducer.py` are accessible by executing the command `chmod a+X reducer.py`. 
 
-# Submit the mapreduce program to Hadoop cluster
+## Submit the mapreduce program to Hadoop cluster
 
-## Start local Hadoop server
+### Start local Hadoop server
 
 1. If you have followed my instruction to [set hadoop on MacOS](http://hongyusu.github.io/programming/2015/07/27/setup-hadoop-on-macos/), you can start Hadoop server with command `hstart`
 1. Use command `jps` to check if everything is fine with your Hadoop. In particular, you should have the following servers up and running
@@ -126,7 +126,7 @@ if __name__=='__main__':
 
 1. The latter alternative works at least for me.
 
-## Copy data files to HDFS
+### Copy data files to HDFS
 
 1. First, let's download a big text file with the following command 
 
@@ -140,7 +140,7 @@ if __name__=='__main__':
 
 1. Make sure that you have the file in the HDFS with the command `hadoop fs -ls /`
 
-## Submit job to Hadoop
+### Submit job to Hadoop
 
 - Now, we should submit the job to Hadoop by calling its streaming function with the following command
 
@@ -156,8 +156,35 @@ hadoop jar \
 
 - Check the result with command `hadoop fs -cat /user/su/wc_out/part-00000`
 
+#Line count problem
 
+Line count problem is to count the number of lines in a documents which can be accomplished by a mapreduce heuristics. Basically, the `mapper` function reads data one line by another and returns 1 after each line, and the `reducer` function sums up the returned valued.
 
+## Implement `mapper.py`
 
+The `mapper` function is given as the following
+{% highlight python linenos %}
+#!/usr/bin/env python
+import sys
+def main():
+  for line in sys.stdin:
+    print "1"
+if __name__ == "__main__":
+  main()
+{% endhighlight %}
 
+## Implement `reducer.py`
+
+The `reducer` function is given as the following 
+{% highlight python linenos %}
+#!/usr/bin/env python
+import sys
+def main():
+  sum = 0
+  for line in sys.stdin:
+    sum+=1
+  print "%s" % sum
+if __name__=='__main__':
+  main()
+{% endhighlight %}
  
