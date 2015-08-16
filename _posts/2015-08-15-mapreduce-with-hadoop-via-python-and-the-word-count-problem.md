@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Mapreduce with Hadoop via Python and the word count problem"
+title: "Mapreduce with Hadoop via Python with Examples"
 description: ""
 category: Programming
 tags: [Programming, Hadoop, mapreduce, bigdata, python]
@@ -13,7 +13,7 @@ tags: [Programming, Hadoop, mapreduce, bigdata, python]
 
 # Introduction
 
-In this article I will try to set up an example of running mapreduce functions on Hadoop by Python. Aparche Hadoop framework is originally meant for Java. However, with Hadoop streaming API we can implement mapreduce functions in Python. In particular, the input and output of mapreduce functions are handled by standard input/output stream `STDIN` and `STDOUT`. We use Python module `sys.stdin` to do the trick.
+In this article I will try to set up two examples of running mapreduce functions on Hadoop by Python. Aparche Hadoop framework is originally meant for Java. However, with Hadoop streaming API we can implement mapreduce functions in Python. In particular, the input and output of mapreduce functions are handled by standard input/output stream `STDIN` and `STDOUT`. We use Python module `sys.stdin` to do the trick.
 
 # Word count problem
 

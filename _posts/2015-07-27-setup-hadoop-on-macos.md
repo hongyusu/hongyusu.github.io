@@ -8,18 +8,15 @@ tags: [Programming, Hadoop, bigdata, Macos]
 {% include JB/setup %}
 
 
-Here, we are try to accomplish the following goals:
+# Table of content
+* auto-gen TOC:
+{:toc}
 
-1. Download Hadoop on Macos system
-1. Hadoop installation
-1. Hadoop configuration
-1. Start/stop Hadoop
+# Hadoop installation
 
 In particular, Hadoop will run in a standalone mode. The installation will allow full functionalities for coding practice although it does not provide cluster performance.
 
-## Hadoop installation
-
-### Download Hadoop on Macos
+## Download Hadoop on Macos
 
 1. Install `brew` with the following command
 
@@ -35,7 +32,7 @@ In particular, Hadoop will run in a standalone mode. The installation will allow
 
    Hadoop is the located in the directory ` /usr/local/Cellar/hadoop/2.7.1/` in which my current verion number is 2.7.1
 
-### Hadoop configuration
+## Hadoop configuration
 
 For Hadoop configuration, we need to modify the following files in the Macos system
 
@@ -116,12 +113,12 @@ For Hadoop configuration, we need to modify the following files in the Macos sys
 
       `source ~/.profile`
 
-### System configuration
+## System configuration
 
 1. Format the Hadoop file system with `hdfs namenode -format`.
 1. Enable the functionality of remote login from `system preference->sharing->remove login`.
 
-### Start Hadoop
+## Start Hadoop
 
 1. Start Hadoop with the command `hstart`.
 1. Stop Hadoop with the command `hstop`.
