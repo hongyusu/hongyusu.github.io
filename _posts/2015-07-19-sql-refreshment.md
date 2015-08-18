@@ -348,12 +348,4 @@ where mytable.Counter<=3
 
 
 
-##Some good external references
-1. Some of this post is based on a very good online tutorial and exercise available from [sqlzoo](http://sqlzoo.net/wiki/SELECT_basics).
-1. [LeetCode SQL exercise](https://leetcode.com/problemset/database/) is also a very good source to practice.
-
-
-
-
-
 
