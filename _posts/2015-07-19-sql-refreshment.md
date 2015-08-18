@@ -7,6 +7,9 @@ tags: [programming, SQL]
 ---
 {% include JB/setup %}
 
+# Table of content
+* auto-gen TOC:
+{:toc}
 
 ##A brief overview of important SQL statements
 

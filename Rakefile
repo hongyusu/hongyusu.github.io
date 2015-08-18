@@ -70,6 +70,13 @@ task :post do
     post.puts "tags: #{tags}"
     post.puts "---"
     post.puts "{% include JB/setup %}"
+    post.puts '<script type="text/javascript"'
+    post.puts ' src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">'
+    post.puts '</script>'
+    post.puts ' '
+    post.puts "# Table of content"
+    post.puts "* auto-gen TOC:"
+    post.puts "{:toc}"
   end
 end # task :post
 
