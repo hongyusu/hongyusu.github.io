@@ -18,7 +18,11 @@ tags: []
 
 # SQL query on Spark
 
+Spark SQL guide is available from [Spark documentation](http://spark.apache.org/docs/latest/sql-programming-guide.html).
+
 # External references
+
+Here are some good external references for learning and practicing SQL, e.g., websites and online coding exercises.
 
 ## Online sources
 
