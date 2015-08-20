@@ -31,7 +31,7 @@ Here are some good external references for learning and practicing SQL, e.g., we
 
 ## LeetCode SQL coding exercises
 
-The following LeetCode problems are order by their difficulties in which hard problems are discussed first.
+The following LeetCode problems are order by their difficulties in which hard problems are discussed first and medium problems are then presented. However, I will not list all easy problems :laughing:
 
 ### Trips and Users [in LeetCode](https://leetcode.com/problems/trips-and-users/)
 1. Date variable can be compared using `between...and`.
@@ -124,5 +124,15 @@ where e1.DepartmentId = e2.DepartmentId and e1.Salary<=e2.Salary
 group by e1.Id) tmp
 on tmp.DepartmentId = d.Id
 where tmp.ct = 1
+{% endhighlight %}
+
+### Delete Duplicate Email [in LeetCode](https://leetcode.com/problems/delete-duplicate-emails/)
+1. The table to be operated on cannot be used in `where` clause.
+1. Use e.g., `min()` or `max()` functions followed by `group by`
+
+{% highlight mysql linenos %}
+delete from Person
+where Person.Id not in
+(select * from (select min(Id) from Person group by Email)tmp)
 {% endhighlight %}
 
