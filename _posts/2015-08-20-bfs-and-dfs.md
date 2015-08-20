@@ -53,6 +53,53 @@ def solution(start,end,words):
     pass
 {% endhighlight %}
 
+### Word Ladder II [in LeetCode](https://leetcode.com/problems/word-ladder-ii/)
+1. The solution is similar as [Word Ladder](https://leetcode.com/problems/word-ladder/).
+1. In stead of double end _BFS_, we  only do _breadth first search_ from the head. Meanwhile, we maintain a dictionary to store all paths up to current word.
+1. Keep in mind the we can use `union` operation on `set` object.
+1. An example Python solution is shown as the following
+{% highlight python linenos %}
+class Solution(object):
+    def findLadders(self, start, end, dict):
+        """
+        :type start: str
+        :type end: str
+        :type dict: Set[str]
+        :rtype: List[List[int]]
+        """
+        return solution(start,end,dict)
+import string
+def solution(start,end,words):
+    # special cases
+    ct = 0
+    for i in range(len(start)):
+        if start[i] != end[i]: ct+=1
+    if ct == 1: return [[start,end]]
+    # normal cases
+    head = [start]
+    words.discard(start)
+    d = {start:[[start]]}
+    while head:
+        valid = []
+        newd = {}
+        for word in head:
+            for i in range(len(end)):
+                for c in string.ascii_lowercase:
+                    newword = word[:i] + c + word[i+1:]
+                    if newword in words:
+                        valid.append(newword)
+                        val = (l+[newword] for l in d[word])
+                        if not newword in newd: newd[newword] = []
+                        newd[newword].extend(val)
+        if set(valid)&set([end]):
+            return newd[end]
+        else:
+            head = set(valid)
+            d = newd
+            words = words-head
+    return []
+{% endhighlight %}
+
 ### Binary Tree Right Side View [in LeetCode](https://leetcode.com/problems/binary-tree-right-side-view/)
 1. The heuristics for solving the problem is to perform the _breadth first search_ on the binary tree level by level. During the processing of the tree node, always first put the right child and then the left child.
 1. An example Python solution is shown as the following.
