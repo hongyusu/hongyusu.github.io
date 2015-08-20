@@ -15,13 +15,86 @@ tags: []
 {:toc}
 
 
+# Breadth First Search
+
+### Word Ladder [in LeetCode](https://leetcode.com/problems/word-ladder/)
+1. The solution is by performing double end _breadth first search_ in which we search for all possible words from a small end to find out if the possible words include any word from the other end.
+1. To check if two collections of words are overlap, we use union operation `&` of set.
+1. The following solution is based on the [discussion](https://leetcode.com/discuss/48083/share-python-solutions-concise-160ms-optimized-solution-100ms)
+{% highlight python linenos %}
+class Solution(object):
+    def ladderLength(self, beginWord, endWord, wordDict):
+        """
+        :type beginWord: str
+        :type endWord: str
+        :type wordDict: Set[str]
+        :rtype: int
+        """
+        return solution(beginWord, endWord, wordDict)
+import string
+def solution(start,end,words):
+    length = 2
+    head,tail = set([start]), set([end])
+    words.discard(start)
+    while head:
+        tmp = []
+        for word in head:
+            for i in range(len(end)):
+                for c in string.ascii_lowercase:
+                    tmp.append(word[:i]+c+word[i+1:])
+        valid = words&set(tmp)
+        if valid&tail: return length
+        length+=1
+        head = valid
+        if len(head) > len(tail):
+            tail,head = head,tail
+        words-=head
+    return 0
+    pass
+{% endhighlight %}
+
+### Binary Tree Right Side View [in LeetCode](https://leetcode.com/problems/binary-tree-right-side-view/)
+1. The heuristics for solving the problem is to perform the _breadth first search_ on the binary tree level by level. During the processing of the tree node, always first put the right child and then the left child.
+1. An example Python solution is shown as the following.
+{% highlight python linenos %}
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+class Solution(object):
+    def rightSideView(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        05
+        """
+        return solution(root)
+def solution(root):
+    if root == None: return []
+    nodelist = [root]
+    res = []
+    while len(nodelist) >0:
+        newnodelist = []
+        res.append(nodelist[0].val)
+        for node in nodelist:
+            if node.right != None:
+                newnodelist.append(node.right)
+            if node.left != None:
+                newnodelist.append(node.left)
+        nodelist = newnodelist
+    return res
+    pass
+{% endhighlight%}
+
 # Union Find
 
-Unior find is one type of problems where the goal is find a union of same objects from a region. The region is usually represented by a matrix. The strategy for the problems of this kind is to scan the item one by another and perform _breath first search_ as soon as one special element is found. The _BFS_ will discovery the union of elements of same kind.
+Unior find is one type of problems where the goal is find a union of same objects from a region. The region is usually represented by a matrix. The strategy for the problems of this kind is to scan the item one by another and perform _breadth first search_ as soon as one special element is found. The _BFS_ will discovery the union of elements of same kind.
 
 ### Surrounded Region [in LeetCode](https://leetcode.com/problems/surrounded-regions/)
 
-1. The heuristics is straight forward: apply _breath first search_.
+1. The heuristics is straight forward: apply _breadth first search_.
 1. In particular, we scan the table and perform _BFS_ as soon as we find an 'O'. The _BFS_ will find the whole 'O' region. Then the whole region is flipped to 'X' if any element is on the boarder of the chess board.
 1. An example python solution is shown as the following
 {% highlight python linenos %}
@@ -103,7 +176,7 @@ def solution(board):
 
 
 ### Number of Islands [in LeetCode](https://leetcode.com/problems/number-of-islands/)
-1. The strategy is to use _breath first search_.
+1. The strategy is to use _breadth first search_.
 1. In particular, we scan the table and perform _BFS_ as soon as we find an `1`. The _BFS_ will find all `1` in the same island. Then we mark the island and continue to scan the table for other islands.
 1. An example Python code is shown as the following
 {% highlight python linenos %}
