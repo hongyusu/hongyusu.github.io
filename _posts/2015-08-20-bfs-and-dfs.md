@@ -2,8 +2,8 @@
 layout: post
 title: "BFS and DFS"
 description: ""
-category: 
-tags: []
+category: Programming 
+tags: [programming, algorithm, DFS, BFS, searching]
 ---
 {% include JB/setup %}
 <script type="text/javascript"
@@ -16,6 +16,127 @@ tags: []
 
 
 # Breadth First Search
+
+### Clone Graph [in LeetCode](https://leetcode.com/problems/clone-graph/)
+1.The trick is to build two dictionaries one maps from node label to node object, the other maps from node label to neighbor labels. Once two dictionaries are built, one connect the objects from the first dictionary using the information from the second dictionary.
+1. _BFS_ is used to acquire all neighbors of a particular node. 
+1. An example Python solution is given as the following:
+{% highlight python linenos %}
+# Definition for a undirected graph node
+# class UndirectedGraphNode(object):
+#     def __init__(self, x):
+#         self.label = x
+#         self.neighbors = []
+class Solution(object):
+    def cloneGraph(self, node):
+        """
+        :type node: UndirectedGraphNode
+        :rtype: UndirectedGraphNode
+        """
+        return solution(node)
+def solution(root):
+    if root == None : return root
+    candidates = [root]
+    i2n = {}
+    n2nb = {}
+    while candidates:
+        nextcandidates = []
+        for node in candidates:
+            if node.label not in n2nb:
+                n2nb[node.label] = []
+                i2n[node.label] = UndirectedGraphNode(node.label)
+                for nb in node.neighbors:
+                    if nb not in n2nb: nextcandidates.append(nb)
+                    n2nb[node.label].append(nb.label)
+        candidates = nextcandidates
+    for node in n2nb:
+        for nb in n2nb[node]:
+            i2n[node].neighbors.append(i2n[nb])
+    return i2n[root.label]
+{% endhighlight %}
+
+### Course Schedule [in LeetCode](https://leetcode.com/problems/course-schedule/)
+1. The solution heuristics is to
+   1. Build a directed graph based on the course dependency.
+   1. Traverse the graph from root to leaves and remove a node from the graph if all its parents have been visited.
+   1. Return `False` when there exist nodes that cannot be removed.
+1. It is worth noting that the directed graph is represented as a link list implemented by Python `dictionary`. Therefore, it is easy to make update the number of parents for each node when a node is removed from the graph.
+1. An example Python solution is given as the following:
+{% highlight python linenos %}
+class Solution(object):
+    def canFinish(self, numCourses, prerequisites):
+        """
+        :type numCourses: int
+        :type prerequisites: List[List[int]]
+        :rtype: bool
+        """
+        return solution(numCourses, prerequisites)
+def solution(N,pairs):
+    pCount = [0 for i in range(N)]
+    p2c = {}
+    for i in range(N) : p2c[i] = []
+    for i in range(len(pairs)):
+        p2c[pairs[i][1]].append(pairs[i][0])
+        pCount[pairs[i][0]]+=1
+    availableNodes = set([i for i in range(N)])
+    while availableNodes:
+        freeNodes = set()
+        for node in availableNodes:
+            if pCount[node] == 0:
+                freeNodes.add(node)
+        if len(freeNodes) == 0 : return False
+        availableNodes = availableNodes - freeNodes
+        for node in freeNodes:
+            for c in p2c[node]:
+                pCount[c]-=1
+    return True
+{% endhighlight %}
+
+### Course Schedule II [in LeetCode](https://leetcode.com/problems/course-schedule-ii/)
+1. Build a dependency graph (direct graph) where pre-requisitions are parents and following courses are children.
+1. Traverse the graph from root to leaves and pop a node to the result when all its parents are visited.
+1. Return an empty array if there are nodes remained in the graph with unvisited parents. 
+1. An example Python solution is given as the following:
+{% highlight python linenos %}
+class Solution:
+    # @param {integer} numCourses
+    # @param {integer[][]} prerequisites
+    # @return {integer[]}
+    def findOrder(self, numCourses, prerequisites):
+        return solution(numCourses,prerequisites)
+def solution(N,pairs):
+    # special cases
+    if not pairs:
+        return [i for i in range(N)]
+    # normal cases
+    ## build a adj matrix
+    p2c = [[0 for i in range(N)] for j in range(N)];
+    pCount = [0 for i in range(N)]
+    for i in range(len(pairs)):
+        if p2c[pairs[i][1]][pairs[i][0]] == 0:
+            p2c[pairs[i][1]][pairs[i][0]] = 1
+            pCount[pairs[i][0]] += 1
+    availNodes = set([i for i in range(N)])
+    # process
+    res = []
+    while availNodes:
+        parents = []
+        if N==10 : print pCount
+        for node in availNodes:
+            if pCount[node] == 0 : parents.append(node)
+        if N==10 : print res
+        if len(parents)>0:
+            res.extend(parents)
+        else:
+            return []
+        availNodes = availNodes - set(parents)
+        for node in parents:
+            for k in range(N):
+                if p2c[node][k]==1:
+                    pCount[k] -=1
+                    p2c[node][k] =0
+    return res
+{% endhighlight%}
 
 ### Word Ladder [in LeetCode](https://leetcode.com/problems/word-ladder/)
 1. The solution is by performing double end _breadth first search_ in which we search for all possible words from a small end to find out if the possible words include any word from the other end.
