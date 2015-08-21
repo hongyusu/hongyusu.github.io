@@ -91,5 +91,6 @@ for v1,v2 in list(itertools.product(v1List,v2List))
   print v1,v2 
 {%endhighlight%}
 
-### 
-
+### `pop()`
+1. `l.pop()` is to get and remove the last item from the list.
+1. `l.pop(i)` is to get and remove the ith item from the list.
