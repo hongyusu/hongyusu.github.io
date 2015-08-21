@@ -14,6 +14,65 @@ tags: [programming, algorithm, DFS, BFS, searching]
 * auto-gen TOC:
 {:toc}
 
+# Depth First Search (DFS)
+
+### Construct Binary Tree from Inorder and Postorder Traversal [in LeetCode](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)
+1. The trick is to realize the last item in the postorder traversal is the root node of the subtree.
+1. The solution use recursion.
+1. An example Python code is given as the following
+{% highlight python linenos %}
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+class Solution(object):
+    def buildTree(self, inorder, postorder):
+        """
+        :type inorder: List[int]
+        :type postorder: List[int]
+        :rtype: TreeNode
+        """
+        return solution(inorder,postorder)
+def solution(inorder, postorder):
+    if len(inorder) == 0 : return None
+    index = inorder.index(postorder.pop())
+    root = TreeNode(inorder[index])
+    root.right = solution(inorder[index+1:],postorder)
+    root.left  = solution(inorder[:index],postorder)
+    return root
+{% endhighlight %}
+
+### Construct Binary Tree from Preorder and Inorder Traversal [in LeetCode](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
+1. The trick is to realize the first element of the preorder traversal is the root node of the subtree.
+1. The solution uses recursion.
+1. An example Python code is given as the following
+{% highlight python linenos %}
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+class Solution(object):
+    def buildTree(self, preorder, inorder):
+        """
+        :type preorder: List[int]
+        :type inorder: List[int]
+        :rtype: TreeNode
+        """
+        if len(inorder) == 0: return None
+        return solution(preorder,inorder)
+def solution(preorder,inorder):
+    if not inorder: return None
+    ind = inorder.index(preorder.pop(0))
+    root = TreeNode(inorder[ind])
+    root.left  = solution(preorder,inorder[:ind])
+    root.right = solution(preorder,inorder[ind+1:])
+    return root
+    pass
+{% endhighlight %}
 
 # Breadth First Search (BFS)
 
