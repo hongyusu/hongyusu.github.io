@@ -17,11 +17,11 @@ tags: [Programming, GitHub, Python]
 
 #Git
 
-##Remove bad commit from remote
+###Remove bad commit from remote
 - Move head to the good commit `git reset --hard <good commit id>`
 - Force push the good commit to git `git push origin HEAD --force`
 
-##Revert to some previous commit
+###Revert to some previous commit
 - Check all previous commits by `git log`
 - Pick up a commit by commit code, e.g., 
 
@@ -33,7 +33,7 @@ tags: [Programming, GitHub, Python]
 git checkout 955cd428160a6d61a260564b193b175ae26f43c2
 {%endhighlight%}
 
-##Remove files from Git but keep local copies
+###Remove files from Git but keep local copies
 - Check files that are tracked by Git
 {% highlight bash%}
 git ls-files
@@ -61,33 +61,35 @@ git commit -m'commit message'
 
 #Python
 
-##Repeat a string
+###Repeat a string
 {%highlight python%}
 'this is a string' * 100
 {%endhighlight%}
 
-##Sort a list `nums` and return index
+###Sort a list `nums` and return index
 {%highlight python%}
 >>> nums=[1,2,3,4,2,2,1,2,3,2,1,2,3,4,5]
 >>> ind = sorted(range(len(nums)), key = lambda x: nums[x])
 {%endhighlight%}
 
-##Iterate over a list with index and value
+###Iterate over a list with index and value
 {%highlight Python%}
 for i,v in enumerate(mylist):
   print i,v
 {%endhighlight%}
 
-##Pair up value in lists
+###Pair up value in lists
 {%highlight Python%}
 for v1,v2 in zip(None,v1List,v2List):
   print v1,v2
 {%endhighlight%}
 
-##Product of lists
+###Product of lists
 {%highlight Python%}
 import itertools
 for v1,v2 in list(itertools.product(v1List,v2List))
   print v1,v2 
 {%endhighlight%}
+
+### 
 
