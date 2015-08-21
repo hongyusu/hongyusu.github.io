@@ -15,10 +15,10 @@ tags: [programming, algorithm, DFS, BFS, searching]
 {:toc}
 
 
-# Breadth First Search
+# Breadth First Search (BFS)
 
 ### Clone Graph [in LeetCode](https://leetcode.com/problems/clone-graph/)
-1.The trick is to build two dictionaries one maps from node label to node object, the other maps from node label to neighbor labels. Once two dictionaries are built, one connect the objects from the first dictionary using the information from the second dictionary.
+1. The trick is to build two dictionaries one maps from node label to node object, the other maps from node label to neighbor labels. Once two dictionaries are built, one connect the objects from the first dictionary using the information from the second dictionary.
 1. _BFS_ is used to acquire all neighbors of a particular node. 
 1. An example Python solution is given as the following:
 {% highlight python linenos %}
