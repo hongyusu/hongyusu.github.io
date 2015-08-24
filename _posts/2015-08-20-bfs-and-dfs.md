@@ -16,6 +16,8 @@ tags: [programming, algorithm, DFS, BFS, searching]
 
 # Depth First Search (DFS)
 
+_Depth first search_ uses a lot of recursion techniques. Therefore, it might be helpful to study DFS along with recursion.
+
 ### Recovery Binary Search Tree [in LeetCode](https://leetcode.com/problems/recover-binary-search-tree/)
 1. I still need to figure out a solution with O(1) space.
 1. Current solution first traverses the binary search tree with inorder traversal, and analyze the generated array of numbers. It identifies two numbers which are in wrong position and swap those numbers.
@@ -64,6 +66,7 @@ def solution(root,res):
 {% endhighlight %}
 
 ### Binary Tree Maximum Path Sum [in LeetCode](https://leetcode.com/problems/binary-tree-maximum-path-sum/)
+1. The time complexity for the recursion is O(n) where n is the number of node in the binary search tree, since every node has to be visited in order to find of the maximum valued path.
 1. An example Python code is given as the following
 {% highlight python linenos %}
 # Definition for a binary tree node.
