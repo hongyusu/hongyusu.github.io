@@ -16,6 +16,105 @@ tags: [programming, algorithm, DFS, BFS, searching]
 
 # Depth First Search (DFS)
 
+### Recovery Binary Search Tree [in LeetCode](https://leetcode.com/problems/recover-binary-search-tree/)
+1. I still need to figure out a solution with O(1) space.
+1. Current solution first traverses the binary search tree with inorder traversal, and analyze the generated array of numbers. It identifies two numbers which are in wrong position and swap those numbers.
+1. The time complexity of the current solution is O(n). 
+1. In addition, another O(n) space is required to store the generated list of numbers.
+1. An example Python code is given as the following
+{% highlight python linenos %}
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+class Solution(object):
+    def recoverTree(self, root):
+        """
+        :type root: TreeNode
+        :rtype: void Do not return anything, modify root in-place instead.
+        """
+        res = []
+        solution(root,res)
+        if len(res) == 2:  
+            res[0][1].val,res[1][1].val = res[1][1].val,res[0][1].val
+        else:
+            m,n = None,None
+            for i in range(1,len(res)):
+                if res[i][0]<res[i-1][0]:
+                    if m == None:
+                        m = i-1
+                        n=i
+                    else:
+                        n=i
+                        break
+            print m,n
+            res[m][1].val,res[n][1].val = res[n][1].val,res[m][1].val    
+def solution(root,res):
+    if root.left == None and root.right == None :
+        res.append((root.val,root))
+        return
+    if root.left != None:
+        solution(root.left,res)
+    res.append((root.val,root))
+    if root.right != None:
+        solution(root.right,res)
+    pass
+{% endhighlight %}
+
+### Binary Tree Maximum Path Sum [in LeetCode](https://leetcode.com/problems/binary-tree-maximum-path-sum/)
+1. An example Python code is given as the following
+{% highlight python linenos %}
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+class Solution(object):
+    def maxPathSum(self, root):
+        def solution(node):
+            if node == None : return [-2**31]*2
+            left  = solution(node.left)
+            right = solution(node.right)
+            return [node.val + max(left[0],right[0],0),max(left+right+[node.val+left[0]+right[0]])]
+        return max(solution(root))
+{% endhighlight %}
+
+### Flatten Binary Tree to Linked List [in LeetCode](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/)
+1. The flatten binary tree corresponds to preorder traversal of the original binary tree.
+1. An example Python code is given as the following
+{% highlight python linenos %}
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+class Solution(object):
+    def flatten(self, root):
+        """
+        :type root: TreeNode
+        :rtype: void Do not return anything, modify root in-place instead.
+        """
+        solution(root)
+def solution(root):
+    if root == None : return None
+    candidates = []
+    if root.left != None : candidates.append(root.left)
+    if root.right != None : candidates.append(root.right)
+    p = root
+    while len(candidates) >0:
+        node = candidates.pop(0)
+        if node.right != None : candidates = [node.right] + candidates
+        if node.left != None : candidates = [node.left] + candidates
+        p.left = None
+        p.right = node
+        p = p.right
+    pass
+{% endhighlight %}
+
 ### Construct Binary Tree from Inorder and Postorder Traversal [in LeetCode](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)
 1. The trick is to realize the last item in the postorder traversal is the root node of the subtree.
 1. The solution use recursion.
