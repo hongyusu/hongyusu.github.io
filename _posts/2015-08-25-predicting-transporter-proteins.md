@@ -20,4 +20,4 @@ In bioinformatics, transporter proteins correspond to a family of proteins that 
 
 # Link to the project page
 
-For detailed information of our machine learning approaches and preliminary results, please refer to the [project webpage](https://github.com/hongyusu/ProteinFunctionPrediction#mkl-kernel-weights) in GitHub.
+For detailed information of our machine learning approaches and preliminary results, please refer to the [project webpage](https://github.com/hongyusu/ProteinFunctionPrediction) in GitHub.
