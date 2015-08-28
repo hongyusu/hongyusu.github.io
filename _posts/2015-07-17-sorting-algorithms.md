@@ -2,7 +2,7 @@
 layout: post
 title: "Sorting algorithms"
 description: ""
-category: algorithms
+category: algorithm
 tags: [Algorithm, sort]
 ---
 {% include JB/setup %}

@@ -2,7 +2,7 @@
 layout: post
 title: "Bit integer for operating large numbers"
 description: ""
-category: algorithms
+category: algorithm
 tags: [Algorithm]
 ---
 

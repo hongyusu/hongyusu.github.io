@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Predicting Transporter Proteins"
+title: "Predicting transporter proteins"
 description: ""
 category: Research
 tags: [Research, MachineLearning, Bioinformatics, Protein]
