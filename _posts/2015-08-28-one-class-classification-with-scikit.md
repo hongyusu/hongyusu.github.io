@@ -40,7 +40,8 @@ One class SVMs is quite similar as standard SVMs except that it aims to maximize
    |7 | 1028 | 1028
    |8 | 974 | 974
    |9 | 1009 | 1009
-1. It seems clear that the performance of one class SVM is poor in classifying the object from the training class. However, it is good at identifying abnormalities, e.g. all other digits except 0 are correctly classified as non-0 images.
+
+1. It is clear that the performance of one class SVM is poor in classifying the object from the training class. However, it is good at identifying abnormalities, e.g. all other digits except 0 are correctly classified as non-0 images.
 1. An implementation with Python and scikit package is given as the following. 
 {% highlight Python linenos %}
 from sklearn.datasets import fetch_mldata
