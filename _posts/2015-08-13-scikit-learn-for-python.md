@@ -12,7 +12,7 @@ tags: [Python, Programming, Scikit, MNIST]
 * auto-gen TOC:
 {:toc}
 
-# Installation
+# Instruction for installation
 
 The installation of Scikit-learn package seems to require an administration right of the system. For example, if you install the package with `pip install`. However, it does not necessarily require an admin right. You can just install the package under your own directory, e.g., if you are on a computer cluster with shared filesystem. Just follow the following simple instructions.
 
