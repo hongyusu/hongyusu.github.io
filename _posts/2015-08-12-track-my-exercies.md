@@ -20,7 +20,7 @@ At the age of 30, I start to care more about myself :smiley: Later I decide to r
 1. `wheel roll`, for my abs :laughing:
 1. some lifting exercises, for my arms :muscle:
 
-| Year | Month | Date | Pull up | Push up | Ab wheel rollout | Bar dip | Gym | Arm lift| 
+| Year | Month | Date | Pull up | Push up | Ab wheel rollout | Bar dip | Gym | Arm training| 
 |--:|---:|:---:|:----:|:----:|:----:|:----:|:----:|:----:|
 |2015|5|8 |20|100|0 |0  |0|0|
 |2015|5|11|20|100|0 |0  |0|0|
@@ -45,6 +45,7 @@ At the age of 30, I start to care more about myself :smiley: Later I decide to r
 |2015|8|15|45|0 |10 |100 |1|0|
 |2015|8|18|0|100 |0 |0 |0|0|
 |2015|8|21|40|0 |0 |100 |1|0|
+|2015|8|26|40|0 |0 |100 |1|40|
 
 
 
