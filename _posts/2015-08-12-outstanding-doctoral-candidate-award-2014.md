@@ -8,7 +8,7 @@ tags: [Award, Life]
 {% include JB/setup %}
 
 
-On 5th August 2015 (last Wednesday), I received from our ambassador  the **Chinese government award for outstanding doctoral candidate of 2014**.
+On 5th August 2015 (last Wednesday), I received from our ambassador  the [**Chinese government award for outstanding doctoral candidate of 2014**](http://www.csc.edu.cn/chuguo/b922167aeb84451b9e48d10407865c52.shtml).
 This award eventually marks the end of my life being a *student* :relaxed:.
 Now I am trying to briefly write here my 20ish years' memories and experience just in case that I will forget some of these someday.
 
