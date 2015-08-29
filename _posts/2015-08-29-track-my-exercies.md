@@ -46,6 +46,7 @@ At the age of 30, I start to care more about myself :smiley: Later I decide to r
 |2015|8|18|0|100 |0 |0 |0|0|
 |2015|8|21|40|0 |0 |100 |1|0|
 |2015|8|26|40|0 |0 |100 |1|40|
+|2015|8|29|40|0 |0 |100 |0|0|
 
 
 
