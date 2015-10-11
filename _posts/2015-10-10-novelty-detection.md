@@ -18,7 +18,11 @@ tags: [Python, Programming, Scikit, MNIST, outlier, novelty]
 
 # Outlier detection
 
-# Code
+## Results
+
+![photo1]({{ site.url }}/myimages/novelty_detection.png)
+
+## Code
 
 {% highlight Python linenos %}
 '''
@@ -107,3 +111,5 @@ for i, offset in enumerate(clusters_separation):
     plt.subplots_adjust(0.04, 0.1, 0.96, 0.94, 0.1, 0.26)
 plt.show()
 {% endhighlight %}
+
+## 
