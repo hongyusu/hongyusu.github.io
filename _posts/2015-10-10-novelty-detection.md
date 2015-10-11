@@ -26,7 +26,7 @@ In this section, I will test the performance of two algorithms described above i
 
 ## Experiment settings
 
-I assume that data points are located in 2 dimensional space described by x and y coordinates. Inliers are generate from some Gaussian distributions with fixed mean and standard derivation. Outliers are generated from a uniform distribution from the same space. In particular, I generate four different datasets. Each dataset consist of four 2D Gaussian distributions of $$\delta$$.  
+I assume that data points are located in 2 dimensional space described by x and y coordinates. Inliers are generate from some Gaussian distributions with fixed mean and standard derivation. Outliers are generated from a uniform distribution from the same space. In particular, I generate four different datasets. Each dataset consist of four 2D Gaussian distributions of $$\sigma=0.3$$. Means range from [(0,0),(0,0),(0,0),(0,0)] to [(4,4),(-4,-4),(-4,4),(4,-4)].
 
 
 ## Results
