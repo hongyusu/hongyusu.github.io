@@ -26,12 +26,24 @@ In this section, I will test the performance of two algorithms described above i
 
 ## Experiment settings
 
-I assume that data points are located in 2 dimensional space described by x and y coordinates. Inliers are generate from some Gaussian distributions with fixed mean and standard derivation. Outliers are generated from a uniform distribution from the same space. In particular, I generate four different datasets. Each dataset consist of four 2D Gaussian distributions of $$\sigma=0.3$$. Means range from [(0,0),(0,0),(0,0),(0,0)] to [(4,4),(-4,-4),(-4,4),(4,-4)].
-
+Let's assume that data points are located in 2 dimensional space described by x and y coordinates. Inliers are generate from some Gaussian distributions with fixed means and standard derivations. Outliers are generated from a uniform distribution from the same space. In particular, I generate four different datasets. Each dataset consist of four 2D Gaussian distributions with $$\sigma=0.3$$ and $$\mu$$ from [(0,0),(0,0),(0,0),(0,0)] to [(4,4),(-4,-4),(-4,4),(4,-4)]. One-class SVMs and robust variance detection models are then applied to these four datasets.
 
 ## Results
 
+Classification errors of two models in four datasets are shown in the following table
+
+| Dataset | One-class SVM | Variance detection |
+|:---:|---:|---:|
+|1|6|6|
+|2|26|6|
+|3|40|54|
+|4|46|98|
+
+I also plot the decision boundary of two models in the following figure
+
 ![photo1]({{ site.url }}/myimages/novelty_detection.png)
+
+From the results, we can observe that when there are clear cluster structures exist in the dataset one-class SVM is able to capture the cluster structured with Gaussian kernel. On the other hand, robust covariance estimation fails to capture the cluster structure.
 
 ## Code
 
