@@ -61,7 +61,6 @@ Robust covariance estimation is designed for outlier detection.
 Code is modify from example in scikit-learn http://scikit-learn.org/stable/_downloads/plot_outlier_detection.py
 Copyright @ Hongyu Su (hongyu.su@me.com)
 '''
-
 print (__doc__)
 # scikit-learn package
 from sklearn import svm
@@ -72,25 +71,19 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.font_manager
 from scipy import stats
-
 n_samples=400
 outliers_fraction=0.25
 clusters_separation=[0,1,2,3]
-
 # define classifier
 classifiers = {'one class SVM': svm.OneClassSVM(nu=0.95*outliers_fraction+0.05,kernel='rbf',gamma=0.1),
 'covariance estimation':EllipticEnvelope(contamination=0.1)}
-
 xx, yy = np.meshgrid(np.linspace(-7, 7, 500), np.linspace(-7, 7, 500))
 n_inliers = int((1. - outliers_fraction) * n_samples)
 n_outliers = int(outliers_fraction * n_samples)
 ground_truth = np.ones(n_samples, dtype=int)
 ground_truth[-n_outliers:] = 0
-
-
 # Fit the problem with varying cluster separation
 plt.figure(figsize=(16,8))
-
 for i, offset in enumerate(clusters_separation):
     np.random.seed(42)
     # generate inlier, gaussian
@@ -107,10 +100,8 @@ for i, offset in enumerate(clusters_separation):
     y = 0.3 * np.random.randn(0.25 * n_inliers, 1) + offset
     X4 = np.r_[x,y].reshape((2,x.shape[0])).T
     X = np.r_[X1, X2, X3, X4]
-
     # generate outlier, uniform
     X = np.r_[X, np.random.uniform(low=-6, high=6, size=(n_outliers, 2))]
-
     # Fit the model with the One-Class SVM
     for j, (clf_name, clf) in enumerate(classifiers.items()):
         # fit the data and tag outliers
@@ -140,5 +131,3 @@ for i, offset in enumerate(clusters_separation):
     plt.subplots_adjust(0.04, 0.1, 0.96, 0.94, 0.1, 0.26)
 plt.show()
 {% endhighlight %}
-
-## 
