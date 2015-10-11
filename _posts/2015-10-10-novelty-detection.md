@@ -51,7 +51,7 @@ From the results, we can observe that when there are clear cluster structures ex
 
 ## Code
 
-Python code that is used to generate the experiments is shown in the following code block.
+Python [code](https://github.com/hongyusu/ScikitExamples/blob/master/Bins/outlier_detection.py) that is used to generate the experiments is shown in the following code block.
 
 {% highlight Python linenos %}
 '''
