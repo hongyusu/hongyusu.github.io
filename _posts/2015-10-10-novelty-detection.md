@@ -14,9 +14,20 @@ tags: [Python, Programming, Scikit, MNIST, outlier, novelty]
 * auto-gen TOC:
 {:toc}
 
-# Novelty detection
+# Machine learning models
 
-# Outlier detection
+## Novelty detection model: one-class SVMs
+
+## Outlier detection: robust covariance estimation
+
+# Empirical evaluations
+
+In this section, I will test the performance of two algorithms described above in the context of outlier detection. In particular, robust covariance estimation is designed for outlier detection, one-class SVM designed for novelty detection is degraded into the same context.
+
+## Experiment settings
+
+I assume that data points are located in 2 dimensional space described by x and y coordinates. Inliers are generate from some Gaussian distributions with fixed mean and standard derivation. Outliers are generated from a uniform distribution from the same space. In particular, I generate four different datasets. Each dataset consist of four 2D Gaussian distributions of $$\delta$$.  
+
 
 ## Results
 
