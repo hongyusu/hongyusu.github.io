@@ -28,8 +28,7 @@ tags: [Python, Programming, Scikit, FeatureSelection, FeatureExtraction]
 
 ## Codes
 
-
-
+Python [code](https://github.com/hongyusu/ScikitExamples/blob/master/Bins/feature_selection.py) that is used to perform the experiments are listed in the following code block.
 
 {% highlight Python linenos %}
 """
