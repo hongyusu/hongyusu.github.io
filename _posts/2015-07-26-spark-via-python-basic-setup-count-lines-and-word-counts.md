@@ -75,6 +75,7 @@ This post is about how to set up Spark for Python. In particular, it shows the s
 
 ### Example: count lines
 
+- The Python code can be accessed from [link](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/count_lines_lambdaExpression.py).
 - The question is to count the number of lines in a big file.
 - The first thing you should do is to include some necessary Python libraries
 
@@ -130,7 +131,7 @@ if __name__ == '__main__':
 
   You can have an overview of the programme by looking at the Spark server `lynx http://localhost:8080` during running or after finished.
 
-- The above Python script use `lambda` expression to realize `map-reduce` operation. This can be replaced with functions that define more complicated operations. For example, the following code does the same function without `lambda` expression.
+- The above Python script use `lambda` expression to realize `map-reduce` operation. This can be replaced with functions that define more complicated operations. For example, the following code does the same function without `lambda` expression. Corresponding Python code can be found from the [link](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/count_lines_mapReduce.py).
 
 {%highlight Python%}
 from pyspark import SparkContext
