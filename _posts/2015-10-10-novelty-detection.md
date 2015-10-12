@@ -43,11 +43,11 @@ Classification errors of two models in four datasets are shown in the following 
 |3|40|54|
 |4|46|98|
 
-I also plot the decision boundary of two models in the following figure
+I also plot the decision boundary of two models in the following figures.
 
 ![photo1]({{ site.url }}/myimages/novelty_detection.png)
 
-From the results, we can observe that when there are clear cluster structures exist in the dataset one-class SVM is able to capture the cluster structured with Gaussian kernel. On the other hand, robust covariance estimation fails to capture the cluster structure and tries to estimate a covariance based on data points from different clusters.
+From the results, we can observe that when there exist clear cluster structures in the dataset one-class SVM is able to capture the cluster structured with Gaussian kernels. On the other hand, robust covariance estimation fails to capture the cluster structure and tries to estimate a covariance based on all data points from different clusters which lead to a drop of the performance when more cluster are presented. 
 
 ## Code
 
