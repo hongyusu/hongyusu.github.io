@@ -158,6 +158,7 @@ if __name__ == '__main__':
 
 ### Example: word counts
 
+- Python code can be accessed from the [link](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/words_count_lambdaExpression.py)
 - The question is to summary the word count in a big file.
 - An example Python solution is described as the following
 
@@ -182,7 +183,7 @@ if __name__ == '__main__':
   word_count_lambdaexpression()
 {%endhighlight%}
 
-- The above Python solution uses `lambda` expression which can be replaced with functions that allow more complicated operations. For example, the following code also does the word counts
+- The above Python solution uses `lambda` expression which can be replaced with functions that allow more complicated operations. For example, the following code also does the word counts. Python code is also available from [link](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/words_count_mapReduce.py).
 
 {%highlight Python%}
 from pyspark import SparkContext
