@@ -16,7 +16,7 @@ tags: [Python, Programming, Scikit, MNIST, outlier, novelty]
 
 # Machine learning models
 
-## Novelty detection model: one-class SVMs
+## Novelty detection: one-class SVMs
 
 One-class SVM is often used in novelty detection problem in which a `clean` labelled one class dataset is assume known apriori. The training is to separate all data points from origin with a maximized margin. Once the model is trained on the `clean` dataset, it is used to predict novelties which are the points located around the classification boundary/frontier. One good thing with one-class SVM is that the model is able to detect non-linear patterns using kernel function e.g., Gaussian RBF kernel. 
 
