@@ -45,16 +45,25 @@ The algorithm implemented for collaborative filtering (CF) in Scala MLlib is 'Al
 - ["Scalable Collaborative Filtering with Spark MLlib"](https://databricks.com/blog/2014/07/23/scalable-collaborative-filtering-with-spark-mllib.html) is a nice article from Databricks in which the performance of Spark MLlib is compared with Mahout. It is worth looking at the [actual code](https://github.com/databricks/als-benchmark-scripts) behind the scene.
 - This [post](http://stackoverflow.com/questions/29160046/spark-mllib-collaborative-filtering-with-new-user/33118918#33118918) from Stackoverflow confirms my intuition that ALS in Spark-MLlib does not support the predictions for unseen users/movies. Basically, this means it would be tricky to select examples (ratings) to form training and test sets.
 - [This](http://spark.apache.org/docs/latest/mllib-collaborative-filtering.html) is the original documentation of ALS in Spark.
+- [Hand on exercises](https://databricks-training.s3.amazonaws.com/movie-recommendation-with-mllib.html) about recommender system in Spark origanized by Databricks.
 
-# Code
+# Spark Python code for ALS
 
 ##General information
 
 - Collaborative filtering (CF) is heavily used in recommender system where the task is to find the missing values in the user-item association matrix.
-- The following text combines the introduction of CF available from [MLlib](https://spark.apache.org/docs/latest/mllib-collaborative-filtering.html) and the [Tutorial](https://databricks-training.s3.amazonaws.com/movie-recommendation-with-mllib.html) from Databricks for recommender system in Spark.
-- The data file used here is the well known [MovieLens 1M dataset](http://grouplens.org/datasets/movielens/) with 1 million ratings from 6000 users on 4000 movies. The format of the file is `UserID::MovieID::Rating::Time`.
-- The basic idea of the script is first to learn a ALS model on the training data with parameter selection on the validation data, and then to make predictions on the test data to measure the performance of the ALS model.
-- See [THIS](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/collaborative_filtering.py) for the complete Python script.
+- The following code is to use ALS algorithm implemented in Spark MLlib for recommendation.
+- The data file used here is the well known [MovieLens dataset](http://grouplens.org/datasets/movielens/). In particular, two variants are used in the experiences reported in the following section:
+  1. 1 million ratings from 6000 users on 4000 movies
+  1. 10 million ratings from 6000 users on 4000 movies.
+- The format of the file is `UserID::MovieID::Rating::Time`.
+- The basic idea of the Python script:
+  1. First select from original dataset two subsets, one for training and the other for test.
+  1. I learn a ALS model based on training data which includes extensive parameter selections.
+  1. The performance on training data is then compared with an naive imputation model known as mean imputation.
+  1. After training phase, The model is applied on test data to estimate the preference of user-item pairs.
+  1. The performance of the model on test data is again compared with the naive mean imputation method.
+- The complete Python script for the experiment can be found from [my Github page](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/collaborative_filtering.py).
 
 ##Coding details
 
