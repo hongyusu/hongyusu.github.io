@@ -41,6 +41,11 @@ The algorithm implemented for collaborative filtering (CF) in Scala MLlib is 'Al
 - When fixing $$M$$ and optimizing $$U$$, the problem is equivalent to a collection of ridge regression problems where each subproblem takes $$u_i$$ as parameter and $$R, M$$ as constance. Therefore, it can be optimized in parallel in terms of $$u_i$$.
 - In particular, the subproblem can be solve analytically as a ridge regression.
 
+# External sources
+- ["Scalable Collaborative Filtering with Spark MLlib"](https://databricks.com/blog/2014/07/23/scalable-collaborative-filtering-with-spark-mllib.html) is a nice article from Databricks in which the performance of Spark MLlib is compared with Mahout. It is worth looking at the [actual code](https://github.com/databricks/als-benchmark-scripts) behind the scene.
+- This [post](http://stackoverflow.com/questions/29160046/spark-mllib-collaborative-filtering-with-new-user/33118918#33118918) from Stackoverflow confirms my intuition that ALS in Spark-MLlib does not support the predictions for unseen users/movies. Basically, this means it would be tricky to select examples (ratings) to form training and test sets.
+- [This](http://spark.apache.org/docs/latest/mllib-collaborative-filtering.html) is the original documentation of ALS in Spark.
+
 # Code
 
 ##General information
@@ -55,24 +60,28 @@ The algorithm implemented for collaborative filtering (CF) in Scala MLlib is 'Al
 
 - Python script of the following codes can be found from [HERE](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/collaborative_filtering.py).
 - To use Spark Python interface we have to include Spark-Python package
-{%highlight python%}
+{%highlight python linenos%}
 from pyspark import SparkConf, SparkContext
 from pyspark.mllib.recommendation import ALS
+import itertools
+from math import sqrt
+import sys
+from operator import add
 {%endhighlight%}
 
 - The next step is to configure the current python script with Spark context. In particular, we use local machine for testing the code and use cluster to run the script. 
-{%highlight python%}
+{%highlight python linenos%}
 # set up Spark environment
-APP_NAME = "recommender_CP_ALS"
+APP_NAME = "Collaboratove filtering for movie recommendation"
 conf = SparkConf().setAppName(APP_NAME)
-#conf = conf.setMaster('spark://ukko178:7077')
-conf = conf.setMaster('local')
+conf = conf.setMaster('spark://ukko160:7077')
 sc = SparkContext(conf=conf)
 {%endhighlight%}
 
 - After that, we have to read in the data file as RDD and take a look at the summary of the data
-{%highlight python%}
-data = sc.textFile('../Data/ml-1m/ratings.dat')
+{%highlight python linenos%}
+# read in data
+data = sc.textFile(filename)
 ratings = data.map(parseRating)
 numRatings  = ratings.count()
 numUsers    = ratings.values().map(lambda r:r[0]).distinct().count()
@@ -81,29 +90,27 @@ print "--- %d ratings from %d users for %d movies\n" % (numRatings, numUsers, nu
 {%endhighlight%}
 
 - The `parseRating` function is defined as
-{%highlight python%}
+{%highlight python linenos%}
 def parseRating(line):
   """
   Parses a rating record in MovieLens format userId::movieId::rating::timestamp.
   """
   fields = line.strip().split("::")
-  return long(fields[0]) % 10, (int(fields[0]), int(fields[1]), float(fields[2]))
+  return (int(int(fields[0])%10),int(int(fields[1])%10)), (int(fields[0]), int(fields[1]), float(fields[2]))
 {%endhighlight%}
 
 - Then we will partition the data into training, validation and test partitions. However,for the purpose of demonstration we use all data for training validation and test. In particular, we get all data from RDD and repartition the data.
-{%highlight python%}
-numPartitions = 40
-training    = ratings.filter(lambda r:r[0]<8              ).values().repartition(numPartitions).cache()
-validation  = ratings.filter(lambda r:r[0]<8              ).values().repartition(numPartitions).cache()
-test        = ratings.filter(lambda r:r[0]>=8 and r[0]<=9 ).values().cache()
-numTraining         = training.count()
-numValidation       = validation.count()
-numTest             = test.count()
-print "ratings:\t%d\ntraining:\t%d\nvalidation:\t%d\ntest:\t%d\n" % (ratings.count(), training.count(),validation.count(),test.count())
+{%highlight python linenos%}
+numPartitions = 10
+training    = ratings.filter(lambda r: not(r[0][0]<=0 and r[0][1]<=1) ).values().repartition(numPartitions).cache()
+test        = ratings.filter(lambda r: r[0][0]<=0 and r[0][1]<=1 ).values().cache()
+numTraining = training.count()
+numTest     = test.count()
+print "ratings:\t%d\ntraining:\t%d\ntest:\t\t%d\n" % (ratings.count(), training.count(),test.count())
 {%endhighlight%}
 
 - After that we will run ALS with parameter selection on the training and validation sets. The performance of the model is measured with _rooted mean square error (RMSE)_.
-{%highlight python%}
+# model training with parameter selection on the validation dataset
 ranks       = [10,20,30]
 lambdas     = [0.1,0.01,0.001]
 numIters    = [10,20]
@@ -114,10 +121,9 @@ bestLambda  = -1.0
 bestNumIter = -1
 for rank, lmbda, numIter in itertools.product(ranks, lambdas, numIters):
   model                   = ALS.train(training, rank, numIter, lmbda)
-  predictions             = model.predictAll(validation.map(lambda x:(x[0],x[1])))
-  print predictions.count()
-  predictionsAndRatings   = predictions.map(lambda x:((x[0],x[1]),x[2])).join(validation.map(lambda x:((x[0],x[1]),x[2]))).values()
-  validationRmse          = sqrt(predictionsAndRatings.map(lambda x: (x[0] - x[1]) ** 2).reduce(add) / float(numIter))
+  predictions             = model.predictAll(training.map(lambda x:(x[0],x[1])))
+  predictionsAndRatings   = predictions.map(lambda x:((x[0],x[1]),x[2])).join(training.map(lambda x:((x[0],x[1]),x[2]))).values()
+  validationRmse          = sqrt(predictionsAndRatings.map(lambda x: (x[0] - x[1]) ** 2).reduce(add) / float(numTraining))
   print rank, lmbda, numIter, validationRmse
   if (validationRmse < bestValidationRmse):
     bestModel = model
@@ -125,26 +131,40 @@ for rank, lmbda, numIter in itertools.product(ranks, lambdas, numIters):
     bestRank = rank
     bestLambda = lmbda
     bestNumIter = numIter
-print bestRank, bestLambda, bestNumIter, bestValidationRmse
+print bestRank, bestLambda, bestNumIter, bestValidationRmse 
+print "ALS on train:\t\t%.2f" % bestValidationRmse
+{%endhighlight%}
+
+- Use mean imputation to test the performance on training data.
+{%highlight python linenos%}
+meanRating = training.map(lambda x: x[2]).mean()
+baselineRmse = sqrt(training.map(lambda x: (meanRating - x[2]) ** 2).reduce(add) / numTraining)
+print "Mean imputation:\t\t%.2f" % baselineRmse
 {%endhighlight%}
 
 - The prediction of the best model on the test data can be computed from
-{%highlight python%}
-predictions                  = bestModel.predictAll(test.map(lambda x:(x[0],x[1])))
-predictionsAndRatings        = predictions.map(lambda x:((x[0],x[1]),x[2])).join( test.map(lambda x:((x[0],x[1]),x[2]))).values()
-testRmse                     = sqrt(predictionsAndRatings.map(lambda x: (x[0] - x[1]) ** 2).reduce(add) / float(bestNumIter))
+{%highlight python linenos%}
+  # predict test ratings
+  try:
+    predictions             = bestModel.predictAll(test.map(lambda x:(x[0],x[1])))
+    predictionsAndRatings   = predictions.map(lambda x:((x[0],x[1]),x[2])).join(test.map(lambda x:((x[0],x[1]),x[2]))).values()
+    testRmse          = sqrt(predictionsAndRatings.map(lambda x: (x[0] - x[1]) ** 2).reduce(add) / float(numTest))
+  except Exception as myerror:
+    print myerror
+    testRmse          = sqrt(test.map(lambda x: (x[0] - 0) ** 2).reduce(add) / float(numTest))
+  print "ALS on test:\t%.2f" % testRmse
 {%endhighlight%}
 
 - We can also compare the performance of ALS with naive approach where we predict all ratings with the average ratings.
-{%highlight python%}
-# compare the best model with a naive baseline that always returns the mean rating
-meanRating = training.union(validation).map(lambda x: x[2]).mean()
+{%highlight python linenos%}
+# use mean rating as predictions 
+meanRating = training.map(lambda x: x[2]).mean()
 baselineRmse = sqrt(test.map(lambda x: (meanRating - x[2]) ** 2).reduce(add) / numTest)
-improvement = (baselineRmse - testRmse) / baselineRmse * 100
-print "The best model improves the baseline by %.2f percent\n" % (improvement)
+print "Mean imputation:\t%.2f" % baselineRmse
 {%endhighlight%}
+
 - When everything is done, we will stop Spark context with the following Python command.
-{%highlight python%}
+{%highlight python linenos%}
 # shut down spark
 sc.stop()
 {%endhighlight%}
