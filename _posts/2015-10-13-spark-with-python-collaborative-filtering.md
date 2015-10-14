@@ -56,7 +56,7 @@ The algorithm implemented for collaborative filtering (CF) in Scala MLlib is 'Al
 - The following code is to use ALS algorithm implemented in Spark MLlib for recommendation.
 - The data file used here is the well known [MovieLens dataset](http://grouplens.org/datasets/movielens/). In particular, two variants are used in the experiences reported in the following section:
   1. 1 million ratings from 6000 users on 4000 movies
-  1. 10 million ratings from 6000 users on 4000 movies.
+  1. 10 million ratings from 70000 users on 11000 movies.
 - The format of the file is `UserID::MovieID::Rating::Time`.
 - The basic idea of the Python script:
   1. First select from original dataset two subsets, one for training and the other for test.
@@ -66,7 +66,54 @@ The algorithm implemented for collaborative filtering (CF) in Scala MLlib is 'Al
   1. The performance of the model on test data is again compared with the naive mean imputation method.
 - The complete Python script for the experiment can be found from [my Github page](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/collaborative_filtering.py).
 
-##Coding details
+## Results
+
+### 1 million dataset
+
+- Statistics of the dataset
+
+  |Name|Number|
+  |:--|--:|
+  |ratings|        1000209|
+  |training|       978241|
+  |test|           21968|
+
+- Parameter selections
+
+  |Rank|$$\lambda$$|Iteration|RMSE|
+  |:--:|:--:|:--:|:--:|
+  |10|0.1|10|0.828997475929|
+  |10|0.1|20|0.819212546853|
+  |10|0.01|10|0.760192213987|
+  |10|0.01|20|0.757669068652|
+  |10|0.001|10|0.758776382891|
+  |10|0.001|20|0.755268319674|
+  |20|0.1|10|0.817451932118|
+  |20|0.1|20|0.806853316306|
+  |20|0.01|10|0.687958965914|
+  |20|0.01|20|0.682085969698|
+  |20|0.001|10|0.68817419318|
+  |20|0.001|20|0.680732132614|
+  |30|0.1|10|0.813478712938|
+  |30|0.1|20|0.802717445363|
+  |30|0.01|10|0.630678500028|
+  |30|0.01|20|0.622970675939|
+  |30|0.001|10|0.632233272558|
+  |30|0.001|20|0.618354030429|
+  |30|0.001|20|0.618354030429|
+
+- Performance on training and test sets
+
+  ||ALS|Mean imputation|
+  |:--:|:--:|:--:|:--:|
+  |Training|0.62|1.12|
+  |Test|1.20|1.12|
+
+- It seems that we should not overfit training data :relaxed:
+
+
+
+## Coding details
 
 - Python script of the following codes can be found from [HERE](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/collaborative_filtering.py).
 - To use Spark Python interface we have to include Spark-Python package
