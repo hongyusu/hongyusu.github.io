@@ -60,7 +60,7 @@ The algorithm implemented for collaborative filtering (CF) in Scala MLlib is 'Al
 
 - Python script of the following codes can be found from [HERE](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/collaborative_filtering.py).
 - To use Spark Python interface we have to include Spark-Python package
-{%highlight python linenos%}
+{% highlight python linenos %}
 from pyspark import SparkConf, SparkContext
 from pyspark.mllib.recommendation import ALS
 import itertools
@@ -70,7 +70,7 @@ from operator import add
 {%endhighlight%}
 
 - The next step is to configure the current python script with Spark context. In particular, we use local machine for testing the code and use cluster to run the script. 
-{%highlight python linenos%}
+{% highlight python linenos %}
 # set up Spark environment
 APP_NAME = "Collaboratove filtering for movie recommendation"
 conf = SparkConf().setAppName(APP_NAME)
@@ -79,7 +79,7 @@ sc = SparkContext(conf=conf)
 {%endhighlight%}
 
 - After that, we have to read in the data file as RDD and take a look at the summary of the data
-{%highlight python linenos%}
+{% highlight python linenos %}
 # read in data
 data = sc.textFile(filename)
 ratings = data.map(parseRating)
@@ -90,7 +90,7 @@ print "--- %d ratings from %d users for %d movies\n" % (numRatings, numUsers, nu
 {%endhighlight%}
 
 - The `parseRating` function is defined as
-{%highlight python linenos%}
+{% highlight python linenos %}
 def parseRating(line):
   """
   Parses a rating record in MovieLens format userId::movieId::rating::timestamp.
@@ -100,7 +100,7 @@ def parseRating(line):
 {%endhighlight%}
 
 - Then we will partition the data into training, validation and test partitions. However,for the purpose of demonstration we use all data for training validation and test. In particular, we get all data from RDD and repartition the data.
-{%highlight python linenos%}
+{% highlight python linenos %}
 numPartitions = 10
 training    = ratings.filter(lambda r: not(r[0][0]<=0 and r[0][1]<=1) ).values().repartition(numPartitions).cache()
 test        = ratings.filter(lambda r: r[0][0]<=0 and r[0][1]<=1 ).values().cache()
@@ -136,14 +136,14 @@ print "ALS on train:\t\t%.2f" % bestValidationRmse
 {%endhighlight%}
 
 - Use mean imputation to test the performance on training data.
-{%highlight python linenos%}
+{% highlight python linenos %}
 meanRating = training.map(lambda x: x[2]).mean()
 baselineRmse = sqrt(training.map(lambda x: (meanRating - x[2]) ** 2).reduce(add) / numTraining)
 print "Mean imputation:\t\t%.2f" % baselineRmse
 {%endhighlight%}
 
 - The prediction of the best model on the test data can be computed from
-{%highlight python linenos%}
+{% highlight python linenos %}
   # predict test ratings
   try:
     predictions             = bestModel.predictAll(test.map(lambda x:(x[0],x[1])))
@@ -156,7 +156,7 @@ print "Mean imputation:\t\t%.2f" % baselineRmse
 {%endhighlight%}
 
 - We can also compare the performance of ALS with naive approach where we predict all ratings with the average ratings.
-{%highlight python linenos%}
+{% highlight python linenos %}
 # use mean rating as predictions 
 meanRating = training.map(lambda x: x[2]).mean()
 baselineRmse = sqrt(test.map(lambda x: (meanRating - x[2]) ** 2).reduce(add) / numTest)
@@ -164,7 +164,7 @@ print "Mean imputation:\t%.2f" % baselineRmse
 {%endhighlight%}
 
 - When everything is done, we will stop Spark context with the following Python command.
-{%highlight python linenos%}
+{% highlight python linenos %}
 # shut down spark
 sc.stop()
 {%endhighlight%}
