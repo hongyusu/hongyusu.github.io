@@ -42,6 +42,7 @@ The algorithm implemented for collaborative filtering (CF) in Scala MLlib is 'Al
 - In particular, the subproblem can be solve analytically as a ridge regression.
 
 # External sources
+- ["Alternating least square method for collaborative filtering"](http://bugra.github.io/work/notes/2014-04-19/alternating-least-squares-method-for-collaborative-filtering/) is an OK blog about basic knowledge of ALS and CF. The blog post also includes some running Python code. However, it is not about Spark MLlib.
 - ["Scalable Collaborative Filtering with Spark MLlib"](https://databricks.com/blog/2014/07/23/scalable-collaborative-filtering-with-spark-mllib.html) is a nice article from Databricks in which the performance of Spark MLlib is compared with Mahout. It is worth looking at the [actual code](https://github.com/databricks/als-benchmark-scripts) behind the scene.
 - This [post](http://stackoverflow.com/questions/29160046/spark-mllib-collaborative-filtering-with-new-user/33118918#33118918) from Stackoverflow confirms my intuition that ALS in Spark-MLlib does not support the predictions for unseen users/movies. Basically, this means it would be tricky to select examples (ratings) to form training and test sets.
 - [This](http://spark.apache.org/docs/latest/mllib-collaborative-filtering.html) is the original documentation of ALS in Spark.
