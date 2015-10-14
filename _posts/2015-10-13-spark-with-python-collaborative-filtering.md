@@ -60,6 +60,7 @@ The algorithm implemented for collaborative filtering (CF) in Scala MLlib is 'Al
 
 - Python script of the following codes can be found from [HERE](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/collaborative_filtering.py).
 - To use Spark Python interface we have to include Spark-Python package
+
 {% highlight Python linenos %}
 from pyspark import SparkConf, SparkContext
 from pyspark.mllib.recommendation import ALS
@@ -70,6 +71,7 @@ from operator import add
 {% endhighlight %}
 
 - The next step is to configure the current python script with Spark context. In particular, we use local machine for testing the code and use cluster to run the script. 
+
 {% highlight Python linenos %}
 # set up Spark environment
 APP_NAME = "Collaboratove filtering for movie recommendation"
@@ -79,6 +81,7 @@ sc = SparkContext(conf=conf)
 {% endhighlight %}
 
 - After that, we have to read in the data file as RDD and take a look at the summary of the data
+
 {% highlight Python linenos %}
 # read in data
 data = sc.textFile(filename)
@@ -90,6 +93,7 @@ print "--- %d ratings from %d users for %d movies\n" % (numRatings, numUsers, nu
 {% endhighlight %}
 
 - The `parseRating` function is defined as
+
 {% highlight Python linenos %}
 def parseRating(line):
   """
@@ -100,6 +104,7 @@ def parseRating(line):
 {% endhighlight %}
 
 - Then we will partition the data into training, validation and test partitions. However,for the purpose of demonstration we use all data for training validation and test. In particular, we get all data from RDD and repartition the data.
+
 {% highlight Python linenos %}
 numPartitions = 10
 training    = ratings.filter(lambda r: not(r[0][0]<=0 and r[0][1]<=1) ).values().repartition(numPartitions).cache()
@@ -111,6 +116,8 @@ print "ratings:\t%d\ntraining:\t%d\ntest:\t\t%d\n" % (ratings.count(), training.
 
 - After that we will run ALS with parameter selection on the training and validation sets. The performance of the model is measured with _rooted mean square error (RMSE)_.
 # model training with parameter selection on the validation dataset
+
+{% highlight Python linenos %}
 ranks       = [10,20,30]
 lambdas     = [0.1,0.01,0.001]
 numIters    = [10,20]
@@ -144,6 +151,7 @@ print "Mean imputation:\t\t%.2f" % baselineRmse
 {% endhighlight %}
 
 - The prediction of the best model on the test data can be computed from
+
 {% highlight Python linenos %}
   # predict test ratings
   try:
@@ -157,6 +165,7 @@ print "Mean imputation:\t\t%.2f" % baselineRmse
 {% endhighlight %}
 
 - We can also compare the performance of ALS with naive approach where we predict all ratings with the average ratings.
+
 {% highlight Python linenos %}
 # use mean rating as predictions 
 meanRating = training.map(lambda x: x[2]).mean()
@@ -165,6 +174,7 @@ print "Mean imputation:\t%.2f" % baselineRmse
 {% endhighlight %}
 
 - When everything is done, we will stop Spark context with the following Python command.
+
 {% highlight Python linenos %}
 # shut down spark
 sc.stop()
