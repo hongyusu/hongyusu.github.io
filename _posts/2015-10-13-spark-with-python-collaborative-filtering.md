@@ -65,6 +65,7 @@ The algorithm implemented for collaborative filtering (CF) in Scala MLlib is 'Al
   1. After training phase, The model is applied on test data to estimate the preference of user-item pairs.
   1. The performance of the model on test data is again compared with the naive mean imputation method.
 - The complete Python script for the experiment can be found from [my Github page](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/collaborative_filtering.py).
+- Remember that you can monitor the progress of the running Python code from command line interface `lynx http://localhost:8080`.
 
 ## Results
 
