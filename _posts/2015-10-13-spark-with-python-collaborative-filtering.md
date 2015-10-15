@@ -70,7 +70,7 @@ I just try to sketch the general idea of the algorithm as in the following bulle
   1. The performance of the model on test data is again compared with the naive mean imputation method.
 - The complete Python script for the experiment can be found from [my Github page](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/collaborative_filtering.py).
 - Remember that you can monitor the progress of the running Python code from command line interface `lynx http://localhost:8080`.
-- When running ALS natively for very large dataset, e.g. 10 million ratings, the Spark will complain about the memory issues. The solution is to write memory require into the configuration files according to the following 
+- When running ALS natively for very large dataset, e.g. 10 million ratings, the Spark will complain about the memory issues or local storage issue. The solution is to write memory require into the configuration files according to the following 
   - Edit the file `conf/spark-env.sh`.
   - After adding following lines to the file, Spark will work nicely again :bowtie:
 
@@ -79,6 +79,7 @@ export SPARK_DAEMON_MEMORY=8g
 export SPARK_WORKER_MEMORY=8g
 export SPARK_DAEMON_JAVA_OPTS="-Xms8g -Xmx8g"
 export SPARK_JAVA_OPTS="-Xms8g -Xmx8g"
+export SPARK_LOCAL_DIRS='/cs/work/group/urenzyme/workspace/SparkViaPython/tmp/'
 {% endhighlight%}
 
 ## Results
