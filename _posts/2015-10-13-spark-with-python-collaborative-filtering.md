@@ -19,11 +19,15 @@ tags: [Introduction, Programming, Algorithm, Spark, Python, BigData]
 {:toc}
 
 
-# Collaborative filtering in Spark MLlib
+# Collaborative filtering with ALS
 
-The algorithm implemented for collaborative filtering (CF) in Scala MLlib is 'Alternative Least Squares (ALS) with Weight Regularization'. The algorithm is described in the research paper ['Large-scale Parallel Collaborative Filtering for the Netflix Prize'](http://dl.acm.org/citation.cfm?id=1424269). I would assume some other better algorithms do exist out there. However, ALS is the one implemented in MLlib. So don't complaint. 
+The algorithm implemented for collaborative filtering (CF) in Spark MLlib is _Alternative Least Squares (ALS) with Weight Regularization_.
+The algorithm is described in the research paper _['Large-scale Parallel Collaborative Filtering for the Netflix Prize'](http://dl.acm.org/citation.cfm?id=1424269)_.
+I would assume there exist better algorithm out there.
+However, ALS is the one implemented in MLlib. So be it.
+I just try to sketch the general idea of the algorithm as in the following bullet list. Interesting read can go to other external reference for a comprehensive story. 
 
-- The idea is similar as matrix factorization. In particular, ALS assumes that the rating matrix $$R$$ can be factorized into two matrices, a user-preference matrix $$U$$ and a preference-rating matrix $$M$$.
+- The idea is similar as matrix factorization. In particular, ALS assumes that the rating matrix $$R$$ can be factorized into two _non-negative_ matrices, a user-preference matrix $$U$$ and a preference-rating matrix $$M$$. The intuition behind is that the non-negative matrix operation will correspond to a linear combination only in terms of additions. In addition, the additivity property is quite natural in real world applications, e.g., topic modelling in which a document is comprised with a collection of topics, image classification in which an image is essentially a collection of objects. 
 - The loss function used in ALS is so called _rooted mean square error (RMSE)_ defined as 
 
    $$\mathcal{L}(R,U,M) = \frac{1}{n}\sum_{i,j}(r_{i,j} - <u_{i},m_{j}>)^2$$,
@@ -48,7 +52,7 @@ The algorithm implemented for collaborative filtering (CF) in Scala MLlib is 'Al
 - [This](http://spark.apache.org/docs/latest/mllib-collaborative-filtering.html) is the original documentation of ALS in Spark.
 - [Hand on exercises](https://databricks-training.s3.amazonaws.com/movie-recommendation-with-mllib.html) about recommender system in Spark origanized by Databricks.
 
-# Spark Python code for ALS
+# Spark Python code
 
 ##General information
 
@@ -66,10 +70,20 @@ The algorithm implemented for collaborative filtering (CF) in Scala MLlib is 'Al
   1. The performance of the model on test data is again compared with the naive mean imputation method.
 - The complete Python script for the experiment can be found from [my Github page](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/collaborative_filtering.py).
 - Remember that you can monitor the progress of the running Python code from command line interface `lynx http://localhost:8080`.
+- When running ALS natively for very large dataset, e.g. 10 million ratings, the Spark will complain about the memory issues. The solution is to write memory require into the configuration files according to the following 
+  - Edit the file `conf/spark-env.sh`.
+  - After adding following lines to the file, Spark will work nicely again :bowtie:
+
+{% highlight Bash linenos %}
+export SPARK_DAEMON_MEMORY=8g
+export SPARK_WORKER_MEMORY=8g
+export SPARK_DAEMON_JAVA_OPTS="-Xms8g -Xmx8g"
+export SPARK_JAVA_OPTS="-Xms8g -Xmx8g"
+{% endhighlight%}
 
 ## Results
 
-### 1 million dataset
+### 1 million ratings
 
 - Statistics of the dataset
 
@@ -112,7 +126,19 @@ The algorithm implemented for collaborative filtering (CF) in Scala MLlib is 'Al
 
 - It seems that we should not overfit training data :relaxed:
 
+### 10 million ratings
 
+- Statistics of the dataset
+
+  |Name|Number|
+  |:--|--:|
+  |ratings|        10000054|
+  |training|       9786084|
+  |test|           213970|
+
+- Parameter selections
+
+- Performance on training and test sets
 
 ## Coding details
 
