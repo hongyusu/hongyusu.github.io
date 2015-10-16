@@ -17,8 +17,11 @@ tags: [Spark, EC2, Amazon]
 
 ## Details
 
-- Get an Amazon AWS account
+- Get an Amazon AWS account from Amazon [AWS and EC2](https://aws.amazon.com/ec2/).
 
+- Generate your pair key and download your user credentials.
+
+- I would assume that you have downloaded Spark package to your local computer. Then navigate to `ec2/` directory.
 
 - Launch an EC2 Spark cluster with the following command
 
