@@ -14,9 +14,8 @@ tags: [Spark, EC2, Amazon]
 * auto-gen TOC:
 {:toc}
 
-# 
 
-## 
+## Details
 
 - Get an Amazon AWS account
 
