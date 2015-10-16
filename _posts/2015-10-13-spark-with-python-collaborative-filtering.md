@@ -70,17 +70,25 @@ I just try to sketch the general idea of the algorithm as in the following bulle
   1. The performance of the model on test data is again compared with the naive mean imputation method.
 - The complete Python script for the experiment can be found from [my Github page](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/collaborative_filtering.py).
 - Remember that you can monitor the progress of the running Python code from command line interface `lynx http://localhost:8080`.
-- When running ALS natively for very large dataset, e.g. 10 million ratings, the Spark will complain about the memory issues or local storage issue. The solution is to write memory require into the configuration files according to the following 
+- When running ALS natively for very large dataset, e.g. 10 million ratings, the Spark will complain about the memory issues. The solution is to write memory require into the configuration files according to the following 
   - Edit the file `conf/spark-env.sh`.
   - After adding following lines to the file, Spark will work nicely again :bowtie:
 
-{% highlight Bash linenos %}
-export SPARK_DAEMON_MEMORY=8g
-export SPARK_WORKER_MEMORY=8g
-export SPARK_DAEMON_JAVA_OPTS="-Xms8g -Xmx8g"
-export SPARK_JAVA_OPTS="-Xms8g -Xmx8g"
-export SPARK_LOCAL_DIRS='/cs/work/group/urenzyme/workspace/SparkViaPython/tmp/'
-{% endhighlight%}
+  {% highlight Bash linenos %}
+  export SPARK_DAEMON_MEMORY=8g
+  export SPARK_WORKER_MEMORY=8g
+  export SPARK_DAEMON_JAVA_OPTS="-Xms8g -Xmx8g"
+  export SPARK_JAVA_OPTS="-Xms8g -Xmx8g"
+  export SPARK_LOCAL_DIRS='/cs/work/group/urenzyme/workspace/SparkViaPython/tmp/'
+  {% endhighlight%}
+
+- Sometimes, Spark will also complain about memory issue. This is, in my case, local `/tmp/` directory is almost full. The solution is to specify another temporary directory for Spark by writing again the configuration file according to the following
+  - Edit the file `conf/spark-env.sh`.
+  - After adding following line to the file, Spark will work again :laughing:
+
+  {% highlight Bash linenos %}
+  export SPARK_LOCAL_DIRS='/cs/work/group/urenzyme/workspace/SparkViaPython/tmp/'
+  {% endhighlight%}
 
 ## Results
 
@@ -128,7 +136,7 @@ export SPARK_LOCAL_DIRS='/cs/work/group/urenzyme/workspace/SparkViaPython/tmp/'
 - It seems that we should not overfit training data :relaxed:
 
 ### 10 million ratings
-
+  
 - Statistics of the dataset
 
   |Name|Number|
@@ -139,7 +147,36 @@ export SPARK_LOCAL_DIRS='/cs/work/group/urenzyme/workspace/SparkViaPython/tmp/'
 
 - Parameter selections
 
+  |Rank|$$\lambda$$|Iteration|RMSE|
+  |:--:|:--:|:--:|:--:|
+  |30|0.1|10|0.789595015096|
+  |30|0.1|20|0.781022279169|
+  |30|0.01|10|0.629501460062|
+  |30|0.01|20|0.622747739521|
+  |30|0.001|10|0.625608789618|
+  |30|0.001|20|0.615837106427|
+  |20|0.1|10|0.787573198049|
+  |20|0.1|20|0.781263906207|
+  |20|0.01|10|0.670921064045|
+  |20|0.01|20|0.66548013614|
+  |20|0.001|10|0.668088452457|
+  |20|0.001|20|0.661223585465|
+  |10|0.1|10|0.791031639862|
+  |10|0.1|20|0.784268636801|
+  |10|0.01|10|0.7284122791|
+  |10|0.01|20|0.725448043578|
+  |10|0.001|10|0.724738139253|
+  |10|0.001|20|0.721248563089|
+  |30|0.001|20|0.615837106427|
+
 - Performance on training and test sets
+
+  ||ALS|Mean imputation|
+  |:--:|:--:|:--:|:--:|
+  |Training|0.62|1.06|
+  |Test|1.20|1.06|
+
+
 
 ## Coding details
 

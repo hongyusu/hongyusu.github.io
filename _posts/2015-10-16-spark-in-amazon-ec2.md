@@ -15,26 +15,56 @@ tags: [Spark, EC2, Amazon]
 {:toc}
 
 
-## Details
+# Instructions for setting up Spark on Amazon EC2
 
 - Get an Amazon AWS account from Amazon [AWS and EC2](https://aws.amazon.com/ec2/).
 
-- Generate your pair key and download your user credentials.
+- The next thing is to generate a paired key which will allow SSH connection to Amazon server automatically.
 
-- I would assume that you have downloaded Spark package to your local computer. Then navigate to `ec2/` directory.
+  - First I have to web console interface of Amazon and choose from the top right corner which server I will be using.
+  - There will be a few choices and I was assigned to a west US server by default. But here is a list of servers available shown in the following table.
+    
+    |Code | Name|
+    |:---|---:|
+    |ap-northeast-1 | Asia Pacific (Tokyo)
+    |ap-southeast-1 | Asia Pacific (Singapore)
+    |ap-southeast-2 | Asia Pacific (Sydney)
+    |eu-central-1 | EU (Frankfurt)
+    |eu-west-1 | EU (Ireland)
+    |sa-east-1 | South America (Sao Paulo)
+    |us-east-1 | US East (N. Virginia)
+    |us-west-1 | US West (N. California)
+    |us-west-2 | US West (Oregon)
 
-- Launch an EC2 Spark cluster with the following command
+  - I would like to work with some cluster which is near Helsinki. However, the one in Frankfurt does not work in my case. Then I have to use the cluster from Dublin.
+  - After select the server in Dublin, I continue to generate a paired key by selecting the button on the bottom left corner of the web console.
+  - Name the key file (I use `SparkEC2Key`), and it will then automatically download and save to your working computer.
+  - Now I have the key file, the access permission of the file needs to be changed by the following command.
+    {% highlight Bash linenos%}
+    chmod 400 SparkEC2Key.pem
+    {% endhighlight %}
+
+- Now everything is more or less sorted. Then we have to somehow initialize/launch a cluster on Amazon EC2.
+
+- I would assume that you have downloaded the latest Spark package to your local computer. Navigate to `ec2/` directory.
+
+- Two system environment variable need to be set before launching Spark on Amazon EC2. They are related to your credentials on the Amazon services and they can be set by the following command. Again in my case
+
+  {% highlight Bash linenos%}
+  export AWS_SECRET_ACCESS_KEY=GMjZTHJdywDKp52dHdEs91zEpfhka/y8Fi2VkJE9
+  export AWS_ACCESS_KEY_ID=AKIAJM23WTPOCUOHQ2XA
+  {% endhighlight %}
+
+- Launch an EC2 Spark cluster with the following command. This might take a few minutes. After lots of log information, you will be notified that the cluster is successfully initialized and running. You can also get the HTTP address of the web monitor of the cluster. Pay attention that `EC2_1` is the name of your cluster and `--identity-file` is the paired key file which is just downloaded.
+
+  {% highlight Bash linenos %}
+  ./spark-ec2 --key-pair=SparkEC2Key --identity-file=SparkEC2Key.pem --region=eu-west-1 launch EC2_1
+  {% endhighlight%}
+
+- Open a browser, go to the web monitor via the following HTTP address, and check the status of the EC2 cluster. Again, in my case the address is `http://ec2-54-186-122-87.us-west-2.compute.amazonaws.com:8080`.
+
+- Login to the created cluster with the following command. After login, you will see that Spark is preinstalled in your directory.
 
 {% highlight Bash linenos %}
-./spark-ec2 --key-pair=key1 --identity-file=key1.pem --region=us-west-2 --zone=us-west-2a launch EC2_1
-{% endhighlight%}
-
-  This might take a few minutes. After lots of log information, you will be notified that the cluster is initialized. You can also get the HTML address of the web monitor of the cluster.
-
-- Open a browser, go to the web monitor, and check the status of the EC2 cluster. In my case the address is `http://ec2-54-186-122-87.us-west-2.compute.amazonaws.com:8080`.
-
-- Login to the created cluster with the following command
-
-{% highlight Bash linenos %}
-./spark-ec2 --key-pair=key1 --identity-file=key1.pem --region=us-west-2 --zone=us-west-2a login EC2_1
+./spark-ec2 --key-pair=SparkEC2Key --identity-file=SparkEC2Key.pem --region=eu-west-1 login EC2_1
 {% endhighlight%}
