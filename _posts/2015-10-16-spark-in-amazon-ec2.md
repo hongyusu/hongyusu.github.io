@@ -15,7 +15,7 @@ tags: [Spark, EC2, Amazon]
 {:toc}
 
 
-# Instructions for setting up Spark on Amazon EC2
+# Setting up Spark on Amazon EC2
 
 - Get an Amazon AWS account from Amazon [AWS and EC2](https://aws.amazon.com/ec2/).
 
@@ -81,3 +81,8 @@ tags: [Spark, EC2, Amazon]
 {% highlight Bash linenos %}
 ./spark-ec2 --key-pair=SparkEC2Key --identity-file=SparkEC2Key.pem --region=eu-west-1 start EC2_1
 {% endhighlight%}
+
+
+# External sources
+
+- ['Big data mini course'](http://ampcamp.berkeley.edu/big-data-mini-course/index.html) is about running Spark on Amazon EC2.
