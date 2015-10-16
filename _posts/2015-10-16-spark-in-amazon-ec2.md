@@ -37,7 +37,8 @@ tags: [Spark, EC2, Amazon]
     |us-west-2 | US West (Oregon)
 
   - I would like to work with some cluster which is near Helsinki. However, the one in Frankfurt does not work in my case. Then I have to use the cluster from Dublin.
-  - After select the server in Dublin, I continue to generate a paired key by selecting the button on the bottom left corner of the web console.
+  - It turns out that the server in Dublin is much responsive than the one in west US. I am located in Helsinki.
+  - After select the server in Dublin, I continue to generate a paired key by pressing the button on the bottom left corner of the web console.
   - Name the key file (I use `SparkEC2Key`), and it will then automatically download and save to your working computer.
   - Now I have the key file, the access permission of the file needs to be changed by the following command.
     {% highlight Bash linenos%}
