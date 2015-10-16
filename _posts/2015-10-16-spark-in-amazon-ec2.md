@@ -68,3 +68,15 @@ tags: [Spark, EC2, Amazon]
 {% highlight Bash linenos %}
 ./spark-ec2 --key-pair=SparkEC2Key --identity-file=SparkEC2Key.pem --region=eu-west-1 login EC2_1
 {% endhighlight%}
+
+- Stop the Spark EC2 cluster with the following command
+
+{% highlight Bash linenos %}
+./spark-ec2 --key-pair=SparkEC2Key --identity-file=SparkEC2Key.pem --region=eu-west-1 stop EC2_1
+{% endhighlight%}
+
+- Again start the Spark EC2 cluster with the following command
+
+{% highlight Bash linenos %}
+./spark-ec2 --key-pair=SparkEC2Key --identity-file=SparkEC2Key.pem --region=eu-west-1 start EC2_1
+{% endhighlight%}
