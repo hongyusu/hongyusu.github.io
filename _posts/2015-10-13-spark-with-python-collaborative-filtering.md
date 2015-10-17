@@ -184,8 +184,7 @@ I just try to sketch the general idea of the algorithm as in the following bulle
   |Training|0.62|1.06|
   |Test|0.98|1.06|
 
-- As you can see ALS actually improves the RMSE.
-
+- As you can see ALS actually improves the RMSE :+1: :v: 
 
 ## Coding details
 
