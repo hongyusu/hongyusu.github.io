@@ -129,7 +129,7 @@ I just try to sketch the general idea of the algorithm as in the following bulle
 - Performance on training and test sets
 
   ||ALS|Mean imputation|
-  |:--:|:--:|:--:|:--:|
+  |:--:|:--:--:|
   |Training|0.62|1.12|
   |Test|1.20|1.12|
 
@@ -180,7 +180,7 @@ I just try to sketch the general idea of the algorithm as in the following bulle
 - Performance on training and test sets
 
   ||ALS|Mean imputation|
-  |:--:|:--:|:--:|:--:|
+  |:--:|:--|--:|
   |Training|0.62|1.06|
   |Test|0.98|1.06|
 
