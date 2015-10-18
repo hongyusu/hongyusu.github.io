@@ -17,8 +17,9 @@ tags: [Spark, classification]
 
 # Experimental data
 
-- The dataset used in the experiment is the [a6a](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#a6a) from LibSVM website.
-- In particular, we draw samples uniform at random from the original dataset and form training set with 80% examples and test set with 20% examples.
+- Dataset used in the experiment of this post is the well-known [a6a](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#a6a) from LibSVM website.
+- The file is in `libsvm` format which is a sparse feature representation, which can be naturally tackled/loaded by a Spark Python function.
+- In order to train a classification model and test it performance, we draw samples uniform at random from the original dataset which forms a training set with 80% examples and a test set with 20% examples.
 - The statistics of the dataset is shown in the following table
 
   |Category|Size|
@@ -28,7 +29,9 @@ tags: [Spark, classification]
   |Test|2243|
   |Feature|123|
 
-# Summary of experimental results
+- The following Spark Python code can also be deployed on Spark with other machine learning problems/datasets given the data file in `libsvm` format. Otherwise, a loading function should be implemented. 
+
+# Summary of results
 
 - Here I briefly present the experimental results from different classification model provided by Spark.
 - The training and test split are same for different learning models.
@@ -187,7 +190,6 @@ tags: [Spark, classification]
 
   - Training and text error of the model with the best parameter is shown in the following table
 
-    | | Hamming loss|
-    |:--|--:|
-    |**Training set**|0.165021625818|
-    |**Test set**|0.157512482978|
+    ||Training set|Test set|
+    |:--|--:|--:|
+    |SVM|0.1650|0.1575|
