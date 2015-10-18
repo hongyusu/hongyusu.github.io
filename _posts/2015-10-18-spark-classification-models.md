@@ -40,15 +40,13 @@ tags: [Spark, classification]
   ||Training set|Test set|
   |:--|--:|--:|
   |SVM|0.1650|0.1575|
+  |LR|0.1660|0.1787|
+
+- The result somehow demonstrates that on [a6a](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#a6a) dataset, SVM achieves better performance compared to logistic regression.
 
 # Linear models
 
-## Support vector machine ([code](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/linear_classification.py))
-
-- In general, the idea is to load a binary classification dataset in `libsvm` format from a file, separate training and test, perform parameter selection on training dataa, and make prediction on test data.
-- The complete Python code for running the following experiments with SVM can be found from my [GitHub](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/linear_classification.py).
-
-### Load and save data files
+## Load and save data files
 
 - `loadLibSVMFile` is the function to load data file in `libsvm` format.
 - The function will take the following parameters
@@ -68,9 +66,14 @@ tags: [Spark, classification]
 
 - `saveAsLibSVMFile` is the function to save data into a file in `libsvm` format.
 
+## Support vector machine SVM ([code](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/linear_classification.py))
+
+- In general, the idea is to load a binary classification dataset in `libsvm` format from a file, separate training and test, perform parameter selection on training data, and make prediction on test data.
+- The complete Python code for running the following experiments with SVM can be found from my [GitHub](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/linear_classification.py).
+
 ### Running SVM with parameter selections
 
-- The complete function for calling SVM training and prediction is listed in the following code block.
+- The following code performs a parameter selection (grid search) of SVM on training data.
 
   {% highlight Python linenos %}
   # train a SVM model
@@ -188,8 +191,147 @@ tags: [Spark, classification]
     |:--|:--|:--|--:|
     |200|0.01|1|l2|0.162744004462|
 
-  - Training and text error of the model with the best parameter is shown in the following table
+  - Training and text error of SVM with the best parameter is shown in the following table
 
     ||Training set|Test set|
     |:--|--:|--:|
     |SVM|0.1650|0.1575|
+
+## Logistic regression LR ([code](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/linear_classification.py))
+
+- In general, the idea is to load a binary classification dataset in `libsvm` format from a file, separate training and test, perform parameter selection on training data, and make prediction on test data.
+- The complete Python code for running the following experiments with logistic regression can be found from my [GitHub](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/linear_classification.py).
+
+
+### Run LR for parameter selection
+
+- Python code for running parameter selection procedure of logistic regression is shown in the following code block
+
+  {% highlight Python linenos %}
+  def lr(trainingData,testData,trainingSize,testSize):
+  '''
+  linear lr classifier
+  '''
+  # train a lr model
+  numIterValList = [100,200]
+  regParamValList = [0.01,0.1,1,10,100]
+  stepSizeValList = [0.1,0.5,1]
+  regTypeValList = ['l2','l1']
+
+  # variable for the best parameters
+  bestNumIterVal = 200
+  bestRegParamVal = 0.01
+  bestStepSizeVal = 1
+  bestRegTypeVal = 'l2'
+  bestTrainErr = 100
+
+  for numIterVal,regParamVal,stepSizeVal,regTypeVal in itertools.product(numIterValList,regParamValList,stepSizeValList,regTypeValList):
+    model = LogisticRegressionWithSGD.train(trainingData, iterations=numIterVal, regParam=regParamVal, step=stepSizeVal, regType=regTypeVal)
+    labelsAndPreds = trainingData.map(lambda p: (p.label, model.predict(p.features)))
+    trainErr = labelsAndPreds.filter(lambda (v, p): v != p).count() / float(trainingSize)
+    if trainErr<bestTrainErr:
+      bestNumIterVal = numIterVal
+      bestRegParamVal = regParamVal
+      bestStepSizeVal = stepSizeVal
+      bestRegTypeVal = regTypeVal
+      bestTrainErr = trainErr
+    print numIterVal,regParamVal,stepSizeVal,regTypeVal,trainErr
+  print bestNumIterVal,bestRegParamVal,bestStepSizeVal,bestRegTypeVal,bestTrainErr
+  {% endhighlight%} 
+
+- The performance of the best model can be computed on training and test datasets with the following code
+
+  {% highlight Python linenos %}
+  model = LogisticRegressionWithSGD.train(trainingData, iterations=bestNumIterVal, regParam=bestRegParamVal, step=bestStepSizeVal, regType=bestRegTypeVal)
+
+  # Evaluating the model on training data
+  labelsAndPreds = trainingData.map(lambda p: (p.label, model.predict(p.features)))
+  trainErr = labelsAndPreds.filter(lambda (v, p): v != p).count() / float(trainingSize)
+  print trainErr
+
+  # Evaluating the model on training data
+  labelsAndPreds = testData.map(lambda p: (p.label, model.predict(p.features)))
+  testErr = labelsAndPreds.filter(lambda (v, p): v != p).count() / float(testSize)
+  print testErr
+  {% endhighlight %}
+
+### Experimental results
+
+  - The result of parameter selection for logistic regression is shown in the following table
+
+    |Iteration|C|Learning rate|Norm|Hamming loss|
+    |:--|:--|:--|--:|
+    |100|0.01|0.1|l2|0.240232844509|
+    |100|0.01|0.1|l1|0.240344788985|
+    |100|0.01|0.5|l2|0.18246949513|
+    |100|0.01|0.5|l1|0.205306168141|
+    |100|0.01|1|l2|0.17194671443|
+    |100|0.01|1|l1|0.179782827717|
+    |100|0.1|0.1|l2|0.240232844509|
+    |100|0.1|0.1|l1|0.240344788985|
+    |100|0.1|0.5|l2|0.205306168141|
+    |100|0.1|0.5|l1|0.240344788985|
+    |100|0.1|1|l2|0.191536997649|
+    |100|0.1|1|l1|0.240344788985|
+    |100|1|0.1|l2|0.240344788985|
+    |100|1|0.1|l1|0.240344788985|
+    |100|1|0.5|l2|0.240344788985|
+    |100|1|0.5|l1|0.240344788985|
+    |100|1|1|l2|0.240344788985|
+    |100|1|1|l1|0.240344788985|
+    |100|10|0.1|l2|0.240344788985|
+    |100|10|0.1|l1|0.240344788985|
+    |100|10|0.5|l2|0.240344788985|
+    |100|10|0.5|l1|0.240344788985|
+    |100|10|1|l2|0.240344788985|
+    |100|10|1|l1|0.240344788985|
+    |100|100|0.1|l2|0.240344788985|
+    |100|100|0.1|l1|0.240344788985|
+    |100|100|0.5|l2|0.759655211015|
+    |100|100|0.5|l1|0.240344788985|
+    |100|100|1|l2|0.759655211015|
+    |100|100|1|l1|0.240344788985|
+    |200|0.01|0.1|l2|0.239785066607|
+    |200|0.01|0.1|l1|0.240232844509|
+    |200|0.01|0.5|l2|0.174857270794|
+    |200|0.01|0.5|l1|0.188850330236|
+    |200|0.01|1|l2|0.16791671331|
+    |200|0.01|1|l1|0.173625881563|
+    |200|0.1|0.1|l2|0.239785066607|
+    |200|0.1|0.1|l1|0.240344788985|
+    |200|0.1|0.5|l2|0.195678943244|
+    |200|0.1|0.5|l1|0.240344788985|
+    |200|0.1|1|l2|0.190417552894|
+    |200|0.1|1|l1|0.240344788985|
+    |200|1|0.1|l2|0.240344788985|
+    |200|1|0.1|l1|0.240344788985|
+    |200|1|0.5|l2|0.240344788985|
+    |200|1|0.5|l1|0.240344788985|
+    |200|1|1|l2|0.240344788985|
+    |200|1|1|l1|0.240344788985|
+    |200|10|0.1|l2|0.240344788985|
+    |200|10|0.1|l1|0.240344788985|
+    |200|10|0.5|l2|0.240344788985|
+    |200|10|0.5|l1|0.240344788985|
+    |200|10|1|l2|0.240344788985|
+    |200|10|1|l1|0.240344788985|
+    |200|100|0.1|l2|0.240344788985|
+    |200|100|0.1|l1|0.240344788985|
+    |200|100|0.5|l2|0.759655211015|
+    |200|100|0.5|l1|0.240344788985|
+    |200|100|1|l2|0.759655211015|
+    |200|100|1|l1|0.240344788985|
+
+  - The best parameter is shown in the following table
+
+    |Iteration|C|Learning rate|Norm|Hamming loss|
+    |:--|:--|:--|--:|
+    |200|0.01|1|l2|0.16791671331|
+
+  - Training and text error of SVM with the best parameter is shown in the following table
+
+    ||Training set|Test set|
+    |:--|--:|--:|
+    |LR|0.1660|0.1787|
+
+
