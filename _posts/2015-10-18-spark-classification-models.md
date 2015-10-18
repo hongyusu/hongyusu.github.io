@@ -33,9 +33,9 @@ tags: [Spark, classification]
 
 # Summary of results
 
-- Here I briefly present the experimental results from different classification model provided by Spark.
-- The training and test split are same for different learning models.
-- Hamming loss on training set and test set from different models are shown in the following table
+- In this section, I present an overview of results achieved by different classification model which are provided by Spark Python framework.
+- We use a same training and test split for different learning models, which in general is a 80%/20% random split.
+- The performance is measured by Hamming loss and is computed both on training set and test set, shown in the following table.
 
   ||Training set|Test set|
   |:--|--:|--:|
