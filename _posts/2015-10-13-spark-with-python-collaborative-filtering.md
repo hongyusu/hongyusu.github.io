@@ -145,17 +145,23 @@ I just try to sketch the general idea of the algorithm as in the following bulle
   ||ALS|Mean imputation|
   |:--:|:--:--:|
   |Training|0.62|1.12|
-  |Test|1.20|1.12|
-
-- It seems that we should not overfit training data :scream: :angry:
+  |Test|1.18|1.12|
 
 - If taking the second best parameter on training data, the performance on training and test sets are listed in the following table.
   
    ||ALS|Mean imputation|
    |:--:|:--:--:|
    |Training|0.62|1.12|
-   |Test|1.20|1.12|
+   |Test|1.19|1.12|
 
+- If taking the third best parameter on training data, the performance on training and test sets are listed in the following table.
+
+   ||ALS|Mean imputation|
+   |:--:|:--:--:|
+   |Training|0.62|1.12|
+   |Test|0.96|1.12|
+
+- It seems that we should not overfit training data :scream: :angry: But the question is how to select best parameter based on test data. I guess the most common way is to perform cross validation rather than the above training and test separation.
 
 
 ### 10 million ratings
