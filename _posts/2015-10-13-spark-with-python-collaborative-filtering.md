@@ -45,13 +45,6 @@ I just try to sketch the general idea of the algorithm as in the following bulle
 - When fixing $$M$$ and optimizing $$U$$, the problem is equivalent to a collection of ridge regression problems where each subproblem takes $$u_i$$ as parameter and $$R, M$$ as constance. Therefore, it can be optimized in parallel in terms of $$u_i$$.
 - In particular, the subproblem can be solve analytically as a ridge regression.
 
-# External sources
-- ["Alternating least square method for collaborative filtering"](http://bugra.github.io/work/notes/2014-04-19/alternating-least-squares-method-for-collaborative-filtering/) is an OK blog about basic knowledge of ALS and CF. The blog post also includes some running Python code. However, it is not about Spark MLlib.
-- ["Scalable Collaborative Filtering with Spark MLlib"](https://databricks.com/blog/2014/07/23/scalable-collaborative-filtering-with-spark-mllib.html) is a nice article from Databricks in which the performance of Spark MLlib is compared with Mahout. It is worth looking at the [actual code](https://github.com/databricks/als-benchmark-scripts) behind the scene.
-- This [post](http://stackoverflow.com/questions/29160046/spark-mllib-collaborative-filtering-with-new-user/33118918#33118918) from Stackoverflow confirms my intuition that ALS in Spark-MLlib does not support the predictions for unseen users/movies. Basically, this means it would be tricky to select examples (ratings) to form training and test sets.
-- [This](http://spark.apache.org/docs/latest/mllib-collaborative-filtering.html) is the original documentation of ALS in Spark.
-- [Hand on exercises](https://databricks-training.s3.amazonaws.com/movie-recommendation-with-mllib.html) about recommender system in Spark origanized by Databricks.
-
 # Spark Python code
 
 ##General information
@@ -99,8 +92,8 @@ I just try to sketch the general idea of the algorithm as in the following bulle
   |Name|Number|
   |:--|--:|
   |ratings|        1000209|
-  |training|       978241|
-  |test|           21968|
+  |**Training**|       978241|
+  |**Test**|           21968|
 
 - Parameter selections
 
@@ -144,22 +137,22 @@ I just try to sketch the general idea of the algorithm as in the following bulle
 
   ||ALS|Mean imputation|
   |:--:|:--:--:|
-  |Training|0.62|1.12|
-  |Test|1.18|1.12|
+  |**Training**|0.62|1.12|
+  |**Test**|1.18|1.12|
 
 - If taking the second best parameter on training data, the performance on training and test sets are listed in the following table.
   
    ||ALS|Mean imputation|
    |:--:|:--:--:|
-   |Training|0.62|1.12|
-   |Test|1.19|1.12|
+   |**Training**|0.62|1.12|
+   |**Test**|1.19|1.12|
 
 - If taking the third best parameter on training data, the performance on training and test sets are listed in the following table.
 
    ||ALS|Mean imputation|
    |:--:|:--:--:|
-   |Training|0.62|1.12|
-   |Test|0.96|1.12|
+   |**Training**|0.62|1.12|
+   |**Test**|0.96|1.12|
 
 - It seems that we should not overfit training data :scream: :angry: But the question is how to select best parameter based on test data. I guess the most common way is to perform cross validation rather than the above training and test separation.
 
@@ -171,8 +164,8 @@ I just try to sketch the general idea of the algorithm as in the following bulle
   |Name|Number|
   |:--|--:|
   |ratings|        10000054|
-  |training|       9786084|
-  |test|           213970|
+  |**Training**|       9786084|
+  |**Test**|           213970|
 
 - Parameter selections
 
@@ -210,8 +203,8 @@ I just try to sketch the general idea of the algorithm as in the following bulle
 
   ||ALS|Mean imputation|
   |:--:|:--|--:|
-  |Training|0.62|1.06|
-  |Test|0.98|1.06|
+  |**Training**|0.62|1.06|
+  |**Test**|0.98|1.06|
 
 - As you can see ALS actually improves the RMSE :+1: :v: 
 
@@ -338,6 +331,13 @@ print "Mean imputation:\t%.2f" % baselineRmse
 # shut down spark
 sc.stop()
 {% endhighlight %}
+
+# External sources
+- ["Alternating least square method for collaborative filtering"](http://bugra.github.io/work/notes/2014-04-19/alternating-least-squares-method-for-collaborative-filtering/) is an OK blog about basic knowledge of ALS and CF. The blog post also includes some running Python code. However, it is not about Spark MLlib.
+- ["Scalable Collaborative Filtering with Spark MLlib"](https://databricks.com/blog/2014/07/23/scalable-collaborative-filtering-with-spark-mllib.html) is a nice article from Databricks in which the performance of Spark MLlib is compared with Mahout. It is worth looking at the [actual code](https://github.com/databricks/als-benchmark-scripts) behind the scene.
+- This [post](http://stackoverflow.com/questions/29160046/spark-mllib-collaborative-filtering-with-new-user/33118918#33118918) from Stackoverflow confirms my intuition that ALS in Spark-MLlib does not support the predictions for unseen users/movies. Basically, this means it would be tricky to select examples (ratings) to form training and test sets.
+- [This](http://spark.apache.org/docs/latest/mllib-collaborative-filtering.html) is the original documentation of ALS in Spark.
+- [Hand on exercises](https://databricks-training.s3.amazonaws.com/movie-recommendation-with-mllib.html) about recommender system in Spark origanized by Databricks.
 
 
 
