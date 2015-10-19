@@ -42,7 +42,7 @@ tags: [Spark, classification]
   |SVM|0.1650|0.1575|
   |LR|0.1660|0.1787|
 
-- The result somehow demonstrates that on [a6a](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#a6a) dataset, SVM achieves better performance compared to logistic regression. However, the difference is quite small.
+- The result somehow demonstrates that on [a6a](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#a6a) dataset, SVM achieves better performance compared to logistic regression. In particular, the classification accuracy of SVM on test dataset is about 2% higher than logistic regression. 
 
 # Linear models
 
