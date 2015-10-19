@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Spark classification models"
+title: "Spark regression models"
 description: ""
 category: Programming
-tags: [Spark, classification]
+tags: [Spark, Regression]
 ---
 {% include JB/setup %}
 <script type="text/javascript"
@@ -17,56 +17,44 @@ tags: [Spark, classification]
 
 # Experimental data
 
-- Dataset used in the experiment of this post is the well-known [a6a](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#a6a) data from LibSVM website.
-- The file is in `libsvm` format which is a sparse feature representation, which can be naturally tackled/loaded by a Spark Python function.
-- In order to train a classification model and test it performance, we draw samples uniform at random from the original dataset which forms a training set with 80% examples and a test set with 20% examples.
-- The statistics of the dataset is shown in the following table
+- Dataset used in the following regression experiment is the well-known [cadata](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/cadata) data available from LibSVM website.
+- In particular, the data file is in `libsvm` format. It is a sparse feature representation which can be naturally handled/loaded by a Spark Python function.
+- In order to train a regression model and test it performance, we split the original dataset into training set and test set. More specifically, we sample 80% of examples uniformly at random to form a training set for learning a regression model, and sample 20% of the examples to form a test set which is used to test the performance of the constructed model.
+- The statistics of the dataset is shown in the following table.
 
   |Category|Size|
   |:--|--:|
-  |All|11220|
-  |Training|8977|
-  |Test|2243|
-  |Feature|123|
+  |**All**|20640|
+  |**Training**|16505|
+  |**Test**|4135|
+  |**Feature**|8|
 
-- The following Spark Python code can also be deployed on Spark with other machine learning problems/datasets given the data file in `libsvm` format. Otherwise, a loading function should be implemented. 
+- It is worth noting that the following Spark Python code can also be deployed on Spark for other machine learning problems/datasets given the data file in `libsvm` format. Otherwise, a new data loading function is needed. 
 
 # Summary of results
 
-- In this section, I present an overview of results achieved by different classification models provided by Spark Python framework.
-- We use a same training and test split for different learning models, which in general is a 80%/20% random split.
-- The performance is measured by Hamming loss and is computed both on training set and test set, shown in the following table.
+- In this section, I present an overview of results achieved by different regression models provided by Spark Python framework.
+- Same sampling strategy is used for different regression models to split the original dataset into training and test sets. In particular, we sample 80% examples to construct a training set and 20% for test set.
+- The performance of different regression models is measure in terms of rooted mean square error RMSE both on training and test sets.
+- An overview of the model performance is shown in the following table.
 
-  ||Training set|Test set|
-  |:--|--:|--:|
-  |SVM|0.1650|0.1575|
-  |LR|0.1660|0.1787|
+  ||RMSE on training set|RMST on test set|
+  |:--|:--|--:|
+  |**Least square**|0|0|
+  |**Lasso**|0|0|
+  |**Ridge regression**|0|0|
 
-- The result somehow demonstrates that on [a6a](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#a6a) dataset, SVM achieves better performance compared to logistic regression. In particular, the classification accuracy of SVM on test dataset is about 2% higher than logistic regression. 
+- The result somehow demonstrates that on [cadata](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/cadata) dataset, 
 
-# Linear models
+# Linear regression models
 
-Two classification learning methods will be discussed, support vector machines SVM and logistic regression LR. The application context is single label binary classification. They can also be applied to single label multiclass classification which however will not be covered in this blog post.
+Three linear regression models will be covered in this blog post, including linear regression, ridge regression, and lasso. The application context is single label regression problem. Regression problem is sometimes closely related to classification problems, I would recommend my [blog post](http://www.hongyusu.com/programming/2015/10/18/spark-classification-models/) about running classification model on Spark.
+
+
 
 ## Load and save data files
 
 - `loadLibSVMFile` is the function to load data file in `libsvm` format.
-- Read data file in `libsvm` format with the following command. This command will generate a spark labelPoint data structure.
-
-  {% highlight Python linenos %}
-    parsedData = MLUtils.loadLibSVMFile(sc, "../Data/a6a")
-  {% endhighlight %}
-
-- It is worth noting that if you load training and test dataset separately it is possible that the dimension of the feature in training and test sets are different due to the spark representation of `libsvm` file format. Therefore, it is better to load the whole dataset and split for training and test later on. If you have to load training and test data separately, you can set the dimension of the feature as one of the input argument of the function.
-- `saveAsLibSVMFile` is the function to save data into a file in `libsvm` format.
-
-## Support vector machine SVM ([code](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/linear_classification.py))
-
-- In general, the idea is to load a binary classification dataset in `libsvm` format from a file, separate training and test, perform parameter selection on training data, and make prediction on test data.
-- The complete Python code for running the following experiments with SVM can be found from my [GitHub](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/linear_classification.py).
-
-### Run SVM with parameter selections
-
 - The function will take the following parameters
   - data: the training data, an RDD of LabeledPoint.
   - iteration: The number of iterations (default: 100).
@@ -76,6 +64,20 @@ Two classification learning methods will be discussed, support vector machines S
   - initialWeights: The initial weights (default: None).
   - regType: l2 or l1.
 - It is better to check the document of the function because Spark changes rapidly and different versions might not tolerate each other. For example, my Spark is 1.4.1, I check the version of the function in [Spark Document](https://spark.apache.org/docs/1.4.1/api/python/pyspark.mllib.html?highlight=svmwithsgd#pyspark.mllib.classification.SVMWithSGD.train).
+- Read data file in `libsvm` format with the following command. This command will generate a spark labelPoint data structure.
+
+  {% highlight Python linenos %}
+    parsedData = MLUtils.loadLibSVMFile(sc, "../Data/a6a")
+  {% endhighlight %}
+
+- `saveAsLibSVMFile` is the function to save data into a file in `libsvm` format.
+
+## Support vector machine SVM ([code](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/linear_classification.py))
+
+- In general, the idea is to load a binary classification dataset in `libsvm` format from a file, separate training and test, perform parameter selection on training data, and make prediction on test data.
+- The complete Python code for running the following experiments with SVM can be found from my [GitHub](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/linear_classification.py).
+
+### Run SVM with parameter selections
 
 - The following code performs a parameter selection (grid search) of SVM on training data.
 
