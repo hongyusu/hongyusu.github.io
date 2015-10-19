@@ -207,16 +207,14 @@ is the L2 norm regularization of the feature weight parameter $$w$$. L2 norm reg
 
 ### Model test
 
-- Test the performance of the model in both training data and test data by the following code.
+- I use the following code to test the performance of the constructed model on both training and test set. The performance is measured by rooted mean square error RMSE.
 
   {% highlight Python linenos %}
   model = LinearRegressionWithSGD.train(trainingData, iterations=bestNumIterVal, step=bestStepSizeVal, regParam=regParamVal, regType=regTypeVal)
-
   # Evaluating the model on training data
   ValsAndPreds = trainingData.map(lambda p: (p.label, model.predict(p.features)))
   trainingRMSE = math.sqrt(ValsAndPreds.map(lambda (v, p): (v - p)**2).reduce(lambda x, y: x + y) / trainingSize)
   print trainingRMSE
-
   # Evaluating the model on training data
   ValsAndPreds = testData.map(lambda p: (p.label, model.predict(p.features)))
   testRMSE = math.sqrt(ValsAndPreds.map(lambda (v, p): (v - p)**2).reduce(lambda x, y: x + y) / testSize)
@@ -225,65 +223,38 @@ is the L2 norm regularization of the feature weight parameter $$w$$. L2 norm reg
 
 ### Experimental results for Lasso
 
-  - The result of parameter selection is shown in the following table.
+- Experimental results of parameter selection for Lasso is shown in the following table.
 
-    |Iteration|Learning rate|RMSE|
-    |:--|:--|--:|
-    |1000|1e-11|235954.448184|
-    |1000|1e-09|178563.914495|
-    |1000|1e-07|162352.994777|
-    |1000|1e-05|nan|
-    |3000|1e-11|235106.111824|
-    |3000|1e-09|169423.475736|
-    |3000|1e-07|159639.878893|
-    |3000|1e-05|nan|
-    |5000|1e-11|234527.296389|
-    |5000|1e-09|167563.04618|
-    |5000|1e-07|157863.568992|
-    |5000|1e-05|nan|
+  |Iteration|Learning rate|Regularization|RMSE|
+  |:--|:--|:---|--:|
 
-  - The best parameter setting is shown in the following table.
+- The best parameter setting is shown in the following table.
 
-    |Iteration|Learning rate|RMSE|
-    |:--|:--|--:|
-    |5000|1e-07|157863.568992|
+  |Iteration|Learning rate|Regularization|RMSE|
+  |:--|:--|:---|--:|
 
-  - Rooted mean square errors RMSE on both training and test set from linear regression model with the best parameter is shown in the following table.
+- Rooted mean square errors RMSE on both training and test sets from Lasso with the best parameters is shown in the following table.
 
-    ||Training set|Test set|
-    |:--|--:|--:|
-    |Linear regression|157863.568992 | 154816.967311|
+  ||Training set|Test set|
+  |:--|--:|--:|
+  |Linear regression|||
 
 ### Experimental results for ridge regression
 
-  - The result of parameter selection is shown in the following table.
+- Experimental results of parameter selection for ridge regression is shown in the following table.
 
-    |Iteration|Learning rate|RMSE|
-    |:--|:--|--:|
-    |1000|1e-11|235954.448184|
-    |1000|1e-09|178563.914495|
-    |1000|1e-07|162352.994777|
-    |1000|1e-05|nan|
-    |3000|1e-11|235106.111824|
-    |3000|1e-09|169423.475736|
-    |3000|1e-07|159639.878893|
-    |3000|1e-05|nan|
-    |5000|1e-11|234527.296389|
-    |5000|1e-09|167563.04618|
-    |5000|1e-07|157863.568992|
-    |5000|1e-05|nan|
+  |Iteration|Learning rate|Regularization|RMSE|
+  |:--|:--|:---|--:|
+- The best parameter setting is shown in the following table.
 
-  - The best parameter setting is shown in the following table.
+  |Iteration|Learning rate|Regularization|RMSE|
+  |:--|:--|:---|--:|
 
-    |Iteration|Learning rate|RMSE|
-    |:--|:--|--:|
-    |5000|1e-07|157863.568992|
+- Rooted mean square errors RMSE on both training and test sets from ridge regression with the best parameter is shown in the following table.
 
-  - Rooted mean square errors RMSE on both training and test set from linear regression model with the best parameter is shown in the following table.
-
-    ||Training set|Test set|
-    |:--|--:|--:|
-    |Linear regression|157863.568992 | 154816.967311|
+  ||Training set|Test set|
+  |:--|--:|--:|
+  |Linear regression|||
 
 
 
