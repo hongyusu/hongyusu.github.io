@@ -125,7 +125,7 @@ Two classification learning methods will be discussed, support vector machines S
 
 ### Experimental results
 
-  - The result of parameter selection is shown in the following table
+  - The result of parameter selection is shown in the following table.
 
     |Iteration|C|Learning rate|Norm|Hamming loss|
     |:--|:--|:--|--:|
@@ -190,13 +190,13 @@ Two classification learning methods will be discussed, support vector machines S
     |200|100|1|l2|0.762186279978|
     |200|100|1|l1|0.237813720022|
   
-  - The best parameter is shown in the following table
+  - The best parameter is shown in the following table.
 
     |Iteration|C|Learning rate|Norm|Hamming loss|
     |:--|:--|:--|--:|
     |200|0.01|1|l2|0.162744004462|
 
-  - Training and text error of SVM with the best parameter is shown in the following table
+  - Hamming loss on both training and test data from SVM with the best parameter is shown in the following table.
 
     ||Training set|Test set|
     |:--|--:|--:|
@@ -262,7 +262,7 @@ Two classification learning methods will be discussed, support vector machines S
 
 ### Experimental results
 
-  - The result of parameter selection for logistic regression is shown in the following table
+  - The result of parameter selection for logistic regression is shown in the following table.
 
     |Iteration|C|Learning rate|Norm|Hamming loss|
     |:--|:--|:--|--:|
@@ -327,13 +327,13 @@ Two classification learning methods will be discussed, support vector machines S
     |200|100|1|l2|0.759655211015|
     |200|100|1|l1|0.240344788985|
 
-  - The best parameter is shown in the following table
+  - The best parameter is shown in the following table.
 
     |Iteration|C|Learning rate|Norm|Hamming loss|
     |:--|:--|:--|--:|
     |200|0.01|1|l2|0.16791671331|
 
-  - Training and text error of SVM with the best parameter is shown in the following table
+  - Hamming loss on both training and test data from logistic regression with the best parameter is shown in the following table.
 
     ||Training set|Test set|
     |:--|--:|--:|
