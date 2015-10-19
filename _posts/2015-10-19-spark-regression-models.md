@@ -15,8 +15,9 @@ tags: [Spark, Regression]
 {:toc}
 
 
-# Experimental data
+# System and experiment settings
 
+- Spark is running on a cluster of 1 master node 14 slave nodes. Each node is a work station with 16 x E5540@2.53GHz CPUs and 32G memory.
 - Dataset used in the following regression experiment is the well-known [cadata](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/cadata) data available from LibSVM website.
 - In particular, the data file is in `libsvm` format. It is a sparse feature representation which can be naturally handled/loaded by a Spark Python function.
 - In order to train a regression model and test it performance, we split the original dataset into training set and test set. More specifically, we sample 80% of examples uniformly at random to form a training set for learning a regression model, and sample 20% of the examples to form a test set which is used to test the performance of the constructed model.
@@ -54,23 +55,14 @@ Three linear regression models will be covered in this blog post, including line
 
 ## Load and save data files
 
-- `loadLibSVMFile` is the function to load data file in `libsvm` format.
-- The function will take the following parameters
-  - data: the training data, an RDD of LabeledPoint.
-  - iteration: The number of iterations (default: 100).
-  - step: The step parameter used in SGD (default: 1.0).
-  - regParam: The regularizer parameter (default: 0.01).
-  - miniBatchFraction: Fraction of data to be used for each SGD iteration (default: 1.0).
-  - initialWeights: The initial weights (default: None).
-  - regType: l2 or l1.
-- It is better to check the document of the function because Spark changes rapidly and different versions might not tolerate each other. For example, my Spark is 1.4.1, I check the version of the function in [Spark Document](https://spark.apache.org/docs/1.4.1/api/python/pyspark.mllib.html?highlight=svmwithsgd#pyspark.mllib.classification.SVMWithSGD.train).
-- Read data file in `libsvm` format with the following command. This command will generate a spark labelPoint data structure.
+- `loadLibSVMFile` is the function to load data from file in `libsvm` format, which is a very popular file format for spark feature representation.
+- In particular, load data from file in `libsvm` format with the following command. This command will generate a Spark labelPoint data structure.
 
   {% highlight Python linenos %}
-    parsedData = MLUtils.loadLibSVMFile(sc, "../Data/a6a")
+    parsedData = MLUtils.loadLibSVMFile(sc, "../Data/cadata")
   {% endhighlight %}
 
-- `saveAsLibSVMFile` is the function to save data into a file in `libsvm` format.
+- `saveAsLibSVMFile` is the function to save data into a file in `libsvm` format which however will not be covered in this post.
 
 ## Support vector machine SVM ([code](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/linear_classification.py))
 

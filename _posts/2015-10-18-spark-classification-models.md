@@ -15,8 +15,9 @@ tags: [Spark, classification]
 {:toc}
 
 
-# Experimental data
+# System and experiment settings
 
+- Spark is running on a cluster of 1 master node 14 slave nodes. Each node is a work station with 16 x E5540@2.53GHz CPUs and 32G memory.
 - Dataset used in the experiment of this post is the well-known [a6a](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#a6a) data from LibSVM website.
 - The file is in `libsvm` format which is a sparse feature representation, which can be naturally tackled/loaded by a Spark Python function.
 - In order to train a classification model and test it performance, we draw samples uniform at random from the original dataset which forms a training set with 80% examples and a test set with 20% examples.
@@ -44,14 +45,14 @@ tags: [Spark, classification]
 
 - The result somehow demonstrates that on [a6a](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#a6a) dataset, SVM achieves better performance compared to logistic regression. In particular, the classification accuracy of SVM on test dataset is about 2% higher than logistic regression. 
 
-# Linear models
+# Linear classification models
 
 Two classification learning methods will be discussed, support vector machines SVM and logistic regression LR. The application context is single label binary classification. They can also be applied to single label multiclass classification which however will not be covered in this blog post.
 
 ## Load and save data files
 
-- `loadLibSVMFile` is the function to load data file in `libsvm` format.
-- Read data file in `libsvm` format with the following command. This command will generate a spark labelPoint data structure.
+- `loadLibSVMFile` is the function to load data from file in `libsvm` format, which is a very popular file format for spark feature representation.
+- In particular, load data from file in `libsvm` format with the following command. This command will generate a Spark labelPoint data structure.
 
   {% highlight Python linenos %}
     parsedData = MLUtils.loadLibSVMFile(sc, "../Data/a6a")
