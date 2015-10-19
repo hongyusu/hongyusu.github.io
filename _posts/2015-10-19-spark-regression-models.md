@@ -66,6 +66,7 @@ Three linear regression models will be covered in this blog post, including line
 
 - The idea is to load a single label regression dataset from file in `libsvm` format, separate the original dataset into training and test subsets, perform model training and parameter selection procedure on training set, then test the performance by predicting the value of test examples.
 - The complete Python code for running the following experiments with linear regression model can be found from my [GitHub](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/linear_regression.py).
+- It is workth noting that the learning rate parameter of stochastic gradient descent optimizaiton sometimes needs to be carefully. Otherwise, the model might not be well constructured and return NaN as prediction.
 
 ### Run linear regression model with parameter selections
 
@@ -121,17 +122,30 @@ Three linear regression models will be covered in this blog post, including line
 
     |Iteration|Learning rate|RMSE|
     |:--|:--|--:|
+    |1000|1e-11|235954.448184|
+    |1000|1e-09|178563.914495|
+    |1000|1e-07|162352.994777|
+    |1000|1e-05|nan|
+    |3000|1e-11|235106.111824|
+    |3000|1e-09|169423.475736|
+    |3000|1e-07|159639.878893|
+    |3000|1e-05|nan|
+    |5000|1e-11|234527.296389|
+    |5000|1e-09|167563.04618|
+    |5000|1e-07|157863.568992|
+    |5000|1e-05|nan|
   
   - The best parameter setting is shown in the following table.
 
     |Iteration|Learning rate|RMSE|
     |:--|:--|--:|
+    |5000|1e-07|157863.568992|
 
   - Rooted mean square errors RMSE on both training and test set from linear regression model with the best parameter is shown in the following table.
 
     ||Training set|Test set|
     |:--|--:|--:|
-    |Linear regression|0.1650|0.1575|
+    |Linear regression|157863.568992 | 154816.967311|
 
 
 
