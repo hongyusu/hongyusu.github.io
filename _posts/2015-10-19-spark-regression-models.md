@@ -18,6 +18,7 @@ tags: [Spark, Regression]
 # System and experiment settings
 
 - Spark is running on a cluster of 1 master node 14 slave nodes. Each node is a work station with 16 x E5540@2.53GHz CPU and 32G memory.
+- In this blog post, three linear regression models will be presented, including least square regression, lasso regression, and logistic regression. As a comparison, I have a post about [Spark classification models](http://www.hongyusu.com/programming/2015/10/18/spark-classification-models/).
 - Dataset used in the following regression experiment is the well-known [cadata](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/cadata) data available from LibSVM website.
 - In particular, the data file is in `libsvm` format. It is a sparse feature representation which can be naturally handled/loaded by a Spark Python function.
 - In order to train a regression model and test it performance, we split the original dataset into training set and test set. More specifically, we sample 80% of examples uniformly at random to form a training set for learning a regression model, and sample 20% of the examples to form a test set which is used to test the performance of the constructed model.
@@ -350,6 +351,26 @@ is the L2 norm regularization of the feature weight parameter $$w$$. L2 norm reg
   |3000|1e-05|1|nan|
   |3000|1e-05|10|nan|
   |3000|1e-05|100|nan|
+  |5000|1e-11|0.01|234766.331363|
+  |5000|1e-11|0.1|234766.331363|
+  |5000|1e-11|1|234766.331365|
+  |5000|1e-11|10|234766.331381|
+  |5000|1e-11|100|234766.331543|
+  |5000|1e-09|0.01|167529.159798|
+  |5000|1e-09|0.1|167529.159869|
+  |5000|1e-09|1|167529.160586|
+  |5000|1e-09|10|167529.167747|
+  |5000|1e-09|100|167529.239367|
+  |5000|1e-07|0.01|157841.277025|
+  |5000|1e-07|0.1|157841.281988|
+  |5000|1e-07|1|157841.331623|
+  |5000|1e-07|10|157841.827952|
+  |5000|1e-07|100|157846.789126|
+  |5000|1e-05|0.01|nan|
+  |5000|1e-05|0.1|nan|
+  |5000|1e-05|1|nan|
+  |5000|1e-05|10|nan|
+  |5000|1e-05|100|nan|
 
 - The best parameter setting is shown in the following table.
 
