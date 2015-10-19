@@ -17,7 +17,7 @@ tags: [Spark, classification]
 
 # System and experiment settings
 
-- Spark is running on a cluster of 1 master node 14 slave nodes. Each node is a work station with 16 x E5540@2.53GHz CPUs and 32G memory.
+- Spark is running on a cluster of 1 master node 14 slave nodes. Each node is a work station with 16 x E5540@2.53GHz CPU and 32G memory.
 - Dataset used in the experiment of this post is the well-known [a6a](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#a6a) data from LibSVM website.
 - The file is in `libsvm` format which is a sparse feature representation, which can be naturally tackled/loaded by a Spark Python function.
 - In order to train a classification model and test it performance, we draw samples uniform at random from the original dataset which forms a training set with 80% examples and a test set with 20% examples.
