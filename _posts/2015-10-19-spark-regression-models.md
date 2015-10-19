@@ -44,9 +44,9 @@ tags: [Spark, Regression]
   |:--|:--|--:|
   |**Least square**|157863.57 | 154816.97|
   |**Lasso**|157841.41|155106.52|
-  |**Ridge regression**|0|0|
+  |**Ridge regression**|157846.79|155111.65|
 
-- The result somehow demonstrates that on [cadata](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/cadata) dataset, 
+- The result somehow demonstrates that on [cadata](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/cadata) dataset, ridge regression and Lasso achieves bettern RMSE on training set compared to least square regression. However, least square has better performance on test set. 
 
 # Linear regression models
 
@@ -376,14 +376,13 @@ is the L2 norm regularization of the feature weight parameter $$w$$. L2 norm reg
 
   |Iteration|Learning rate|Regularization|RMSE|
   |:--|:--|:---|--:|
-
-
+  |5000|1e-07|0.01|157841.277025|
 
 - Rooted mean square errors RMSE on both training and test sets from ridge regression with the best parameter is shown in the following table.
 
   ||Training set|Test set|
   |:--|--:|--:|
-  |**Ridge regression**|||
+  |**Ridge regression**|157846.789126|155111.648864|
 
 # External reading materials
 
