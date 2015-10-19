@@ -388,6 +388,9 @@ is the L2 norm regularization of the feature weight parameter $$w$$. L2 norm reg
   |:--|--:|--:|
   |**Ridge regression**|157846.789126|155111.648864|
 
+## Big data?
+
+
 # External reading materials
 
 - Alex Smola has a very concise blog post about parallel optimization using stochastic gradient descent with title '[Parallel stochastic gradient descent](http://blog.smola.org/post/977927287/parallel-stochastic-gradient-descent)' :thumbsup:
