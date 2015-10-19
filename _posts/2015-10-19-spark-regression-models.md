@@ -41,7 +41,7 @@ tags: [Spark, Regression]
 
   ||RMSE on training set|RMST on test set|
   |:--|:--|--:|
-  |**Least square**|0|0|
+  |**Least square**|157863.57 | 154816.97|
   |**Lasso**|0|0|
   |**Ridge regression**|0|0|
 
