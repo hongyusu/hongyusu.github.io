@@ -64,7 +64,12 @@ Three linear regression models will be covered in this blog post, including line
 
 ## Least square ([code](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/linear_regression.py))
 
-- The idea is to load a single label regression dataset from file in `libsvm` format, separate the original dataset into training and test subsets, perform model training and parameter selection procedure on training set, then test the performance by predicting the value of test examples.
+- Least square is a linear model which fit a linear function to training data while minimizing the so called mean square error MSE. 
+- The optimization problem of least square is shown as the follow
+
+  $$\underset{w}{\min}\, \frac{1}{n}\sum_{i}(y_i-w^Tx_i)^2$$
+
+- The idea of the following Python script is to load a single label regression dataset from file in `libsvm` format, separate the original dataset into training and test subsets, perform model training and parameter selection procedure on training set, then test the performance by predicting the value of test examples.
 - The complete Python code for running the following experiments with linear regression model can be found from my [GitHub](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/linear_regression.py).
 - It is workth noting that the learning rate parameter of stochastic gradient descent optimizaiton sometimes needs to be carefully. Otherwise, the model might not be well constructured and return NaN as prediction.
 
@@ -153,16 +158,16 @@ Three linear regression models will be covered in this blog post, including line
 - Lasso is similar as least square regression but with L1 norm regularization.
 - In particular, the optimization problem of Lasso is shown as the follows
 
-  $$\underset{w}{\min}\, \sum_{i}(y_i-w^Tx_i)^2  + \frac{\lambda}{2}||w||_1^2,$$
+  $$\underset{w}{\min}\, \frac{1}{n}\sum_{i}(y_i-w^Tx_i)^2  + \frac{\lambda}{2}||w||_1^2,$$
 
   where
 $$||w||_1$$
 is the L1 norm regularization of the feature weight parameter $$w$$. L1 norm regularization will enforce a sparse solution of the feature weight parameter $$w$$.
 
 - Ridge regression is also similar as least square regression but with L2 norm regularization.
-- In particular, the optimization problem of Lasso is shown as the follows
+- In particular, the optimization problem of ridge regression is shown as the follows
 
-  $$\underset{w}{\min}\, \sum_{i}(y_i-w^Tx_i)^2  + \frac{\lambda}{2}||w||_2^2,$$
+  $$\underset{w}{\min}\, \frac{1}{n}\sum_{i}(y_i-w^Tx_i)^2  + \frac{\lambda}{2}||w||_2^2,$$
 
   where 
 $$||w||_2$$
