@@ -54,7 +54,7 @@ tags: [Spark, Regression]
 
 # Linear regression models
 
-Three linear regression models will be covered in this blog post, including linear regression, ridge regression, and lasso. The application context is single label regression problem. Regression problem is sometimes closely related to classification problems, I would recommend my [blog post](http://www.hongyusu.com/programming/2015/10/18/spark-classification-models/) about running classification model on Spark.
+Three linear regression models will be covered in this blog post, including least square, ridge regression, and lasso. The application context is single label regression problem. Regression problem is sometimes closely related to classification problems, I would recommend my [blog post](http://www.hongyusu.com/programming/2015/10/18/spark-classification-models/) about running classification model on Spark.
 
 ## Load and save data files
 
@@ -75,12 +75,12 @@ Three linear regression models will be covered in this blog post, including line
   $$\underset{w}{\min}\, \frac{1}{n}\sum_{i}(y_i-w^Tx_i)^2$$
 
 - The idea of the following Python script is to load a single label regression dataset from file in `libsvm` format, separate the original dataset into training and test subsets, perform model training and parameter selection procedure on training set, then test the performance by predicting the value of test examples.
-- The complete Python code for running the following experiments with linear regression model can be found from my [GitHub](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/linear_regression.py).
+- The complete Python code for running the following experiments with least square can be found from my [GitHub](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/linear_regression.py).
 - It is workth noting that the learning rate parameter of stochastic gradient descent optimizaiton sometimes needs to be carefully. Otherwise, the model might not be well constructured and return NaN as prediction.
 
-### Run linear regression model with parameter selections
+### Run least square with parameter selections
 
-- The following code performs a parameter selection (grid search) of linear regression model on training data.
+- The following code performs a parameter selection (grid search) of least square on training data.
 
   {% highlight Python linenos %}
   # train a lr model
@@ -151,11 +151,11 @@ Three linear regression models will be covered in this blog post, including line
     |:--|:--|--:|
     |5000|1e-07|157863.568992|
 
-  - Rooted mean square errors RMSE on both training and test set from linear regression model with the best parameter is shown in the following table.
+  - Rooted mean square errors RMSE on both training and test set from least square with the best parameter is shown in the following table.
 
     ||Training set|Test set|
     |:--|--:|--:|
-    |Linear regression|157863.568992 | 154816.967311|
+    |**Least square**|157863.568992 | 154816.967311|
 
 
 ## Lasso and ridge regression([code](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/linear_regression.py))
