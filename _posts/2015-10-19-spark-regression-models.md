@@ -393,6 +393,7 @@ is the L2 norm regularization of the feature weight parameter $$w$$. L2 norm reg
 
 # External reading materials
 
+- Documentation about Spark MLlib can be found from [Spark official page](http://spark.apache.org/docs/latest/mllib-linear-methods.html).
 - Alex Smola has a very concise blog post about parallel optimization using stochastic gradient descent with title '[Parallel stochastic gradient descent](http://blog.smola.org/post/977927287/parallel-stochastic-gradient-descent)' :thumbsup:
 - NIPS paper '[Slow learners are fast](http://papers.nips.cc/paper/3888-slow-learners-are-fast.pdf)' from John Langford and coauthors is about SGD for multicore in online learning context.
 - NIPS paper '[Parallelized stochastic gradient descent](http://martin.zinkevich.org/publications/nips2010.pdf)' from martin Zinkevich is about minibatch multicore SGD. Basically, it is the one used in Spark. 
