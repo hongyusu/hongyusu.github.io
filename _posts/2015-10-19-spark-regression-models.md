@@ -237,7 +237,7 @@ is the L2 norm regularization of the feature weight parameter $$w$$. L2 norm reg
 
   ||Training set|Test set|
   |:--|--:|--:|
-  |Linear regression|||
+  |Lasso|||
 
 ### Experimental results for ridge regression
 
@@ -254,7 +254,7 @@ is the L2 norm regularization of the feature weight parameter $$w$$. L2 norm reg
 
   ||Training set|Test set|
   |:--|--:|--:|
-  |Linear regression|||
+  |Ridge regression|||
 
 
 
