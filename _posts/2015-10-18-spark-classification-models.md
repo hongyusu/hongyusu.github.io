@@ -17,7 +17,7 @@ tags: [Spark, classification]
 
 # Experimental data
 
-- Dataset used in the experiment of this post is the well-known [a6a](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#a6a) from LibSVM website.
+- Dataset used in the experiment of this post is the well-known [a6a](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#a6a) data from LibSVM website.
 - The file is in `libsvm` format which is a sparse feature representation, which can be naturally tackled/loaded by a Spark Python function.
 - In order to train a classification model and test it performance, we draw samples uniform at random from the original dataset which forms a training set with 80% examples and a test set with 20% examples.
 - The statistics of the dataset is shown in the following table
@@ -33,7 +33,7 @@ tags: [Spark, classification]
 
 # Summary of results
 
-- In this section, I present an overview of results achieved by different classification model which are provided by Spark Python framework.
+- In this section, I present an overview of results achieved by different classification models provided by Spark Python framework.
 - We use a same training and test split for different learning models, which in general is a 80%/20% random split.
 - The performance is measured by Hamming loss and is computed both on training set and test set, shown in the following table.
 
@@ -45,6 +45,8 @@ tags: [Spark, classification]
 - The result somehow demonstrates that on [a6a](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#a6a) dataset, SVM achieves better performance compared to logistic regression. In particular, the classification accuracy of SVM on test dataset is about 2% higher than logistic regression. 
 
 # Linear models
+
+Two classification learning methods will be discussed, support vector machines SVM and logistic regression LR. The application context is single label binary classification. They can also be applied to single label multiclass classification which however will not be covered in this blog post.
 
 ## Load and save data files
 
@@ -71,7 +73,7 @@ tags: [Spark, classification]
 - In general, the idea is to load a binary classification dataset in `libsvm` format from a file, separate training and test, perform parameter selection on training data, and make prediction on test data.
 - The complete Python code for running the following experiments with SVM can be found from my [GitHub](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/linear_classification.py).
 
-### Running SVM with parameter selections
+### Run SVM with parameter selections
 
 - The following code performs a parameter selection (grid search) of SVM on training data.
 
