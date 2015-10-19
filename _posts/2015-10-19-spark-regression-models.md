@@ -46,7 +46,11 @@ tags: [Spark, Regression]
   |**Lasso**|157841.41|155106.52|
   |**Ridge regression**|157846.79|155111.65|
 
-- The result somehow demonstrates that on [cadata](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/cadata) dataset, ridge regression and Lasso achieves bettern RMSE on training set compared to least square regression. However, least square has better performance on test set. 
+- The result somehow demonstrates that on [cadata](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/cadata) dataset, ridge regression and Lasso achieves bettern RMSE on training set compared to least square regression. However, least square has better performance on test set.
+- This might be a bit counter intuitive as these three models optimize the same RMSE on training data. The only difference is that they use different regularization terms. Lease square which does not use any regularization terms should fit training data better while perform worse in test data. Lasso with L1 regularization and ridge regression with L2 regularization should essentially perform better on test data. The reason might be
+  - With large amount of training examples (16000) and small feature set (8) there is no need for regularization.
+  - Three models might not converge to same extend.  
+  - The difference in performance might essentially be very small.
 
 # Linear regression models
 
