@@ -56,13 +56,16 @@ tags: [Spark, EC2, Amazon]
   export AWS_ACCESS_KEY_ID=AKIAJM23WTPOCUOHQ2XA
   {% endhighlight %}
 
-- Launch an EC2 Spark cluster with the following command. This might take a few minutes. After lots of log information, you will be notified that the cluster is successfully initialized and running. You can also get the HTTP address of the web monitor of the cluster. Pay attention that `EC2_1` is the name of your cluster and `--identity-file` is the paired key file which is just downloaded.
+- Launch an EC2 Spark cluster with the following command which will initialize a cluster with 10 slaves and 1 master.
+- The command will take a few minutes. After many log messages, you will find out that the cluster is successfully initialized and running. 
 
   {% highlight Bash linenos %}
-  ./spark-ec2 --key-pair=SparkEC2Key --identity-file=SparkEC2Key.pem --region=eu-west-1 launch EC2_1
+  ./spark-ec2 --key-pair=SparkEC2Key --identity-file=SparkEC2Key.pem --region=eu-west-1 --worker-instances=10 launch EC2_1
   {% endhighlight%}
 
-- Open a browser, go to the web monitor via the following HTTP address, and check the status of the EC2 cluster. Again, in my case the address is `http://ec2-54-186-122-87.us-west-2.compute.amazonaws.com:8080`.
+- You can also get the HTTP address of the web monitor of the cluster. Pay attention that `EC2_1` is the name of your cluster and `--identity-file` is the paired key file which is just downloaded.
+
+- Open a browser, go to the web monitor via the following HTTP address, and check the status of the EC2 cluster. Again, in my case the address is `http://ec2-54-186-122-87.us-west-2.compute.amazonaws.com:8080`. From this browser of the master node, you will see e.g., how many slaves have been created.
 
 - Login to the created cluster with the following command. After login, you will see that Spark is preinstalled in your directory.
 
@@ -80,6 +83,12 @@ tags: [Spark, EC2, Amazon]
 
 {% highlight Bash linenos %}
 ./spark-ec2 --key-pair=SparkEC2Key --identity-file=SparkEC2Key.pem --region=eu-west-1 start EC2_1
+{% endhighlight%}
+
+- After the cluster is stopped it can be terminated with following command
+
+{% highlight Bash linenos %}
+./spark-ec2 --key-pair=SparkEC2Key --identity-file=SparkEC2Key.pem --region=eu-west-1 destroy EC2_1
 {% endhighlight%}
 
 
