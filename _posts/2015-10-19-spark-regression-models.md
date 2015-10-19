@@ -388,7 +388,7 @@ is the L2 norm regularization of the feature weight parameter $$w$$. L2 norm reg
   |:--|--:|--:|
   |**Ridge regression**|157846.789126|155111.648864|
 
-## Big data?
+# Big data?
 
 
 # External reading materials
