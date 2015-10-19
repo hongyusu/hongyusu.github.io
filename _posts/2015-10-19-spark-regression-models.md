@@ -62,7 +62,7 @@ Three linear regression models will be covered in this blog post, including line
 
 - `saveAsLibSVMFile` is the function to save data into a file in `libsvm` format which however will not be covered in this post.
 
-## Linear regression model ([code](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/linear_regression.py))
+## Least square ([code](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/linear_regression.py))
 
 - The idea is to load a single label regression dataset from file in `libsvm` format, separate the original dataset into training and test subsets, perform model training and parameter selection procedure on training set, then test the performance by predicting the value of test examples.
 - The complete Python code for running the following experiments with linear regression model can be found from my [GitHub](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/linear_regression.py).
@@ -146,6 +146,140 @@ Three linear regression models will be covered in this blog post, including line
     ||Training set|Test set|
     |:--|--:|--:|
     |Linear regression|157863.568992 | 154816.967311|
+
+
+## Lasso and ridge regression([code](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/linear_regression.py))
+
+- Lasso is similar as least square regression but with L1 norm regularization.
+- In particular, the optimization problem of Lasso is shown as the follows
+
+  $$\underset{w}{\min}\, \sum_{i}(y_i-w^Tx_i)^2  + \frac{\lambda}{2}||w||_1^2,$$
+
+  where
+$$||w||_1$$
+is the L1 norm regularization of the feature weight parameter $$w$$. L1 norm regularization will enforce a sparse solution of the feature weight parameter $$w$$.
+
+- Ridge regression is also similar as least square regression but with L2 norm regularization.
+- In particular, the optimization problem of Lasso is shown as the follows
+
+  $$\underset{w}{\min}\, \sum_{i}(y_i-w^Tx_i)^2  + \frac{\lambda}{2}||w||_2^2,$$
+
+  where 
+$$||w||_2$$
+is the L2 norm regularization of the feature weight parameter $$w$$. L2 norm regularization will lead to a smooth solution of the feature weight parameter $$w$$.
+- The following sections describe a Python code for Lasso and ridge regression implemented with function `LinearRegressionWithSGD` switching `regType` parameter. Meanwhile, there is another function `LassoWithSGD` available in Spark.
+
+### Run Lasso/Ridge with parameter selections
+
+- The following code performs a parameter selection (grid search) of Lasso on training data.
+
+  {% highlight Python linenos %}
+  # train a lr model
+  numIterValList = [1000,3000,5000]
+  stepSizeValList = [1e-11,1e-9,1e-7,1e-5]
+  regParamValList = [0.01,0.1,1,10,100]
+
+  # variable for the best parameters
+  bestNumIterVal = 200
+  bestStepSizeVal = 1
+  bestTrainingRMSE = 1e10 
+  bestRegParamVal = 0.0
+
+  regTypeVal = 'l1'
+
+  for numIterVal,stepSizeVal,regParamVal in itertools.product(numIterValList,stepSizeValList,regParamValList):
+    model = LinearRegressionWithSGD.train(trainingData, iterations=numIterVal, step=stepSizeVal, regParam=regParamVal, regType=regTypeVal)
+    ValsAndPreds = trainingData.map(lambda p: (p.label, model.predict(p.features)))
+    trainingRMSE = math.sqrt(ValsAndPreds.map(lambda (v, p): (v - p)**2).reduce(lambda x, y: x + y) / trainingSize)
+    if trainingRMSE:
+      if trainingRMSE<bestTrainingRMSE:
+        bestNumIterVal = numIterVal
+        bestStepSizeVal = stepSizeVal
+        bestTrainingRMSE = trainingRMSE
+    print numIterVal,stepSizeVal,trainingRMSE
+  print bestNumIterVal,bestStepSizeVal,bestTrainingRMSE
+  {% endhighlight %}
+
+### Model test
+
+- Test the performance of the model in both training data and test data by the following code.
+
+  {% highlight Python linenos %}
+  model = LinearRegressionWithSGD.train(trainingData, iterations=bestNumIterVal, step=bestStepSizeVal, regParam=regParamVal, regType=regTypeVal)
+
+  # Evaluating the model on training data
+  ValsAndPreds = trainingData.map(lambda p: (p.label, model.predict(p.features)))
+  trainingRMSE = math.sqrt(ValsAndPreds.map(lambda (v, p): (v - p)**2).reduce(lambda x, y: x + y) / trainingSize)
+  print trainingRMSE
+
+  # Evaluating the model on training data
+  ValsAndPreds = testData.map(lambda p: (p.label, model.predict(p.features)))
+  testRMSE = math.sqrt(ValsAndPreds.map(lambda (v, p): (v - p)**2).reduce(lambda x, y: x + y) / testSize)
+  print testRMSE
+  {% endhighlight %}
+
+### Experimental results for Lasso
+
+  - The result of parameter selection is shown in the following table.
+
+    |Iteration|Learning rate|RMSE|
+    |:--|:--|--:|
+    |1000|1e-11|235954.448184|
+    |1000|1e-09|178563.914495|
+    |1000|1e-07|162352.994777|
+    |1000|1e-05|nan|
+    |3000|1e-11|235106.111824|
+    |3000|1e-09|169423.475736|
+    |3000|1e-07|159639.878893|
+    |3000|1e-05|nan|
+    |5000|1e-11|234527.296389|
+    |5000|1e-09|167563.04618|
+    |5000|1e-07|157863.568992|
+    |5000|1e-05|nan|
+
+  - The best parameter setting is shown in the following table.
+
+    |Iteration|Learning rate|RMSE|
+    |:--|:--|--:|
+    |5000|1e-07|157863.568992|
+
+  - Rooted mean square errors RMSE on both training and test set from linear regression model with the best parameter is shown in the following table.
+
+    ||Training set|Test set|
+    |:--|--:|--:|
+    |Linear regression|157863.568992 | 154816.967311|
+
+### Experimental results for ridge regression
+
+  - The result of parameter selection is shown in the following table.
+
+    |Iteration|Learning rate|RMSE|
+    |:--|:--|--:|
+    |1000|1e-11|235954.448184|
+    |1000|1e-09|178563.914495|
+    |1000|1e-07|162352.994777|
+    |1000|1e-05|nan|
+    |3000|1e-11|235106.111824|
+    |3000|1e-09|169423.475736|
+    |3000|1e-07|159639.878893|
+    |3000|1e-05|nan|
+    |5000|1e-11|234527.296389|
+    |5000|1e-09|167563.04618|
+    |5000|1e-07|157863.568992|
+    |5000|1e-05|nan|
+
+  - The best parameter setting is shown in the following table.
+
+    |Iteration|Learning rate|RMSE|
+    |:--|:--|--:|
+    |5000|1e-07|157863.568992|
+
+  - Rooted mean square errors RMSE on both training and test set from linear regression model with the best parameter is shown in the following table.
+
+    ||Training set|Test set|
+    |:--|--:|--:|
+    |Linear regression|157863.568992 | 154816.967311|
+
 
 
 
