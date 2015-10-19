@@ -42,7 +42,7 @@ tags: [Spark, Regression]
   ||RMSE on training set|RMST on test set|
   |:--|:--|--:|
   |**Least square**|157863.57 | 154816.97|
-  |**Lasso**|0|0|
+  |**Lasso**|157841.41|155106.52|
   |**Ridge regression**|0|0|
 
 - The result somehow demonstrates that on [cadata](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/cadata) dataset, 
@@ -227,17 +227,82 @@ is the L2 norm regularization of the feature weight parameter $$w$$. L2 norm reg
 
   |Iteration|Learning rate|Regularization|RMSE|
   |:--|:--|:---|--:|
+  |1000|1e-11|0.01|236203.490014|
+  |1000|1e-11|0.1|236203.490014|
+  |1000|1e-11|1|236203.490017|
+  |1000|1e-11|10|236203.490043|
+  |1000|1e-11|100|236203.490306|
+  |1000|1e-09|0.01|178516.068253|
+  |1000|1e-09|0.1|178516.068262|
+  |1000|1e-09|1|178516.068352|
+  |1000|1e-09|10|178516.069244|
+  |1000|1e-09|100|178516.07817|
+  |1000|1e-07|0.01|162300.327801|
+  |1000|1e-07|0.1|162300.327855|
+  |1000|1e-07|1|162300.328397|
+  |1000|1e-07|10|162300.333816|
+  |1000|1e-07|100|162300.388008|
+  |1000|1e-05|0.01|nan|
+  |1000|1e-05|0.1|nan|
+  |1000|1e-05|1|nan|
+  |1000|1e-05|10|nan|
+  |1000|1e-05|100|nan|
+  |3000|1e-11|0.01|235349.196217|
+  |3000|1e-11|0.1|235349.196218|
+  |3000|1e-11|1|235349.196222|
+  |3000|1e-11|10|235349.196268|
+  |3000|1e-11|100|235349.196724|
+  |3000|1e-09|0.01|169380.476224|
+  |3000|1e-09|0.1|169380.476231|
+  |3000|1e-09|1|169380.476296|
+  |3000|1e-09|10|169380.476946|
+  |3000|1e-09|100|169380.483446|
+  |3000|1e-07|0.01|159605.030202|
+  |3000|1e-07|0.1|159605.030294|
+  |3000|1e-07|1|159605.031219|
+  |3000|1e-07|10|159605.040461|
+  |3000|1e-07|100|159605.132881|
+  |3000|1e-05|0.01|nan|
+  |3000|1e-05|0.1|nan|
+  |3000|1e-05|1|nan|
+  |3000|1e-05|10|nan|
+  |3000|1e-05|100|nan|
+  |5000|1e-11|0.01|234766.331363|
+  |5000|1e-11|0.1|234766.331364|
+  |5000|1e-11|1|234766.331369|
+  |5000|1e-11|10|234766.331428|
+  |5000|1e-11|100|234766.332016|
+  |5000|1e-09|0.01|167529.15979|
+  |5000|1e-09|0.1|167529.159795|
+  |5000|1e-09|1|167529.159844|
+  |5000|1e-09|10|167529.160328|
+  |5000|1e-09|100|167529.165176|
+  |5000|1e-07|0.01|157841.276486|
+  |5000|1e-07|0.1|157841.276602|
+  |5000|1e-07|1|157841.277759|
+  |5000|1e-07|10|157841.289332|
+  |5000|1e-07|100|157841.405059|
+  |5000|1e-05|0.01|nan|
+  |5000|1e-05|0.1|nan|
+  |5000|1e-05|1|nan|
+  |5000|1e-05|10|nan|
+  |5000|1e-05|100|nan|
+
+  `nan` is in the situation that we have a poor model due to the step size of SGD.
+
+- It seems that learning rate parameter plays an important role in the performance of the model. When fix the learning rate, regularization parameter $$\lambda$$ slighly effects the performance of the model.
 
 - The best parameter setting is shown in the following table.
 
   |Iteration|Learning rate|Regularization|RMSE|
   |:--|:--|:---|--:|
+  |5000|1e-07|0.01|157841.276486|
 
 - Rooted mean square errors RMSE on both training and test sets from Lasso with the best parameters is shown in the following table.
 
   ||Training set|Test set|
   |:--|--:|--:|
-  |Lasso|||
+  |**Lasso**|157841.405059|155106.51828|
 
 ### Experimental results for ridge regression
 
@@ -245,17 +310,65 @@ is the L2 norm regularization of the feature weight parameter $$w$$. L2 norm reg
 
   |Iteration|Learning rate|Regularization|RMSE|
   |:--|:--|:---|--:|
+  |1000|1e-11|0.01|236203.490014|
+  |1000|1e-11|0.1|236203.490014|
+  |1000|1e-11|1|236203.490014|
+  |1000|1e-11|10|236203.490017|
+  |1000|1e-11|100|236203.490049|
+  |1000|1e-09|0.01|178516.068262|
+  |1000|1e-09|0.1|178516.068351|
+  |1000|1e-09|1|178516.069235|
+  |1000|1e-09|10|178516.078079|
+  |1000|1e-09|100|178516.166519|
+  |1000|1e-07|0.01|162300.327913|
+  |1000|1e-07|0.1|162300.328979|
+  |1000|1e-07|1|162300.339636|
+  |1000|1e-07|10|162300.44621|
+  |1000|1e-07|100|162301.51175|
+  |1000|1e-05|0.01|nan|
+  |1000|1e-05|0.1|nan|
+  |1000|1e-05|1|nan|
+  |1000|1e-05|10|nan|
+  |1000|1e-05|100|nan|
+  |3000|1e-11|0.01|235349.196217|
+  |3000|1e-11|0.1|235349.196217|
+  |3000|1e-11|1|235349.196218|
+  |3000|1e-11|10|235349.196228|
+  |3000|1e-11|100|235349.196325|
+  |3000|1e-09|0.01|169380.476234|
+  |3000|1e-09|0.1|169380.476324|
+  |3000|1e-09|1|169380.477232|
+  |3000|1e-09|10|169380.486313|
+  |3000|1e-09|100|169380.577123|
+  |3000|1e-07|0.01|159605.030531|
+  |3000|1e-07|0.1|159605.033588|
+  |3000|1e-07|1|159605.064158|
+  |3000|1e-07|10|159605.369845|
+  |3000|1e-07|100|159608.425707|
+  |3000|1e-05|0.01|nan|
+  |3000|1e-05|0.1|nan|
+  |3000|1e-05|1|nan|
+  |3000|1e-05|10|nan|
+  |3000|1e-05|100|nan|
+
 - The best parameter setting is shown in the following table.
 
   |Iteration|Learning rate|Regularization|RMSE|
   |:--|:--|:---|--:|
 
+
+
 - Rooted mean square errors RMSE on both training and test sets from ridge regression with the best parameter is shown in the following table.
 
   ||Training set|Test set|
   |:--|--:|--:|
-  |Ridge regression|||
+  |**Ridge regression**|||
 
+# External reading materials
+
+- Alex Smola has a very concise blog post about parallel optimization using stochastic gradient descent with title '[Parallel stochastic gradient descent](http://blog.smola.org/post/977927287/parallel-stochastic-gradient-descent)' :thumbsup:
+- NIPS paper '[Slow learners are fast](http://papers.nips.cc/paper/3888-slow-learners-are-fast.pdf)' from John Langford and coauthors is about SGD for multicore in online learning context.
+- NIPS paper '[Parallelized stochastic gradient descent](http://martin.zinkevich.org/publications/nips2010.pdf' from martin Zinkevich is about minibatch multicore SGD. Basically, it is the one used in Spark. 
 
 
 
