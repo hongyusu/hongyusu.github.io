@@ -484,6 +484,83 @@ is the L2 norm regularization of the feature weight parameter $$w$$. L2 norm reg
   print testRMSE
   {% endhighlight %}
 
+# Random forest regressor ([code](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/linear_regression.py))
+
+## Experimental results
+
+### YearPredictionMSD dataset [download](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/YearPredictionMSD.bz6)
+
+- results of parameter selection for decision tree regressor is shown in the following table.
+
+  |maxdepth|maxbins|rmse|
+  |:--|:--|--:|
+
+- Performance of decision tree regressor with best parameter on training and test sets
+
+  |maxDepth|maxBins|Training RMSE|test RMSE|
+  |:--|:--|:--|--:|
+
+### cadata dataset [download](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/cadata)
+
+- results of parameter selection for random forest regressor is shown in the following table.
+
+  |maxdepth|maxbins|rmse|
+  |:--|:--|:--|--:|
+
+- Performance of random forest regressor with best parameter on training and test sets
+
+  |maxDepth|maxBins|Training RMSE|test RMSE|
+  |:--|:--|:--|--:|
+
+## Coding details
+
+- The Python function for training a random forest regressor is shown in the following code block. The complete Python script can be found from [my GitHub page](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/linear_regression.py).
+
+  {% highlight Python Linenos %}
+  def randomForestRegression(trainingData,testData,trainingSize,testSize):
+  '''
+  random forest for regression
+  '''
+  # parameter range
+  maxDepthValList = [10,20,30]
+  maxBinsValList = [16,24,32]
+  numTreesValList = [10,30,50]
+
+  # best parameters
+  bestMaxDepthVal = 10
+  bestMaxBinsVal = 16
+  bestNumTreesVal = 10
+  bestTrainingRMSE = 1e10
+
+  for maxDepthVal,maxBinsVal,numTreesVal in itertools.product(maxDepthValList,maxBinsValList,numTreesValList):
+    model = RandomForest.trainRegressor(trainingData,categoricalFeaturesInfo={},numTrees=numTreesVal,featureSubsetStrategy="auto",impurity='variance',maxDepth=maxDepthVal,maxBins=maxBinsVal)
+    predictions = model.predict(trainingData.map(lambda x:x.features))
+    ValsAndPreds = trainingData.map(lambda x:x.label).zip(predictions)
+    trainingRMSE = math.sqrt(ValsAndPreds.map(lambda (v, p): (v - p)**2).reduce(lambda x, y: x + y) / trainingSize)
+    if trainingRMSE:
+      if trainingRMSE<bestTrainingRMSE:
+        bestMaxDepthVal = maxDepthVal
+        bestMaxBinsVal = maxBinsVal
+        bestNumTreesVal = numTreesVal
+        bestTrainingRMSE = trainingRMSE
+    print maxDepthVal, maxBinsVal, numTreesVal, trainingRMSE
+  print bestMaxDepthVal,bestMaxBinsVal, bestNumTreesVal, bestTrainingRMSE
+
+  model = RandomForest.trainRegressor(trainingData,categoricalFeaturesInfo={},numTrees=bestNumTreesVal,featureSubsetStrategy="auto",impurity='variance',maxDepth=bestMaxDepthVal,maxBins=bestMaxBinsVal)
+
+  # evaluating the model on training data
+  predictions = model.predict(trainingData.map(lambda x:x.features))
+  ValsAndPreds = trainingData.map(lambda x:x.label).zip(predictions)
+  trainingRMSE = math.sqrt(ValsAndPreds.map(lambda (v, p): (v - p)**2).reduce(lambda x, y: x + y) / trainingSize)
+  print trainingRMSE
+
+  # evaluating the model on test data
+  predictions = model.predict(testData.map(lambda x:x.features))
+  ValsAndPreds = testData.map(lambda x:x.label).zip(predictions)
+  testRMSE = math.sqrt(ValsAndPreds.map(lambda (v, p): (v - p)**2).reduce(lambda x, y: x + y) / testSize)
+  print testRMSE
+  {% endhighlight %}
+
 # External reading materials
 
 - Documentation about Spark MLlib can be found from [Spark official page](http://spark.apache.org/docs/latest/mllib-linear-methods.html).
