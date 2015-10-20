@@ -158,7 +158,7 @@ Three linear regression models will be covered in this blog post, including leas
     |**Least square**|157863.568992 | 154816.967311|
 
 
-## Lasso and ridge regression([code](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/linear_regression.py))
+## Lasso and ridge regression ([code](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/linear_regression.py))
 
 - Lasso is similar as least square regression but with L1 norm regularization.
 - In particular, the optimization problem of Lasso is shown as the follows
@@ -388,8 +388,101 @@ is the L2 norm regularization of the feature weight parameter $$w$$. L2 norm reg
   |:--|--:|--:|
   |**Ridge regression**|157846.789126|155111.648864|
 
-# Big data?
+# Decision tree regressor ([code](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/linear_regression.py))
 
+## Experimental results
+
+- Results of parameter selection for decision tree regressor is shown in the following table.
+
+  |maxDepth|maxBins|RMSE|
+  |:--|:--|--:|
+
+
+## Coding details
+
+- The Python function for training a decision tree regressor is shown in the following code block. The complete Python script can be found from [my GitHub page](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/linear_regression.py).
+
+  {% highlight Python Linenos %}
+  def decisionTreeRegression(trainingData,testData,trainingSize,testSize):
+  '''
+  decision tree for regression
+  '''
+  # parameter range
+  maxDepthValList = [5,10,15]
+  maxBinsVal = [16,24,32]
+
+  # best parameters
+  bestMaxDepthVal = 5
+  bestMaxBinsVal = 16
+  bestTrainingRMSE = 1e10
+
+  for maxDepthVal,maxBinsVal in itertools.product(maxDepthValList,maxBinsVal):
+    model = DecisionTree.trainRegressor(trainingData,categoricalFeaturesInfo={},impurity='variance',maxDepth=maxDepthVal,maxBins=maxBinsVal)
+    predictions = model.predict(trainingData.map(lambda x:x.features))
+    ValsAndPreds = trainingData.map(lambda x:x.label).zip(predictions)
+    trainingRMSE = math.sqrt(ValsAndPreds.map(lambda (v, p): (v - p)**2).reduce(lambda x, y: x + y) / trainingSize)
+    if trainingRMSE:
+      if trainingRMSE<bestTrainingRMSE:
+        bestMaxDepthVal = maxDepthVal
+        bestMaxBinsVal = maxBinsVal
+        bestTrainingRMSE = trainingRMSE
+    print maxDepthVal, maxBinsVal, trainingRMSE
+  print bestMaxDepthVal,bestMaxBinsVal,bestTrainingRMSE
+
+  model = DecisionTree.trainRegressor(trainingData,categoricalFeaturesInfo={},impurity='variance',maxDepth=bestMaxDepthVal,maxBins=bestMaxBinsVal)
+
+  # evaluating the model on training data
+  predictions = model.predict(trainingData.map(lambda x:x.features))
+  ValsAndPreds = trainingData.map(lambda x:x.label).zip(predictions)
+  trainingRMSE = math.sqrt(ValsAndPreds.map(lambda (v, p): (v - p)**2).reduce(lambda x, y: x + y) / trainingSize)
+  print trainingRMSE
+
+  # evaluating the model on test data
+  predictions = model.predict(testData.map(lambda x:x.features))
+  ValsAndPreds = testData.map(lambda x:x.label).zip(predictions)
+  testRMSE = math.sqrt(ValsAndPreds.map(lambda (v, p): (v - p)**2).reduce(lambda x, y: x + y) / testSize)
+  print testRMSE
+  {% endhighlight %}
+
+# Big data?
+  |Iteration|Learning rate|Regularization|RMSE|
+  |:--|:--|:---|--:|
+3000 1e-11 0.01 1966.61042106
+3000 1e-11 0.1 1966.61042225
+3000 1e-11 1 1966.61043412
+3000 1e-11 10 1966.61055286
+3000 1e-09 0.01 955.047096495
+3000 1e-09 0.1 955.047119599
+3000 1e-09 1 955.047350633
+3000 1e-09 10 955.049661082
+3000 1e-07 0.01 680.743763244
+3000 1e-07 0.1 680.74403456
+3000 1e-07 1 680.746747998
+3000 1e-07 10 680.773902252
+5000 1e-11 0.01 1957.38215649
+5000 1e-11 0.1 1957.38215802
+5000 1e-11 1 1957.38217334
+5000 1e-11 10 1957.38232644
+5000 1e-09 0.01 932.213356426
+5000 1e-09 0.1 932.213378011
+5000 1e-09 1 932.213593858
+5000 1e-09 10 932.215752473
+5000 1e-07 0.01 671.126496198
+5000 1e-07 0.1 671.126791214
+5000 1e-07 1 671.129741711
+5000 1e-07 10 671.159272711
+10000 1e-11 0.01 1940.60258833
+10000 1e-11 0.1 1940.60259049
+10000 1e-11 1 1940.60261204
+10000 1e-11 10 1940.60282757
+10000 1e-09 0.01 917.219063452
+10000 1e-09 0.1 917.219086604
+10000 1e-09 1 917.219318125
+10000 1e-09 10 917.2216336
+10000 1e-07 0.01 659.094952641
+10000 1e-07 0.1 659.09528824
+10000 1e-07 1 659.098644614
+10000 1e-07 10 659.132239424
 
 # External reading materials
 
