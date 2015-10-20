@@ -392,11 +392,50 @@ is the L2 norm regularization of the feature weight parameter $$w$$. L2 norm reg
 
 ## Experimental results
 
-- Results of parameter selection for decision tree regressor is shown in the following table.
+### YearPredictionMSD dataset [download](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/YearPredictionMSD.bz2)
 
-  |maxDepth|maxBins|RMSE|
+- results of parameter selection for decision tree regressor is shown in the following table.
+
+  |maxdepth|maxbins|rmse|
   |:--|:--|--:|
+  |5|16|9.99984060681|
+  |5|24|9.99513151653|
+  |5|32|9.9888000351|
+  |10|16|9.44143191287|
+  |10|24|9.42104121904|
+  |10|32|9.40262180596|
+  |15|16|7.60566467292|
+  |15|24|7.64195660204|
+  |15|32|7.57539078238|
 
+- Performance of decision tree regressor with best parameter on training and test sets
+
+  |maxDepth|maxBins|Training RMSE|test RMSE|
+  |:--|:--|:--|--:|
+  |15|32| 7.56372145467|10.9875769696| 
+
+### cadata dataset [download](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/cadata)
+
+- results of parameter selection for decision tree regressor is shown in the following table.
+
+  |maxdepth|maxbins|rmse|
+  |:--|:--|--:|
+  |10|16|55111.5032939|
+  |10|24|51187.6835561|
+  |10|32|49280.3022651|
+  |20|16|10338.3244273|
+  |20|24|8516.19589408|
+  |20|32|7565.77286084|
+  |30|16|6756.45379602|
+  |30|24|3077.23346467|
+  |30|32|810.303938008|
+  |30|32|810.303938008|
+
+- Performance of decision tree regressor with best parameter on training and test sets
+
+  |maxDepth|maxBins|Training RMSE|test RMSE|
+  |:--|:--|:--|--:|
+  |30|32|810.303938008|71149.6926611|
 
 ## Coding details
 
