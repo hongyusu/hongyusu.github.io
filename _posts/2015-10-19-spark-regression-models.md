@@ -492,25 +492,25 @@ is the L2 norm regularization of the feature weight parameter $$w$$. L2 norm reg
 
 - results of parameter selection for decision tree regressor is shown in the following table.
 
-  |maxdepth|maxbins|rmse|
-  |:--|:--|--:|
+  |maxdepth|maxbins|numTrees|RMSE|
+  |:--|:--|:--|--:|
 
 - Performance of decision tree regressor with best parameter on training and test sets
 
-  |maxDepth|maxBins|Training RMSE|test RMSE|
-  |:--|:--|:--|--:|
+  |maxDepth|maxBins|numTrees|Training RMSE|test RMSE|
+  |:--|:--|:--|:--|--:|
 
 ### cadata dataset [download](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/cadata)
 
-- results of parameter selection for random forest regressor is shown in the following table.
+- results of parameter selection for decision tree regressor is shown in the following table.
 
-  |maxdepth|maxbins|rmse|
+  |maxdepth|maxbins|numTrees|RMSE|
   |:--|:--|:--|--:|
 
-- Performance of random forest regressor with best parameter on training and test sets
+- Performance of decision tree regressor with best parameter on training and test sets
 
-  |maxDepth|maxBins|Training RMSE|test RMSE|
-  |:--|:--|:--|--:|
+  |maxDepth|maxBins|numTrees|Training RMSE|test RMSE|
+  |:--|:--|:--|:--|--:|
 
 ## Coding details
 
