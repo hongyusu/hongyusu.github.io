@@ -20,7 +20,7 @@ I am a postdoctoral researcher affiliated with <a href="http://www.hiit.fi">Hels
 
 ##Blog
 
-I maintain a [technical blog](http://www.hongyusu.com/pages.html) to document my :broken_heart: work and my :heart: life. Fortunately, with [Pabulo]({{ site.url }}/_post/2015-10-20-pabulo.md), my life is not very technical.
+I maintain a [technical blog](http://www.hongyusu.com/pages.html) to document my :broken_heart: work and my :heart: life. Fortunately, with [Pabulo]({{ site.url }}/life/2015/10/20/pabulo/), my life is not very technical.
 
 
 ##Educations
