@@ -36,22 +36,41 @@ tags: [Spark, Regression]
 # Summary of results
 
 - In this section, I present an overview of results achieved by different regression models provided by Spark Python framework.
-- Same sampling strategy is used for different regression models to split the original dataset into training and test sets. In particular, we sample 80% examples to construct a training set and 20% for test set.
-- The performance of different regression models is measure in terms of rooted mean square error RMSE both on training and test sets.
-- An overview of the model performance is shown in the following table.
+- Same sampling strategy is used in different regression models to split the original dataset into training and test sets. In particular, we sample 80% examples to for a training set and 20% for test set.
+- The performance of different regression models is measured in terms of rooted mean square error RMSE on both training and test sets.
+
+## **On cadata dataset** [link](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/cadata)
+
+- The performance in RMSE is shown in the following table.
 
   ||RMSE on training set|RMST on test set|
-  |:--|:--|--:|
+  |:--|--:|--:|
   |**Least square**|157863.57 | 154816.97|
   |**Lasso**|157841.41|155106.52|
   |**Ridge regression**|157846.79|155111.65|
+  |**Decision tree regression**|810.30 | 71149.69|
+  |**Random forest regression**|19943.03 | 49763.60|
+ 
+- The result somehow demonstrates that on [cadata](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/cadata) dataset decision tree and random forest regressors achieve better RMSE compared to least square regression, lasso, and ridge regression.
+- Decision tree regressor seems to overfit the training data while random forest regressor achieves the best performance on test set.
 
-- The result somehow demonstrates that on [cadata](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/cadata) dataset, ridge regression and Lasso achieves bettern RMSE on training set compared to least square regression. However, least square has better performance on test set.
-- This might be a bit counter intuitive as these three models optimize the same RMSE on training data. The only difference is that they use different regularization terms. Lease square which does not use any regularization terms should fit training data better while perform worse in test data. Lasso with L1 regularization and ridge regression with L2 regularization should essentially perform better on test data. The reason might be
-  - With large amount of training examples (16000) and small feature set (8) there is no need for regularization.
-  - Three models might not converge to same extend.  
-  - The difference in performance might essentially be very small.
+## **On YearPredictionMSD dataset** [link](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/YearPredictionMSD.bz2)
 
+- The performance in RMSE is shown in the following table.
+
+  ||RMSE on training set|RMST on test set|
+  |:--|--:|--:|
+  |**Least square**            |     |  |
+  |**Lasso**                   |     |  |
+  |**Ridge regression**        |     |  |
+  |**Decision tree regression**|0.70          |13.38  |
+  |**Random forest regression**|3.74          | 9.32 |
+ 
+- The result somehow demonstrates that on [YearPredictionMSD](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/YearPredictionMSD.bz2) dataset decision tree and random forest regressors achieve better RMSE compared to least square regression, lasso, and ridge regression.
+- Decision tree regressor seems to overfit the training data while random forest regressor achieves the best performance on test set.
+
+
+   
 # Linear regression models
 
 Three linear regression models will be covered in this blog post, including least square, ridge regression, and lasso. The application context is single label regression problem. Regression problem is sometimes closely related to classification problems, I would recommend my [blog post](http://www.hongyusu.com/programming/2015/10/18/spark-classification-models/) about running classification model on Spark.
@@ -494,11 +513,36 @@ is the L2 norm regularization of the feature weight parameter $$w$$. L2 norm reg
 
   |maxdepth|maxbins|numTrees|RMSE|
   |:--|:--|:--|--:|
+  |10|16|10|9.25951426448|
+  |10|16|20|9.22474837657|
+  |10|16|30|9.23054126678|
+  |10|24|10|9.23919432668|
+  |10|24|20|9.20489367291|
+  |10|24|30|9.19897910587|
+  |10|32|10|9.25450519266|
+  |10|32|20|9.20567410721|
+  |10|32|30|9.18749240617|
+  |20|16|10|5.1040872132|
+  |20|16|20|4.82955431151|
+  |20|16|30|4.7025300781|
+  |20|24|10|5.11964372367|
+  |20|24|20|4.84030537361|
+  |20|24|30|4.78313760797|
+  |20|32|10|5.22852708594|
+  |20|32|20|4.91953677671|
+  |20|32|30|4.86195922299|
+  |30|16|10|4.12055264414|
+  |30|16|20|3.74304424697|
+  |30|24|10|4.1223783085|
+  |30|24|20|3.75372882494|
+  |30|32|10|4.10218005322|
+  |30|32|20|3.75214909232|
 
 - Performance of decision tree regressor with best parameter on training and test sets
 
   |maxDepth|maxBins|numTrees|Training RMSE|test RMSE|
   |:--|:--|:--|:--|--:|
+  |30|16|20|3.74304424697|9.32017817336|
 
 ### cadata dataset [download](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/cadata)
 
