@@ -18,26 +18,45 @@ tags: [Spark, Regression]
 # System and experiment settings
 
 - Spark is running on a cluster of 1 master node 14 slave nodes. Each node is a work station with 16 x E5540@2.53GHz CPU and 32G memory.
-- In this blog post, three linear regression models will be presented, including least square regression, lasso regression, and logistic regression. As a comparison, I have a post about [Spark classification models](http://www.hongyusu.com/programming/2015/10/18/spark-classification-models/).
-- Dataset used in the following regression experiment is the well-known [cadata](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/cadata) data available from LibSVM website.
+- In this blog post, several linear regression models will be presented, including
+  - least square regression
+  - lasso regression
+  - logistic regression
+  - decision tree regression
+  - random forest regression
+- If you are also interested in classification models provided in Spark, I have another post about [Spark classification models](http://www.hongyusu.com/programming/2015/10/18/spark-classification-models/).
+- Dataset used in the following regression experiment include
+  - median size [cadata](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/cadata) data available from LibSVM website.
+  - larger size [YearPredictionMSD](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/YearPredictionMSD.bz2) data available also from LibSVM website. 
 - In particular, the data file is in `libsvm` format. It is a sparse feature representation which can be naturally handled/loaded by a Spark Python function.
 - In order to train a regression model and test it performance, we split the original dataset into training set and test set. More specifically, we sample 80% of examples uniformly at random to form a training set for learning a regression model, and sample 20% of the examples to form a test set which is used to test the performance of the constructed model.
-- The statistics of the dataset is shown in the following table.
+- The statistics of the cadata is shown in the following table.
 
   |Category|Size|
   |:--|--:|
-  |**All**|20640|
+  |**All**     |20640|
   |**Training**|16505|
-  |**Test**|4135|
-  |**Feature**|8|
+  |**Test**    |4135 |
+  |**Feature** |8    |
 
-- It is worth noting that the following Spark Python code can also be deployed on Spark for other machine learning problems/datasets given the data file in `libsvm` format. Otherwise, a new data loading function is needed. 
+- The statistics of the YearPredictionMSD dataset is shown in the following table.
+
+  |Category|Size|
+  |:--|--:|
+  |**All**     |463715|
+  |**Training**|371065|
+  |**Test**    |92650 |
+  |**Feature** |90    |
+
+- It is worth noting that the following Spark Python code can also be deployed on Spark for other machine learning problems/datasets given the data file in `libsvm` format. Otherwise, you need a new data loading function. 
 
 # Summary of results
 
-- In this section, I present an overview of results achieved by different regression models provided by Spark Python framework.
+- In this section, I present an overview of results achieved by different regression models provided in Spark Python framework.
 - Same sampling strategy is used in different regression models to split the original dataset into training and test sets. In particular, we sample 80% examples to for a training set and 20% for test set.
 - The performance of different regression models is measured in terms of rooted mean square error RMSE on both training and test sets.
+
+$$RMSE = \sqrt{\frac{1}{N}\sum_{i=1}^{N}(y_i-w^Tx_i)^2}$$
 
 ## **On cadata dataset** [link](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/regression/cadata)
 
