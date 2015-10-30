@@ -156,7 +156,7 @@ tags: [Teaser]
 
   $$m_{mean} = \exp(\mu+\frac{\delta^2}{2})$$
 
-  $$m_{mean} = \exp(\mu-\delta^2)$$
+  $$m_{mode} = \exp(\mu-\delta^2)$$
 
 - The following Python function will compute the probability of a point being a possible location, given the coordinate of the point and the coordinate of Brandenburg gate.
   {%highlight Python linenos %}
@@ -198,14 +198,18 @@ tags: [Teaser]
 
 ### Compute the joint probability
 
-- So far, I am able to compute for each point $$(x,y)$$ in the search space the probabilities of being a possible location based on the river $$P_{river}((x,y))$$, the gate $$P_{gate}((x,y))$$, and the satellite track $$P_{sat}((x,y))$$ **independently**.
-- To determine if a point being a possible location, I should compute the **joint** probability simply defined by the following equation
+- So far, I am able to compute for each point $$(x,y)$$ in the search space the probabilities of being a possible location for the top analyst based on the river $$P_{river}((x,y))$$, the gate $$P_{gate}((x,y))$$, the satellite track $$P_{sat}((x,y))$$ **independently**.
+- To actually determine if a point being a possible location, I need to compute the **joint** probability defined by the product of three independent probabilities according to the following equation
 
-  $$P((x,y)) = P_{river}((x,y)) x P_{gate}((x,y)) x P_{sat}((x,y))$$
+  $$P((x,y)) = P_{river}((x,y)) \times P_{gate}((x,y)) \times P_{sat}((x,y))$$
 
-- The following Python function will compute the joint probability described above for each point in the search space given the search space.
+- As a auxiliary measurement, I define the _joint distance_ as the sum of the shortest distances
+
+  $$D((x,y)) = D_{river}((x,y)) + D_{gate}((x,y)) + D_{sat}((x,y))$$
+
+- The following Python function will compute the joint probability and the joint distance described above for each point in the search space.
   {%highlight Python linenos%}
-def compute_joint_probability(ss,gatePOS,satellitePOS,riverPOS):
+  def compute_joint_probability(ss,gatePOS,satellitePOS,riverPOS):
   '''
   compute joint probability of all point in the search space
   '''
@@ -225,12 +229,14 @@ def compute_joint_probability(ss,gatePOS,satellitePOS,riverPOS):
 
   ![photo1]({{ site.url }}/myimages/teaser_joint.png)
 
+- The result indicates that I should guide the recruiters search in the elongated region on the map highlighted by the probability density.
+
 
 ### Rank points by probabilities
 
-- With the computation described above, I am able to provide a probability density map for searching the top analyst.
-- However, the map still cover a relative large area.
-- Therefore, I rank all points according to their joint probabilities. In particular, a resolution of 50 meter is used in this calculation which ends up with 101790 points in the search space.
+- With the approach described above, I am able to provide a probability density map for searching the top analyst.
+- However, the map still cover a relative large area, which could be a big problem if **Zalando** does not have enough human power of recruiters to search for this top analyst :laughing:
+- Therefore, I rank all points in the search space according to their joint probabilities. In particular, a resolution of 50 meter is used in this calculation which ends up with 101790 points in the search space.
 - The GPS coordinate of the top 5 candidate locations are shown in the following table together with the joint probabilities. 
 
   | Rank | Lat | Lng | Probability |
@@ -245,7 +251,7 @@ def compute_joint_probability(ss,gatePOS,satellitePOS,riverPOS):
 
   ![photo1]({{ site.url }}/myimages/teaser2.png)
 
-  It is interesting to see that points are around Berlin Ostkreuz station, and there is a **Zalando** office near that station.
+  **It is interesting to see that the best point is in Berlin Ostkreuz station and all other top points are also around this station, and there is a Zalando office near that station (star marker on the top of the map).** This probably means that the top analyst is most likely to appear around the Ostkreuz station. If there is any connection already with Zalando, she would probably work in this particular Zalando office :relaxed:
 
 - The following Python code will perform ranking and generate a HTML with Javascript to visualize points on the Google map.
 
@@ -300,6 +306,7 @@ def compute_joint_probability(ss,gatePOS,satellitePOS,riverPOS):
 
 - An up-to-date solution can be found from [my GitHub](https://github.com/hongyusu/TeaserSolution).
 - The complete Python code as well as html header and tail codes are shown as follows.
+- Python code
 
   {%highlight Python lineno%}
 import math
@@ -500,6 +507,8 @@ if __name__ == '__main__':
   find_her() 
 {%endhighlight%}
 
+- HTML header
+
 {%highlight HTML lineno%}
 <!DOCTYPE html>
 <html>
@@ -596,6 +605,8 @@ function initMap() {
 
 var markers = [
 {%endhighlight%}
+
+- HTML tail
 
 {%highlight HTML lineno%}
 ];
