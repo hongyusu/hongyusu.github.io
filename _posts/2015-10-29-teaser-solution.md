@@ -220,7 +220,7 @@ def compute_joint_probability(ss,gatePOS,satellitePOS,riverPOS):
 
 - With the computation described above, I am able to provide a probability density map for searching the top analyst.
 - However, the map still cover a relative large area.
-- Therefore, I rank all points according to their joint probabilities. In particular, a resolution of 50 meter is used in this calculation.
+- Therefore, I rank all points according to their joint probabilities. In particular, a resolution of 50 meter is used in this calculation which ends up with 101790 points in the search space.
 - The GPS coordinate of the top 5 candidate locations are shown in the following table together with the joint probabilities. 
 
   | Rank | Lat | Lng | Probability |
