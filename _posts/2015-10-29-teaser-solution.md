@@ -255,7 +255,7 @@ tags: [Teaser]
 
 - The following Python code will perform ranking and generate a HTML with Javascript to visualize points on the Google map.
 
-  {%highlight Python lineno%}
+  {%highlight Python linenos%}
   def show_result(res):
   '''
   show results on google map
@@ -275,7 +275,7 @@ tags: [Teaser]
 
 - In addition, heatmaps in terms of distances or probabilities shown above are generated from the following Python function.
 
-  {%highlight Python lineno%}
+  {%highlight Python linenos%}
   def plot_res(res):
   ind = 0
   for i in range(2,10):
@@ -308,7 +308,7 @@ tags: [Teaser]
 - The complete Python code as well as html header and tail codes are shown as follows.
 - Python code
 
-  {%highlight Python lineno%}
+  {%highlight Python linenos%}
 import math
 import numpy as np
 from scipy.stats import norm
@@ -509,7 +509,7 @@ if __name__ == '__main__':
 
 - HTML header
 
-{%highlight HTML lineno%}
+{%highlight HTML linenos%}
 <!DOCTYPE html>
 <html>
   <head>
@@ -608,7 +608,7 @@ var markers = [
 
 - HTML tail
 
-{%highlight HTML lineno%}
+{%highlight HTML linenos%}
 ];
 
 for (i = 0; i < markers.length; i++) {  
