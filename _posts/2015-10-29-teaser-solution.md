@@ -20,6 +20,16 @@ tags: [Teaser]
  
 # Result
 
+### Permanent links to code and solution
+
+- Permanent link to this solution page is 
+
+	[**http://www.hongyusu.com/programming/2015/10/29/teaser-solution/**](http://www.hongyusu.com/programming/2015/10/29/teaser-solution/)
+	
+- Permanent link to codes in Github is
+
+	[**https://github.com/hongyusu/TeaserSolution**](https://github.com/hongyusu/TeaserSolution)
+
 ### Overview
 
 - An overview of the possible locations are shown on the following map in which
