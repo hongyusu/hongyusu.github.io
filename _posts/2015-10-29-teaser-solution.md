@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Teaser Solution"
+title: "Teaser solution"
 description: ""
 category: Programming
 tags: [Teaser]
@@ -148,6 +148,10 @@ tags: [Teaser]
 
   ![photo1]({{ site.url }}/myimages/teaser_river.png)
 
+- With 50 meter as resolution, I ended up with 101790 points in the search space. The position of each data point is transformed back to GPS system and the probabilities based on the river is plotted on the following map by Tableau.
+
+  ![photo1]({{ site.url }}/myimages/teaser_tableau_river.png)
+
 ### Probability of a point based on Brandenburg gate
 
 - Based on Brandenburg gate, the probability of a point being a possible location is given by a _log-normal_ distribution
@@ -174,6 +178,10 @@ tags: [Teaser]
 
   ![photo1]({{ site.url }}/myimages/teaser_gate.png)
 
+- With 50 meter as resolution, I ended up with 101790 points in the search space. The position of each data point is transformed back to GPS system and the probabilities based on the gate is plotted on the following map by Tableau.
+
+  ![photo1]({{ site.url }}/myimages/teaser_tableau_gate.png)
+
 ### Probability of a point based on satellite track
 
 - Based on the track of the satellite, the probability of a point being a possible location is given by a _Gaussian_ distribution on the distance of the point to the track.
@@ -195,6 +203,9 @@ tags: [Teaser]
 
   ![photo1]({{ site.url }}/myimages/teaser_satellite.png)
 
+- With 50 meter as resolution, I ended up with 101790 points in the search space. The position of each data point is transformed back to GPS system and the probabilities based on the satellite track is plotted on the following map by Tableau.
+
+  ![photo1]({{ site.url }}/myimages/teaser_tableau_satellite.png)
 
 ### Compute the joint probability
 
