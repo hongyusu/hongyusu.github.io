@@ -40,10 +40,16 @@ tags: [Teaser]
   ![photo1]({{ site.url }}/myimages/teaser1.png)
 
 
+### Probability density map
+
+- The following probability density map shows the probability of the top analyst appear on the real geographical map.
+
+  ![photo1]({{ site.url }}/myimages/teaser_tableau_joint.png)
+
 ### Locations in detail
 
 - When zoom into the cluster of possible locations, I have the following map showing more details
-  - Possible locations are ranked according to the joint probabilities where **1** means more likely.
+  - Possible locations where the top analyst would appear are ranked according to the joint probabilities where small number **1** means more likely.
   - The predicted most possible location (point 1) is in the Berlin Ostkreuz station.
   - 4 other top locations are also around the Berlin Ostkreuz station meaning that the top analyst appears quite frequently in this station.
   - It is also interesting to see that there is a **Zalando** office not far from this stations. Therefore, the top analyst might already be hired by **Zalando** :relaxed:
@@ -240,7 +246,11 @@ tags: [Teaser]
 
   ![photo1]({{ site.url }}/myimages/teaser_joint.png)
 
-- The result indicates that I should guide the recruiters search in the elongated region on the map highlighted by the probability density.
+- With 50 meter as resolution, I ended up with 101790 points in the search space. The position of each data point is transformed back to GPS system and the joint probability is plotted on the following map by Tableau.
+
+  ![photo1]({{ site.url }}/myimages/teaser_tableau_joint.png)
+
+- The result indicates that the search should focus on the elongated region on the map highlighted by the probability density.
 
 
 ### Rank points by probabilities
