@@ -192,9 +192,11 @@ AUTHOR
 
 ### Build test case
 
-- `doctest` module allows building test case into the documentation of the function. 
+- `doctest` module is a Python builtin which allows building test case into the source code, in particular documentation, of the function. 
 - Import the `doctest` module into your script with the following code `import doctest`.
-- For example, the following code will compute the shortest distance of a point to a line segment.
+- Each line in documentation part of the source code starting with `>>>` will run as if under the interactive Python shell, which is counted as a test case.
+- The return from the test case should match exactly the following line written in the documentation part of the Python code.
+- For example, the following code will compute the shortest distance of a point to a line segment, and a test case is written into the documentation part of the code.
 
   {%highlight Python linenos%}
   def dist(x1,y1, x2,y2, x3,y3):
@@ -221,9 +223,11 @@ AUTHOR
   return dist 
   {%endhighlight%}
 
-### Enable test case
+- In particular, this is a test case in the code which compute the distance with function `dist(-7.83434151195,17.378188238,-17.5348765366,0.375603802,-0.0,0.0)` with expected return value `15.416540040627943`.
 
-- There is a test case in the documentation `dist(-7.83434151195,17.378188238,-17.5348765366,0.375603802,-0.0,0.0)` with expected return value `15.416540040627943`.
+### Run test case
+
+- There are two ways to run the test case
 - To enable the test, add `doctest.testmod()` to the Python script. For example, in my code it looks like 
 
   {%highlight Python linenos%}
@@ -242,14 +246,22 @@ AUTHOR
   pass
   {%endhighlight%}
 
-### Run test case
-
-- Now we have set up the test for function `dist()`. To run the test, just use the following line in the command line. Additional option `-v` will enable verbosity model which will print detail information on screen.
+  Then run the test with the following command
 
   {%highlight bash linenos%}
   python solution.py -v
   {%endhighlight%}
-  
+
+  The command line argument `-v` will enable verbosity output which print detail information of the test. As mentioned already, this requires adding the above `doctest.testmod()` into your code.
+
+- As alternative, the test can be perform with the following command
+
+  {%highlight bash linenos%}
+  python -m doctest -v solution.py
+  {%endhighlight%}
+
+  This is more flexible and does not need to add the above `doctest.testmod()` into your code.
+
 - The above command will generate the following information printed to the screen. Oh I have another function `GPS2POS` under test as well.
 
   {%highlight Bash%}
@@ -286,11 +298,7 @@ ok
 Test passed.
   {%endhighlight%}
 
-- In addition, with the following command, the test can be performed implicitly without any printed information if succeeded. Otherwise, error message will be printed. 
-
-  {%highlight bash linenos%}
-  python solution.py
-  {%endhighlight%}
+- Another nice thing about `doctest` is that you can write you test code separately into a txt file and perform the test with `python -m doctest -v txtfilefortest.txt`.
 
 
 ## `unittest` module
@@ -410,8 +418,9 @@ OK
 
 # External references
 
-- [Pytest introduction](http://pythontesting.net/framework/pytest/pytest-introduction/#no_boilerplate) is about Python `unittest` module.
-- [Nose introduction](http://pythontesting.net/framework/nose/nose-introduction/#example) is about Python `nose` package for unit test.
+- [Doctest introduction](http://pythontesting.net/framework/doctest/doctest-introduction/) is a tutorial about `pydoc` package to do unit test.
+- [Pytest introduction](http://pythontesting.net/framework/pytest/pytest-introduction/#no_boilerplate) is a tutorial about `unittest` module to to unit test
+- [Nose introduction](http://pythontesting.net/framework/nose/nose-introduction/#example) is a tutorial `nose` package for unit test.
 
 
 
