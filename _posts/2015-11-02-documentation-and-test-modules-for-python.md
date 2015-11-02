@@ -303,9 +303,13 @@ Test passed.
 
 ## `unittest` module
 
+The work flow of `unittest` is 
+- Build up class for test derived from `unittest` class.
+- Write test function with name starts with `test_`.
+
 ### Build test cases
 
-- Build test cases by writing a unit test class for example as in the following code
+- Build up a class for test by defining a class and test functions
 
   {%highlight Python linenos%}
   class TestMethods(unittest.TestCase):
@@ -344,7 +348,7 @@ Test passed.
 
 ### Run test
 
-- Add `unittest.main()` to your Python script. In my case, it looks like the following code.
+- Add `unittest.main()` to your Python script. For example, my code looks like the following.
 
   {%highlight Python linenos%}
   if __name__ == '__main__':
@@ -384,8 +388,8 @@ Test passed.
 - The test suite will run all test defined within the suite and continue with the rest of the code when tests are done. The test will generate the following information printed on the screen.
 
   {%highlight Bash%}
-test_dist (__main__.TestMethods) ... ok
-test_GPS2POS (__main__.TestMethods) ... ok
+  test_dist (__main__.TestMethods) ... ok
+  test_GPS2POS (__main__.TestMethods) ... ok
   {%endhighlight%}
 
 - As a alternative to `main` function and test suite, test functions defined in unit test class can be executed from command line directly.
@@ -415,6 +419,25 @@ Ran 2 tests in 0.000s
 OK
   {%endhighlight%}
 
+## `nose` module
+
+`nose` is a third party module which does not come by default with Python. An installation is required. However, I don't think I manage to install the package. But `nose` is at least working well for some basic test cases.
+
+### Test case
+
+- The test case for `nose` is quite similar as `unittest` but is much simpler. I don't need to define classes. Just go straight forwards to write a test function. The function that implemented the same test case as described above can be coded simply as the following.
+
+  {%highlight Python linenos%}
+def test_dist():
+  '''unit test with nose'''
+  assert dist(-7.83434151195,17.378188238,-17.5348765366,0.375603802,-0.0,0.0) == 15.416540040627943
+  pass
+
+def test_GPS2POS():
+  '''unit test with nose'''
+  assert GPS2POS((52.516288,13.377689)) == (-6.48982764810209, 9.159322471000536)
+  pass
+  {%endhighlight%}
 
 # External references
 
