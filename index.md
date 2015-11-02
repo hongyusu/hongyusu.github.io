@@ -25,7 +25,7 @@ I maintain a [technical blog](http://www.hongyusu.com/pages.html) to document my
 
 ##Educations
 
-I did my **PhD** in the field of Information and Computer Science from <a href="http://www.hiit.fi">Helsinki Institute for Information Technology HIIT</a> and <a href="http://ics.aalto.fi/en/">Aalto University</a> during 2012.3 - 2015.4. I got my **MSc** from <a href="http://cs.helsinki.fi">University of Helsinki</a> and <a href="http://www.hiit.fi">HIIT</a> in 2010. I got my **BEng** from <a href="http://www.xidian.edu.cn">Xidian University, China</a> in 2007.
+I collected my **PhD** in the field of Information and Computer Science from <a href="http://www.hiit.fi">Helsinki Institute for Information Technology HIIT</a> and <a href="http://ics.aalto.fi/en/">Aalto University</a> during 2012.3 - 2015.4. I got my **MSc** from <a href="http://cs.helsinki.fi">University of Helsinki</a> and <a href="http://www.hiit.fi">HIIT</a> in 2010. I got my **BEng** from <a href="http://www.xidian.edu.cn">Xidian University, China</a> in 2007.
 
 ##Outside Research
 
