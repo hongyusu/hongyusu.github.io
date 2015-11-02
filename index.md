@@ -32,15 +32,16 @@ I did my **PhD** in the field of Information and Computer Science from <a href="
 I enjoy aggressive sport like basketball before I broke my knee cruciate ligament (ACL). Now I opt to bouldering, scuba diving (holding <a href="http://www.padi.com/scuba-diving/padi-courses/course-catalog/open-water-diver/">OWD license</a>), snowboarding (downhill) that explores the unknown part of my life. I also enjoy hiking and traveling a lot for which I share some of the pictures on <a href="http://www.flickr.com/photos/123885344@N02/" title="See my photos on Flickr!"><img src="https://s.yimg.com/pw/images/goodies/white-flickr.png" width="40" height="20" alt=""></a>
 
 ##Recent Activities
+- I am traveling to Montreal for [NIPS](https://nips.cc) conference 2015](https://media.nips.cc/Conferences/2015/Poster/NIPS-2015-Poster-Thumbnail.jpg) to present a poster in [Workshops on Machine Learning in Computational Biology (MLCB) & Machine Learning in Systems Biology (MLSB) 2015](www.mlcb.org).
 - I received from our ambassador the [**Chinese government award for outstanding doctoral candidate of 2014**](http://www.hongyusu.com/life/2015/08/12/outstanding-doctoral-candidate-award-2014/).
 - [***My ensemble model***](http://hongyusu.github.io/FacebookChallenge) ranked ***52th***/985 with AUC score ***93.269%***/94.254% in the [Facebook challenge](https://www.kaggle.com/c/facebook-recruiting-iv-human-or-bot) of detecting robots in the online bidding environment.
 - I won the ***Best Hack in Fitness*** in the <a href="http://datasciencehackathon.cs.hut.fi">Aalto Data Science Hackathon 2015</a> with a <a href="http://hongyusu.github.io/AaltoHackathon2015/">***Personalized Track Recommendation System***</a>.
 - I defended my <a href="https://aaltodoc.aalto.fi/handle/123456789/15362">dissertation 'Multilabel classification through structured output learning'</a> in lecture hall T2 <a href="http://sci.aalto.fi/en/">School of Science</a> on 27th March 2015.
-- With Prof. John Shawe-Taylor, Prof. Mario Marchand, Prof. Juho Rousu, Assi. Prof. Emilie Morvant, we are presenting out paper on <b>NIPS 2014</b> conference.
 - My talk at the International Conference on Machine Learning (<b>ICML2014</b>) is now online at <a href="http://techtalks.tv/talks/structured-prediction-of-network-response/60915/">TechTalk</a>.
 
 <!-- 
-  - I will join the evaluation process of the applications for Master programme in Machine Learning and Data Mining (Macademia) 2015.
+   - With Prof. John Shawe-Taylor, Prof. Mario Marchand, Prof. Juho Rousu, Assi. Prof. Emilie Morvant, we are presenting out paper on <b>NIPS 2014</b> conference.
+   - I will join the evaluation process of the applications for Master programme in Machine Learning and Data Mining (Macademia) 2015.
    - Our paper <b>Multilabel Structured Output Learning with Random Spanning Trees of Max-Margin Markov Networks</b> got accepted and will appear in <b>NIPS 2014</b> 
    - Take a look at the preliminary version of my <b>Doctoral Dissertation</b> [<a href="https://github.com/hongyusu/dissertation/blob/master/dissertation.pdf?raw=true">GitHub</a>]
    - Our paper <b>Multilabel Classification through Random Graph Ensembles</b> got accepted and will appear in <b><i>Machine Learning</i></b>. DOI: 10.1007/s10994-014-5465-9.
