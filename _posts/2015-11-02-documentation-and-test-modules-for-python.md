@@ -21,8 +21,9 @@ tags: []
 - The code is designed for solving the [Teaser challenge](http://www.hongyusu.com/programming/2015/10/29/teaser-solution/).
 
 
+# Documentation 
 
-# `pydoc` module
+## `pydoc` module
 
 ### Write documentation
 
@@ -185,7 +186,9 @@ AUTHOR
     Hongyu Su
   {%endhighlight%}
 
-# `doctest` module
+# Unit test
+
+## `doctest` module
 
 ### Build test case
 
@@ -290,7 +293,7 @@ Test passed.
   {%endhighlight%}
 
 
-# `unittest` module
+## `unittest` module
 
 ### Build test cases
 
@@ -372,14 +375,14 @@ Test passed.
 
 - The test suite will run all test defined within the suite and continue with the rest of the code when tests are done. The test will generate the following information printed on the screen.
 
-  {%highlight Bash linenos%}
+  {%highlight Bash%}
 test_dist (__main__.TestMethods) ... ok
 test_GPS2POS (__main__.TestMethods) ... ok
   {%endhighlight%}
 
 - As a alternative to `main` function and test suite, test functions defined in unit test class can be executed from command line directly.
 
-  {%highlight Bash linenos%}
+  {%highlight Bash%}
 guest37:tmpSolution su$ python -m unittest -v solution.TestMethods.test_dist
 test_dist (solution.TestMethods) ... ok
 
@@ -404,6 +407,11 @@ Ran 2 tests in 0.000s
 OK
   {%endhighlight%}
 
+
+# External references
+
+- [Pytest introduction](http://pythontesting.net/framework/pytest/pytest-introduction/#no_boilerplate) is about Python `unittest` module.
+- [Nose introduction](http://pythontesting.net/framework/nose/nose-introduction/#example) is about Python `nose` package for unit test.
 
 
 
