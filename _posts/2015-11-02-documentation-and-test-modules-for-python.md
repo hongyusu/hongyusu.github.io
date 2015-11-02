@@ -423,9 +423,9 @@ OK
 
 `nose` is a third party module which does not come by default with Python. An installation is required. However, I don't think I manage to install the package. But `nose` is at least working well for some basic test cases.
 
-### Test case
+### Write test case
 
-- The test case for `nose` is quite similar as `unittest` but is much simpler. I don't need to define classes. Just go straight forwards to write a test function. The function that implemented the same test case as described above can be coded simply as the following.
+The test case for `nose` is quite similar as `unittest` but is much simpler. I don't need to define classes. Just go straight forwards to write a test function. The function that implemented the same test case as described above can be coded simply as the following.
 
   {%highlight Python linenos%}
 def test_dist():
@@ -438,6 +438,34 @@ def test_GPS2POS():
   assert GPS2POS((52.516288,13.377689)) == (-6.48982764810209, 9.159322471000536)
   pass
   {%endhighlight%}
+
+### Run test
+
+With the following command, we can run a unit test built with `nose`. The command can also run unit test coded with `unittest`.
+
+{%highlight Bash linenos%}
+nosetests -v solution.py
+{%endhighlight%}
+
+The command line argument `-v` is same as before which is to print detailed test information on screen. The result is shown as the follows.
+
+{%highlight Bash %}
+test GPS2POS function ... ok
+test the function dist() ... ok
+unit test with nose ... ok
+unit test with nose ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.002s
+
+OK
+{%endhighlight%}
+
+There are 4 tests in total in which the first two tests are built with `unittest` and the last two tests are built with `nose`.
+
+### Other functionalities with `nose`
+
+With `nose`, the setup and teardown functions can be easily implemented.
 
 # External references
 
