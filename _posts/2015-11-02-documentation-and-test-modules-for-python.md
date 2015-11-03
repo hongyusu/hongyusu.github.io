@@ -303,7 +303,15 @@ Test passed.
 
 ## `unittest` module
 
-The work flow of `unittest` is 
+Python unit test module `unittest` is sometimes referred as PyUnit. There are a few concept closely related to the `unittest` module, including
+
+- Test fixture, to perform preparation and cleanup actions
+- Test Case, to test a functionality of the code
+- Test suite, to combine multiple test case
+- Test runner, to execute test
+
+The work flow of performing a unit test with `unittest` is 
+
 - Build up class for test derived from `unittest` class.
 - Write test function with name starts with `test_`.
 
@@ -329,7 +337,7 @@ The work flow of `unittest` is
   pass
   {%endhighlight%}
 
-- Basically, the class use `assert` argument shown in the following table
+- Basically, the test use a variety of `assert` arguments shown in the following table
 
   |Method | Checks that | 
   |:--|--:|
@@ -419,6 +427,16 @@ Ran 2 tests in 0.000s
 OK
   {%endhighlight%}
 
+### Other functionalities
+
+- Run unit test with `unittest` for files with suffix `.py` in the directory with the following command.
+
+  {%highlight Bash linenos%}
+  $ python -m unittest discover -v -p *py
+  {%endhighlight%}
+
+- `setup` and `teardown` methods.
+
 ## `nose` module
 
 `nose` is a third party module which does not come by default with Python. An installation is required. However, I don't think I manage to install the package. But `nose` is at least working well for some basic test cases.
@@ -463,12 +481,41 @@ OK
 
 There are 4 tests in total in which the first two tests are built with `unittest` and the last two tests are built with `nose`.
 
+### `setup` and `teardown` functions in `nose`
+
+- With `nose`, the setup and teardown functionalities can be implemented with simple Python function calls with prefix `setup_` and `teardown_`. They are applied to test by calling a decorator `@with_setup(setup_func,teardown_func)`.
+- The following Python code implements a simple test with `setup` and `teardown` functionalities to initialize and destroy a global variable for the unit test.
+
+  {%highlight Python linenos%}
+from nose.tools import *
+#--------------------- test with nose: decorator ---------------------------
+_globals = {'tmpPoint':None}
+
+def setup_test_GPS2POS():
+  _globals['tmpPoint'] = (52.516288,13.377689)
+  pass
+
+def teardown_test_GPS2POS():
+  _globals['tmpPoint'] = None
+  pass
+
+@with_setup(setup_test_GPS2POS,teardown_test_GPS2POS)
+def test():
+  tmpPoint = _globals['tmpPoint']
+  assert GPS2POS(tmpPoint) == (-6.48982764810209, 9.159322471000536)
+  {%endhighlight%}
+
 ### Other functionalities with `nose`
 
-With `nose`, the setup and teardown functions can be easily implemented.
+- See [a complete collection of `nose` plugins](http://nose.readthedocs.org/en/latest/plugins/builtin.html). In particular, there are several interesting plugins
+  - Run doctest with `nose`, `nosetests --with-doctest -v solution_with_unittest`
+  - Profile code coverage with `nosetests --with-doctest --with-coverage -v solution_with_unittest`. The command will cover all Python modules imported after the code has been executed. 
+
 
 # External references
 
+- [Official Python document for `unittest`](https://docs.python.org/2/library/unittest.html)
+- [Documentation for `nose` package](http://nose.readthedocs.org/en/latest/writing_tests.html)
 - [Doctest introduction](http://pythontesting.net/framework/doctest/doctest-introduction/) is a tutorial about `pydoc` package to do unit test.
 - [Pytest introduction](http://pythontesting.net/framework/pytest/pytest-introduction/#no_boilerplate) is a tutorial about `unittest` module to to unit test
 - [Nose introduction](http://pythontesting.net/framework/nose/nose-introduction/#example) is a tutorial `nose` package for unit test.
