@@ -60,8 +60,10 @@ tags: [Spark, EC2, Amazon]
 - The command will take a few minutes. After many log messages, you will find out that the cluster is successfully initialized and running. 
 
   {% highlight Bash linenos %}
-  ./spark-ec2 --key-pair=SparkEC2Key --identity-file=SparkEC2Key.pem --region=eu-west-1 --worker-instances=10 launch EC2_1
+  ./spark-ec2 --key-pair=SparkEC2Key --identity-file=SparkEC2Key.pem --region=eu-west-1 --worker-instances=10 --instance-type=t2.micro launch EC2_1
   {% endhighlight%}
+
+  **Make sure you have added the argument `--instance-type=t2.micro`, otherwise you will login to the m1.large machine. The most expensive one and you have to pay!**
 
 - You can also get the HTTP address of the web monitor of the cluster. Pay attention that `EC2_1` is the name of your cluster and `--identity-file` is the paired key file which is just downloaded.
 
