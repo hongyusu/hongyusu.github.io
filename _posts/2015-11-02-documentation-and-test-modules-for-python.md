@@ -188,6 +188,8 @@ AUTHOR
 
 # Unit test
 
+This brings an old topic of test-driven development (TDD) which is to design a software/function/programme starting with writing test case. After that write the expected outcome of the test case. Finally, implement the functionalities to pass the test case.
+
 ## `doctest` module
 
 ### Build test case
@@ -459,7 +461,7 @@ def test_GPS2POS():
 
 ### Run test
 
-With the following command, we can run a unit test built with `nose`. The command can also run unit test coded with `unittest`.
+- With the following command, we can run a unit test built with `nose`. The command can also run unit test coded with `unittest`.
 
 {%highlight Bash linenos%}
 nosetests -v solution.py
@@ -480,6 +482,8 @@ OK
 {%endhighlight%}
 
 There are 4 tests in total in which the first two tests are built with `unittest` and the last two tests are built with `nose`.
+
+- Use the following command to run all tests in a folder `nosetest -v *test.py`.
 
 ### `setup` and `teardown` functions in `nose`
 
@@ -514,6 +518,7 @@ def test():
 
 # External references
 
+- [Beginning test-driven development in Python](http://code.tutsplus.com/tutorials/beginning-test-driven-development-in-python--net-30137)
 - [Official Python document for `unittest`](https://docs.python.org/2/library/unittest.html)
 - [Documentation for `nose` package](http://nose.readthedocs.org/en/latest/writing_tests.html)
 - [Doctest introduction](http://pythontesting.net/framework/doctest/doctest-introduction/) is a tutorial about `pydoc` package to do unit test.
