@@ -20,11 +20,11 @@ As a team of four with [Xiao](https://github.com/xiaohan2012), [Li](https://gith
 
 # Xplanner
 
-The product prototype we delivered is a automatic trip planner which finds you flight ticket, hotel, attractions, restaurants and oragnizes your whole journey. 
+We deliver a product prototype which is an automatic trip planner that finds you flight tickets, hotels, attractions, restaurants and oragnizes everything into a consistent time line. 
 
 ## Motivations
 
-- **Holiday!** Let's assume you have about two weeks' holiday and you want to organise a trip.
+- **Holiday!** You happen to have about two weeks' free time and you want to take a holiday to the following three cities.
 
   ![photo4]({{ site.url }}/myimages/junction0.jpg)
 
