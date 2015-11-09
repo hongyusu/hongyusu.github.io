@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Junction Hackathon 2015"
+title: "Xplanner in Junction Hackathon 2015"
 description: ""
 category: Competition 
 tags: [Junction2015, Hackathon, Python, Web, Heroku, Programming]
@@ -16,9 +16,11 @@ tags: [Junction2015, Hackathon, Python, Web, Heroku, Programming]
 
 # Junction Hackathon 2015
 
-As a team of four, we join the Junction Hackathon 2015 in Helsinki. 
+As a team of four with [Xiao](https://github.com/xiaohan2012), [Li](https://github.com/czli), and [Shen](https://github.com/icdishb), we join the [Junction Hackathon 2015](http://hackjunction.com), Helsinki. 
 
 # Xplanner
+
+The product prototype we delivered is a automatic trip planner which find you flight ticket, hotel, attractions, restaurants and oragnize your whole journey. 
 
 ## Motivations
 
@@ -62,4 +64,5 @@ After about 10 hours hard coding, we eventually announced our product [Xplanner]
 - APIs
   1. Finnair API
   1. Foursquare API
+  1. whatever API
 - Algorithm to find the cost-efficient flights
