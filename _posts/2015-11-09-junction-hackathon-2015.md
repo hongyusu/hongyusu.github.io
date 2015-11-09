@@ -16,11 +16,11 @@ tags: [Junction2015, Hackathon, Python, Web, Heroku, Programming]
 
 # Junction Hackathon 2015
 
-As a team of four with [Xiao](https://github.com/xiaohan2012), [Li](https://github.com/czli), and [Shen](https://github.com/icdishb), we join the [Junction Hackathon 2015](http://hackjunction.com), Helsinki. 
+As a team of four with [Xiao](https://github.com/xiaohan2012), [Li](https://github.com/czli), and [Shen](https://github.com/icdishb), we had a great time in [Junction Hackathon 2015](http://hackjunction.com), Helsinki. 
 
 # Xplanner
 
-The product prototype we delivered is a automatic trip planner which find you flight ticket, hotel, attractions, restaurants and oragnize your whole journey. 
+The product prototype we delivered is a automatic trip planner which finds you flight ticket, hotel, attractions, restaurants and oragnizes your whole journey. 
 
 ## Motivations
 
