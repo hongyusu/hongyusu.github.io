@@ -55,3 +55,16 @@ After about 10 hours hard coding, we eventually announced our product [Xplanner]
 
 
 ## Technologies behind the scene
+
+- Github
+
+- Heroku web service
+
+- Python `flask`
+
+- APIs
+
+  1. Finnair API
+  1. Foursquare API
+
+- Algorithm to find the cost-efficient flights
