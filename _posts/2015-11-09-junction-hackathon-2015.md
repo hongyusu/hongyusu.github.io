@@ -47,7 +47,7 @@ As a team of four, we join the Junction Hackathon 2015 in Helsinki.
   ![photo4]({{ site.url }}/myimages/junction5.jpg)
 
 
-## Product - [Xplanner](tripassistant.herokuapp.com)
+## Product - [Xplanner](http://tripassistant.herokuapp.com)
 
 After about 10 hours hard coding, we eventually announced our product [Xplanner](http://tripassistant.herokuapp.com) with permanent URL [tripassistant.herokuapp.com](http://tripassistant.herokuapp.com).
 
