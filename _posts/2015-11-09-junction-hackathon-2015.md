@@ -20,7 +20,7 @@ As a team of four with [Xiao](https://github.com/xiaohan2012), [Li](https://gith
 
 # Xplanner
 
-We deliver a product prototype which is an automatic trip planner that finds you flight tickets, hotels, attractions, restaurants and oragnizes everything into a consistent time line. 
+We deliver a product prototype, [Xplanner](http://tripassistant.herokuapp.com), which is an automatic trip planner that finds you flight tickets, hotels, attractions, restaurants and oragnizes everything into a consistent time line. 
 
 ## Motivations
 
