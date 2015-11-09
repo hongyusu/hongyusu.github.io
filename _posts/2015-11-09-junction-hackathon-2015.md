@@ -40,7 +40,7 @@ We deliver a product prototype which is an automatic trip planner that finds you
 
   ![photo4]({{ site.url }}/myimages/junction3.jpg)
 
-- **Restaurant?** Things get more complicated if you are a food-lover or you like beers. I do. Good restaurants are quite necessary for different cities as well.
+- **Restaurants?** Things get more complicated if you are a food-lover or you like beers. I do. Good restaurants are quite indispensable for different cities as well.
 
   ![photo4]({{ site.url }}/myimages/junction4.jpg)
 
