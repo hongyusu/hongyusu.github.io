@@ -28,19 +28,19 @@ We deliver a product prototype which is an automatic trip planner that finds you
 
   ![photo4]({{ site.url }}/myimages/junction0.jpg)
 
-- **Tickets?** First thing you need to do is to search for flight tickets. You want to find the most cost efficient flight tickets but the question is which city you want to fly first. If you want three cities then you have six different combinations. Oh, you still need to know which day you want to fly. To find good tickets, you need to do **a lot of** search.
+- **Tickets?** First thing you need to do is to search for flight tickets. You want to find the most cost-efficient flight tickets but the question is which city you want to fly first. If you want three cities then you have six options ($$3\times2\times1=6$$). Oh, you still need to know which day you want to fly. To find good tickets, you need to do **a lot of** search.
 
   ![photo4]({{ site.url }}/myimages/junction1.jpg)
 
-- **Hotels?** The next thing you need to do is to find the hotel to stay.
+- **Hotels?** The next thing you need to do is to find hotels for each destination.
 
   ![photo4]({{ site.url }}/myimages/junction2.jpg)
 
-- **Attractions?** The next thing is to find tourist attractions for different cities in order to make yourself a tourist.
+- **Attractions?** Holiday quite often means sight-seeing. So you need to find a collection of tourist attractions for different cities in order to make yourself a tourist.
 
   ![photo4]({{ site.url }}/myimages/junction3.jpg)
 
-- **Restaurant?** Still, you are a food lover or a bear dreamer, you need to find good restaurants to eat dinners in different cities.
+- **Restaurant?** Things get more complicated if you are a food-lover or you like beers. I do. Good restaurants are quite necessary for different cities as well.
 
   ![photo4]({{ site.url }}/myimages/junction4.jpg)
 
@@ -51,7 +51,7 @@ We deliver a product prototype which is an automatic trip planner that finds you
 
 ## Product - [Xplanner](http://tripassistant.herokuapp.com)
 
-After about 10 hours hard coding, we eventually announced our product [Xplanner](http://tripassistant.herokuapp.com) with permanent URL [tripassistant.herokuapp.com](http://tripassistant.herokuapp.com).
+After 10 hours hard coding, we eventually announced our prototype [Xplanner](http://tripassistant.herokuapp.com) with permanent URL [tripassistant.herokuapp.com](http://tripassistant.herokuapp.com).
 
 ![photo4]({{ site.url }}/myimages/junction6.jpg)
 
@@ -64,5 +64,5 @@ After about 10 hours hard coding, we eventually announced our product [Xplanner]
 - APIs
   1. Finnair API
   1. Foursquare API
-  1. whatever API
-- Algorithm to find the cost-efficient flights
+  1. `whatever` API
+- Algorithms to find the cost-efficient flights
