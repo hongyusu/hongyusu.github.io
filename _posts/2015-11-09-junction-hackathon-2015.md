@@ -49,7 +49,7 @@ As a team of four, we join the Junction Hackathon 2015 in Helsinki.
 
 ## Product - [Xplanner](tripassistant.herokuapp.com)
 
-After about 10 hours hard coding, we eventually announced our product [Xplanner](tripassistant.herokuapp.com) with permanent URL [tripassistant.herokuapp.com](tripassistant.herokuapp.com).
+After about 10 hours hard coding, we eventually announced our product [Xplanner](http://tripassistant.herokuapp.com) with permanent URL [tripassistant.herokuapp.com](http://tripassistant.herokuapp.com).
 
 ![photo4]({{ site.url }}/myimages/junction6.jpg)
 
@@ -57,14 +57,9 @@ After about 10 hours hard coding, we eventually announced our product [Xplanner]
 ## Technologies behind the scene
 
 - Github
-
 - Heroku web service
-
 - Python `flask`
-
 - APIs
-
   1. Finnair API
   1. Foursquare API
-
 - Algorithm to find the cost-efficient flights
