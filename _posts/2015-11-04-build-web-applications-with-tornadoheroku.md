@@ -41,5 +41,7 @@ tags: [Programming, Heroku, Python, Tornado, Web]
   $heroku open
   {%endhighlight%}
 
+- It is also nice to know some [limit](https://devcenter.heroku.com/articles/limits) of the Heroku server.
+
 
 
