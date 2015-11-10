@@ -66,11 +66,7 @@ At the age of 30, I start to care more about myself :smiley: Later I decide to r
 
 
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-
-
 <script type="text/javascript">
-
-
 //Width and height
 var w = 600;
 var h = 300;
