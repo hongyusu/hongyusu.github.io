@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Track my exercies"
+title: "Track my exercises"
 description: ""
 category: Life
 tags: [Life, Exercise]
@@ -27,6 +27,7 @@ At the age of 30, I start to care more about myself :smiley: Later I decide to r
 
 
   var sessions = [
+{'date': '2015-11-11', 'pull-up': 40, 'push-up': 0   , 'ab-wheel-roll': 0  , 'bar-dip': 60  , 'gym': 1, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
 {'date': '2015-10-30', 'pull-up': 50, 'push-up': 70  , 'ab-wheel-roll': 0  , 'bar-dip': 0   , 'gym': 1, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
 {'date': '2015-10-27', 'pull-up':  0, 'push-up': 150 , 'ab-wheel-roll': 0  , 'bar-dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
 {'date': '2015-10-23', 'pull-up': 50, 'push-up': 0   , 'ab-wheel-roll': 0  , 'bar-dip': 70  , 'gym': 1, 'arm': 0  , 'shoulder': 40, 'bouldering': 0 },
@@ -70,20 +71,24 @@ At the age of 30, I start to care more about myself :smiley: Later I decide to r
 {'date': '2015-05-08', 'pull-up': 20, 'push-up': 100 , 'ab-wheel-roll': 0  , 'bar-dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
 ];
 
-  console.log(d3.keys(sessions[0]));
+
+/*-----------------------------*/
+
+
+/*-----------------------------*/
+
   // create the table header
   var thead = d3.select("example1").selectAll("th")
     .data(d3.keys(sessions[0]))
-    .enter().append("th").text(function(d){return d  +  ' '});
-  // fill the table
-  // create rows
+    .enter().append("th").text(function(d){return d  +  ' | '});
   var tr = d3.select("example1").selectAll("tr")
     .data(sessions).enter().append("tr")
-  // cells
   var td = tr.selectAll("td")
     .data(function(d){return d3.values(d)})
     .enter().append("td")
     .text(function(d) {return d})
+
+
 
 </script>
 
