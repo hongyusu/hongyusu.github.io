@@ -11,6 +11,15 @@ tags: [Life, Exercise]
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 
+At the age of 30, I start to care more about myself :smiley: Later I decide to record the amount of exercises I have done with the hope that it will fire me up :gun: to do more and more. Basically, the exercises I love to do include
+
+1. `push up`, for chest muscle
+1. `pull up`, for back muscle
+1. `bar dip`, for back muscle
+1. `wheel roll`, for abs :laughing:
+1. some lifting exercises, for arms :muscle:
+
+
 <example1>
 	
 <script type="text/javascript">
@@ -80,13 +89,7 @@ tags: [Life, Exercise]
 
 </example1>
 
-At the age of 30, I start to care more about myself :smiley: Later I decide to record the amount of exercises I have done with the hope that it will fire me up :gun: to do more and more. Basically, the exercises I love to do include
 
-1. `push up`, for my chest muscle
-1. `pull up`, for my back muscle
-1. `bar dip`, for my back muscle
-1. `wheel roll`, for my abs :laughing:
-1. some lifting exercises, for my arms :muscle:
 
                
                 
