@@ -12,11 +12,11 @@ tagline:
 
 I am a postdoctoral researcher affiliated with <a href="http://www.hiit.fi">Helsinki Institute for Information Technology HIIT</a> and <a href="http://ics.aalto.fi/en/">Aalto University</a>. My research is along the direction of Machine Learning for Structured Data. Currently I focus on developing accurate learning models for structured output prediction. In general, I am interested in 
 
+ - Optimization research for machine learning
  - Structured output prediction / max-margin learning / multilabel classification
  - Kernel methods for complex data
- - Optimization methods for large-scale data
  - Social network / influence network analysis
- - Bioinformatics and metagenomics
+ - Bioinformatics / metagenomics
 
 ##[Blog](http://www.hongyusu.com/pages.html)
 
@@ -52,14 +52,18 @@ I enjoy aggressive sport like basketball before I broke my knee cruciate ligamen
 -->
 
 ##Selected Projects and Softwares
+- [_Xplanner_](http://tripassistant.herokuapp.com) -- a trip planner organising everything for your holiday [Github](https://github.com/czli/Junction2015).
 - Predicting the function of transporter proteins [Github](http://hongyusu.github.io/ProteinFunctionPrediction/).
 - _Facebook challenge_ of detecting robots in online bidding environment [Github](http://hongyusu.github.io/FacebookChallenge).
 - _Personalised route recommendation system_ for Aalto Data Science Hackathon 2015 [Github](http://hongyusu.github.io/AaltoHackathon2015/). 
 - Conditional gradient optimization with convex combination of multiple update directions (_L2RTA_) in random spanning tree approximation algorithm [Github](https://github.com/hongyusu/RTA).
 - Random spanning tree approximation (_RTA_) for structured output learning on complete output graph [Github](https://github.com/hongyusu/RTA).
-- Structured output prediction of network response (_SPIN_) for social network analysis [Github](https://github.com/hongyusu/SPIN)
+- Structured output prediction of network response (_SPIN_) for social network analysis [Github](https://github.com/hongyusu/SPIN).
 - _Multiple kernel learning_ for classifying small graph structured in molecular classification problem [Github](http://hongyusu.github.io/Molecular_Classification).
-- Writings of my doctoral dissertation [Github](http://hongyusu.github.io/Dissertation/).
+
+<!-- 
+   - Writings of my doctoral dissertation [Github](http://hongyusu.github.io/Dissertation/).
+-->
 
 ##Fundings and Awards
 - Chinese government award for outstanding doctoral students for [top 500 students world wide](http://www.csc.edu.cn/chuguo/b922167aeb84451b9e48d10407865c52.shtml), 2014

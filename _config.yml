@@ -12,8 +12,9 @@ paginate_path: "page:num"
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title       : Hongyu Su <h4>&#23487;&#24344;&#23431;</h4>
-tagline     : Site Tagline
+#title       : Hongyu Su <h4>&#23487;&#24344;&#23431;</h4>
+title       : <h2>Hongyu Su</h2> <h6>hacker and hiker</h6>
+tagline     : what is this?
 author      :
   name      : Hongyu Su  
   email     : hongyu.su@me.com
