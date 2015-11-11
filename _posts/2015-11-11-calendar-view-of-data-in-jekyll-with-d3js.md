@@ -34,6 +34,7 @@ Here I will introduce the technologies and ticks to make the calendar view of da
 
 ## An running example
 
+- Source code of this page can be found from [**here**](https://raw.githubusercontent.com/hongyusu/hongyusu.github.io/master/_posts/2015-11-11-calendar-view-of-data-in-jekyll-with-d3js.md).
 - I have collected all my exercises data in `json` format including date and amount of exercises I did for each particular date. A part of data is shown in the following block.
 
   {%highlight text%}
