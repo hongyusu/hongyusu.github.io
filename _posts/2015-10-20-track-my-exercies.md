@@ -59,69 +59,52 @@ body {
 
 
   var sessions = [
-{'date': '2015-11-11', 'pull-up': 40, 'push-up': 0   , 'ab-wheel-roll': 0  , 'bar-dip': 60  , 'gym': 1, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-10-30', 'pull-up': 50, 'push-up': 70  , 'ab-wheel-roll': 0  , 'bar-dip': 0   , 'gym': 1, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-10-27', 'pull-up':  0, 'push-up': 150 , 'ab-wheel-roll': 0  , 'bar-dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-10-23', 'pull-up': 50, 'push-up': 0   , 'ab-wheel-roll': 0  , 'bar-dip': 70  , 'gym': 1, 'arm': 0  , 'shoulder': 40, 'bouldering': 0 },
-{'date': '2015-10-20', 'pull-up': 50, 'push-up': 0   , 'ab-wheel-roll': 0  , 'bar-dip': 40  , 'gym': 1, 'arm': 40 , 'shoulder': 40, 'bouldering': 0 },
-{'date': '2015-10-19', 'pull-up': 10, 'push-up': 0   , 'ab-wheel-roll': 0  , 'bar-dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-10-15', 'pull-up': 40, 'push-up': 0   , 'ab-wheel-roll': 0  , 'bar-dip': 0   , 'gym': 1, 'arm': 0  , 'shoulder': 60, 'bouldering': 0 },
-{'date': '2015-10-13', 'pull-up': 40, 'push-up': 0   , 'ab-wheel-roll': 0  , 'bar-dip': 0   , 'gym': 1, 'arm': 0  , 'shoulder': 40, 'bouldering': 0 },
-{'date': '2015-10-10', 'pull-up':  0, 'push-up': 0   , 'ab-wheel-roll': 0  , 'bar-dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 1 },
-{'date': '2015-09-18', 'pull-up': 50, 'push-up': 0   , 'ab-wheel-roll': 0  , 'bar-dip': 50  , 'gym': 1, 'arm': 0  , 'shoulder': 30, 'bouldering': 0 },
-{'date': '2015-09-15', 'pull-up': 60, 'push-up': 0   , 'ab-wheel-roll': 0  , 'bar-dip': 100 , 'gym': 1, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-09-13', 'pull-up':  0, 'push-up': 100 , 'ab-wheel-roll': 0  , 'bar-dip':   0 , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-09-12', 'pull-up':  0, 'push-up': 20  , 'ab-wheel-roll': 0  , 'bar-dip':   0 , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-09-11', 'pull-up': 50, 'push-up': 0   , 'ab-wheel-roll': 0  , 'bar-dip': 100 , 'gym': 1, 'arm': 10 , 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-09-09', 'pull-up': 50, 'push-up': 0   , 'ab-wheel-roll': 0  , 'bar-dip': 100 , 'gym': 1, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-09-04', 'pull-up': 50, 'push-up': 0   , 'ab-wheel-roll': 0  , 'bar-dip': 110 , 'gym': 1, 'arm': 40 , 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-09-02', 'pull-up': 40, 'push-up': 0   , 'ab-wheel-roll': 0  , 'bar-dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-08-29', 'pull-up': 40, 'push-up': 0   , 'ab-wheel-roll': 0  , 'bar-dip': 100 , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-08-26', 'pull-up': 40, 'push-up': 0   , 'ab-wheel-roll': 0  , 'bar-dip': 100 , 'gym': 1, 'arm': 40 , 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-08-21', 'pull-up': 40, 'push-up': 0   , 'ab-wheel-roll': 0  , 'bar-dip': 100 , 'gym': 1, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-08-18', 'pull-up': 0 , 'push-up': 100 , 'ab-wheel-roll': 0  , 'bar-dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-08-15', 'pull-up': 45, 'push-up': 0   , 'ab-wheel-roll': 10 , 'bar-dip': 100 , 'gym': 1, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-08-14', 'pull-up': 20, 'push-up': 100 , 'ab-wheel-roll': 0  , 'bar-dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-08-12', 'pull-up': 0 , 'push-up': 100 , 'ab-wheel-roll': 0  , 'bar-dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-07-31', 'pull-up': 40, 'push-up': 0   , 'ab-wheel-roll': 0  , 'bar-dip': 130 , 'gym': 1, 'arm': 60 , 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-07-28', 'pull-up': 40, 'push-up': 0   , 'ab-wheel-roll': 0  , 'bar-dip': 130 , 'gym': 1, 'arm': 60 , 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-07-25', 'pull-up': 20, 'push-up': 30  , 'ab-wheel-roll': 0  , 'bar-dip': 130 , 'gym': 1, 'arm': 60 , 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-07-21', 'pull-up': 20, 'push-up': 40  , 'ab-wheel-roll': 40 , 'bar-dip': 140 , 'gym': 1, 'arm': 60 , 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-07-18', 'pull-up':  0, 'push-up': 150 , 'ab-wheel-roll': 0  , 'bar-dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-07-16', 'pull-up':  0, 'push-up': 100 , 'ab-wheel-roll': 0  , 'bar-dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-07-14', 'pull-up':  0, 'push-up': 10  , 'ab-wheel-roll': 0  , 'bar-dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-07-11', 'pull-up':  0, 'push-up': 80  , 'ab-wheel-roll': 0  , 'bar-dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-07-10', 'pull-up': 40, 'push-up': 0   , 'ab-wheel-roll': 0  , 'bar-dip': 10  , 'gym': 1, 'arm': 50 , 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-07-03', 'pull-up': 40, 'push-up': 0   , 'ab-wheel-roll': 0  , 'bar-dip': 75  , 'gym': 1, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-06-12', 'pull-up': 30, 'push-up': 0   , 'ab-wheel-roll': 20 , 'bar-dip': 110 , 'gym': 1, 'arm': 100, 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-06-09', 'pull-up': 40, 'push-up': 0   , 'ab-wheel-roll': 20 , 'bar-dip': 100 , 'gym': 1, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-05-29', 'pull-up': 40, 'push-up': 0   , 'ab-wheel-roll': 0  , 'bar-dip': 100 , 'gym': 1, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-05-16', 'pull-up': 0 , 'push-up': 0   , 'ab-wheel-roll': 30 , 'bar-dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-05-15', 'pull-up': 35, 'push-up': 0   , 'ab-wheel-roll': 20 , 'bar-dip': 120 , 'gym': 1, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-05-13', 'pull-up': 20, 'push-up': 100 , 'ab-wheel-roll': 20 , 'bar-dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-05-11', 'pull-up': 20, 'push-up': 100 , 'ab-wheel-roll': 0  , 'bar-dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
-{'date': '2015-05-08', 'pull-up': 20, 'push-up': 100 , 'ab-wheel-roll': 0  , 'bar-dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-11-11', 'pull_up': 40, 'push_up': 0   , 'ab_wheel_roll': 0  , 'bar_dip': 60  , 'gym': 1, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-10-30', 'pull_up': 50, 'push_up': 70  , 'ab_wheel_roll': 0  , 'bar_dip': 0   , 'gym': 1, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-10-27', 'pull_up':  0, 'push_up': 150 , 'ab_wheel_roll': 0  , 'bar_dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-10-23', 'pull_up': 50, 'push_up': 0   , 'ab_wheel_roll': 0  , 'bar_dip': 70  , 'gym': 1, 'arm': 0  , 'shoulder': 40, 'bouldering': 0 },
+{'date': '2015-10-20', 'pull_up': 50, 'push_up': 0   , 'ab_wheel_roll': 0  , 'bar_dip': 40  , 'gym': 1, 'arm': 40 , 'shoulder': 40, 'bouldering': 0 },
+{'date': '2015-10-19', 'pull_up': 10, 'push_up': 0   , 'ab_wheel_roll': 0  , 'bar_dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-10-15', 'pull_up': 40, 'push_up': 0   , 'ab_wheel_roll': 0  , 'bar_dip': 0   , 'gym': 1, 'arm': 0  , 'shoulder': 60, 'bouldering': 0 },
+{'date': '2015-10-13', 'pull_up': 40, 'push_up': 0   , 'ab_wheel_roll': 0  , 'bar_dip': 0   , 'gym': 1, 'arm': 0  , 'shoulder': 40, 'bouldering': 0 },
+{'date': '2015-10-10', 'pull_up':  0, 'push_up': 0   , 'ab_wheel_roll': 0  , 'bar_dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 1 },
+{'date': '2015-09-18', 'pull_up': 50, 'push_up': 0   , 'ab_wheel_roll': 0  , 'bar_dip': 50  , 'gym': 1, 'arm': 0  , 'shoulder': 30, 'bouldering': 0 },
+{'date': '2015-09-15', 'pull_up': 60, 'push_up': 0   , 'ab_wheel_roll': 0  , 'bar_dip': 100 , 'gym': 1, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-09-13', 'pull_up':  0, 'push_up': 100 , 'ab_wheel_roll': 0  , 'bar_dip':   0 , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-09-12', 'pull_up':  0, 'push_up': 20  , 'ab_wheel_roll': 0  , 'bar_dip':   0 , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-09-11', 'pull_up': 50, 'push_up': 0   , 'ab_wheel_roll': 0  , 'bar_dip': 100 , 'gym': 1, 'arm': 10 , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-09-09', 'pull_up': 50, 'push_up': 0   , 'ab_wheel_roll': 0  , 'bar_dip': 100 , 'gym': 1, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-09-04', 'pull_up': 50, 'push_up': 0   , 'ab_wheel_roll': 0  , 'bar_dip': 110 , 'gym': 1, 'arm': 40 , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-09-02', 'pull_up': 40, 'push_up': 0   , 'ab_wheel_roll': 0  , 'bar_dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-08-29', 'pull_up': 40, 'push_up': 0   , 'ab_wheel_roll': 0  , 'bar_dip': 100 , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-08-26', 'pull_up': 40, 'push_up': 0   , 'ab_wheel_roll': 0  , 'bar_dip': 100 , 'gym': 1, 'arm': 40 , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-08-21', 'pull_up': 40, 'push_up': 0   , 'ab_wheel_roll': 0  , 'bar_dip': 100 , 'gym': 1, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-08-18', 'pull_up': 0 , 'push_up': 100 , 'ab_wheel_roll': 0  , 'bar_dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-08-15', 'pull_up': 45, 'push_up': 0   , 'ab_wheel_roll': 10 , 'bar_dip': 100 , 'gym': 1, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-08-14', 'pull_up': 20, 'push_up': 100 , 'ab_wheel_roll': 0  , 'bar_dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-08-12', 'pull_up': 0 , 'push_up': 100 , 'ab_wheel_roll': 0  , 'bar_dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-07-31', 'pull_up': 40, 'push_up': 0   , 'ab_wheel_roll': 0  , 'bar_dip': 130 , 'gym': 1, 'arm': 60 , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-07-28', 'pull_up': 40, 'push_up': 0   , 'ab_wheel_roll': 0  , 'bar_dip': 130 , 'gym': 1, 'arm': 60 , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-07-25', 'pull_up': 20, 'push_up': 30  , 'ab_wheel_roll': 0  , 'bar_dip': 130 , 'gym': 1, 'arm': 60 , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-07-21', 'pull_up': 20, 'push_up': 40  , 'ab_wheel_roll': 40 , 'bar_dip': 140 , 'gym': 1, 'arm': 60 , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-07-18', 'pull_up':  0, 'push_up': 150 , 'ab_wheel_roll': 0  , 'bar_dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-07-16', 'pull_up':  0, 'push_up': 100 , 'ab_wheel_roll': 0  , 'bar_dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-07-14', 'pull_up':  0, 'push_up': 10  , 'ab_wheel_roll': 0  , 'bar_dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-07-11', 'pull_up':  0, 'push_up': 80  , 'ab_wheel_roll': 0  , 'bar_dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-07-10', 'pull_up': 40, 'push_up': 0   , 'ab_wheel_roll': 0  , 'bar_dip': 10  , 'gym': 1, 'arm': 50 , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-07-03', 'pull_up': 40, 'push_up': 0   , 'ab_wheel_roll': 0  , 'bar_dip': 75  , 'gym': 1, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-06-12', 'pull_up': 30, 'push_up': 0   , 'ab_wheel_roll': 20 , 'bar_dip': 110 , 'gym': 1, 'arm': 100, 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-06-09', 'pull_up': 40, 'push_up': 0   , 'ab_wheel_roll': 20 , 'bar_dip': 100 , 'gym': 1, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-05-29', 'pull_up': 40, 'push_up': 0   , 'ab_wheel_roll': 0  , 'bar_dip': 100 , 'gym': 1, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-05-16', 'pull_up': 0 , 'push_up': 0   , 'ab_wheel_roll': 30 , 'bar_dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-05-15', 'pull_up': 35, 'push_up': 0   , 'ab_wheel_roll': 20 , 'bar_dip': 120 , 'gym': 1, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-05-13', 'pull_up': 20, 'push_up': 100 , 'ab_wheel_roll': 20 , 'bar_dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-05-11', 'pull_up': 20, 'push_up': 100 , 'ab_wheel_roll': 0  , 'bar_dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-05-08', 'pull_up': 20, 'push_up': 100 , 'ab_wheel_roll': 0  , 'bar_dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
 ];
 
 
 /*-----------------------------*/
-
-
-/*-----------------------------*/
-
-  // create the table header
-  var thead = d3.select("example1").selectAll("th")
-    .data(d3.keys(sessions[0]))
-    .enter().append("th").text(function(d){return ' | ' + d });
-  var tr = d3.select("example1").selectAll("tr")
-    .data(sessions).enter().append("tr")
-  var td = tr.selectAll("td")
-    .data(function(d){return d3.values(d)})
-    .enter().append("td")
-    .text(function(d) {return d})
-
-
-
 
 var width = 960,
     height = 136,
@@ -139,7 +122,7 @@ var day = d3.time.format("%w"),
     */
 
 var color = d3.scale.category10();
-var dateParse = d3.time.format("%m/%d/%Y");
+var dateParse = d3.time.format("%Y-%m-%d");
 
 var svg = d3.select("example1").selectAll("svg")
     .data(d3.range(2015, 2016))
@@ -175,30 +158,29 @@ svg.selectAll(".month")
     .attr("d", monthPath);
 
 //d3.csv("dji.csv", function(error, csv) {
-d3.json("data3.json", function(error, data) {
+d3.json("", function(error, data) {
   /*var data = d3.nest()
     .key(function(d) { return d.Date; })
     .rollup(function(d) { return (d[0].Close - d[0].Open) / d[0].Open; })
     .map(csv);
     */
-
-  data.forEach(function(d) {
+  sessions.forEach(function(d) {
     d.dd = format(dateParse.parse(d.date));
   });
 
   var nest = d3.nest()
     .key(function(d) { return d.dd; })
-    .map(data);
+    .map(sessions);
 
-  color.domain(d3.set(data.map(function(d) { return d.category; })).values());
+  color.domain(d3.set(sessions.map(function(d) { return d.pull_up; })).values());
 
   rect.filter(function(d) { return d in nest; })
       //.attr("class", function(d) { return "day " + color(data[d]); })
       .attr("class", function(d) { return "day"; })
-      .style("fill", function(d) { return color(nest[d][0].category); })
-    .select("title")
+      .style("fill", function(d) { return color(nest[d][0].pull_up+nest[d][0].push_up+nest[d][0].ab_wheel_roll+nest[d][0].bar_dip+nest[d][0].arm+nest[d][0].shoulder); })
+      .select("title")
       //.text(function(d) { return d + ": " + percent(data[d]); });
-      .text(function(d) { return d + ": " + nest[d][0].city; });
+      .text(function(d) { return d + ": pull up" + nest[d][0].pull_up + ": push up" + nest[d][0].push_up + ": ab wheel roll" + nest[d][0].ab_wheel_roll + ": bar dip" + nest[d][0].bar_dip + ": arm" + nest[d][0].arm + ": shoulder" + nest[d][0].shoulder; });
 });
 
 function monthPath(t0) {
@@ -213,6 +195,23 @@ function monthPath(t0) {
 }
 
 //d3.select(self.frameElement).style("height", "2910px");
+
+
+/*-----------------------------*/
+
+  // create the table header
+  var thead = d3.select("example1").selectAll("th")
+    .data(d3.keys(sessions[0]))
+    .enter().append("th").text(function(d){return ' | ' + d });
+  var tr = d3.select("example1").selectAll("tr")
+    .data(sessions).enter().append("tr")
+  var td = tr.selectAll("td")
+    .data(function(d){return d3.values(d)})
+    .enter().append("td")
+    .text(function(d) {return d})
+
+
+
 
 </script>
 
