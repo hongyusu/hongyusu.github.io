@@ -133,7 +133,6 @@ var svg = d3.select("example1").selectAll("svg")
     .attr("height", height)
     .attr("class", "RdYlGn")
     .append("g")
-    //.attr("transform", "translate(" + ((width - cellSize * 53) / 2) + "," + (height - cellSize * 7 - 1) + ")");
 
 svg.append("text")
     .attr("transform", "translate(-6," + cellSize * 3.5 + ")rotate(-90)")
@@ -215,12 +214,12 @@ d3.json("", function(error, data) {
   function mouseover(d) {
     tooltip.style("visibility", "visible");
 
-    var textcontent = (nest[d] !== undefined) ?  "\n pull up:\t\t" + nest[d][0].pull_up + "\n push up:\t\t" + nest[d][0].push_up + "\n ab wheel roll:\t" + nest[d][0].ab_wheel_roll + "\n bar dip:\t\t" + nest[d][0].bar_dip + "\n arm:\t\t\t" + nest[d][0].arm + "\n shoulder:\t\t" + nest[d][0].shoulder: '\n No GYM ?? kidding me ??';
+    var textcontent = (nest[d] !== undefined) ?  "\n pull up:\t\t" + nest[d][0].pull_up + "\n push up:\t\t" + nest[d][0].push_up + "\n ab wheel roll:\t" + nest[d][0].ab_wheel_roll + "\n bar dip:\t\t" + nest[d][0].bar_dip + "\n arm:\t\t\t" + nest[d][0].arm + "\n shoulder:\t\t" + nest[d][0].shoulder: '\n No GYM ?? Kidding me ??';
     var textdata = d + ":" + textcontent;
 
     tooltip.transition()        
       .duration(200)      
-      .style("opacity", .9);  
+      .style("opacity", 1);  
     
     tooltip.html(textdata)  
       .style("left", (d3.event.pageX)+30 + "px")     
@@ -238,13 +237,13 @@ d3.json("", function(error, data) {
 
 function monthPath(t0) {
   var t1 = new Date(t0.getFullYear(), t0.getMonth() + 1, 0),
-      d0 = +day(t0), w0 = +week(t0),
-      d1 = +day(t1), w1 = +week(t1);
+    d0 = +day(t0), w0 = +week(t0),
+    d1 = +day(t1), w1 = +week(t1);
   return "M" + (w0 + 1) * cellSize + "," + d0 * cellSize
-      + "H" + w0 * cellSize + "V" + 7 * cellSize
-      + "H" + w1 * cellSize + "V" + (d1 + 1) * cellSize
-      + "H" + (w1 + 1) * cellSize + "V" + 0
-      + "H" + (w0 + 1) * cellSize + "Z";
+    + "H" + w0 * cellSize + "V" + 7 * cellSize
+    + "H" + w1 * cellSize + "V" + (d1 + 1) * cellSize
+    + "H" + (w1 + 1) * cellSize + "V" + 0
+    + "H" + (w0 + 1) * cellSize + "Z";
 
 
 }
@@ -260,19 +259,48 @@ function yearTitle (t0) {
 }
 
 
-
 /*-----------------------------*/
 
-  // create the table header
-  var thead = d3.select("example1").selectAll("th")
-    .data(d3.keys(sessions[0]))
-    .enter().append("th").text(function(d){return '\t' + d });
-  var tr = d3.select("example1").selectAll("tr")
-    .data(sessions).enter().append("tr")
-  var td = tr.selectAll("td")
-    .data(function(d){return d3.values(d)})
-    .enter().append("td")
-    .text(function(d) {return d})
+
+// The table generation function
+function tabulate(data, columns) {
+	
+    var table = d3.select("example1").append("table")
+            .attr("style", "margin-left: 0px"),
+        thead = table.append("thead"),
+        tbody = table.append("tbody");
+
+    // append the header row
+    thead.append("tr")
+        .selectAll("th")
+        .data(columns)
+        .enter()
+        .append("th")
+        .text(function(column) { return column; });
+
+    // create a row for each object in the data
+    var rows = tbody.selectAll("tr")
+        .data(data)
+        .enter()
+        .append("tr");
+
+    // create a cell in each row for each column
+    var cells = rows.selectAll("td")
+        .data(function(row) {
+            return columns.map(function(column) {
+                return {column: column, value: row[column]};
+            });
+        })
+        .enter()
+        .append("td")
+        .attr("style", "font-family: Courier") // sets the font style
+        .html(function(d) { return d.value; });
+
+    return table;
+}
+
+// render the table
+var peopleTable = tabulate(sessions, ["date", "pull_up", "push_up", "ab_wheel_roll", "bar_dip", "gym", "arm", "shoulder", "	bouldering"]);
 
 
 
