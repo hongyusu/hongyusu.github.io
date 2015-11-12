@@ -9,7 +9,7 @@ tags: [Life, Exercise]
 
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-At the age of 30, I start to care more about myself :smiley: Later I decide to record the amount of exercises I have done with the hope that it will encourage me to do more and more. Basically, the exercises I love to do include
+Step into 30, I start to care more about myself :smiley: Then I decide to record the amount of exercises I have done with the hope that the diary will push me to do more and more. Basically, the exercises I love to do include
 
 1. `push up`, for chest muscle
 1. `pull up`, for back and arm 
@@ -58,7 +58,7 @@ body {
 
 
   var sessions = [
-{'date': '2015-11-11', 'pull_up': 40, 'push_up': 0   , 'ab_wheel_roll': 0  , 'bar_dip': 60  , 'gym': 1, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
+{'date': '2015-11-10', 'pull_up': 40, 'push_up': 0   , 'ab_wheel_roll': 0  , 'bar_dip': 60  , 'gym': 1, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
 {'date': '2015-10-30', 'pull_up': 50, 'push_up': 70  , 'ab_wheel_roll': 0  , 'bar_dip': 0   , 'gym': 1, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
 {'date': '2015-10-27', 'pull_up':  0, 'push_up': 150 , 'ab_wheel_roll': 0  , 'bar_dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
 {'date': '2015-10-23', 'pull_up': 50, 'push_up': 0   , 'ab_wheel_roll': 0  , 'bar_dip': 70  , 'gym': 1, 'arm': 0  , 'shoulder': 40, 'bouldering': 0 },
@@ -105,8 +105,8 @@ body {
 
 /*-----------------------------*/
 
-var width    = 700,
-    height   = 400,
+var width    = 900,
+    height   = 300,
     cellSize = 13; // cell size
 
 var no_months_in_a_row = Math.floor(width / (cellSize * 7 + 50));
