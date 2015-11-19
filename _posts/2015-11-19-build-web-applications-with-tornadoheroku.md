@@ -50,7 +50,7 @@ tags: [Programming, Heroku, Python, Tornado, Web]
 
 - It seems that packages are in good shape. However, there are some problems with `Heroku` to install `scipy` and `numpy` and probably `scikit-learn`. In practice, it means that a application with these packages can run nicely on local computer but won't run on `Heroku` remote server. The solution is to use a third party pre-build package with the following command. It is worth noting that the following pre-build package at least support `numpy==1.8.1` and `scipy==0.14.0`. So if you have a higher version of these two packages, you might want to consider lower version alternatives in case they don't work with `Heroku`.
 
-  {%highight bash linenos%}
+  {%highlight bash linenos%}
   heroku buildpacks:set https://github.com/thenovices/heroku-buildpack-scipy
   {%endhighlight%}
 
