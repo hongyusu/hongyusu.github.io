@@ -60,6 +60,7 @@ body {
 
 
   var sessions = [
+{'date': '2015-11-19', 'pull_up': 40, 'push_up': 20  , 'ab_wheel_roll': 0  , 'bar_dip': 70  , 'gym': 1, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
 {'date': '2015-11-10', 'pull_up': 40, 'push_up': 0   , 'ab_wheel_roll': 0  , 'bar_dip': 60  , 'gym': 1, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
 {'date': '2015-10-30', 'pull_up': 50, 'push_up': 70  , 'ab_wheel_roll': 0  , 'bar_dip': 0   , 'gym': 1, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
 {'date': '2015-10-27', 'pull_up':  0, 'push_up': 150 , 'ab_wheel_roll': 0  , 'bar_dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
