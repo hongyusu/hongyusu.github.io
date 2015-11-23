@@ -16,8 +16,9 @@ tags: [Programming, Spark, Python]
 
 # Permanent links
 
-- Permanent [link](http://www.hongyusu.com/programming/2015/11/22/time-series-preference-data/) to this page.
-- permanent [link](https://github.com/hongyusu/SparkViaPython/tree/master/Examples/Campanja) to code.
+- Permanent [link](http://www.hongyusu.com/programming/2015/11/22/time-series-preference-data/) to this page [http://www.hongyusu.com/programming/2015/11/22/time-series-preference-data/](http://www.hongyusu.com/programming/2015/11/22/time-series-preference-data/).
+- permanent [link](https://github.com/hongyusu/SparkViaPython/tree/master/Examples/Campanja) to code [https://github.com/hongyusu/SparkViaPython/tree/master/Examples/Campanja](https://github.com/hongyusu/SparkViaPython/tree/master/Examples/Campanja).
+- [Code for Custom B](https://github.com/hongyusu/SparkViaPython/tree/master/Examples/Campanja) is only slightly different from [code for custom A](https://github.com/hongyusu/SparkViaPython/tree/master/Examples/Campanja).
 
 # Coding
 
@@ -38,7 +39,8 @@ The reasons are
 - During the data preprocessing and exploration, a lot of operations are done based on key/value pairs. `MapReduce` heuristics will naturally optimize these key/value operations.
 - Machine learning is also expected to be scalable on large scale data. Spark has a machine learning library with parallelized learning algorithms.
 
-Complete code and results are in my [Github](https://github.com/hongyusu/SparkViaPython/tree/master/Examples/Campanja).
+Complete code for customer A and results are in my [Github](https://github.com/hongyusu/SparkViaPython/tree/master/Examples/Campanja).
+Complete code for customer B and results are in my [Github](https://github.com/hongyusu/SparkViaPython/tree/master/Examples/CampanjaB).
 
 Code can be run in Spark with the following command (in my case)
 
