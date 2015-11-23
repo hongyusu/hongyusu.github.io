@@ -300,7 +300,7 @@ The test procedure can be described as follows.
 
 - We say model A outperforms model B in predicting conversion rate if RMSE of A is smaller than RMSE of B.
 - **Pro:** 
-  - The test is fast and cheap.
+  - The test is fast and **cheap**.
 - **Con:**
   - The problem is that the difference between two RMSEs might be very small or due to some randomness. Therefore, the claim based on RMSE might not be very well justified. 
   - Overfit training data if the test is not conducted in a proper way.
@@ -311,9 +311,11 @@ In stead of testing the model on historical data, one can perform the test on li
 
 ### RMSE as measure of success
 
-In stead of testing the model on historical data, one can perform the test on line. For example, if the sample period is 1 day, one can predict the conversion rate of tomorrow using all data available upto today; then repeat on the following days.
+In stead of testing the model on historical data, one can perform the test in a online fashion. For example, if the sample period is 1 day, one can predict the conversion rate of tomorrow using all data available upto today; then repeat on the following days.
 
-- Assume we have some data available for training that allow us to predict (with model A or model B) the conversion rate of of $M$ keywords for tomorrow (day 1)
+The test procedure is described as follows.
+
+- Assume we have some data available for training which allow us to predict (with model A and model B) the conversion rate of of $$M$$ keywords for tomorrow (day 1)
 
   $$\{\hat{R}^B_{j1}\}_{j=1}^{M} , \{\hat{R}^B_{j1}\}_{j=1}^{M}$$
 
@@ -344,13 +346,17 @@ In stead of testing the model on historical data, one can perform the test on li
     - Less likely to overfit training data compared to testing on historical data
   - **Con:**
     - The problem is that the difference between two RMSEs might be very small or due to some randomness. Therefore, the claim based on RMSE might not be very well justified. 
+    - Take time and money to perform the test.
+    - Two models predict on a fix collection of keywords over time which does not make much sense and gain addition profits. 
 
 
 ### Conversion rate as measure of success (`A/B test`)
 
 The model developed for predicting conversion rates of keywords is eventually applied to picking keywords during the campaign. Therefore, to compare model A and model B, it also make sense to measure the conversion rate over a collection of clicks from keywords suggested by model A and a collection clicks from keywords by model B over a certain time period.
 
-- The first problem is how many clicks are needed for the experiments. Assume the conversion rate in the group where model A is applied is $$p=60\%$$. In order to say, with statistical power of $$\beta = 90\%$$ and confident level of $$\alpha = 99\%$$, that I can detect the conversion rate of q in group where model B is applied that is significantly different from p in A, I need $$M$$ clicks (samples). $$M$$ can be computed from 
+The idea behind: if model A outperforms model B in predicting conversion rate of keywords, it will pick/update to a better collection of keywords and during the campaign period and such generate more conversions given a same amount of clicks.
+
+- The first problem is how many clicks are needed for the experiment. Assume the conversion rate in the group where model A is applied is $$p=60\%$$. In order to say, with statistical power of $$\beta = 90\%$$ and confident level of $$\alpha = 99\%$$, that I can detect the conversion rate of q in group where model B is applied that is significantly different from p in A, I need $$M$$ clicks (samples). $$M$$ can be computed from 
 
   $$M = 2(t_{\frac{\alpha}{2}} + t_{\beta})^2\frac{p(1-p)}{|q-p|^2}$$
 
@@ -358,16 +364,16 @@ The model developed for predicting conversion rates of keywords is eventually ap
 
   In particular, the sample size $$M$$ is shown in the following table when conversion rate from model A is $$60\%$$
 
-  |Conversion rate from Model B, q| Number of clicks|
-  |:---|---:|
+  |Conversion rate q in B is detected with statistical power| Number of clicks|
+  |:---|:---|
   |0.61|71889|
   |0.62|17972|
   |0.63|7988|
   |0.64|4493|
   |0.65|2876|
 
-- The next thing is to collect click data. One has to make there is no bias towards special date, people, product, region, etc.
-- After sample collection, we have minimum clicks collected from group A and group B. We also know how many conversions are from each group. After that, I would use standard G test.
+- The next thing is to collect click data. One has to make sure there is no bias towards special dates, people, products, regions, etc. For example, model A and model B will both work for similar campaigns from a same company on similar product in same regions over one week. 
+- After sample collection, we have the number of clicks collected from group A and group B. We also know how many conversions are from each group. I would use standard G test to test wether conversion rate in A is different from conversion rate in B.
 
 
 
