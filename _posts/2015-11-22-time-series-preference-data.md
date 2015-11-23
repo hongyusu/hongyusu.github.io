@@ -24,10 +24,12 @@ tags: [Programming, Spark, Python]
 I would use Python for coding on top of Spark environment. Some Python packages involved  and worth of mentioning are listed as follows.
 
 - `numpy` for array and matrix operation.
-- `pandas` for data preprocessing and machine learning model, e.g., random forest regression running on a single cpu core.
+- `pandas` for data preprocessing and transformation
+- `sklearn` for machine learning model, e.g., random forest regression running on a single cpu core.
 - `mllib`, Spark machine learning library for machine learning models e.g., collaborative filtering running parallel on Spark environment.
 - `matplotlib` for plotting.
 - `pyspark` Spark python context enabling python on Spark.
+- `statsmodels` for autoregressive-moving-average ARMAR model on time series prediction.
 
 The reasons are
 
@@ -38,7 +40,7 @@ The reasons are
 
 Complete code and results are in my [Github](https://github.com/hongyusu/SparkViaPython/tree/master/Examples/Campanja).
 
-Code can be run with Spark by the following command in my case
+Code can be run in Spark with the following command (in my case)
 
 {%highlight bash linenos%}
 $../../spark-1.4.1-bin-hadoop2.6/bin/spark-submit solution.py
@@ -240,7 +242,7 @@ So far, the hints from basic analysis are
   |day 85, day 86, ..., day 91|92|
   |day 86, day 87, ..., day 92|?|
 
-- We use random forest regression model from `scikit-learn`. The training and test rooted mean square error RMSE are shown in the following plot.
+- We use random forest regression model from `scikit-learn`. The training rooted mean square error RMSE are shown in the following plot.
 
   ![photo]({{ site.url }}/myimages/campanja_regression.png)
 
@@ -408,7 +410,24 @@ The idea behind: if model A outperforms model B in predicting conversion rate of
 - After sample collection, we have the number of clicks collected from group A and group B. We also know how many conversions are from each group. I would use standard G test to test wether conversion rate in A is different from conversion rate in B.
 
 
-# B data
+# Custom B data
+
+## Overview
+
+- The following plot shows the availability of data in the space of keyword-campaign-time.
+
+  ![photo]({{ site.url }}/myimages/campanja_3dplot_b.png)
+
+- Collapse data by summing along the campaign dimension. The following figures shows the keywords-time matrices for different match types.  
+
+  ![photo]({{ site.url }}/myimages/campanja_missing_b.png)
+
+- This is not too bad as half of the entries are missing.
+
+## Collaborative filtering
+
+- The first thing to do is to impute missing values by collaborative filtering.
+- The following table shows the statistics of the matrix I will be working with.
 
   |Item | Value|
   |:--|--:|
@@ -417,6 +436,8 @@ The idea behind: if model A outperforms model B in predicting conversion rate of
   |Missing at| 56.94 % |
   |Keywords| 5537|
   |Time| 6 |
+
+- The following matrix shows the parameter selection of collaborative filtering on `click` data.
 
   |Rank | Lambda | NumIter | RMSE|
   |:--|:--|:--|:--|
@@ -448,10 +469,14 @@ The idea behind: if model A outperforms model B in predicting conversion rate of
   | 4	  | 0.100	  | 10	  | 2.55
   | 4	  | 0.100	  | 15	  | 2.49
 
+- I compute the rooted mean square error RMSE on training data and compared with mean imputation approach for `click` data. The result is shown in the following table.
+
   |Method|RMSE|
   |:--|--:|
   |CF	|2.45|
   |Mean imputation| 20.58|
+
+- The following matrix shows the parameter selection of collaborative filtering on `click` data.
 
   |Rank | Lambda | NumIter | RMSE|
   |:--|:--|:--|:--|
@@ -483,12 +508,27 @@ The idea behind: if model A outperforms model B in predicting conversion rate of
   | 4	  | 0.100	  | 10	  | 2.58
   | 4	  | 0.100	  | 15	  | 2.49
 
+- I compute the rooted mean square error RMSE on training data and compared with mean imputation approach for `conversion` data. The result is shown in the following table.
+
   |Method|RMSE|
   |:--|--:|
   |CF	|2.45|
   |Mean imputation| 20.58|
 
+- The following figure shows the results of imputation on `conversion` data of 6 keywords. Each subplot shows the `conversion` number of `keyword` along time. Vertical lines correspond to non-missing data.
 
+  ![photo]({{ site.url }}/myimages/campanja_imputation_b.png)
+
+## Learning and prediction
+
+- There are only information available for click and conversion data during the first 6 days and the task is to predict the click and conversion on 7 days.
+- It is somehow difficult to use the same regression approach as built for custom A.
+- For each keyword, the clicks/conversions in the first 6 day can be taken as a time series and the task can be translated into predict the click/conversion number on the 7 day.
+- Therefore, for each keyword, I build a autoregressive-moving-average ARMAR model trained on the time series of clicks and conversions.
+- Model tuning (parameter selection) is performed locally for each keyword.
+- The training rooted mean square error RMSE are shown in the following plot.
+
+  ![photo]({{ site.url }}/myimages/campanja_regression_b.png)
 
 
 
