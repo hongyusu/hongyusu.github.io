@@ -408,9 +408,91 @@ The idea behind: if model A outperforms model B in predicting conversion rate of
 - After sample collection, we have the number of clicks collected from group A and group B. We also know how many conversions are from each group. I would use standard G test to test wether conversion rate in A is different from conversion rate in B.
 
 
+# B data
+
+  |Item | Value|
+  |:--|--:|
+  |Missing entry| 18916 |
+  |All entry| 33222|
+  |Missing at| 56.94 % |
+  |Keywords| 5537|
+  |Time| 6 |
+
+  |Rank | Lambda | NumIter | RMSE|
+  |:--|:--|:--|:--|
+  | 2	  | 0.010	  | 5	  | 4.77
+  | 2	  | 0.010	  | 10	  | 4.73
+  | 2	  | 0.010	  | 15	  | 4.71
+  | 2	  | 0.050	  | 5	  | 4.84
+  | 2	  | 0.050	  | 10	  | 4.74
+  | 2	  | 0.050	  | 15	  | 4.74
+  | 2	  | 0.100	  | 5	  | 4.97
+  | 2	  | 0.100	  | 10	  | 4.80
+  | 2	  | 0.100	  | 15	  | 4.75
+  | 3	  | 0.010	  | 5	  | 3.72
+  | 3	  | 0.010	  | 10	  | 3.74
+  | 3	  | 0.010	  | 15	  | 3.67
+  | 3	  | 0.050	  | 5	  | 3.91
+  | 3	  | 0.050	  | 10	  | 3.70
+  | 3	  | 0.050	  | 15	  | 3.72
+  | 3	  | 0.100	  | 5	  | 4.05
+  | 3	  | 0.100	  | 10	  | 3.75
+  | 3	  | 0.100	  | 15	  | 3.71
+  | 4	  | 0.010	  | 5	  | 2.48
+  | 4	  | 0.010	  | 10	  | 2.45
+  | 4	  | 0.010	  | 15	  | 2.45
+  | 4	  | 0.050	  | 5	  | 2.69
+  | 4	  | 0.050	  | 10	  | 2.50
+  | 4	  | 0.050	  | 15	  | **2.45**
+  | 4	  | 0.100	  | 5	  | 2.64
+  | 4	  | 0.100	  | 10	  | 2.55
+  | 4	  | 0.100	  | 15	  | 2.49
+
+  |Method|RMSE|
+  |:--|--:|
+  |CF	|2.45|
+  |Mean imputation| 20.58|
+
+  |Rank | Lambda | NumIter | RMSE|
+  |:--|:--|:--|:--|
+  | 2	  | 0.010	  | 5	  | 4.75
+  | 2	  | 0.010	  | 10	  | 4.73
+  | 2	  | 0.010	  | 15	  | 4.75
+  | 2	  | 0.050	  | 5	  | 4.80
+  | 2	  | 0.050	  | 10	  | 4.73
+  | 2	  | 0.050	  | 15	  | 4.74
+  | 2	  | 0.100	  | 5	  | 5.02
+  | 2	  | 0.100	  | 10	  | 4.77
+  | 2	  | 0.100	  | 15	  | 4.74
+  | 3	  | 0.010	  | 5	  | 3.76
+  | 3	  | 0.010	  | 10	  | 3.74
+  | 3	  | 0.010	  | 15	  | 3.70
+  | 3	  | 0.050	  | 5	  | 3.84
+  | 3	  | 0.050	  | 10	  | 3.72
+  | 3	  | 0.050	  | 15	  | 3.69
+  | 3	  | 0.100	  | 5	  | 4.06
+  | 3	  | 0.100	  | 10	  | 3.75
+  | 3	  | 0.100	  | 15	  | 3.71
+  | 4	  | 0.010	  | 5	  | 2.51
+  | 4	  | 0.010	  | 10	  | 2.46
+  | 4	  | 0.010	  | 15	  | 2.45
+  | 4	  | 0.050	  | 5	  | 2.75
+  | 4	  | 0.050	  | 10	  | 2.48
+  | 4	  | 0.050	  | 15	  | 2.49
+  | 4	  | 0.100	  | 5	  | 2.58
+  | 4	  | 0.100	  | 10	  | 2.58
+  | 4	  | 0.100	  | 15	  | 2.49
+
+  |Method|RMSE|
+  |:--|--:|
+  |CF	|2.45|
+  |Mean imputation| 20.58|
 
 
-# Side note
+
+
+
+# side note
 
 - Learning can be improved by applying parameter selection on a training/validation/test partition other than current training/test partition. 
 - Parameter selection should be added to local random forest regression. For now, I only have parameter selection on collaborative filtering not for random forest regression.
