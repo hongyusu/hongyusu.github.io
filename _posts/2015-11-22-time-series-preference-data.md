@@ -16,12 +16,12 @@ tags: [Programming, Spark, Python]
 
 # Permanent links
 
-- Permanent links to this page [link](http://www.hongyusu.com/programming/2015/11/22/time-series-preference-data/).
-- permanent links to code [link](https://github.com/hongyusu/SparkViaPython/tree/master/Examples/Campanja).
+- Permanent [link](http://www.hongyusu.com/programming/2015/11/22/time-series-preference-data/) to this page.
+- permanent [link](https://github.com/hongyusu/SparkViaPython/tree/master/Examples/Campanja) to code.
 
 # Coding
 
-I would use Python for coding on top of Spark environment. Some Python packages involved which is also worth of mentioning are as follows.
+I would use Python for coding on top of Spark environment. Some Python packages involved  and worth of mentioning are listed as follows.
 
 - `numpy` for array and matrix operation.
 - `pandas` for data preprocessing and machine learning model, e.g., random forest regression running on a single cpu core.
@@ -31,9 +31,18 @@ I would use Python for coding on top of Spark environment. Some Python packages 
 
 The reasons are
 
-- It is essentially log data generated possibly from some streaming system e.g., Kafka. The example data file is small compared to the real situation. The preprocessing and learning should be able to scale on very large dataset. Therefore, the given task naturally requires framework like Spark or Hadoop.
+- It is essentially log data generated possibly from some streaming system e.g., Kafka.
+- The example data file is small compared to the real situation. The preprocessing and learning should be able to scale on very large dataset. Therefore, the given task naturally requires framework like Spark or Hadoop.
 - During the data preprocessing and exploration, a lot of operations are done based on key/value pairs. `MapReduce` heuristics will naturally optimize these key/value operations.
 - Machine learning is also expected to be scalable on large scale data. Spark has a machine learning library with parallelized learning algorithms.
+
+Complete code and results are in my [Github](https://github.com/hongyusu/SparkViaPython/tree/master/Examples/Campanja).
+
+Code can be run with Spark by the following command in my case
+
+{%highlight bash linenos%}
+$../../spark-1.4.1-bin-hadoop2.6/bin/spark-submit solution.py
+{%endhighlight%}
 
 # Question 1
 
@@ -43,7 +52,7 @@ I would use collaborative filtering to impute missing values then random forest 
 
 ### Overview
 
-- There are 93 days. It seems there are logs available for each day.
+- There are 93 days. Logs are available for each day.
 
   ||First day|Last day|
   |:--|--:|--:|
@@ -57,23 +66,23 @@ I would use collaborative filtering to impute missing values then random forest 
   ![photo]({{ site.url }}/myimages/campanja_frequency.png)
 
 - The availability of logs in campaign/keyword/date is shown in the following figure. The figure demonstrates 
-  - The date can be seen as a preference matrix of keywords on campaigns over time (time series preference matrix).
+  - The date can be seen as a preference matrix of keywords on campaigns over time (time series preference matrices).
   - Different campaigns share keywords.
   - Data are very sparse.
 
   ![photo]({{ site.url }}/myimages/campanja_3dplot.png)
 
-- Ideally, I would model the data in all these thress dimensions (campaign, keyword, time). However, due to the sparseness, I will collapse the campaign-keyword-time matrix to a keyword-time matrix by summing along the campaign dimension.
+- Ideally, I would model the data with all dimensions (campaign, keyword, time). However, due to the sparseness, I will collapse the campaign-keyword-time matrix to a keyword-time matrix by summing along the campaign dimension.
 - In particular, I will work with the keyword-time matrix in the following part of the analysis.
 
 
 ### Behavior of an `average` keyword over time
 
-- The following plot shows the global behavior (mean keyword) over time, averaged over `match_type` and the number of `click` for individual log.
+- The following plot shows the global behavior (mean keyword) over time, shown separately for different `match_type` and the number of `click` for individual log.
 
   ![photo]({{ site.url }}/myimages/campanja_global1.png)
 
-- There is some `heart beat` pattern in the plot above. However, the different between different `match_type` is quite small. Again, I would ideally model the data with different `match_type`. However, I would average over `match_type` due to the sparsness.
+- There is a `heart beat`/periodical pattern in the plot above. However, the different between different `match_type` is quite small. Again, I would ideally model the data with different `match_type`. However, I would average over `match_type` due to the sparseness.
 - The following plot shows the global behavior over time, without making difference on `match_type`.
 
   ![photo]({{ site.url }}/myimages/campanja_global2.png)
@@ -84,17 +93,17 @@ I would use collaborative filtering to impute missing values then random forest 
 
   ![photo]({{ site.url }}/myimages/campanja_local1.png)
 
-- If there is a pattern base on weekdays, how about average over weekdays? The following plot shows the behavior of individual keyword averaged over weekdays. The pattern is somehow more clear that people did more search at the beginning or towards the end of the week while did very few search during the week.
+- If there is a pattern base on weekdays, how about average over weekdays? The following plot shows the behavior of individual keyword averaged over weekdays. The pattern is somehow more clear that people did more searches at the beginning or towards the end of the week while did fewer searches during the week.
 
   ![photo]({{ site.url }}/myimages/campanja_local2.png)
 
-- The observation suggest that it might be a good idea to build a regression model based on weekdays. For example, use data from previous Monday to Sunday to predict current Monday, and use data from previous Tuesday to this Monday to predict this Tuesday.
+- The observations suggest that it might be a good idea to build a regression model based on weekdays. For example, use data from previous Monday to Sunday to predict current Monday, and use data from previous Tuesday to this Monday to predict this Tuesday.
 
 ## Missing data 
 
 For now the practical problem is really how much data we actually have or can use. The following plots show all available data points in keyword-time matrix in terms of different `match type`. The plot demonstrates that
 
-- Different matching type generate different entries in the data matrix since the individual percentages sum up to the `all`.
+- Different matching type generates different entries in the data matrix since the individual percentages sum up to the `all`.
 - Interesting! This actually says that different `match type` did not generate overlapped data.
 - In addition, we only have about 10% data available in the matrix by putting together data generated from different `match type`.
 - It actually suggests that to deal with sparseness we should really pool data together other than model them in high resolution.
