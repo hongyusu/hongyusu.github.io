@@ -3,7 +3,7 @@ layout: post
 title: "Time series preference data"
 description: ""
 category: Programming
-tags: []
+tags: [Programming, Spark, Python]
 ---
 {% include JB/setup %}
 <script type="text/javascript"
@@ -17,7 +17,7 @@ tags: []
 # Permanent links
 
 - Permanent links to this page [link](http://www.hongyusu.com/programming/2015/11/22/time-series-preference-data/).
-- permanent links to code [link]().
+- permanent links to code [link](https://github.com/hongyusu/SparkViaPython/tree/master/Examples/Campanja).
 
 # Coding
 
@@ -107,25 +107,28 @@ So far, the hints from basic analysis are
 
 - I should pool `keyword` data from different campaigns and match types to tackle the sparseness.
 - The data is still very sparse even pooling logs from different dimensions. We still need to work out the missing values in the matrix. 
-- There is a `heart beat` or `weekday` pattern for different keywords across time which essentially goes up at the beginning or towards the end of the week and goes down during the week. The pattern suggests that the preference of different keywords are somehow correlated because of the human behaviour. In machine learning, it allows `collaborative` analysis e.g., collaborative filtering.
-- Behavior of individual keywords are quite different which means that local regression model built based on individual keyword might be a good idea.
+- There is a `heart beat` / `weekday` pattern for different keywords across time which essentially goes up at the beginning or towards the end of the week and goes down during the week. The periodical pattern suggests that the preference of different keywords are somehow correlated because of the human behaviour. In machine learning, it allows `collaborative` analysis e.g., collaborative filtering.
+- Another patten shown in the data besides periodical pattern is that the number of clicks/conversions decay over weeks.
+- Behavior of individual keywords are quite different which means that local regression model built based on individual keyword might be a good idea. However, with additional/external data, one can group keywords into different keyword groups and build a regression model for each group.
 - I should focus on predicting `click` and `conversion` data, as the ratio is the conversion rate.
 
 ### Missing value imputation
 
-- As already mentioned, the first problem is that we need to compute the missing value in the keyword-time matrix of click data and conversion data.
-- This can be tackled by collaborative filtering. The technique is well known for recommender system and is implemented in Spark machine learning library. The actual algorithm running in the backend is alternating least square ALS.
-- In particular, I am working on a matrix
+- As already mentioned, the first problem is that we need to compute the missing values in the keyword-time matrix of click data and conversion data.
+- This can be tackled by collaborative filtering. The technique is well-known for recommender system and is implemented in Spark machine learning library. The actual algorithm running in the backend is alternating least square ALS.
+- In particular, I will be working on a keyword-time matrix
 
   |Item | Value|
   |:--|--:|
-  |missing | 443835 |
-  |all| 490947|
-  |missing percentage| 90.40 % |
-  |keywords| 5279|
+  |Missing entry| 443835 |
+  |All entry| 490947|
+  |Missing at| 90.40 % |
+  |Keywords| 5279|
   |Time| 93 |
 
-- Parameter selection on `click` data
+- For now, I only divide all data into training and test where test data is just to make prediction on the last day. Parameter tuning is done on training data. Then model is trained with the best parameters.
+
+- Parameter selection result is listed as in the following table.
 
   |Rank | Lambda | NumIter | RMSE|
   |:--|:--|:--|:--|
@@ -164,12 +167,12 @@ So far, the hints from basic analysis are
   |CF	|1.42|
   |Mean imputation|	93.47|
 
-- The following figure shows the results of imputation on `click` data. Each subplot shows the `click` number of `keyword` along time. Vertical lines correspond to non-missing data.
+- The following figure shows the results of imputation on `click` data for 4 keywords. Each subplot shows the `click` number of the `keyword` along time. Vertical lines correspond to non-missing data.
 
   ![photo]({{ site.url }}/myimages/campanja_imputation_click.png)
 
 
-- Parameter selection on `conversion` data
+- Similarly, parameter selection on `conversion` data is shown in the following table.
 
   |Rank | Lambda | NumIter | RMSE|
   |:--|:--|:--|:--|
@@ -209,25 +212,26 @@ So far, the hints from basic analysis are
   |Mean imputation|	93.47|
 
 
-- The following figure shows the results of imputation on `conversion` data. Each subplot shows the `conversion` number of `keyword` along time. Vertical lines correspond to non-missing data.
+- The following figure shows the results of imputation on `conversion` data of 4 keywords. Each subplot shows the `conversion` number of `keyword` along time. Vertical lines correspond to non-missing data.
 
   ![photo]({{ site.url }}/myimages/campanja_imputation_conversion.png)
 
 ### Localized regression model
 
-- The idea is to build a regression model for each keyword considering weekday pattern.
-- For each keyword, we have data from day 0 to day 92.
-- As training data x and y, we use
+- The idea is to build a regression model locally for each keyword in order to capture the weekday pattern of clicks and conversions.
+- At the same time, the weekday regression model will not collapse for some keywords in which clicks/conversion decays over weeks. 
+- In particular, we have for each keyword data from day 0 to day 92. The the final task is predict the value for day 93.
+- As training data x and y, we construct from historical data
 
   |X(Feature)|Y(Label)|
   |:--|--:|
-  |day 0 - day 6|7|
-  |day 1 - day 7|8|
+  |day 0, day 1, ..., day 6|7|
+  |day 1, day 2, ..., day 7|8|
   |...|...|
-  |day 85 - day 91|92|
-  |day 86 - day 92|?|
+  |day 85, day 86, ..., day 91|92|
+  |day 86, day 87, ..., day 92|?|
 
-- We use random forest regression model from scikit-learn. The training and test RMSE are shown in the following plot.
+- We use random forest regression model from `scikit-learn`. The training and test rooted mean square error RMSE are shown in the following plot.
 
   ![photo]({{ site.url }}/myimages/campanja_regression.png)
 
@@ -235,23 +239,42 @@ So far, the hints from basic analysis are
 
 ## Other possibilities
 
-- The approach described here is collaborative filter for missing value imputation + local regression model based on weekdays for individual keyword.
+- The approach described here is collaborative filtering for missing value imputation + local regression model based on weekday pattern for individual keyword.
+  - Some improvement on current implementation:
+    - Log transformation of the `click` and `conversion` data to make them more like _Gaussian_ distributed. So that regression can be better trained.
+    - Add parameter selection procedure on training local random forest regression model.
+    - Make training/validation/test partitions for parameter selection scheme.
 - Other possibilities base on current data
 
-  - Missing value imputation + global regression for all keyword. The only difference here is to train a global regression model with all keyword data instead of having one regression model for individual keyword. **Pro:** Consider more information when making a prediction. More flexible for distributed computation. **Con:** Not sure whether other keywords are actually related to the current one.
+  - Missing value imputation + global regression for all keyword. The only difference here is to train a global regression model with all keyword data instead of having one regression model for individual keyword. 
+    - **Pro:** Consider more information when making a prediction. More flexible for distributed computation. 
+    - **Con:** Not sure whether other keywords are actually related to the current one.
 
-  - Missing value imputation + group regression. Divide keywords into groups according to campaign information, then build a regression model for each group. **Pro:** Consider other keyword in the same group. **Con:** Sparse data which is difficult to find the keyword group.
+  - Missing value imputation + group regression. Divide keywords into groups according to campaign information, then build a regression model for each keyword group. 
+    - **Pro:** Consider other keyword in the same group. Model is trained with more information.
+    - **Con:** Sparse data which is difficult to find the keyword group.
 
-  - Missing value imputation + time series prediction model e.g., autoregression model, autoregressive–moving-average model. Previous regression models are built based on the observation that there is a weekday pattern on the number of `click` or `conversions`. However, data here is essentially time series of the preference of keywords. The time series regression can be applied here. **Pro:** Data is essentially time series. **Con:** Local model on individual keyword. Neglect weekday pattern.
+  - Missing value imputation + time series prediction model e.g., autoregression model, autoregressive–moving-average model. Previous regression models are built based on the observation that there is a weekday pattern on the number of `click` or `conversions`. However, data here is essentially time series of the preference over keywords. Therefore, the time series regression can be applied here.
+    - **Pro:** Data is essentially time series.
+    - **Con:** Local model on individual keyword. Neglect weekday pattern.
+
+  - Gaussian process locally for each keyword. The observation for each keyword can be taken as a collection (21) of time series curves from Monday to Sunday. Gaussian process essentially assume observations on different day (e.g., Monday) follows a Gaussian distribution and the correlation between different days (e.g., Monday and Tuesday) follows a covariance structure. 
+    - **Pro:** Advanced model for time series modeling. Training is still feasible on the data of this size. Prediction comes with confidence interview (variance).
+    - **Cons** GP is for finding patterns not for making prediction which means that the variance of prediction might be very high. Neglect the fact that the popularity of keywords decay over weeks.
 
   - Ensemble models combining multiple local/global regression models.
 
 - Given more data, it is really to make regression model on fine-tuned groups
 
   - When `click`/`conversion` can be segmented on devices, it makes sense to predict `click`, `conversion`, `conversion rate` for each device.
-  - When more information about keywords are available, it is then realistic  to put keywords into different groups and run regression/missing value imputation on different group.
+  - When more information about keywords is available, it is then realistic to put keywords into different groups and run regression/missing value imputation on different group.
 
 # Question 2
+
+The assumption in regression $$y=wx+b$$ is the output variable $$y$$ is Gaussian distributed if input features are Gaussians which is true in most of cases. Therefore, if the number of conversions is few or zero, when learning the regression model, the distribution of $$y$$ is skewed.
+
+- When the number of conversions is few, it might make sense to have a log transformation of the number of conversions. As a results, the distribution of the number of conversion is more like Gaussian.
+- When the number of conversion is zero and there are many of it, it might be a good idea to have a two stage model. In the first stage, having a binary classifier/outlier detector to predict if the conversion of a keyword is zero or non-zero. In the second stage, building a regression model to predict the actual conversions for keyword predicted to have conversions in the first stage.
 
 # Question 3
 
@@ -382,6 +405,7 @@ The idea behind: if model A outperforms model B in predicting conversion rate of
 
 - Learning can be improved by applying parameter selection on a training/validation/test partition other than current training/test partition. 
 - Parameter selection should be added to local random forest regression. For now, I only have parameter selection on collaborative filtering not for random forest regression.
+- Paper on proper statistical test [So you want to run an experiment ...](http://rady.ucsd.edu/docs/faculty/List_Sadoff_Wagner_Optimal_Sample_Design_Experimental_Economics_2011.pdf)
 
 
 
