@@ -16,7 +16,7 @@ tags: []
 
 # Permanent links
 
-- Permanent links to this page [link]().
+- Permanent links to this page [link](http://www.hongyusu.com/programming/2015/11/22/time-series-preference-data/).
 - permanent links to code [link]().
 
 # Coding
