@@ -530,7 +530,7 @@ The idea behind: if model A outperforms model B in predicting conversion rate of
 - Model tuning (parameter selection) is performed locally for each keyword.
 - The training rooted mean square error RMSE are shown in the following plot.
 
-  #![photo]({{ site.url }}/myimages/campanja_regression_b.png)
+  ![photo]({{ site.url }}/myimages/campanja_regression_b.png)
 
 
 
