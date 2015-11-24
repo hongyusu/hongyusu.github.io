@@ -14,6 +14,13 @@ tags: [Programming, Spark, Python]
 * auto-gen TOC:
 {:toc}
 
+# Introduction
+
+The situation here is that we have a user-item preference matrix which is also evolving over time. Essentially, we have a collection of user-item preference matrices, one for each time point. The preference matrix can be, for example, user's preference on a collection of books, popularity of movies among people, effectiveness of a set keywords on a collection of campaigns. From another perspective, we have a 3D preference matrix of users, items, and time. The prediction task is really to forecast a user-item preference matrix of the next time point.
+
+The problem is very interesting and makes a lot senses in real life. For example, the cinema can predict which movies will be popular next day/week/month, and make arrangements according to the predictions.
+
+
 # Permanent links
 
 - Permanent [link](http://www.hongyusu.com/programming/2015/11/22/time-series-preference-data/) to this page [http://www.hongyusu.com/programming/2015/11/22/time-series-preference-data/](http://www.hongyusu.com/programming/2015/11/22/time-series-preference-data/).
