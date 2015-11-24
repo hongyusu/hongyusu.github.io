@@ -59,7 +59,7 @@ Code can be run in Spark with the following command (in my case)
 $../../spark-1.4.1-bin-hadoop2.6/bin/spark-submit solution.py
 {%endhighlight%}
 
-# Question 1
+# Question 1: Modeling
 
 I would use collaborative filtering to impute missing values then random forest regression trained locally for each individual keyword. 
 
@@ -293,14 +293,14 @@ So far, the hints from basic analysis are
   - When `click`/`conversion` can be segmented on devices, it makes sense to predict `click`, `conversion`, `conversion rate` for each device.
   - When more information about keywords is available, it is then realistic to put keywords into different groups and run regression/missing value imputation on different group.
 
-# Question 2
+# Question 2: Pitfall 
 
 The assumption in regression $$y=wx+b$$ is the output variable $$y$$ is Gaussian distributed if input features are Gaussians which is true in most of cases. Therefore, if the number of conversions is few or zero, when learning the regression model, the distribution of $$y$$ is skewed.
 
 - When the number of conversions is few, it might make sense to have a log transformation of the number of conversions. As a results, the distribution of the number of conversion is more like Gaussian.
 - When the number of conversion is zero and there are many of it, it might be a good idea to have a two stage model. In the first stage, having a binary classifier/outlier detector to predict if the conversion of a keyword is zero or non-zero. In the second stage, building a regression model to predict the actual conversions for keyword predicted to have conversions in the first stage.
 
-# Question 3
+# Question 3: Measure the performance
 
 In order to compare the performance of two models (model A and model B) in term of predicting conversion rate, one can work on
 
