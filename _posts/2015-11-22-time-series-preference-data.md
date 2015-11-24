@@ -16,9 +16,12 @@ tags: [Programming, Spark, Python]
 
 # Introduction
 
-The situation here is that we have a user-item preference matrix which is also evolving over time. Essentially, we have a collection of user-item preference matrices, one for each time point. The preference matrix can be, for example, user's preference on a collection of books, popularity of movies among people, effectiveness of a set keywords on a collection of campaigns. From another perspective, we have a 3D preference matrix of users, items, and time. The prediction task is really to forecast a user-item preference matrix of the next time point.
+To be more general here in the introduction, the situation is that we have a user-item preference matrix which is also evolving over time. Essentially, we have a collection of user-item preference matrices, one for each time point. The preference matrix can be, for example, user's preference on a collection of books, popularity of movies among people, effectiveness of a set keywords on a collection of campaigns. The prediction task is really to forecast a user-item preference matrix of the next time point. 
 
-The problem is very interesting and makes a lot senses in real life. For example, the cinema can predict which movies will be popular next day/week/month, and make arrangements according to the predictions.
+From another angle, we really have a 3D preference matrix of with axes being users, items, and time. Given the matrix, the task is to predict a future _slice_ of the matrix along the time axis.
+
+The problem is very interesting and makes a lot sense in the real world. For example, the cinema can predict which movies will be popular next day/week/month, and make arrangements according to the predictions to maximize the profit. 
+
 
 
 # Permanent links
@@ -486,7 +489,7 @@ The idea behind: if model A outperforms model B in predicting conversion rate of
   |CF	|2.45|
   |Mean imputation| 20.58|
 
-- The following matrix shows the parameter selection of collaborative filtering on `click` data.
+- The following matrix shows the parameter selection of collaborative filtering on `conversion` data.
 
   |Rank | Lambda | NumIter | RMSE|
   |:--|:--|:--|:--|
