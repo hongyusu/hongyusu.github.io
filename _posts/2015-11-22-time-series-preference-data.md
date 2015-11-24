@@ -63,7 +63,7 @@ I would use collaborative filtering to impute missing values then random forest 
   |**Actual date**|2015-08-17| 2015-11-17|
   |**Index**|0|92|
 
-- About 1.19% criterions are not unique to ad group meaning that keyword can be defined as `adgroup_id+criterion_id`. On the hand, 57.04% keywords are not unique to campaign meaning that we cannot combine `keyword_id` and `campaign_id`. Different campaigns share keywords.
+- About 1.19% criterions are not unique to ad group meaning that keyword can be defined as `adgroup_id+criterion_id`. On the hand, 57.04% keywords are not unique to campaign meaning that I cannot combine `keyword_id` and `campaign_id`. Different campaigns share keywords.
 
 - The histogram of the number of logs for campaign, keyword and date are shown in the following figure.
 
@@ -105,12 +105,12 @@ I would use collaborative filtering to impute missing values then random forest 
 
 ## Missing data 
 
-For now the practical problem is really how much data we actually have or can use. The following plots show all available data points in keyword-time matrix in terms of different `match type`. The plot demonstrates that
+For now the practical problem is really how much data I actually have or can use. The following plots show all available data points in keyword-time matrix in terms of different `match type`. The plot demonstrates that
 
 - Different matching type generates different entries in the data matrix since the individual percentages sum up to the `all`.
 - Interesting! This actually says that different `match type` did not generate overlapped data.
-- In addition, we only have about 10% data available in the matrix by putting together data generated from different `match type`.
-- It actually suggests that to deal with sparseness we should really pool data together other than model them in high resolution.
+- In addition, I only have about 10% data available in the matrix by putting together data generated from different `match type`.
+- It actually suggests that to deal with sparseness I should really pool data together other than model them in high resolution.
 
   ![photo]({{ site.url }}/myimages/campanja_missing.png)
 
@@ -127,7 +127,7 @@ So far, the hints from basic analysis are
 
 ### Missing value imputation
 
-- As already mentioned, the first problem is that we need to compute the missing values in the keyword-time matrix of click data and conversion data.
+- As already mentioned, the first problem is that I need to compute the missing values in the keyword-time matrix of click data and conversion data.
 - This can be tackled by collaborative filtering. The technique is well-known for recommender system and is implemented in Spark machine learning library. The actual algorithm running in the backend is alternating least square ALS.
 - In particular, I will be working on a keyword-time matrix
 
@@ -233,8 +233,8 @@ So far, the hints from basic analysis are
 
 - The idea is to build a regression model locally for each keyword in order to capture the weekday pattern of clicks and conversions.
 - At the same time, the weekday regression model will not collapse for some keywords in which clicks/conversion decays over weeks. 
-- In particular, we have for each keyword data from day 0 to day 92. The the final task is predict the value for day 93.
-- As training data x and y, we construct from historical data
+- In particular, I have for each keyword data from day 0 to day 92. The the final task is predict the value for day 93.
+- As training data x and y, I construct from historical data
 
   |X(Feature)|Y(Label)|
   |:--|--:|
@@ -539,7 +539,7 @@ The idea behind: if model A outperforms model B in predicting conversion rate of
 - Learning can be improved by applying parameter selection on a training/validation/test partition other than current training/test partition. 
 - Parameter selection should be added to local random forest regression. For now, I only have parameter selection on collaborative filtering not for random forest regression.
 - Paper on proper statistical test [So you want to run an experiment ...](http://rady.ucsd.edu/docs/faculty/List_Sadoff_Wagner_Optimal_Sample_Design_Experimental_Economics_2011.pdf)
-
+- Parameter selection should be  added to selecting rank parameter in autoregressive-moving-average ARMAR model.
 
 
 
