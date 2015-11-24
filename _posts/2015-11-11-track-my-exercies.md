@@ -69,7 +69,7 @@ body {
 {'date': '2015-10-19', 'pull_up': 10, 'push_up': 0   , 'ab_wheel_roll': 0  , 'bar_dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
 {'date': '2015-10-15', 'pull_up': 40, 'push_up': 0   , 'ab_wheel_roll': 0  , 'bar_dip': 0   , 'gym': 1, 'arm': 0  , 'shoulder': 60, 'bouldering': 0 },
 {'date': '2015-10-13', 'pull_up': 40, 'push_up': 0   , 'ab_wheel_roll': 0  , 'bar_dip': 0   , 'gym': 1, 'arm': 0  , 'shoulder': 40, 'bouldering': 0 },
-{'date': '2015-10-10', 'pull_up':  0, 'push_up': 0   , 'ab_wheel_roll': 0  , 'bar_dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 1 },
+{'date': '2015-10-10', 'pull_up':  0, 'push_up': 0   , 'ab_wheel_roll': 0  , 'bar_dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 100 },
 {'date': '2015-09-18', 'pull_up': 50, 'push_up': 0   , 'ab_wheel_roll': 0  , 'bar_dip': 50  , 'gym': 1, 'arm': 0  , 'shoulder': 30, 'bouldering': 0 },
 {'date': '2015-09-15', 'pull_up': 60, 'push_up': 0   , 'ab_wheel_roll': 0  , 'bar_dip': 100 , 'gym': 1, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
 {'date': '2015-09-13', 'pull_up':  0, 'push_up': 100 , 'ab_wheel_roll': 0  , 'bar_dip':   0 , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
@@ -206,7 +206,7 @@ d3.json("", function(error, data) {
 
   rect.filter(function(d) { return d in nest; })
     .attr("class", function(d) { return "day"; })
-    .style("fill", function(d) { return color(nest[d][0].pull_up+nest[d][0].push_up+nest[d][0].ab_wheel_roll+nest[d][0].bar_dip+nest[d][0].arm+nest[d][0].shoulder); })
+    .style("fill", function(d) { return color(nest[d][0].pull_up+nest[d][0].push_up+nest[d][0].ab_wheel_roll+nest[d][0].bar_dip+nest[d][0].arm+nest[d][0].shoulder+nest[d][0].bouldering); })
 
 
    //  Tooltip
@@ -216,7 +216,7 @@ d3.json("", function(error, data) {
   function mouseover(d) {
     tooltip.style("visibility", "visible");
 
-    var textcontent = (nest[d] !== undefined) ?  "\n pull up:\t\t" + nest[d][0].pull_up + "\n push up:\t\t" + nest[d][0].push_up + "\n ab wheel roll:\t" + nest[d][0].ab_wheel_roll + "\n bar dip:\t\t" + nest[d][0].bar_dip + "\n arm:\t\t\t" + nest[d][0].arm + "\n shoulder:\t\t" + nest[d][0].shoulder: '\n No GYM ?? Kidding me ??';
+    var textcontent = (nest[d] !== undefined) ?  "\n pull up:\t\t" + nest[d][0].pull_up + "\n push up:\t\t" + nest[d][0].push_up + "\n ab wheel roll:\t" + nest[d][0].ab_wheel_roll + "\n bar dip:\t\t" + nest[d][0].bar_dip + "\n arm:\t\t\t" + nest[d][0].arm + "\n shoulder:\t\t" + nest[d][0].shoulder + "\n bouldering:\t\t" + nest[d][0].bouldering: '\n No GYM ?? Kidding me ??';
     var textdata = d + ":" + textcontent;
 
     tooltip.transition()        
@@ -297,12 +297,12 @@ function tabulate(data, columns) {
         .append("td")
         .attr("style", "font-family: Courier") // sets the font style
         .html(function(d) { return d.value; });
-
+    console.log(cells)
     return table;
 }
 
 // render the table
-var peopleTable = tabulate(sessions, ["date", "pull_up", "push_up", "ab_wheel_roll", "bar_dip", "gym", "arm", "shoulder", "	bouldering"]);
+var peopleTable = tabulate(sessions, ["date", "pull_up", "push_up", "ab_wheel_roll", "bar_dip", "gym", "arm", "shoulder", "bouldering"]);
 
 
 
