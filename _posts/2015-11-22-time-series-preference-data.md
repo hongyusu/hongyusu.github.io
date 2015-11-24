@@ -188,8 +188,8 @@ So far, the hints from basic analysis are
 
   |Method|RMSE|
   |:--|--:|
-  |CF	|1.42|
-  |Mean imputation|	93.47|
+  |**CF**	|1.42|
+  |**Mean imputation**|	93.47|
 
 - The following figure shows the results of imputation on `click` data for 4 keywords. Each subplot shows the `click` number of the `keyword` along time. Vertical lines correspond to non-missing data.
 
@@ -232,8 +232,8 @@ So far, the hints from basic analysis are
 
   |Method|RMSE|
   |:--|--:|
-  |CF	|1.42|
-  |Mean imputation|	93.47|
+  |**CF**	|1.42|
+  |**Mean imputation**|	93.47|
 
 
 - The following figure shows the results of imputation on `conversion` data of 4 keywords. Each subplot shows the `conversion` number of `keyword` along time. Vertical lines correspond to non-missing data.
@@ -486,8 +486,8 @@ The idea behind: if model A outperforms model B in predicting conversion rate of
 
   |Method|RMSE|
   |:--|--:|
-  |CF	|2.45|
-  |Mean imputation| 20.58|
+  |**CF**	|2.45|
+  |**Mean imputation** | 20.58|
 
 - The following matrix shows the parameter selection of collaborative filtering on `conversion` data.
 
@@ -525,8 +525,8 @@ The idea behind: if model A outperforms model B in predicting conversion rate of
 
   |Method|RMSE|
   |:--|--:|
-  |CF	|2.45|
-  |Mean imputation| 20.58|
+  |**CF**	|2.45|
+  |**Mean imputation**| 20.58|
 
 - The following figure shows the results of imputation on `conversion` data of 6 keywords. Each subplot shows the `conversion` number of `keyword` along time. Vertical lines correspond to non-missing data.
 
