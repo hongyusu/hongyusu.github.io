@@ -40,6 +40,7 @@ The reasons are
 - Machine learning is also expected to be scalable on large scale data. Spark has a machine learning library with parallelized learning algorithms.
 
 Complete code for customer A and results are in my [Github](https://github.com/hongyusu/SparkViaPython/tree/master/Examples/Campanja).
+
 Complete code for customer B and results are in my [Github](https://github.com/hongyusu/SparkViaPython/tree/master/Examples/CampanjaB).
 
 Code can be run in Spark with the following command (in my case)
