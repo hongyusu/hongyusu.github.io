@@ -35,7 +35,7 @@ I enjoy aggressive sport like basketball before I broke my knee cruciate ligamen
 - We delivered [**Xplanner**](http://tripassistant.herokuapp.com) with 10 hours programming in [Junction Hackathon 2015](http://hackjunction.com), see [my blog]({{ site.url }}/competition/2015/11/09/junction-hackathon-2015/) for more information.
 - I am traveling to Montreal during December 2015 for [NIPS](https://nips.cc) [conference 2015](https://media.nips.cc/Conferences/2015/Poster/NIPS-2015-Poster-Thumbnail.jpg) to present a poster in [Workshops on Machine Learning in Computational Biology (MLCB) & Machine Learning in Systems Biology (MLSB) 2015](https://www.mlcb.org).
 - I received from our ambassador the [**Chinese government award for outstanding doctoral candidate of 2014**](http://www.hongyusu.com/life/2015/08/12/outstanding-doctoral-candidate-award-2014/).
-- [***My ensemble model***](http://hongyusu.github.io/FacebookChallenge) ranked ***52th***/985 with AUC score ***93.269%***/94.254% in the [Facebook challenge](https://www.kaggle.com/c/facebook-recruiting-iv-human-or-bot) of detecting robots in the online bidding environment.
+- [***My ensemble model***](http://hongyusu.github.io/FacebookChallenge) ranked ***52th***/985 with AUC score ***93.269%***/94.254% in the [Facebook challenge](https://www.kaggle.com/c/facebook-recruiting-iv-human-or-bot) of fraud detection in the online bidding environment.
 - I defended my <a href="https://aaltodoc.aalto.fi/handle/123456789/15362">dissertation 'Multilabel classification through structured output learning'</a> in lecture hall T2 <a href="http://sci.aalto.fi/en/">School of Science</a> on 27th March 2015.
 
 
@@ -54,7 +54,7 @@ I enjoy aggressive sport like basketball before I broke my knee cruciate ligamen
 ##Selected Projects and Softwares
 - [_Xplanner_](http://tripassistant.herokuapp.com) -- a trip planner organising everything for your holiday [Github](https://github.com/czli/Junction2015).
 - Predicting the function of transporter proteins [Github](http://hongyusu.github.io/ProteinFunctionPrediction/).
-- _Facebook challenge_ of detecting robots in online bidding environment [Github](http://hongyusu.github.io/FacebookChallenge).
+- _Facebook challenge_ of **fraud detection** in online bidding environment [Github](http://hongyusu.github.io/FacebookChallenge).
 - _Personalised route recommendation system_ for Aalto Data Science Hackathon 2015 [Github](http://hongyusu.github.io/AaltoHackathon2015/). 
 - Conditional gradient optimization with convex combination of multiple update directions (_L2RTA_) in random spanning tree approximation algorithm [Github](https://github.com/hongyusu/RTA).
 - Random spanning tree approximation (_RTA_) for structured output learning on complete output graph [Github](https://github.com/hongyusu/RTA).
@@ -78,8 +78,11 @@ I enjoy aggressive sport like basketball before I broke my knee cruciate ligamen
 
   - Su, Hongyu; Rousu, Juho. <b>Multilabel Classification through Random Graph Ensembles</b>. <b><i>Machine Learning</i></b>, Volume 99, Issue 2 (2015), Page 231-256, DOI: 10.1007/s10994-014-5465-9. [<a href="http://link.springer.com/article/10.1007/s10994-014-5465-9?sa_campaign=email/event/articleAuthor/onlineFirst">online</a>] [<a href="./publications/su14b_authorcopy.pdf">preprint</a>]
 
+###Doctoral Dissertation
 
-###Conference Articles
+   - Su, Hongyu. <b>Multilabel Classification through Structured Output Learning - Methods and Applications.</b> Doctoral Dissertation, Aalto University School of Science, Feb 2015. [<a href="http://urn.fi/URN:ISBN:978-952-60-6106-1">Library</a>] [<a href="https://github.com/hongyusu/dissertation/blob/master/dissertation.pdf?raw=true">GitHub</a>] [<a href="./publications/255031_Aalto_DD_028_2015_Hongyu_Su_vedos.pdf">Draft</a>] [<a href="https://github.com/hongyusu/Posters_and_Presentations/raw/master/Presentations/Defence_presentation_20150327/example.pdf">Slides</a>]
+
+###Conference Papers
 
   - Mario Marchand, Hongyu Su, Emilie Morvant, Juho Rousu, John Shawe-Taylor <b>Multilabel Structured Output Learning with Random Spanning Trees of Max-Margin Markov Networks</b>. In <i>Advances in Neural Information Processing Systems 27(<b>NIPS 2014</b>)</i>, 873--881 [<a href="publications/su14c.pdf">preprent</a>] [<a href="http://papers.nips.cc/paper/5382-multilabel-structured-output-learning-with-random-spanning-trees-of-max-margin-markov-networks">original</a>] [<a href="https://github.com/hongyusu/RTA">code</a>] [<a href="https://github.com/hongyusu/L2RTA">code with new inference algorithm</a>] [<a href="./nips">data</a>]
 
@@ -94,26 +97,20 @@ I enjoy aggressive sport like basketball before I broke my knee cruciate ligamen
   - Dong, Anguo; Lin, Gao; Zhou, Xiaofeng; Su, Hongyu. <b>An Algebra Approach for Finding Frequent Subgraphs with Hamiltonian Cycle</b>. In <i>Proceedings of the 4th International Conference on Fuzzy Systems and Knowledge Discovery (<b>FSDK 2007</b>)</i>, IEEE Computer Society 3:288--292 [<a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=4406246&tag=1">original</a>]
 
 
+###Workshop Papers
 
-###Doctoral Dissertation
+  - Hongyu Su, Giorgio Valentini, Sandor Szedmak, Juho Rousu. <b>Transporter Protein Classification through Structured Prediction and Multiple Kernel Learning</b>. <i>In Workshops on Machine Learning in Computational Biology (MLCB) & Machine Learning in Systems Biology (MLSB) 2015 - <b>NIPS 2015</b></i>
 
-   - Su, Hongyu. <b>Multilabel Classification through Structured Output Learning - Methods and Applications.</b> Doctoral Dissertation, Aalto University School of Science, Feb 2015. [<a href="http://urn.fi/URN:ISBN:978-952-60-6106-1">Library</a>] [<a href="https://github.com/hongyusu/dissertation/blob/master/dissertation.pdf?raw=true">GitHub</a>] [<a href="./publications/255031_Aalto_DD_028_2015_Hongyu_Su_vedos.pdf">Draft</a>] [<a href="https://github.com/hongyusu/Posters_and_Presentations/raw/master/Presentations/Defence_presentation_20150327/example.pdf">Slides</a>]
+  - Su, Hongyu; Gionis, Aristides; Rousu, Juho. <b>Structured Prediction of Network Response</b>. In <i>International Workshop on Multi-Target Prediction - <b>ECML 2014</b></i>
 
-
-
-
-###Workshop and Other Articles
-
-  - Su, Hongyu; Gionis, Aristides; Rousu, Juho. <b>Structured Prediction of Network Response</b>. In <i>International Workshop on Multi-Target Prediction - <b>ECML 2014 workshop</b></i>, long abstract and oral presentation
-
-  - Su, Hongyu; Rousu, Juho. <b>Random Graph Ensembles in Multilabel Classification</b>. In <i>Object, Function and Structured Data: towards next Generation Kernel-Based Methods - <b>ICML 2012 workshop</b></i>, paper and oral presentation [<a href="https://sites.google.com/site/nextgenkernels/program">original</a>]
+  - Su, Hongyu; Rousu, Juho. <b>Random Graph Ensembles in Multilabel Classification</b>. In <i>Object, Function and Structured Data: towards next Generation Kernel-Based Methods - <b>ICML 2012</b></i> [<a href="https://sites.google.com/site/nextgenkernels/program">original</a>]
 
   - Su, Hongyu; Rousu, Juho. <b>Multilabel Classification via Random Graph Labeling</b>. In <i>the 5th International Conference on 
-Artificial Intelligence and Statistics (<b>AISTATS 2012</b>)</i>, long abstract and poster presentation [<a href="https://sites.google.com/site/nextgenkernels/program">original</a>]
+Artificial Intelligence and Statistics (<b>AISTATS 2012</b>)</i> [<a href="https://sites.google.com/site/nextgenkernels/program">original</a>]
 
-  - Su, Hongyu; Heinonen, Markus; Rousu, Juho. <b>Multilabel Prediction of Drug Activity</b>. In <i>Proceedings of the 4th International Workshop on Machine Learning in Systems Biology (<b>MLSB 2010</b>)</i>, MLSB 2010 publication 67-70, long abstract and oral presentation [<a href="http://mlsb10.ijs.si/files/MLSB10-Proceedings.pdf">original</a>]
+  - Su, Hongyu; Heinonen, Markus; Rousu, Juho. <b>Multilabel Prediction of Drug Activity</b>. In <i>Proceedings of the 4th International Workshop on Machine Learning in Systems Biology (<b>MLSB 2010</b>)</i>, MLSB 2010 publication 67-70 [<a href="http://mlsb10.ijs.si/files/MLSB10-Proceedings.pdf">original</a>]
 
-  - Su, Hongyu; Heinonen, Markus; Rousu, Juho. <b>Multilabel Classification of Drug-like Molecules via Max-margin Conditional Random Fields</b>. In <i>Proceedings of the 5th European Workshop on Probabilistic Graphical Models (<b>PGM 2010</b>)</i>, HIIT 2010 publication 2:67-70, paper and oral presentation [<a href="http://www.helsinki.fi/pgm2010/pgm2010-proceedings.pdf">original</a>]
+  - Su, Hongyu; Heinonen, Markus; Rousu, Juho. <b>Multilabel Classification of Drug-like Molecules via Max-margin Conditional Random Fields</b>. In <i>Proceedings of the 5th European Workshop on Probabilistic Graphical Models (<b>PGM 2010</b>)</i>, HIIT 2010 publication 2:67-70 [<a href="http://www.helsinki.fi/pgm2010/pgm2010-proceedings.pdf">original</a>]
 
 
 
