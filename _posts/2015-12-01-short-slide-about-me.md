@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Short slide about me"
+title: "Some slide about me"
 description: ""
 category: Life 
 tags: [Life]

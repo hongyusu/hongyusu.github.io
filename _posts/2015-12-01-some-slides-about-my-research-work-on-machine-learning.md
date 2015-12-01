@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Some slides about my research work on machine learning"
+title: "My research on machine learning"
 description: ""
 category: Research
 tags: [Research]
