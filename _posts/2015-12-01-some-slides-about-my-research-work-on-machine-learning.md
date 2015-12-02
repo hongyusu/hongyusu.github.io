@@ -11,4 +11,4 @@ tags: [Research]
 </script>
  
 
-[Here](https://github.com/hongyusu/Posters_and_Presentations/blob/master/Presentations/Research/example.pdf) are some slides about the machine learning research I have been doing for some time :laughing: 
+Find [Here](https://github.com/hongyusu/Posters_and_Presentations/blob/master/Presentations/Research/example.pdf) some slides about the machine learning research I have been doing for a while :laughing: 
