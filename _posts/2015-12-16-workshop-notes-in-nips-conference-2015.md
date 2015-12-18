@@ -14,7 +14,7 @@ tags: [NIPS2015, Research]
 * auto-gen TOC:
 {:toc}
 
-More stuffs will be here very soon ....
+#More stuffs will be here very soon ....
 
 
 ### Optimization first talk
