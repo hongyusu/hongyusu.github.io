@@ -17,17 +17,23 @@ tags: [NIPS2015, Research]
 #More stuffs will be here very soon ....
 
 
-### Optimization first talk
+
+## Non-convex optimization for machine learning [link](https://sites.google.com/site/nips2015nonconvexoptimization/invited-speakers)
+
+
+
+
 
 ## Optimization workshop [link](http://opt-ml.org/index.html)
 
+### Optimization first talk
 ### Invited talk on gradient resampling method
 
 1. 
 
 ## Time series workshop [link](https://sites.google.com/site/nipsts2015/home)
 
-### Invited talked by Mehryar Mohri
+### Invited talke by Mehryar Mohri
 
 1. It might be interesting to have his slide. I don't have it here.
 1. Introduce path dependent loss function.
