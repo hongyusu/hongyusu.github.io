@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "workshop notes in NIPS conference 2015"
+title: "Thoughts and notes from NIPS conference 2015"
 description: ""
 category: Research
 tags: [NIPS2015, Research]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "My December, rich and dynamic"
+title: "A rich and dynamic December"
 description: ""
 category: Life
 tags: [Life]
@@ -13,3 +13,5 @@ tags: [Life]
 # Table of content
 * auto-gen TOC:
 {:toc}
+
+
