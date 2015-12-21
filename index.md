@@ -12,13 +12,13 @@ tagline:
 
 I am a postdoctoral researcher affiliated with <a href="http://www.hiit.fi">Helsinki Institute for Information Technology HIIT</a> and <a href="http://ics.aalto.fi/en/">Aalto University</a>. My research is along the direction of Machine Learning for Structured Data. Currently I focus on developing accurate learning models for structured output prediction. In general, I am interested in 
 
- - Optimization research for machine learning
+ - Optimization perspective of machine learning
  - Structured output prediction / max-margin learning / multilabel classification
  - Kernel methods for complex data
  - Social network / influence network analysis
  - Bioinformatics / metagenomics
 
-Here are [some slides]({{site.url}}/research/2015/12/01/some-slides-about-my-research-work-on-machine-learning/) about my research on machine learning and AI. 
+Here are [some slides]({{site.url}}/research/2015/12/21/some-slides-about-my-research-work-on-machine-learning/) about my research on machine learning and AI. 
 
 ##[Blog]({{ site.url }}/pages.html)
 
