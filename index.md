@@ -18,7 +18,7 @@ I am a postdoctoral researcher affiliated with <a href="http://www.hiit.fi">Hels
  - Social network / influence network analysis
  - Bioinformatics / metagenomics
 
-Here are [some slides]({{site.url}}/research/2015/12/21/some-slides-about-my-research-work-on-machine-learning/) about my research on machine learning and AI. 
+Here are [some slides]({{site.url}}/research/2015/12/20/some-slides-about-my-research-work-on-machine-learning/) about my research on machine learning and AI. 
 
 ##[Blog]({{ site.url }}/pages.html)
 

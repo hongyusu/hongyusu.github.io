@@ -23,15 +23,16 @@ tags: [NIPS2015, Research]
 ### Recent advances and challenges in non-convex optimization [slides](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxuaXBzMjAxNW5vbmNvbnZleG9wdGltaXphdGlvbnxneDo0OGYxMDE2ZjFhNjlkNGRi)
 
 1. _Curse of dimensionality_ is the concept we all come across during the introductory course of machine learning but easily forget afterwords. As a short summary, it actually means
-  1. The volume of the space increases very quickly when the dimensionality increases such that available data become very sparse.
-  1. In order to have statistical significancy, the number of data points required to support the results in the space will grow exponentially with the dimensionality.
-  1. 
+   1. The volume of the space increases very quickly when the dimensionality increases such that available data become very sparse.
+   1. In order to have statistical significancy, the number of data points required to support the results in the space will grow exponentially with the dimensionality.
+   1. 
 
 
 
 ## Workshop: Optimization for machine learning [link](http://opt-ml.org/index.html)
 
 ### Optimization first talk
+
 ### Invited talk on gradient resampling method
 
 1. 
