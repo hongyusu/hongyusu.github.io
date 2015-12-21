@@ -18,13 +18,18 @@ tags: [NIPS2015, Research]
 
 
 
-## Non-convex optimization for machine learning [link](https://sites.google.com/site/nips2015nonconvexoptimization/invited-speakers)
+## Workshop: non-convex optimization in machine learning [link](https://sites.google.com/site/nips2015nonconvexoptimization/invited-speakers)
+
+### Recent advances and challenges in non-convex optimization [slides](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxuaXBzMjAxNW5vbmNvbnZleG9wdGltaXphdGlvbnxneDo0OGYxMDE2ZjFhNjlkNGRi)
+
+1. _Curse of dimensionality_ is the concept we all come across during the introductory course of machine learning but easily forget afterwords. As a short summary, it actually means
+  1. The volume of the space increases very quickly when the dimensionality increases such that available data become very sparse.
+  1. In order to have statistical significancy, the number of data points required to support the results in the space will grow exponentially with the dimensionality.
+  1. 
 
 
 
-
-
-## Optimization workshop [link](http://opt-ml.org/index.html)
+## Workshop: Optimization for machine learning [link](http://opt-ml.org/index.html)
 
 ### Optimization first talk
 ### Invited talk on gradient resampling method
@@ -33,9 +38,9 @@ tags: [NIPS2015, Research]
 
 ## Time series workshop [link](https://sites.google.com/site/nipsts2015/home)
 
-### Invited talke by Mehryar Mohri
+### Invited talk by Mehryar Mohri
 
-1. It might be interesting to have his slide. I don't have it here.
+1. It might be interesting to have his slide. I don't have it here yet.
 1. Introduce path dependent loss function.
 1. Wrong assumptions in the previous time series prediction models
    1. Stationary assumption, samples for a fixed time period follow the same distribution.
