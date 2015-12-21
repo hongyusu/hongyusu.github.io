@@ -18,28 +18,29 @@ I am a postdoctoral researcher affiliated with <a href="http://www.hiit.fi">Hels
  - Social network / influence network analysis
  - Bioinformatics / metagenomics
 
-##[Blog](http://www.hongyusu.com/pages.html)
+##[Blog]({{ site.url }}/pages.html)
 
-I maintain a [**technical blog**](http://www.hongyusu.com/pages.html) to document my :broken_heart: work and my :heart: life. Fortunately, with [Pabulo]({{ site.url }}/life/2015/10/20/pabulo/), my life is not very technical.
+I maintain a [**technical blog**]({{ site.url }}/pages.html) to document my :broken_heart: work and my :heart: life. Fortunately, with [Pabulo]({{ site.url }}/life/2015/10/20/pabulo/), my life is not very technical.
 
 
 ##Educations
 
-I collected my **PhD** in the field of Information and Computer Science from <a href="http://www.hiit.fi">Helsinki Institute for Information Technology HIIT</a> and <a href="http://ics.aalto.fi/en/">Aalto University</a> during 2012.3 - 2015.4. I got my **MSc** from <a href="http://cs.helsinki.fi">University of Helsinki</a> and <a href="http://www.hiit.fi">HIIT</a> in 2010. I got my **BEng** from <a href="http://www.xidian.edu.cn">Xidian University, China</a> in 2007.
+I completed my **PhD** in the field of Information and Computer Science from <a href="http://www.hiit.fi">Helsinki Institute for Information Technology HIIT</a> and <a href="http://ics.aalto.fi/en/">Aalto University</a> during 2012.3 - 2015.4. I got my **MSc** from <a href="http://cs.helsinki.fi">University of Helsinki</a> and <a href="http://www.hiit.fi">HIIT</a> in 2010. I got my **BEng** from <a href="http://www.xidian.edu.cn">Xidian University, China</a> in 2007.
 
 ##Outside Research
 
 I enjoy aggressive sport like basketball before I broke my knee cruciate ligament (ACL). Now I opt to bouldering, scuba diving (holding <a href="http://www.padi.com/scuba-diving/padi-courses/course-catalog/open-water-diver/">OWD license</a>), snowboarding (downhill) that explores the unknown part of my life. I also enjoy hiking and traveling a lot for which I share some of the pictures on <a href="http://www.flickr.com/photos/123885344@N02/" title="See my photos on Flickr!"><img src="https://s.yimg.com/pw/images/goodies/white-flickr.png" width="40" height="20" alt=""></a>
 
 ##Recent Activities
+- I was in Montreal for [NIPS conference 2015](https://nips.cc). Some thoughts and notes will be in this [blog]({{ site.url }}/research/2015/12/16/workshop-notes-in-nips-conference-2015/).
 - We delivered [**Xplanner**](http://tripassistant.herokuapp.com) with 10 hours programming in [Junction Hackathon 2015](http://hackjunction.com), see [my blog]({{ site.url }}/competition/2015/11/09/junction-hackathon-2015/) for more information.
-- I am traveling to Montreal during December 2015 for [NIPS](https://nips.cc) [conference 2015](https://media.nips.cc/Conferences/2015/Poster/NIPS-2015-Poster-Thumbnail.jpg) to present a poster in [Workshops on Machine Learning in Computational Biology (MLCB) & Machine Learning in Systems Biology (MLSB) 2015](https://www.mlcb.org).
-- I received from our ambassador the [**Chinese government award for outstanding doctoral candidate of 2014**](http://www.hongyusu.com/life/2015/08/12/outstanding-doctoral-candidate-award-2014/).
+- I received from our ambassador the [**Chinese government award for outstanding doctoral candidate of 2014**]({{ site.url }}/life/2015/08/12/outstanding-doctoral-candidate-award-2014/).
 - [***My ensemble model***](http://hongyusu.github.io/FacebookChallenge) ranked ***52th***/985 with AUC score ***93.269%***/94.254% in the [Facebook challenge](https://www.kaggle.com/c/facebook-recruiting-iv-human-or-bot) of fraud detection in the online bidding environment.
 - I defended my <a href="https://aaltodoc.aalto.fi/handle/123456789/15362">dissertation 'Multilabel classification through structured output learning'</a> in lecture hall T2 <a href="http://sci.aalto.fi/en/">School of Science</a> on 27th March 2015.
 
 
 <!-- 
+   - I am traveling to Montreal during December 2015 for [NIPS](https://nips.cc) [conference 2015](https://media.nips.cc/Conferences/2015/Poster/NIPS-2015-Poster-Thumbnail.jpg) to present a poster in [Workshops on Machine Learning in Computational Biology (MLCB) & Machine Learning in Systems Biology (MLSB) 2015](https://www.mlcb.org).
    - I won the ***Best Hack in Fitness*** in the <a href="http://datasciencehackathon.cs.hut.fi">Aalto Data Science Hackathon 2015</a> with a <a href="http://hongyusu.github.io/AaltoHackathon2015/">***Personalized Track Recommendation System***</a>.
    - My talk at the International Conference on Machine Learning (<b>ICML2014</b>) is now online at <a href="http://techtalks.tv/talks/structured-prediction-of-network-response/60915/">TechTalk</a>.
    - With Prof. John Shawe-Taylor, Prof. Mario Marchand, Prof. Juho Rousu, Assi. Prof. Emilie Morvant, we are presenting out paper on <b>NIPS 2014</b> conference.
@@ -66,7 +67,7 @@ I enjoy aggressive sport like basketball before I broke my knee cruciate ligamen
 -->
 
 ##Fundings and Awards
-- Chinese government award for outstanding doctoral students for [top 500 students world wide](http://www.csc.edu.cn/chuguo/b922167aeb84451b9e48d10407865c52.shtml), 2014
+- [Chinese government award for outstanding doctoral students]({{ site.url }}/life/2015/08/12/outstanding-doctoral-candidate-award-2014/) for [top 500 students world wide](http://www.csc.edu.cn/chuguo/b922167aeb84451b9e48d10407865c52.shtml), 2014
 - Fully funded position from Helsinki Doctoral Programme in Computer Science (HeCSE), 2011-2014
 - Master thesis grant from Center of Excellence Grant 118653 ALGODAN, 2010
 - International Master's Degree Student Award, University of Helsinki, 2008
@@ -99,6 +100,8 @@ I enjoy aggressive sport like basketball before I broke my knee cruciate ligamen
 
 ###Workshop Papers
 
+  - Simon Cousins, John Shawe-Taylor, Mario Marchand, Juho Rousu, Hongyu Su. <b>Multiple Kernel Learning for Prediction on Unknown Graph Structures.</b> <i>In the 8th NIPS Workshop on Optimization for Machine Learning (OPT 2015) - <b>NIPS 2015</b></i>
+
   - Hongyu Su, Giorgio Valentini, Sandor Szedmak, Juho Rousu. <b>Transporter Protein Classification through Structured Prediction and Multiple Kernel Learning</b>. <i>In Workshops on Machine Learning in Computational Biology (MLCB) & Machine Learning in Systems Biology (MLSB) 2015 - <b>NIPS 2015</b></i>
 
   - Su, Hongyu; Gionis, Aristides; Rousu, Juho. <b>Structured Prediction of Network Response</b>. In <i>International Workshop on Multi-Target Prediction - <b>ECML 2014</b></i>
@@ -112,6 +115,15 @@ Artificial Intelligence and Statistics (<b>AISTATS 2012</b>)</i> [<a href="https
 
   - Su, Hongyu; Heinonen, Markus; Rousu, Juho. <b>Multilabel Classification of Drug-like Molecules via Max-margin Conditional Random Fields</b>. In <i>Proceedings of the 5th European Workshop on Probabilistic Graphical Models (<b>PGM 2010</b>)</i>, HIIT 2010 publication 2:67-70 [<a href="http://www.helsinki.fi/pgm2010/pgm2010-proceedings.pdf">original</a>]
 
+##Position of Trust
+
+   - Member of technical committee in [the International Association for Pattern Recognition (IAPR)](http://iaprtc20.mosuma.org/?q=node/2).
+   - Review of the 29th Annual Conference on Neural Information Processing Systems (NIPS2015).
+   - Review of IEEE Transactions on Knowledge and Data Engineering (TKDE). 
+   - Review of IEEE Transactions on Neural Networks and learning Systems (TNNLS).
+   - Review of the 6th ACM International Conference on Web Search and Data Mining (WDSM2013).
+   - Review of the 26th Annual Conference on Neural Information Processing Systems (NIPS2012).
+
 
 
 ##Academic Activities
@@ -122,14 +134,6 @@ Artificial Intelligence and Statistics (<b>AISTATS 2012</b>)</i> [<a href="https
    - Prof. Jinzhi Lei, Tsinghua University, Beijing, China, June, 2014
    - Prof. John Shawe-Taylor, University College London, March 20 - April 1, 2014
    - Dr. Wei Bian, University of Technology, Sydney, November 15 - November 18, 2013
-
-###Reviewers
-
-   - The 29th Annual Conference on Neural Information Processing Systems (NIPS2015).
-   - IEEE Transactions on Knowledge and Data Engineering (TKDE). 
-   - IEEE Transactions on Neural Networks and learning Systems (TNNLS).
-   - The 6th ACM International Conference on Web Search and Data Mining (WDSM2013).
-   - The 26th Annual Conference on Neural Information Processing Systems (NIPS2012).
 
 ###Teachings
 
