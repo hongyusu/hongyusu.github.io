@@ -18,6 +18,8 @@ I am a postdoctoral researcher affiliated with <a href="http://www.hiit.fi">Hels
  - Social network / influence network analysis
  - Bioinformatics / metagenomics
 
+Here are [some slides]({{site.url}}/research/2015/12/01/some-slides-about-my-research-work-on-machine-learning/) about my research on machine learning and AI. 
+
 ##[Blog]({{ site.url }}/pages.html)
 
 I maintain a [**technical blog**]({{ site.url }}/pages.html) to document my :broken_heart: work and my :heart: life. Fortunately, with [Pabulo]({{ site.url }}/life/2015/10/20/pabulo/), my life is not very technical.
