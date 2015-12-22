@@ -38,7 +38,7 @@ tags: [NIPS2015, Research]
 
 1. 
 
-## Time series workshop [link](https://sites.google.com/site/nipsts2015/home)
+## Workshop: [Time series]https://sites.google.com/site/nipsts2015/home)
 
 ### Invited talk by Mehryar Mohri
 
