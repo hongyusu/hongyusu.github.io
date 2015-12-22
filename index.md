@@ -119,10 +119,10 @@ Artificial Intelligence and Statistics (<b>AISTATS 2012</b>)</i> [<a href="https
 
 ##Position of Trust
 
-   - Member of technical committee in [the International Association for Pattern Recognition (IAPR)](http://iaprtc20.mosuma.org/?q=node/2).
-   - Review of the 29th Annual Conference on Neural Information Processing Systems (NIPS2015).
    - Review of IEEE Transactions on Knowledge and Data Engineering (TKDE). 
    - Review of IEEE Transactions on Neural Networks and learning Systems (TNNLS).
+   - Member of technical committee in [the International Association for Pattern Recognition (IAPR)](http://iaprtc20.mosuma.org/?q=node/2).
+   - Review of the 29th Annual Conference on Neural Information Processing Systems (NIPS2015).
    - Review of the 6th ACM International Conference on Web Search and Data Mining (WDSM2013).
    - Review of the 26th Annual Conference on Neural Information Processing Systems (NIPS2012).
 

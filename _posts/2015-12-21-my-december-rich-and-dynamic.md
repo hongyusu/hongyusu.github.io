@@ -56,7 +56,7 @@ Hey, this is metro in Montreal. Oh, look at the wheel! I feel quite absurd when 
 
 ### Canadian beer
 
-I have about two must-do hobbies when I travel to a new place, taste local beers and milks. Drinking with friends might be even better. However, my friends almost never like to drink milk with me :laughing: The chat on that day makes me realize that good researcher equals to good research plus good marketing plus good sales. 
+I have about two must-do hobbies when I travel to a new place, taste local beers and milks. Drinking with friends is even better. However, my friends almost never like to drink milk with me :laughing: The chat on that day makes me realize that a good researcher equals to good research plus good marketing plus good sales. 
 
 ![photo4]({{ site.url }}/myimages/20151212.jpg)
 
