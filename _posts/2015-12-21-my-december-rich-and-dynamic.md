@@ -14,7 +14,7 @@ tags: [Life]
 * auto-gen TOC:
 {:toc}
 
-This December appeared to be very busy but super rich and dynamic. I traveled to many places, met and chatted with many brilliant and great people, sat down and talked with a few old friends, got familiar with some cool and smart guys, and experienced the advances in modern information technology - machine learning and artificial intelligence mostly. Finally, I came back to Helsinki but realized that there is still not snow :snowflake:
+This December appeared to be very busy but super rich and dynamic. I traveled to many places, met and chatted with many brilliant and great people, sat down and talked with a few old friends, got familiar with some cool and smart guys, and experienced the advances in modern information technology - machine learning and artificial intelligence mostly. Finally, I came back to Helsinki but realized that there is still no snow :snowflake:
 
 Then I decide to write down this memorable December :joy:
 
@@ -36,7 +36,7 @@ I believe glogi is a Finnish version of [mulled wine](https://en.wikipedia.org/w
 
 ### Lego in Copenhagen airport
 
-I stayed in the Netherlands for about 2 days. I have a connecting flight in Copenhagen on my way back to Helsinki. I found a piece of art in the Copenhagen airport - an American made by Lego. Don't ask me why, it just looks to me like an American :laughing: I looked into the Lego and thought 'you can be wrong if you do a right thing'. So, if you have good feeling about something, you should just do it. Don't regret so early.
+I stayed in the Netherlands for about 2 days. I have a connecting flight in Copenhagen on my way back to Helsinki. I found a piece of art in the Copenhagen airport - an American made by Lego. Don't ask me why, it just looks to me like an American :laughing: I looked into the Lego and thought 'you can't be wrong if you do a right thing'. So, if you have good feeling about something, you should definitely go ahead. Don't regret so early.
 
 ![photo4]({{ site.url }}/myimages/20151204.jpg)
 
