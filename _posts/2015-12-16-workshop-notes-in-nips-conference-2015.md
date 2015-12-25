@@ -39,11 +39,12 @@ tags: [NIPS2015, Research]
 1. Spectrum optimization
    1. **Eigen-decomposition** of a matrix can be formulate as the following convex optimization problem (for the top eigen-value)
    $$\underset{v}{\max}\,<v,Mv>\, \text{s.t.}\, ||v||=1,v\in\mathbb{R}^d$$
-   1. **Tensor decomposition**: given an input tensor $$T=L+S$$, we aim to recover both $$L$$ and $$S$$, where $$L$$ is a low rank tensor and $$S$$ is a sparse tensor. In particular, $$L$$ has the form $$L = \sum_{i=1}^{r}\delta_iu_i\otimes u_i \otimes u_i$$.
+   1. **Tensor decomposition**: given an input tensor $$T=L+S$$, we aim to recover both $$L$$ and $$S$$, where $$L$$ is a rank $$r$$ orthogonal tensor and $$S$$ is a sparse tensor. In particular, $$L$$ has the form $$L = \sum_{i=1}^{r}\delta_iu_i\otimes u_i \otimes u_i$$. This is non-convex optimization problem.
+   1. **Robust PCA**: is the same as tensor decomposition but in a matrix form. This can be formulated either as a convex or non-convex optimization problem.
+1. The talk suggests two algorithm for tensor decomposition. One for orthogonal tensor decomposition problem and the other for non-orthogonal tensor decomposition problem.
+1. A list of implementation is also provided as in the slides, which also includes spark implementation. **Need to checkout the performance**. However, in the paper they mentioned that the underlying optimization algorithm is _embarrassingly parallel_. 
 
 
-1. Robust PCA
-Robust pca last nips talk
 
 # Workshop: [Optimization for machine learning](http://opt-ml.org/index.html)
 
