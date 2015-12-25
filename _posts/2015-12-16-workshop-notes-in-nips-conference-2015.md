@@ -18,19 +18,30 @@ tags: [NIPS2015, Research]
 
 
 
-## Workshop: [non-convex optimization in machine learning](https://sites.google.com/site/nips2015nonconvexoptimization/invited-speakers)
+# Workshop: [non-convex optimization in machine learning](https://sites.google.com/site/nips2015nonconvexoptimization/invited-speakers)
 
 ### Recent advances and challenges in non-convex optimization 
 
-1.  [Slides](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxuaXBzMjAxNW5vbmNvbnZleG9wdGltaXphdGlvbnxneDo0OGYxMDE2ZjFhNjlkNGRi).
-1. _Curse of dimensionality_ is the concept we all come across during the introductory course of machine learning but easily forget afterwords. As a short summary, it actually means
-   1. The volume of the space increases very quickly when the dimensionality increases such that available data become very sparse.
-   1. In order to have statistical significancy, the number of data points required to support the results in the space will grow exponentially with the dimensionality.
-   1. High-dimensionality might not always be good, people like me frequently use dimensionality reduction techniques, e.g., [principal component analysis (PCA)](https://en.wikipedia.org/wiki/Principal_component_analysis).
+1. [Slides of the talk](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxuaXBzMjAxNW5vbmNvbnZleG9wdGltaXphdGlvbnxneDo0OGYxMDE2ZjFhNjlkNGRi).
+1. Two related papers in the workshop
+   1. [Convolutional dictionary learning through tensor factorization](http://arxiv.org/abs/1506.03509)
+   1. [Tensor vs matrix methods: robust tensor decomposition under block sparse perturbations](http://arxiv.org/abs/1510.04747)
+1. Non-convex optimization is trending compare to convex optimization.
+1. Non-convex optimization and _Curse of dimensionality_
+   1. Difficulty in convex optimization: multiple optimality exist.
+   1. _Curse of dimensionality_ is the concept we all come across during the introductory course of machine learning but easily forget afterwords. As a short summary, it actually means
+      1. The volume of the space increases very quickly when the dimensionality increases such that available data become very sparse.
+      1. In order to have statistical significancy, the number of data points required to support the results in the space will grow exponentially with the dimensionality.
+      1. High-dimensionality might not always be good, people like me frequently use dimensionality reduction techniques, e.g., [principal component analysis (PCA)](https://en.wikipedia.org/wiki/Principal_component_analysis) to reduce dimension while keeping the similar amount of useful information.
+   1. **I still need to find out the relation of _curse of dimensionality_ and _anomaly detection_.**
+   1. In optimization, _curse of dimensionality_ means exponential number of crucial points (saddle points of which the gradient is zero). 
+1. Spectrum optimization
+   1. Eigen-decomposition of a matrix can be formulate as the following convex optimization problem (for the top eigen-value)
+   $$\underset{v}{\max}\,<v,Mv>\, \text{s.t.}\, ||v||=1,v\in\mathbb{R}^d$$
+   1. 
 
 
-
-## Workshop: [Optimization for machine learning](http://opt-ml.org/index.html)
+# Workshop: [Optimization for machine learning](http://opt-ml.org/index.html)
 
 ### Optimization first talk
 
@@ -38,7 +49,7 @@ tags: [NIPS2015, Research]
 
 1. 
 
-## Workshop: [Time series](https://sites.google.com/site/nipsts2015/home)
+# Workshop: [Time series](https://sites.google.com/site/nipsts2015/home)
 
 ### Invited talk by Mehryar Mohri
 
