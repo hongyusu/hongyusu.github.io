@@ -22,11 +22,12 @@ tags: [NIPS2015, Research]
 
 ### Recent advances and challenges in non-convex optimization 
 
+1. The talk mainly focuses on tensor decomposition as non-convex optimization problem. Keywords of the talk might be e.g., _tensor decomposition_, _non-convex optimization_, _spectrum optimization_, _robust PCA_.
 1. [Slides of the talk](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxuaXBzMjAxNW5vbmNvbnZleG9wdGltaXphdGlvbnxneDo0OGYxMDE2ZjFhNjlkNGRi).
-1. Two related papers in the workshop
+1. Two related papers appearing in this workshop
    1. [Convolutional dictionary learning through tensor factorization](http://arxiv.org/abs/1506.03509)
    1. [Tensor vs matrix methods: robust tensor decomposition under block sparse perturbations](http://arxiv.org/abs/1510.04747)
-1. Non-convex optimization is trending compare to convex optimization.
+1. Non-convex optimization is a trending research area compare to convex optimization.
 1. Non-convex optimization and _Curse of dimensionality_
    1. Difficulty in convex optimization: multiple optimality exist.
    1. _Curse of dimensionality_ is the concept we all come across during the introductory course of machine learning but easily forget afterwords. As a short summary, it actually means
@@ -36,10 +37,13 @@ tags: [NIPS2015, Research]
    1. **I still need to find out the relation of _curse of dimensionality_ and _anomaly detection_.**
    1. In optimization, _curse of dimensionality_ means exponential number of crucial points (saddle points of which the gradient is zero). 
 1. Spectrum optimization
-   1. Eigen-decomposition of a matrix can be formulate as the following convex optimization problem (for the top eigen-value)
+   1. **Eigen-decomposition** of a matrix can be formulate as the following convex optimization problem (for the top eigen-value)
    $$\underset{v}{\max}\,<v,Mv>\, \text{s.t.}\, ||v||=1,v\in\mathbb{R}^d$$
-   1. 
+   1. **Tensor decomposition**: given an input tensor $$T=L+S$$, we aim to recover both $$L$$ and $$S$$, where $$L$$ is a low rank tensor and $$S$$ is a sparse tensor. In particular, $$L$$ has the form $$L = \sum_{i=1}^{r}\delta_iu_i\otimes u_i \otimes u_i$$.
 
+
+1. Robust PCA
+Robust pca last nips talk
 
 # Workshop: [Optimization for machine learning](http://opt-ml.org/index.html)
 
