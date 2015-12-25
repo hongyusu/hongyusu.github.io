@@ -26,7 +26,7 @@ tags: [NIPS2015, Research]
 1. _Curse of dimensionality_ is the concept we all come across during the introductory course of machine learning but easily forget afterwords. As a short summary, it actually means
    1. The volume of the space increases very quickly when the dimensionality increases such that available data become very sparse.
    1. In order to have statistical significancy, the number of data points required to support the results in the space will grow exponentially with the dimensionality.
-   1. 
+   1. High-dimensionality might not always be good, people like me frequently use dimensionality reduction techniques, e.g., [principal component analysis (PCA)](https://en.wikipedia.org/wiki/Principal_component_analysis).
 
 
 
