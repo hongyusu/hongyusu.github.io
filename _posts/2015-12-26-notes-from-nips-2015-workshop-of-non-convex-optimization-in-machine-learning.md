@@ -29,17 +29,17 @@ This post is about NIPS 2015 workshop of [non-convex optimization in machine lea
    1. [Convolutional dictionary learning through tensor factorization](http://arxiv.org/abs/1506.03509)
    1. [Tensor vs matrix methods: robust tensor decomposition under block sparse perturbations](http://arxiv.org/abs/1510.04747)
 
-1. Learning is finding needle in a haystack.
+1. Learning is like finding needle in a haystack.
    1. Big data is challenging due to large number of variables and high-dimensionalities.
-   1. Useful information is essentially low-dimensional structure.
+   1. Useful information is essentially represented as some low-dimensional structure.
    1. Problem when learning with big data 
-      1. statistically: large number of samples are needed to estimate the model.
-      1. computationally: mainly about non-convexity, a lot of restart to avoid local optimal and to reach global optimal.
-   1. Algorithm should scale to the number of samples and variables.
+      1. statistically: large number of examples are needed in order to estimate the model.
+      1. computationally: mainly about non-convexity, a lot of SGD restarts are required to avoid local optimals and to reach global optimal.
+   1. Algorithm should scale both to the number of samples and variables.
 
 1. Optimization for learning
    1. Unsupervised learning: maximize similarity of cluster, maximize likelihood of model.
-   1. Supervised learning: minimize the loss function.
+   1. Supervised learning: minimize some cost function.
    1. Most of them are non-convex optimization problem.
    1. A public facebook page for non-convex optimization.
    1. Convex has a unique global optimal solution, SGD will lead to the unique global optimal.
@@ -69,7 +69,7 @@ This post is about NIPS 2015 workshop of [non-convex optimization in machine lea
       1. This is the problem under study here in this talk. The goal is to solve this efficiently and with some good result in term of optimization quality. Essentially, they are non-convex optimization problem.
    1. **Singular value decomposition (SVD)** of a 2D matrix can be formulate as the following convex optimization problem (calculating the first eigen-value) 
    $$\underset{v}{\max}\,<v,Mv>\, \text{s.t.}\, ||v||=1,v\in\mathbb{R}^d$$. With all eigen-values computed, SVD can be seen as, e.g., decomposing a document-word matrix into a document-topic matrix, a topic strength matrix, and a topic-word matrix.
-   1. **Principal component analysis (PCA)** is an important application of SVD which find new axises of a data cloud that explains the variance in the data. 
+   1. **Principal component analysis (PCA)** is an important application of SVD which finds new axises of a data cloud that explains the variance in the data. 
    1. **Tucker decomposition**: given an input tensor as a $$I\times J\times K$$ matrix $$X$$, decompose it into a $$I\times R$$ matrix $$A$$, a $$J\times S$$ matrix $$B$$, a $$K\times T$$ matrix $$C$$, and a $$R\times S \times T$$ diagonal matrix $$G$$. This is a non-convex problem and can be solved approximately by _alternating least square (ALS)_.
    1. **Canonical decomposition (CANDECOMP) or Parallel factor (PARAFAC)**: given a tensor $$X$$ decompose it as $$X \approx \sum_{i}^{r}\lambda_ia_i\times b_i \times c_i$$, where $$a_i$$, $$b_i$$, and $$c_i$$ are column matrices and $$r$$ is the rank of the tensor. This is almost the same as Tucker decomposition. It is a non-convex problem and is solved by ALS.
    1. **Tensor decomposition**: given an input tensor (3D matrix) $$T=L+S$$, we aim to recover both $$L$$ and $$S$$, where $$L$$ is a rank $$r$$ orthogonal tensor and $$S$$ is a sparse tensor. In particular, $$L$$ has the form $$L = \sum_{i=1}^{r}\delta_iu_i\otimes u_i \otimes u_i$$. This is non-convex optimization problem.
@@ -98,14 +98,14 @@ This post is about NIPS 2015 workshop of [non-convex optimization in machine lea
    1. [Tutorial: Mining Large Time-evolving Data Using Matrix and Tensor Tools ](http://www.cs.cmu.edu/~christos/TALKS/SIGMOD-07-tutorial/).
 
 1. Loss function in deep neural network looks like random Gaussian polynomial.
-   1. The main result is all local minimals have similar values.
+   1. The main result is that all local minimals have similar values.
    1. Exponential number of saddle points which is difficult to escape.
 
 1. To avoid saddle points
-   1. Use second order information: Hessian matrix
-   1. Noisy stochastic gradient
-   1. Compute a convex envelop
-   1. Smoothing the non-convex function
+   1. Use second order information: Hessian matrix.
+   1. Use noisy stochastic gradient.
+   1. Compute a convex envelop.
+   1. Smooth out the non-convex function.
 
 
 
