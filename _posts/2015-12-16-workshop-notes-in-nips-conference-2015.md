@@ -43,6 +43,11 @@ tags: [NIPS2015, Research]
    1. **Robust PCA**: is the same as tensor decomposition but in a matrix form. This can be formulated either as a convex or non-convex optimization problem.
 1. The talk suggests two algorithm for tensor decomposition. One for orthogonal tensor decomposition problem and the other for non-orthogonal tensor decomposition problem.
 1. A list of implementation is also provided as in the slides, which also includes spark implementation. **Need to checkout the performance**. However, in the paper they mentioned that the underlying optimization algorithm is _embarrassingly parallel_. 
+1. She also gave some similar talks about non-convex optimization and tensor decomposition
+   1. [Tensor methods for training neural networks](https://www.youtube.com/watch?v=B4YvhcGaafw)
+   1. [Beating the perils of non-convexity machine learning using tensor methods](https://www.youtube.com/watch?v=YpnlAQTY1Mc)
+1. Other sources about tensor decomposition
+   1. [Open problems in tensor decomposition](https://www.quora.com/Matrix-Decomposition/What-are-some-open-problems-in-Tensor-analysis)
 
 
 
