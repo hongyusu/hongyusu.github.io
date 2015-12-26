@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Notes from NIPS Time Series Workshop 2015"
+title: "Notes from NIPS 2015 workshop of time series"
 description: ""
 category: Research
 tags: [NIPS2015, Research, TimeSeries]
