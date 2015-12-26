@@ -17,7 +17,7 @@ tags: [NIPS2015, Research, Tensor, Nonconvex, Optimization]
 
 # Workshop: [non-convex optimization in machine learning](https://sites.google.com/site/nips2015nonconvexoptimization/invited-speakers)
 
-### Recent advances and challenges in non-convex optimization 
+### Invited talk: Recent advances and challenges in non-convex optimization 
 
 1. The talk mainly focuses on tensor decomposition as non-convex optimization problem. Keywords of the talk might be e.g., _tensor decomposition_, _non-convex optimization_, _spectrum optimization_, _robust PCA_.
 1. [Slides of the talk](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxuaXBzMjAxNW5vbmNvbnZleG9wdGltaXphdGlvbnxneDo0OGYxMDE2ZjFhNjlkNGRi).
@@ -46,4 +46,8 @@ tags: [NIPS2015, Research, Tensor, Nonconvex, Optimization]
 1. Other interesting material about tensor decomposition
    1. [Open problems in tensor decomposition](https://www.quora.com/Matrix-Decomposition/What-are-some-open-problems-in-Tensor-analysis)
    1. [Most tensor problems are NP-hard](http://www.stat.uchicago.edu/~lekheng/work/jacm.pdf). Quoted from this paper _' "Bernd Sturmfels once made the remark to us that “All interesting problems are NP-hard.” In light of this, we would like to view our article as evidence that most tensor problems are interesting."'_
+
+
+
+
 
