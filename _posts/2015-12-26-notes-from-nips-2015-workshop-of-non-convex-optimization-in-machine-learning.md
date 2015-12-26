@@ -23,9 +23,9 @@ This post is about NIPS 2015 workshop of [non-convex optimization in machine lea
 
 1. Keywords of the talk might be e.g., _tensor decomposition_, _non-convex optimization_, _spectral optimization_, _robust PCA_.
 
-1. [Slides of the talk](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxuaXBzMjAxNW5vbmNvbnZleG9wdGltaXphdGlvbnxneDo0OGYxMDE2ZjFhNjlkNGRi).
+1. The [link](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxuaXBzMjAxNW5vbmNvbnZleG9wdGltaXphdGlvbnxneDo0OGYxMDE2ZjFhNjlkNGRi) for the **slides** of this interesting talk.
 
-1. Two related papers appearing in this workshop
+1. Two related papers from her research group that appears in this workshop
    1. [Convolutional dictionary learning through tensor factorization](http://arxiv.org/abs/1506.03509)
    1. [Tensor vs matrix methods: robust tensor decomposition under block sparse perturbations](http://arxiv.org/abs/1510.04747)
 
