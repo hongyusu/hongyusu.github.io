@@ -49,7 +49,7 @@ This post is about NIPS 2015 workshop of [non-convex optimization in machine lea
 
 1. The talk suggests two algorithm for tensor decomposition. One for orthogonal tensor decomposition problem and the other for non-orthogonal tensor decomposition problem.
 
-1. A list of implementation is also provided as in the slides, which also includes spark implementation. **Need to checkout the performance**. However, in the paper they mentioned that the underlying optimization algorithm is _embarrassingly parallel_. 
+1. A list of implementation is also provided as in the slides, which also includes [this spark implementation](https://github.com/FurongHuang/SpectralLDA-TensorSpark). **Need to checkout the performance**. However, in the paper they mentioned that the underlying optimization algorithm is _embarrassingly parallel_. 
 
 1. Other interesting tensor decomposition: **dynamic tensor decomposition**, **streaming tensor decomposition**, and **window based tensor analysis**.
 
@@ -64,7 +64,15 @@ This post is about NIPS 2015 workshop of [non-convex optimization in machine lea
    1. [Paper: Most tensor problems are NP-hard](http://www.stat.uchicago.edu/~lekheng/work/jacm.pdf). Quoted from this paper _' "Bernd Sturmfels once made the remark to us that “All interesting problems are NP-hard.” In light of this, we would like to view our article as evidence that most tensor problems are interesting."'_
    1. [Tutorial: Mining Large Time-evolving Data Using Matrix and Tensor Tools ](http://www.cs.cmu.edu/~christos/TALKS/SIGMOD-07-tutorial/).
 
+1. Loss function in deep neural network looks like random Gaussian polynomial.
+   1. The main result is all local minimals have similar values.
+   1. Exponential number of saddle points which is difficult to escape.
 
+1. To avoid saddle points
+   1. Use second order information: Hessian matrix
+   1. Noisy stochastic gradient
+   1. Compute a convex envelop
+   1. Smoothing the non-convex function
 
 
 
