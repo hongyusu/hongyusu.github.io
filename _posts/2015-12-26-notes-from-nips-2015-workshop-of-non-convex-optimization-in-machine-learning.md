@@ -46,12 +46,14 @@ This post is about NIPS 2015 workshop of [non-convex optimization in machine lea
    1. **Canonical decomposition (CANDECOMP) or Parallel factor (PARAFAC)**: given a tensor $$X$$ decompose it as $$X \approx \sum_{i}^{r}\lambda_ia_i\times b_i \times c_i$$, where $$a_i$$, $$b_i$$, and $$c_i$$ are column matrices and $$r$$ is the rank of the tensor. This is almost the same as Tucker decomposition. It is a non-convex problem and is solved by ALS.
    1. **Tensor decomposition**: given an input tensor (3D matrix) $$T=L+S$$, we aim to recover both $$L$$ and $$S$$, where $$L$$ is a rank $$r$$ orthogonal tensor and $$S$$ is a sparse tensor. In particular, $$L$$ has the form $$L = \sum_{i=1}^{r}\delta_iu_i\otimes u_i \otimes u_i$$. This is non-convex optimization problem.
    1. **Robust PCA**: is the same as tensor decomposition but in a matrix form. This can be formulated either as a convex or non-convex optimization problem.
+
 1. The talk suggests two algorithm for tensor decomposition. One for orthogonal tensor decomposition problem and the other for non-orthogonal tensor decomposition problem.
+
 1. A list of implementation is also provided as in the slides, which also includes spark implementation. **Need to checkout the performance**. However, in the paper they mentioned that the underlying optimization algorithm is _embarrassingly parallel_. 
 
-1. Other interesting tensor decomposition: dynamic tensor decomposition, streaming tensor decomposition.
+1. Other interesting tensor decomposition: **dynamic tensor decomposition**, **streaming tensor decomposition**, and **window based tensor analysis**.
 
-1. Application of tensor decomposition includes: e.g., user-item-tag recommendation, user-item-time analysis.
+1. Applications of tensor analysis include e.g., sensor network analysis as a location-type-time tensor, social network analysis as a author-keyword-time tensor.
 
 1. She also gave some similar talks about non-convex optimization and tensor decomposition
    1. [Tensor methods for training neural networks](https://www.youtube.com/watch?v=B4YvhcGaafw)
