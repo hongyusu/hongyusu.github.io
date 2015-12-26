@@ -15,9 +15,9 @@ tags: [NIPS2015, Research, Tensor, Nonconvex, Optimization]
 {:toc}
 
 
-# Workshop: [non-convex optimization in machine learning](https://sites.google.com/site/nips2015nonconvexoptimization/invited-speakers)
+This post is about NIPS 2015 workshop of [non-convex optimization in machine learning](https://sites.google.com/site/nips2015nonconvexoptimization/invited-speakers)
 
-### Invited talk: Recent advances and challenges in non-convex optimization 
+# Invited talk: Recent advances and challenges in non-convex optimization 
 
 1. The talk mainly focuses on tensor decomposition as non-convex optimization problem. Keywords of the talk might be e.g., _tensor decomposition_, _non-convex optimization_, _spectrum optimization_, _robust PCA_.
 
@@ -43,10 +43,15 @@ tags: [NIPS2015, Research, Tensor, Nonconvex, Optimization]
    $$\underset{v}{\max}\,<v,Mv>\, \text{s.t.}\, ||v||=1,v\in\mathbb{R}^d$$. With all eigen-values computed, SVD can be seen as, e.g., decomposing a document-word matrix into a document-topic matrix, a topic strength matrix, and a topic-word matrix.
    1. **Principal component analysis (PCA)** is an important application of SVD which find new axises of a data cloud that explains the variance in the data. 
    1. **Tucker decomposition**: given an input tensor as a $$I\times J\times K$$ matrix $$X$$, decompose it into a $$I\times R$$ matrix $$A$$, a $$J\times S$$ matrix $$B$$, a $$K\times T$$ matrix $$C$$, and a $$R\times S \times T$$ diagonal matrix $$G$$. This is a non-convex problem and can be solved approximately by _alternating least square (ALS)_.
+   1. **Canonical decomposition (CANDECOMP) or Parallel factor (PARAFAC)**: given a tensor $$X$$ decompose it as $$X \approx \sum_{i}^{r}\lambda_ia_i\times b_i \times c_i$$, where $$a_i$$, $$b_i$$, and $$c_i$$ are column matrices and $$r$$ is the rank of the tensor. This is almost the same as Tucker decomposition. It is a non-convex problem and is solved by ALS.
    1. **Tensor decomposition**: given an input tensor (3D matrix) $$T=L+S$$, we aim to recover both $$L$$ and $$S$$, where $$L$$ is a rank $$r$$ orthogonal tensor and $$S$$ is a sparse tensor. In particular, $$L$$ has the form $$L = \sum_{i=1}^{r}\delta_iu_i\otimes u_i \otimes u_i$$. This is non-convex optimization problem.
    1. **Robust PCA**: is the same as tensor decomposition but in a matrix form. This can be formulated either as a convex or non-convex optimization problem.
 1. The talk suggests two algorithm for tensor decomposition. One for orthogonal tensor decomposition problem and the other for non-orthogonal tensor decomposition problem.
 1. A list of implementation is also provided as in the slides, which also includes spark implementation. **Need to checkout the performance**. However, in the paper they mentioned that the underlying optimization algorithm is _embarrassingly parallel_. 
+
+1. Other interesting tensor decomposition: dynamic tensor decomposition, streaming tensor decomposition.
+
+1. Application of tensor decomposition includes: e.g., user-item-tag recommendation, user-item-time analysis.
 
 1. She also gave some similar talks about non-convex optimization and tensor decomposition
    1. [Tensor methods for training neural networks](https://www.youtube.com/watch?v=B4YvhcGaafw)
