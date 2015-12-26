@@ -19,7 +19,7 @@ This post is about NIPS 2015 workshop of [non-convex optimization in machine lea
 
 # Invited talk: Recent advances and challenges in non-convex optimization 
 
-1. The talk is mostly about approaching some non-convex optimization problem via tensor decomposition. As many real-world optimization problems are highly non-convex, solving these problem with stochastic gradient descent (SGD) will give poor optimization results. On the other hand, some of these optimization problem can be formulated as the tensor decomposition problem. Though most tensor decomposition problems are also non-convex, running SGD will lead to some satisfactory optimization results (this claim might be from their paper).
+1. The talk is mostly about approaching some non-convex optimization problem via tensor decomposition or tensor algebra. As many real-world big-data optimization problem are statistically and computationally hard in which we need large number of sample to estimate the model and we have to tackle the non-convexity for feasible computation. For example, solving these problem with stochastic gradient descent (SGD) will give poor optimization result. On the other hand, some of these optimization problem can be formulated as the tensor decomposition problem or via tensor algebra. Though most tensor decomposition problems are also non-convex, running SGD will lead to some satisfactory optimization results. This claim might be found from their paper.
 
 1. Keywords of the talk might be e.g., _tensor decomposition_, _non-convex optimization_, _spectral optimization_, _robust PCA_.
 
@@ -28,6 +28,14 @@ This post is about NIPS 2015 workshop of [non-convex optimization in machine lea
 1. Two related papers appearing in this workshop
    1. [Convolutional dictionary learning through tensor factorization](http://arxiv.org/abs/1506.03509)
    1. [Tensor vs matrix methods: robust tensor decomposition under block sparse perturbations](http://arxiv.org/abs/1510.04747)
+
+1. Learning is finding needle in a haystack.
+   1. Big data is challenging due to large number of variables and high-dimensionalities.
+   1. Useful information is essentially low-dimensional structure.
+   1. Problem when learning with big data 
+      1. statistically: large number of samples are needed to estimate the model.
+      1. computationally: mainly about non-convexity, a lot of restart to avoid local optimal and to reach global optimal.
+   1. Algorithm should scale to the number of samples and variables.
 
 1. Non-convex optimization is a trending research area compare to convex optimization.
 
@@ -40,9 +48,6 @@ This post is about NIPS 2015 workshop of [non-convex optimization in machine lea
    1. **I still need to find out the relation of _curse of dimensionality_ and _anomaly detection_.**
    1. In optimization, _curse of dimensionality_ means exponential number of crucial points (saddle points of which the gradient is zero). 
 
-1. Learning is finding needle in a haystack.
-   1. Big data is challenging due to large number of variables.
-   1. Algorithm should scale to the number of samples and variables. 
 
 1. Optimization for learning
    1. Unsupervised learning: maximize similarity of cluster, maximize likelihood of model
