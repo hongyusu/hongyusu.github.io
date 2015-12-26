@@ -84,8 +84,9 @@ This post is about NIPS 2015 workshop of [non-convex optimization in machine lea
    1. Social network analysis as a author-keyword-time tensor.
 
 1. She also gave some similar talks about non-convex optimization and tensor decomposition
-   1. [Tensor methods for training neural networks](https://www.youtube.com/watch?v=B4YvhcGaafw)
-   1. [Beating the perils of non-convexity machine learning using tensor methods](https://www.youtube.com/watch?v=YpnlAQTY1Mc)
+   1. [Tensor methods for training neural networks](https://www.youtube.com/watch?v=B4YvhcGaafw).
+   1. [Beating the perils of non-convexity machine learning using tensor methods](https://www.youtube.com/watch?v=YpnlAQTY1Mc).
+   1. [Tensor methods: a new paradigm for training probabilistic models and for feature learning](https://www.youtube.com/watch?v=B4YvhcGaafw).
 
 1. Other interesting materials about tensor decomposition
    1. [Quora: Open problems in tensor decomposition](https://www.quora.com/Matrix-Decomposition/What-are-some-open-problems-in-Tensor-analysis).
