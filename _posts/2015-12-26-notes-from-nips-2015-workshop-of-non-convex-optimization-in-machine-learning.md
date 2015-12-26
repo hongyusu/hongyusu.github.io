@@ -19,7 +19,9 @@ This post is about NIPS 2015 workshop of [non-convex optimization in machine lea
 
 # Invited talk: Recent advances and challenges in non-convex optimization 
 
-1. The talk mainly focuses on tensor decomposition as non-convex optimization problem. Keywords of the talk might be e.g., _tensor decomposition_, _non-convex optimization_, _spectrum optimization_, _robust PCA_.
+1. The talk is mostly about approaching some non-convex optimization problem via tensor decomposition. As many real-world optimization problems are highly non-convex, solving these problem with stochastic gradient descent (SGD) will give poor optimization results. On the other hand, some of these optimization problem can be formulated as the tensor decomposition problem. Though most tensor decomposition problems are also non-convex, running SGD will lead to some satisfactory optimization results (this claim might be from their paper).
+
+1. Keywords of the talk might be e.g., _tensor decomposition_, _non-convex optimization_, _spectral optimization_, _robust PCA_.
 
 1. [Slides of the talk](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxuaXBzMjAxNW5vbmNvbnZleG9wdGltaXphdGlvbnxneDo0OGYxMDE2ZjFhNjlkNGRi).
 
@@ -38,7 +40,29 @@ This post is about NIPS 2015 workshop of [non-convex optimization in machine lea
    1. **I still need to find out the relation of _curse of dimensionality_ and _anomaly detection_.**
    1. In optimization, _curse of dimensionality_ means exponential number of crucial points (saddle points of which the gradient is zero). 
 
-1. Spectrum optimization
+1. Learning is finding needle in a haystack.
+   1. Big data is challenging due to large number of variables.
+   1. Algorithm should scale to the number of samples and variables. 
+
+1. Optimization for learning
+   1. Unsupervised learning: maximize similarity of cluster, maximize likelihood of model
+   1. Supervised learning: minimize the loss function.
+   1. Most of them are non-convex optimization problem.
+   1. A public facebook page for non-convex optimization.
+   1. Convex has a unique global optimal solucition.
+   1. Non-convex has multiple local optimal, possibly exponential local optimals in high dimensional space.
+
+1. Running SGD for non-convex problems.
+
+1. Take data as a tensor object
+   1. Matrix: pairwise correlation
+   1. Tensor: high order correlation
+
+1. Spectral decomposition
+   1. Look at matrix decomposition and tensor decomposition
+      1. Matrix decomposition: $$M_2 = \sum_{i=1}^{r}\lambda_i u_i\otimes v_i$$.
+      1. Tensor decomposition: $$M_3 = \sum_{i=1}^{r}\lambda_i u_i\otimes v_i \otimes w_i$$.
+      1. This is the problem under study here in this talk. The goal is to solve this efficiently and with some good result in term of optimization quality. Essentially, they are non-convex optimization problem.
    1. **Singular value decomposition (SVD)** of a 2D matrix can be formulate as the following convex optimization problem (calculating the first eigen-value) 
    $$\underset{v}{\max}\,<v,Mv>\, \text{s.t.}\, ||v||=1,v\in\mathbb{R}^d$$. With all eigen-values computed, SVD can be seen as, e.g., decomposing a document-word matrix into a document-topic matrix, a topic strength matrix, and a topic-word matrix.
    1. **Principal component analysis (PCA)** is an important application of SVD which find new axises of a data cloud that explains the variance in the data. 
@@ -53,7 +77,11 @@ This post is about NIPS 2015 workshop of [non-convex optimization in machine lea
 
 1. Other interesting tensor decomposition: **dynamic tensor decomposition**, **streaming tensor decomposition**, and **window based tensor analysis**.
 
-1. Applications of tensor analysis include e.g., sensor network analysis as a location-type-time tensor, social network analysis as a author-keyword-time tensor.
+1. Applications of tensor analysis
+   1. Unsupervised learning: GMM, HMM, ICA, topic model (not very clear).
+   1. Training deep neural network, back-propagation  has highly non-convex loss surface, tensor training has better loss surface.
+   1. Sensor network analysis as a location-type-time tensor.
+   1. Social network analysis as a author-keyword-time tensor.
 
 1. She also gave some similar talks about non-convex optimization and tensor decomposition
    1. [Tensor methods for training neural networks](https://www.youtube.com/watch?v=B4YvhcGaafw)
@@ -73,6 +101,39 @@ This post is about NIPS 2015 workshop of [non-convex optimization in machine lea
    1. Noisy stochastic gradient
    1. Compute a convex envelop
    1. Smoothing the non-convex function
+
+
+
+
+# Invited talk: Large-scale optimization for deep learning
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
