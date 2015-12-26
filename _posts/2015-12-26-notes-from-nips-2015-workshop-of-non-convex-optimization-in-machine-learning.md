@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Notes from NIPS 2015 workshop of non convex optimization in machine learning"
+title: "Notes from NIPS 2015 workshop of non-convex optimization in machine learning"
 description: ""
 category: Research
 tags: [NIPS2015, Research, Tensor, Nonconvex, Optimization]
@@ -19,7 +19,7 @@ This post is about NIPS 2015 workshop of [non-convex optimization in machine lea
 
 # Invited talk: Recent advances and challenges in non-convex optimization 
 
-1. The talk is mostly about approaching some non-convex optimization problem via tensor decomposition or tensor algebra. As many real-world big-data optimization problem are statistically and computationally hard in which we need large number of sample to estimate the model and we have to tackle the non-convexity for feasible computation. For example, solving these problem with stochastic gradient descent (SGD) will give poor optimization result. On the other hand, some of these optimization problem can be formulated as the tensor decomposition problem or via tensor algebra. Though most tensor decomposition problems are also non-convex, running SGD will lead to some satisfactory optimization results. This claim might be found from their paper.
+1. The talk is mostly about approaching some non-convex optimization problem via tensor decomposition or tensor algebra. As many real-world big-data optimization problem are statistically and computationally hard in which we need large number of sample to estimate the model and we have to tackle the non-convexity for feasible computation. For example, solving these problem with stochastic gradient descent (SGD) will give poor optimization result. On the other hand, some of these optimization problem can be formulated as the tensor decomposition problem or via tensor algebra. Though most tensor decomposition problems are also non-convex, running SGD will lead to some satisfactory optimization results. We can converge to global optimal solution despite we have a non-convex optimization problem. This claim might be found from their paper.
 
 1. Keywords of the talk might be e.g., _tensor decomposition_, _non-convex optimization_, _spectral optimization_, _robust PCA_.
 
@@ -37,6 +37,14 @@ This post is about NIPS 2015 workshop of [non-convex optimization in machine lea
       1. computationally: mainly about non-convexity, a lot of restart to avoid local optimal and to reach global optimal.
    1. Algorithm should scale to the number of samples and variables.
 
+1. Optimization for learning
+   1. Unsupervised learning: maximize similarity of cluster, maximize likelihood of model.
+   1. Supervised learning: minimize the loss function.
+   1. Most of them are non-convex optimization problem.
+   1. A public facebook page for non-convex optimization.
+   1. Convex has a unique global optimal solution, SGD will lead to the unique global optimal.
+   1. Non-convex has multiple local optimal, possibly exponential local optimals in high dimensional space. This makes large scale learning challenging.
+
 1. Non-convex optimization is a trending research area compare to convex optimization.
 
 1. Non-convex optimization and _Curse of dimensionality_
@@ -47,15 +55,6 @@ This post is about NIPS 2015 workshop of [non-convex optimization in machine lea
       1. High-dimensionality might not always be good, people like me frequently use dimensionality reduction techniques, e.g., [principal component analysis (PCA)](https://en.wikipedia.org/wiki/Principal_component_analysis) to reduce dimension while keeping the similar amount of useful information.
    1. **I still need to find out the relation of _curse of dimensionality_ and _anomaly detection_.**
    1. In optimization, _curse of dimensionality_ means exponential number of crucial points (saddle points of which the gradient is zero). 
-
-
-1. Optimization for learning
-   1. Unsupervised learning: maximize similarity of cluster, maximize likelihood of model
-   1. Supervised learning: minimize the loss function.
-   1. Most of them are non-convex optimization problem.
-   1. A public facebook page for non-convex optimization.
-   1. Convex has a unique global optimal solucition.
-   1. Non-convex has multiple local optimal, possibly exponential local optimals in high dimensional space.
 
 1. Running SGD for non-convex problems.
 
