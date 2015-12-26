@@ -56,7 +56,7 @@ This post is about NIPS 2015 workshop of [non-convex optimization in machine lea
    1. **I still need to find out the relation of _curse of dimensionality_ and _anomaly detection_.**
    1. In optimization, _curse of dimensionality_ means exponential number of crucial points (saddle points of which the gradient is zero). 
 
-1. Running SGD for non-convex problems.
+1. Model the optimization problem with tensor algebra, run SGD for non-convex tensor decomposition problems.
 
 1. Take data as a tensor object
    1. Matrix: pairwise correlation
