@@ -47,6 +47,7 @@ I stayed in the Netherlands for about 2 days. I have a connecting flight in Cope
 Then I flew out to Montreal on the 7th December and stay in the French-speaking Canadian city for about one week. I was there in 2014, during almost the same time, for the same conference, in the same conference centre. To avoid sleeping in the same room, this time I booked a queen bed room other than a double bed room in the same hotel. It was not exciting at all except for the super gorgeous NIPS conference. Again, the conference is super cool. I admit to myself that I am not smart by being with super smart people working on machine learning and AI.
 
 ![photo4]({{ site.url }}/myimages/20151211.jpg)
+![photo4]({{ site.url }}/myimages/20151223.jpg)
 
 ### Metro on the wheel
 
