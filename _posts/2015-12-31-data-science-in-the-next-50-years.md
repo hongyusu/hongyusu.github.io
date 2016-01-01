@@ -37,7 +37,8 @@ It is worth noting that massive amount of parameters in deep neural network seem
 
 The prediction for the future would be that the statistics and machine learning will continue to backup each other
 
-1. On one hand, statistics needs to understand the value of massive amounts of data and starts to worry about data storage and computational power. 
+1. On one hand, statistics needs to understand the value of massive amounts of data and starts to worry about data storage and computation. Despite the fact that some machine learning models (e.g., deep neural network) are difficult to interpret, we should accept that the real world is fairly complex. Perhaps the poor interpretability is the price we should pay for approaching complex phenomena with a complex model.
+1. 
 
 
 
