@@ -60,6 +60,7 @@ body {
 
 
   var sessions = [
+{'date': '2016-01-02', 'pull_up': 50, 'push_up': 50 , 'ab_wheel_roll': 0  , 'bar_dip': 40   , 'gym': 0, 'arm': 0  , 'shoulder':  0, 'bouldering': 50 },
 {'date': '2015-12-31', 'pull_up': 5, 'push_up': 100 , 'ab_wheel_roll': 0  , 'bar_dip': 0   , 'gym': 1, 'arm': 0  , 'shoulder': 60, 'bouldering': 0 },
 {'date': '2015-12-26', 'pull_up': 20, 'push_up': 110 , 'ab_wheel_roll': 0  , 'bar_dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0, 'bouldering': 10 },
 {'date': '2015-12-22', 'pull_up': 40, 'push_up': 100 , 'ab_wheel_roll': 0  , 'bar_dip': 0   , 'gym': 1, 'arm': 0  , 'shoulder': 40, 'bouldering': 0 },
@@ -135,7 +136,7 @@ var color = d3.scale.linear().range(["white", 'red']).domain([0, 250])
 var dateParse = d3.time.format("%Y-%m-%d");
 
 var svg = d3.select("example1").selectAll("svg")
-    .data(d3.range(2015, 2016))
+    .data(d3.range(2015, 2017))
     .enter().append("svg")
     .attr("width", width)
     .attr("height", height)
