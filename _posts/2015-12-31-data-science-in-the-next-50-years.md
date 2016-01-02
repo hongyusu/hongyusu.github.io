@@ -16,7 +16,7 @@ tags: [Research]
 
 The following is a brief/summary of the note _'Are ML and Statistics Complementary?'_ by Max Welling.
 
-# A short summary
+# A brief summary
 
 The statistics and machine learning are philosophically different in which the former focuses on statistical inference trying to explain the test property of a random sample of population, while the latter focuses on making prediction even the prediction cannot be very well explained.
 
