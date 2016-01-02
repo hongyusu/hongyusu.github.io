@@ -14,8 +14,9 @@ tags: [Research]
 * auto-gen TOC:
 {:toc}
 
-# A short summary
+The following is a brief/summary of the note _'Are ML and Statistics Complementary?'_ by Max Welling.
 
+# A short summary
 
 The statistics and machine learning are philosophically different in which the former focuses on statistical inference trying to explain the test property of a random sample of population, while the latter focuses on making prediction even the prediction cannot be very well explained.
 
@@ -35,17 +36,20 @@ There is no guarantee that SGD will drive the optimization converging to local m
 
 It is worth noting that massive amount of parameters in deep neural network seem impossible to interpret. Uncertainty of prediction is difficult to quantify. This is opposite to the previous decade of research in probabilistic graphical models. 
 
-The prediction for the future would be that the statistics and machine learning will continue to backup each other. Statistics needs to understand the value of massive amounts of data and starts to worry about data storage and computation. Despite the fact that some machine learning models (e.g., deep neural network) are difficult to interpret, we should accept that the real world is fairly complex. Perhaps the poor interpretability is the price we should pay for approaching complex phenomena with a complex model.
-1. 
+Statistics and machine learning will continue to backup each other
 
+1. Statistics needs to understand the value of massive amounts of data and starts to worry about data storage and computation. Despite the fact that some machine learning models (e.g., deep neural network) are difficult to interpret, we should accept the fact that the real world is fairly complex. Perhaps the poor interpretability is the price we should pay for approaching complex phenomena with a complex model. 
+1. In some problems where expert knowledge is heavily emphasised, statistics and machine learning will converge nicely as massive variables all have some semantic meaning and intensive computation is required and needs to be carefully allocated to reach the most important variables. 
+1. In addition, machine learning will adopt some of the statistical models and principals to make a machine learning model easy to interpret, quantify the uncertainty, and balance between exploitation and exploration. In the end, the ultimate goal of machine learning is to serve and to interact people. Therefore, machine learning needs statistical paradigm to interact with human, to explain how to interpret the model, to quantify the uncertainty, and to generate probability.
 
+There are some interesting directions for machine learning
 
+1. Fair decision.
+1. Identifying and removing sample bias.
+1. Privacy preserved prediction.
+1. Identify causation from correlation.
+1. Learning in high dimensional space.
 
-
-
-
-
- 
 
 # Original writings by Max Welling
 
