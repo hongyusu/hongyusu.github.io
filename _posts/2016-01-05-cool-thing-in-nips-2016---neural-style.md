@@ -38,7 +38,7 @@ For instance, the style shown in Van Gogh's _The Starry Night_ is somehow peacef
 
 I guess everything starts from the observation that deep neural network demonstrates near-human performance in the area of visual perception such as object and face recognition. Or sometimes, the performance is even better that human competitors. On the other hand, human has unique skill of creating a variety of visual experiences by playing around content and style of a arbitrary image. Then the question really is to understand how human create and perceive artistic imagery? Or from another perspective, how to algorithmically create a piece of art by combining style and content. The short answer is there is a technology driven by _Convolutional Neural Network_ (CNN). 
 
-In particular, the algorithm is able to model the content and style independently.
+The key finding of this paper is that the representations of content and  style information in the CNN are separable. In particular, the algorithm is able to model the content and style independently.
 
 ## Content representation
 
@@ -57,6 +57,10 @@ Put together content representation and style representation, we end up a deep n
 An input image is represented as a collection of filtered images in each layer of the neural network while the number of filtered image increases along the hierarchy of the network. The granularity of the content feature decrease along the hierarchy of the network in which high level layer captures more about content than the detailed pixel values.
 
 On the top of the original CNN representation, there is a new feature space capturing the style information of the image. The style feature computes the correlation between different content features of each layer of the neural network. This features focus more on the details of the image and less on the global arrangement of the pixels when going deeper along the network hierarchy.
+
+## Rendering
+
+The image rendering is performed by finding an image that simultaneously matches the content representation of the photograph and the style representation of the respective piece of art. However, one might notice that the content and the style information of an image might not be perfectly separated. Therefore, the algorithm aims to minimize a cost function containing two terms at the same time. Details can be found from the original paper.
 
 # More artwork
 
