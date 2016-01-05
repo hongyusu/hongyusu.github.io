@@ -34,20 +34,21 @@ For instance, the style shown in Van Gogh's _The Starry Night_ is somehow peacef
 
 ![photo1]({{ site.url }}/myimages/ss_20160105.jpg)
 
+# Technology behind the scene
+
+I guess everything starts from the observation that deep neural network demonstrates near-human performance in the area of visual perception such as object and face recognition. Or sometimes, the performance is even better that human competitors. On the other hand, human has unique skill of creating a variety of visual experiences by playing around content and style of a arbitrary image. Then the question really is to understand how human create and perceive artistic imagery? Or from another perspective, how to algorithmically create a piece of art by combining style and content. The short answer is there is a technology driven by _Convolutional Neural Network_ (CNN). 
+
+## Content representation
+
+## Style representation
+
+
 # More artwork
 
 The followings are some other artwork produced by _neural art_ from [Github page](https://github.com/jcjohnson/neural-style).
 
 ![photo2]({{ site.url }}/myimages/ss_20160105_1.jpg)
 ![photo3]({{ site.url }}/myimages/ss_20160105_2.jpg)
-
-
-
-# Technology behind the scene
-
-In general, the technology is driven by _Convolutional Neural Network_ (CNN). 
-
-
 
 
 
