@@ -48,7 +48,7 @@ CNN is a feed forward neural network in which each layer can be seen as a collec
 
 ## Style representation
 
-The style of an image is a bit tricky to capture. 
+The style of an image is a bit tricky to capture. But remember we have a collection of feature maps in each layer of the deep neural network. The style feature is built on top of the content features. In particular, it consists of correlations between different context features. Thus, we end up with style features in multiple layers and thus have a stationary, multiple level style representation of the input image.
 
 # More artwork
 
