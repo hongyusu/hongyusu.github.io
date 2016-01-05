@@ -44,9 +44,11 @@ In particular, the algorithm is able to model the content and style independentl
 
 CNN is a feed forward neural network in which each layer can be seen as a collection of image filters. Each filter extracts a certain feature from the input image. The output of each layer is a collection of feature maps composed by different filters. As a result, the input image is transformed into a series of transformations along the processing hierarchy that increasingly care about the actual content of the image rather than exact pixel values. One can reconstruct the origin image from each layer in which lower level layers will reproduce the original pixels while the high level ones will output contextual information. It is not difficult to see that it is relative easy to reproduce the original image from low level layers. However, the context of the image can be captured by high level layers.
 
+![photo2]({{ site.url }}/myimages/ss_20160105_3.jpg)
+
 ## Style representation
 
-
+The style of an image is a bit tricky to capture. 
 
 # More artwork
 
