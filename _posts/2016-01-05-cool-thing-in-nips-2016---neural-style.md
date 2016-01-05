@@ -69,7 +69,9 @@ The followings are some other artwork produced by _neural art_ from [Github page
 ![photo2]({{ site.url }}/myimages/ss_20160105_1.jpg)
 ![photo3]({{ site.url }}/myimages/ss_20160105_2.jpg)
 
-# Other voices
+# Criticisms  
+
+
 
 
 
