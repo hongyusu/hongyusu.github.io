@@ -42,13 +42,19 @@ In particular, the algorithm is able to model the content and style independentl
 
 ## Content representation
 
-CNN is a feed forward neural network in which each layer can be seen as a collection of image filters. Each filter extracts a certain feature from the input image. The output of each layer is a collection of feature maps composed by different filters. As a result, the input image is transformed into a series of transformations along the processing hierarchy that increasingly care about the actual content of the image rather than exact pixel values. One can reconstruct the origin image from each layer in which lower level layers will reproduce the original pixels while the high level ones will output contextual information. It is not difficult to see that it is relative easy to reproduce the original image from low level layers. However, the context of the image can be captured by high level layers.
-
-![photo2]({{ site.url }}/myimages/ss_20160105_3.jpg)
+CNN is a feed forward neural network in which each layer can be seen as a collection of image filters. Each filter extracts a certain feature from the input image. The output of each layer is a collection of feature maps composed by different filters. As a result, the input image is transformed into a series of transformations along the processing hierarchy that increasingly care about the actual content of the image rather than exact pixel values. One can reconstruct the origin image from each layer in which lower level layers will reproduce the original pixels while the high level ones will output contextual information. It is not difficult to see that it is relative easy to reproduce the original image from low level layers. However, the context of the image can be captured by high level layers. 
 
 ## Style representation
 
 The style of an image is a bit tricky to capture. But remember we have a collection of feature maps in each layer of the deep neural network. The style feature is built on top of the content features. In particular, it consists of correlations between different context features. Thus, we end up with style features in multiple layers and thus have a stationary, multiple level style representation of the input image.
+
+## Put together
+
+Put together content representation and style representation, we end up a deep neural network model shown in the following picture. 
+
+![photo2]({{ site.url }}/myimages/ss_20160105_3.jpg)
+
+An input image is represented as a collection of filtered images in each layer of the neural network while the number of filtered image increases along the hierarchy of the network. 
 
 # More artwork
 
