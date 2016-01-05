@@ -17,17 +17,37 @@ tags: [Research, NIPS, DeepLearning, Art]
 
 
 
-## A Neural Algorithm of Artistic Style
+# Neural art
 
-This is also known as _neural style_. It is a recent work in the filed of _deep learning_ and I think it's super cool. I have noticed it for a while already and let's take a close look at technology behind the scene.
+This is also known as _neural style_. It is a recent work in the filed of _deep learning_ and it's super cool. I have noticed it for a while already and let's take a close look at technology behind the scene.
 
-First off, what _neural art_ does is to render an input image A with the visual experience learnt from another input image B. Particularly, the **content** of image A remains while the **style** is changed to the one used in image B.
+First off, what _neural art_ does is to render an input image A with the visual experience learnt from another input image B. Sometimes, this is known as _photorealistic rendering_. In other words, the **content** of image A remains while the **style** is changed to the one used in image B. The following pictures rendered by _neural art_ are from the original paper ([arxiv link](http://arxiv.org/abs/1508.06576)) where
+
+1. Image A is the original input image to be rendered.
+1. Image B is the rendered image using style of _The Shipwreck of the Minotaur_ by J.M.W.Turner, 1805.
+1. Image C is the rendered image using style of _The Starry Night_ by Vincent van Gogh, 1889.
+1. Image D is the rendered image using style of _Der Schrei_ by Edvard Munch, 1893.
+1. Image E is the rendered image using style of _Femme nue assise_ by Pablo Picasso, 1910.
+1. Image F is the rendered image using style of _Composition VII_ by Wassily Kandinsky, 1913.
+
+For instance, the style shown in Van Gogh's _The Starry Night_ is somehow peaceful, clear, purified. Besides, it is with high contrast and also with clean color. Similar style has been render in image C. I don't really understand any art. But Chinese reader can check this [Zhihu page](https://www.zhihu.com/question/19708222) to find out why Vincent Van Gogh's art is super good.
+
 ![photo1]({{ site.url }}/myimages/ss_20160105.jpg)
 
+# More artwork
 
-This is a piece of the super interesting work in deep learning which I have been noticed for quite a while.
+The followings are some other artwork produced by _neural art_ from [Github page](https://github.com/jcjohnson/neural-style).
+
+![photo2]({{ site.url }}/myimages/ss_20160105_1.jpg)
+![photo3]({{ site.url }}/myimages/ss_20160105_2.jpg)
+
+
+
+# Technology behind the scene
+
+In general, the technology is driven by _Convolutional Neural Network_ (CNN). 
 
 
 
 
-The project is also known as '_neural stype_'.
+
