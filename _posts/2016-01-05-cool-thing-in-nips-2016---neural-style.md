@@ -70,6 +70,10 @@ The image rendering is performed by finding an image that simultaneously matches
 
 There is online implementation of the algorithm, sometimes known as _deep dream_. The online platform allows you to upload an image and render it with a default style. Follow [this link](http://deepdreamgenerator.com) in order to access the online _deep dream_.
 
+## Deep forger
+
+_Deep dream_ might be the most easies way to render an image using the algorithm and technology of deep style. However, it might not render the image based on a arbitrary style given by another image. _Deep forger_ is a valuable alternative. Follow [this link](https://twitter.com/DeepForger) to access _deep forger_. What you need to do is to send an image you want to render and another image you want to use as the style. However, if you need to render more image quickly and in a much more flexible way, you might want to continue reading to set up a standalone deep style machine running locally.
+
 ## Standalone implementation
 
 
