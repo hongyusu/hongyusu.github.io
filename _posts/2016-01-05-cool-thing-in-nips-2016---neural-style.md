@@ -19,7 +19,7 @@ tags: [Research, NIPS, DeepLearning, Art]
 
 # Neural art
 
-This is also known as _neural style_. It is a recent work in the filed of _deep learning_ and it's super cool. I have noticed it for a while already and let's take a close look at technology behind the scene.
+This is also known as _neural style_ or sometimes _deep dream_. It is a recent work in the filed of _deep learning_ and it's super cool. I have noticed it for a while already and let's take a close look at technology behind the scene.
 
 First off, what _neural art_ does is to render an input image A with the visual experience learnt from another input image B. Sometimes, this is known as _photorealistic rendering_. In other words, the **content** of image A remains while the **style** is changed to the one used in image B. The following pictures rendered by _neural art_ are from the original paper ([arxiv link](http://arxiv.org/abs/1508.06576)) where
 
@@ -62,16 +62,27 @@ On the top of the original CNN representation, there is a new feature space capt
 
 The image rendering is performed by finding an image that simultaneously matches the content representation of the photograph and the style representation of the respective piece of art. However, one might notice that the content and the style information of an image might not be perfectly separated. Therefore, the algorithm aims to minimize a cost function containing two terms at the same time. Details can be found from the original paper.
 
+# Implementation
+
+## Deep dream
+
+![photo4]({{ site.url }}/myimages/ss_20160106_0.jpg)
+
+There is online implementation of the algorithm, sometimes known as _deep dream_. The online platform allows you to upload an image and render it with a default style. Follow [this link](http://deepdreamgenerator.com) in order to access the online _deep dream_.
+
+## Standalone implementation
+
+
+
+# Criticisms  
+
+
 # More artwork
 
 The followings are some other artwork produced by _neural art_ from [Github page](https://github.com/jcjohnson/neural-style).
 
 ![photo2]({{ site.url }}/myimages/ss_20160105_1.jpg)
 ![photo3]({{ site.url }}/myimages/ss_20160105_2.jpg)
-
-# Criticisms  
-
-
 
 
 
