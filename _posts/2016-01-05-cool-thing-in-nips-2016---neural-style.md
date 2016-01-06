@@ -21,7 +21,7 @@ tags: [Research, NIPS, DeepLearning, Art]
 
 This is also known as _neural style_ or sometimes _deep dream_. It is a recent work in the filed of _deep learning_ and it's super cool. I have noticed it for a while already and let's take a close look at technology behind the scene.
 
-First off, what _neural art_ does is to render an input image A with the visual experience learnt from another input image B. Sometimes, this is known as _photorealistic rendering_. In other words, the **content** of image A remains while the **style** is changed to the one used in image B. The following pictures rendered by _neural art_ are from the original paper ([arxiv link](http://arxiv.org/abs/1508.06576)) where
+First off, what _neural style_ does is to render an input image A with the visual experience learnt from another input image B. Sometimes, this is known as _photorealistic rendering_. In other words, the **content** of image A remains while the **style** is changed to the one used in image B. The following pictures rendered by _neural style_ are from the original paper ([arxiv link](http://arxiv.org/abs/1508.06576)) where
 
 1. Image A is the original input image to be rendered.
 1. Image B is the rendered image using style of _The Shipwreck of the Minotaur_ by J.M.W.Turner, 1805.
@@ -85,7 +85,7 @@ _Deep dream_ might be the most easies way to render an image using the algorithm
 
 # More artwork
 
-The followings are some other artwork produced by _neural art_ from [Github page](https://github.com/jcjohnson/neural-style).
+The followings are some other artwork produced by _neural style_ from [Github page](https://github.com/jcjohnson/neural-style).
 
 ![photo2]({{ site.url }}/myimages/ss_20160105_1.jpg)
 ![photo3]({{ site.url }}/myimages/ss_20160105_2.jpg)
