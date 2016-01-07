@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Cool stuff in NIPS 2016 (symposium)- Neural Art"
+title: "Cool stuff in NIPS 2015 (symposium)- Neural Style"
 description: ""
 category: Research
 tags: [Research, NIPS, DeepLearning, Art]
