@@ -70,11 +70,13 @@ The image rendering is performed by finding an image that simultaneously matches
 
 There is online implementation of the algorithm, sometimes known as _deep dream_. The online platform allows you to upload an image and render it with a default style. Follow [this link](http://deepdreamgenerator.com) in order to access the online _deep dream_.
 
-## Deep forger
+## DeepForger twitter bot
 
 ![photo4]({{ site.url }}/myimages/ss_20160106_1.jpg)
 
-_Deep dream_ might be the most easies way to render an image using the algorithm and technology of deep style. However, it might not render the image based on a arbitrary style given by another image. _Deep forger_ is a valuable alternative. Follow [this link](https://twitter.com/DeepForger) to access _deep forger_. What you need to do is to send an image you want to render and another image you want to use as the style. However, if you need to render more image quickly and in a much more flexible way, you might want to continue reading to set up a standalone deep style machine running locally.
+_Deep dream_ might be the most easies way to render an image using the algorithm and technology of deep style. However, it is not able to render the input image based on a arbitrary style given by another input image. _DeepForger twitter bot_ is a valuable alternative. Follow [this link](https://twitter.com/DeepForger) to access this robot. 
+
+What you need to do is just to send the robot two images, one is the image you want to render and the other is the image you want to use as the style. This is an extremely convenient way of create neural style especially when you are not in a big hurry or you don't have a linux machine. However, if you need to render a collection of images quickly and in a much more flexible way, you might want to continue reading to set up a standalone deep style machine running locally.
 
 ## Standalone implementation
 
