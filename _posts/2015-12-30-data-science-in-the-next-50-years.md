@@ -10,6 +10,9 @@ tags: [Research]
  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
  
+
+![image1](https://onedrive.live.com/embed?cid=C8F22FB4EF2311AF&resid=C8F22FB4EF2311AF%2132210&authkey=AI2XPTDBlNQ5_7Q)
+
 # Table of content
 * auto-gen TOC:
 {:toc}
