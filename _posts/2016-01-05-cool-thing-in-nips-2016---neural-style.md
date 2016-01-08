@@ -62,7 +62,7 @@ On the top of the original CNN representation, there is a new feature space capt
 
 The image rendering is performed by finding an image that simultaneously matches the content representation of the photograph and the style representation of the respective piece of art. However, one might notice that the content and the style information of an image might not be perfectly separated. Therefore, the algorithm aims to minimize a cost function containing two terms at the same time. Details can be found from the original paper.
 
-# Implementation
+# Create your own neural style painting
 
 ## Deep dream
 
