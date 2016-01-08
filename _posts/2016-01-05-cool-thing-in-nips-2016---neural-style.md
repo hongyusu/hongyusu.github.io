@@ -64,7 +64,7 @@ The image rendering is performed by finding an image that simultaneously matches
 
 # Create your own neural style painting
 
-## Deep dream
+## Deep dream web application
 
 ![photo4]({{ site.url }}/myimages/ss_20160106_0.jpg)
 
@@ -79,6 +79,24 @@ _Deep dream_ might be the most easies way to render an image using the algorithm
 What you need to do is just to send the robot two images, one is the image you want to render and the other is the image you want to use as the style. This is an extremely convenient way of create neural style especially when you are not in a big hurry or you don't have a linux machine. However, if you need to render a collection of images quickly and in a much more flexible way, you might want to continue reading to set up a standalone deep style machine running locally.
 
 ## Standalone implementation
+
+A simple google search will give you many implementation of the same algorithm, for example
+
+1. `neural-style` [Github](https://github.com/jcjohnson/neural-style)
+1. `neural-artistic-style` [Github](https://github.com/andersbll/neural_artistic_style)
+
+### Installation
+
+I will be using the `neural-artistic-style` as this is relative easy to install and run. 
+In particular, it should be fine with the following steps
+
+1. Download the algorithm implementation from Github with `git clone git@github.com:andersbll/neural_artistic_style.git`.
+1. Install `CUDAarry` package [link in Github](https://github.com/andersbll/cudarray).
+1. Install `deeppy` package [link in Github](https://github.com/andersbll/deeppy).
+1. There might be some obstacles during the installation of these two packages (at least in my case). Just be patient and install all Python package dependencies (e.g., `Pillow`, `PIL`, `JPEG`) and you will be fine.
+
+### Run
+
 
 
 
