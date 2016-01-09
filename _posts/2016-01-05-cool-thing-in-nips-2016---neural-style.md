@@ -97,6 +97,9 @@ In particular, it should be fine with the following steps
 
 ### Run
 
+Run the algorithm with the following command
+
+1. `python neural_artistic_style.py --subject images/tuebingen.jpg --style images/starry_night.jpg`
 
 
 
