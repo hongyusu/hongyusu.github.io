@@ -78,6 +78,10 @@ _Deep dream_ might be the most easies way to render an image using the algorithm
 
 What you need to do is just to send the robot two images, one is the image you want to render and the other is the image you want to use as the style. This is an extremely convenient way of create neural style especially when you are not in a big hurry or you don't have a linux machine. However, if you need to render a collection of images quickly and in a much more flexible way, you might want to continue reading to set up a standalone deep style machine running locally.
 
+
+
+
+
 ## Standalone implementation
 
 A simple google search will give you many implementation of the same algorithm, for example
@@ -97,9 +101,7 @@ In particular, it should be fine with the following steps
 
 ### Run
 
-Run the algorithm with the following command
-
-1. `python neural_artistic_style.py --subject images/tuebingen.jpg --style images/starry_night.jpg`
+Run the algorithm with the following command `python neural_artistic_style.py --subject images/tuebingen.jpg --style images/starry_night.jpg`. Unfortunately, this is very slow in my case with CPU.
 
 
 
