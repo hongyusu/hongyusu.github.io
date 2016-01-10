@@ -110,11 +110,13 @@ Run the algorithm with the following command `python neural_artistic_style.py --
 
 # More artwork
 
-The followings are some other artwork produced by _neural style_ from [Github page](https://github.com/jcjohnson/neural-style).
-
-![photo2]({{ site.url }}/myimages/ss_20160105_1.jpg)
-![photo3]({{ site.url }}/myimages/ss_20160105_2.jpg)
-
+![photo1]({{ site.url }}/myimages/ns_0.jpg)
+![photo1]({{ site.url }}/myimages/ns_1.jpg)
+![photo1]({{ site.url }}/myimages/ns_3.jpg)
+![photo1]({{ site.url }}/myimages/ns_4.jpg)
+![photo1]({{ site.url }}/myimages/ns_5.jpg)
+![photo1]({{ site.url }}/myimages/ns_6.jpg)
+![photo1]({{ site.url }}/myimages/ns_7.jpg)
 
 
 
