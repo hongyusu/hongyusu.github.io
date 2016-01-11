@@ -10,6 +10,11 @@ tags: [Research, NIPS, DeepLearning, Art]
  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
  
+
+
+![photo1]({{ site.url }}/myimages/20160111_2.jpg)
+
+
 # Table of content
 * auto-gen TOC:
 {:toc}
