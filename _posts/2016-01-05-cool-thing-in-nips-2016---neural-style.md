@@ -26,16 +26,16 @@ tags: [Research, NIPS, DeepLearning, Art]
 
 The deep learning algorithm, _Neural style_, is also known as _neural art_. Some similar algorithmic techniques have been seen in so called _deep dream_. It is a recent work in the filed of _deep learning_, and of course it's super **cool**. The algorithm has been there for a few months already and I have noticed it for a while. Let's take a close look at technology behind the scene.
 
-First off, what this clever algorithm does is to render an input image A with some visual experience learnt from another input image B to create a new image (e.g., shown on the very top of this post). This is known as _photorealistic rendering_. From a more technical point of view, the **content** of image A remains while the **visual style** switches to the one used in image B. The following pictures rendered by _neural style_ are from the original paper ([arxiv link](http://arxiv.org/abs/1508.06576)) where
+First off, what this clever algorithm does is to render an input image A with some visual experience learnt from another input image B to create a new image (e.g., shown on the very top of this post). This is known as _photorealistic rendering_. From a more technical point of view, the **content** of image A remains while the **visual style** switches to the one used in image B. The following pictures rendered by _neural style_ are from the original technical paper in [arxiv](http://arxiv.org/abs/1508.06576) (although not very technical :relaxed:) where
 
-1. Image A is the original input image to be rendered.
+1. Image A is an image to be rendered by this algorithm.
 1. Image B is a rendered image using style of _The Shipwreck of the Minotaur_ by J.M.W.Turner, 1805.
 1. Image C is a rendered image using style of _The Starry Night_ by Vincent van Gogh, 1889.
 1. Image D is a rendered image using style of _Der Schrei_ by Edvard Munch, 1893.
 1. Image E is a rendered image using style of _Femme nue assise_ by Pablo Picasso, 1910.
 1. Image F is a rendered image using style of _Composition VII_ by Wassily Kandinsky, 1913.
 
-For instance, the style shown in Van Gogh's _The Starry Night_ is somehow peaceful, clear, purified. Besides, it is with high contrast and also with clean color. Similar style has been render in image C. I don't really understand any art. But Chinese reader can check this [Zhihu page](https://www.zhihu.com/question/19708222) to find out why Vincent Van Gogh's art is super good.
+For instance, the style of Van Gogh's _The Starry Night_ looks to me peaceful, clear, and purified. It is with high contrast and also with clean color. Similar style has been added into image C. I don't really understand any art. But Chinese readers can check this [Zhihu page](https://www.zhihu.com/question/19708222) to find out why Vincent Van Gogh's art is super good.
 
 ![photo1]({{ site.url }}/myimages/ss_20160105.jpg)
 
