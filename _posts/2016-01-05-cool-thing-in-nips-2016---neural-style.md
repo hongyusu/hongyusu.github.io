@@ -115,8 +115,8 @@ Look at a portrait image being rendered by different art styles.
 
 ![photo1]({{ site.url }}/myimages/20160111_0.jpg)
 
-![photo1]({{ site.url }}/myimages/20160111_1.jpg)
 ![photo1]({{ site.url }}/myimages/20160111_2.jpg)
+![photo1]({{ site.url }}/myimages/20160111_1.jpg)
 ![photo1]({{ site.url }}/myimages/20160111_3.jpg)
 ![photo1]({{ site.url }}/myimages/20160111_4.jpg)
 ![photo1]({{ site.url }}/myimages/20160111_5.jpg)
