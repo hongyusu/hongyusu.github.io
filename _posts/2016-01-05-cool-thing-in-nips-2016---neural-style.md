@@ -24,9 +24,9 @@ tags: [Research, NIPS, DeepLearning, Art]
 
 # Neural style
 
-The deep learning algorithm, _Neural style_, is also known as _neural art_. Some similar algorithm techniques have been seen in so called _deep dream_. It is a recent work in the filed of _deep learning_, and of course it's super **cool**. The algorithm has been there for a few months already and I have noticed it for a while. Let's take a close look at technology behind the scene.
+The deep learning algorithm, _Neural style_, is also known as _neural art_. Some similar algorithmic techniques have been seen in so called _deep dream_. It is a recent work in the filed of _deep learning_, and of course it's super **cool**. The algorithm has been there for a few months already and I have noticed it for a while. Let's take a close look at technology behind the scene.
 
-First off, what _neural style_ does is to render an input image A with the visual experience learnt from another input image B. Sometimes, this is known as _photorealistic rendering_. In other words, the **content** of image A remains while the **style** is changed to the one used in image B. The following pictures rendered by _neural style_ are from the original paper ([arxiv link](http://arxiv.org/abs/1508.06576)) where
+First off, what this clever algorithm does is to render an input image A with some visual experience learnt from another input image B to create a new image (e.g., shown on the very top of this post). This is known as _photorealistic rendering_. From a more technical point of view, the **content** of image A remains while the **visual style** switches to the one used in image B. The following pictures rendered by _neural style_ are from the original paper ([arxiv link](http://arxiv.org/abs/1508.06576)) where
 
 1. Image A is the original input image to be rendered.
 1. Image B is a rendered image using style of _The Shipwreck of the Minotaur_ by J.M.W.Turner, 1805.
