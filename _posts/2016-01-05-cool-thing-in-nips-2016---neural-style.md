@@ -103,11 +103,13 @@ In particular, it should be fine with the following steps
 
 Run the algorithm with the following command `python neural_artistic_style.py --subject images/tuebingen.jpg --style images/starry_night.jpg`. Unfortunately, this is very slow in my case with CPU.
 
-
-
 # Criticisms  
 
+Philosophically, I would argue that it is merely an advanced image filter than artificial intelligent. The way I see this deep learning algorithm is just two levels of representation, one for content modeled by CNN and another for style modeled by correlation. Therefore, it will never produce any new contents or styles. On the other hand, some people do think this algorithm is essentially producing _art_ or a mixture of original content and new style :laughing: All right, anyway, the definition of _art_ is very vague and maybe you can never tell yes from no :laughing:
 
+Technically, I would argue that algorithm is not computationally efficient for large-scale commercial use. Also, if you don't have GPU computational power and running this algorithm on CPU, it will be very very slow. Besides, the algorithm does not tell the difference between portrait images and natural sceneries. This will be rather problematic in a way that the algorithm does not about human face which is somehow important in portrait rendering. 
+
+## Tech
 
 # More artworks
 
