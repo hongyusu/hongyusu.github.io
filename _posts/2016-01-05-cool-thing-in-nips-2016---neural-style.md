@@ -107,8 +107,16 @@ Run the algorithm with the following command `python neural_artistic_style.py --
 
 # Criticisms  
 
+# More artworks
 
-# Our _Cajal-Turing Club_ team
+![photo1]({{ site.url }}/myimages/20160111_0.jpg)
+![photo1]({{ site.url }}/myimages/20160111_1.jpg)
+![photo1]({{ site.url }}/myimages/20160111_2.jpg)
+![photo1]({{ site.url }}/myimages/20160111_3.jpg)
+![photo1]({{ site.url }}/myimages/20160111_4.jpg)
+![photo1]({{ site.url }}/myimages/20160111_5.jpg)
+
+# _Cajal-Turing Club_ team
 
 ![photo1]({{ site.url }}/myimages/ns_0.jpg)
 
