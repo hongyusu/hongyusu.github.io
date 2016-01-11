@@ -24,11 +24,11 @@ This is also known as _neural style_ or sometimes _deep dream_. It is a recent w
 First off, what _neural style_ does is to render an input image A with the visual experience learnt from another input image B. Sometimes, this is known as _photorealistic rendering_. In other words, the **content** of image A remains while the **style** is changed to the one used in image B. The following pictures rendered by _neural style_ are from the original paper ([arxiv link](http://arxiv.org/abs/1508.06576)) where
 
 1. Image A is the original input image to be rendered.
-1. Image B is the rendered image using style of _The Shipwreck of the Minotaur_ by J.M.W.Turner, 1805.
-1. Image C is the rendered image using style of _The Starry Night_ by Vincent van Gogh, 1889.
-1. Image D is the rendered image using style of _Der Schrei_ by Edvard Munch, 1893.
-1. Image E is the rendered image using style of _Femme nue assise_ by Pablo Picasso, 1910.
-1. Image F is the rendered image using style of _Composition VII_ by Wassily Kandinsky, 1913.
+1. Image B is a rendered image using style of _The Shipwreck of the Minotaur_ by J.M.W.Turner, 1805.
+1. Image C is a rendered image using style of _The Starry Night_ by Vincent van Gogh, 1889.
+1. Image D is a rendered image using style of _Der Schrei_ by Edvard Munch, 1893.
+1. Image E is a rendered image using style of _Femme nue assise_ by Pablo Picasso, 1910.
+1. Image F is a rendered image using style of _Composition VII_ by Wassily Kandinsky, 1913.
 
 For instance, the style shown in Van Gogh's _The Starry Night_ is somehow peaceful, clear, purified. Besides, it is with high contrast and also with clean color. Similar style has been render in image C. I don't really understand any art. But Chinese reader can check this [Zhihu page](https://www.zhihu.com/question/19708222) to find out why Vincent Van Gogh's art is super good.
 
@@ -107,9 +107,14 @@ Run the algorithm with the following command `python neural_artistic_style.py --
 
 # Criticisms  
 
+
+
 # More artworks
 
+Look at a portrait image being rendered by different art styles.
+
 ![photo1]({{ site.url }}/myimages/20160111_0.jpg)
+
 ![photo1]({{ site.url }}/myimages/20160111_1.jpg)
 ![photo1]({{ site.url }}/myimages/20160111_2.jpg)
 ![photo1]({{ site.url }}/myimages/20160111_3.jpg)
