@@ -17,9 +17,9 @@ tags: [Research, NIPS, DeepLearning, Art]
 
 
 
-# Neural art
+# Neural style
 
-This is also known as _neural style_ or sometimes _deep dream_. It is a recent work in the filed of _deep learning_ and it's super cool. I have noticed it for a while already and let's take a close look at technology behind the scene.
+The deep learning algorithm, _Neural style_, is also known as _neural art_. Some similar algorithm techniques have been seen in so called _deep dream_. It is a recent work in the filed of _deep learning_, and of course it's super **cool**. The algorithm has been there for a few months already and I have noticed it for a while. Let's take a close look at technology behind the scene.
 
 First off, what _neural style_ does is to render an input image A with the visual experience learnt from another input image B. Sometimes, this is known as _photorealistic rendering_. In other words, the **content** of image A remains while the **style** is changed to the one used in image B. The following pictures rendered by _neural style_ are from the original paper ([arxiv link](http://arxiv.org/abs/1508.06576)) where
 
@@ -108,8 +108,6 @@ Run the algorithm with the following command `python neural_artistic_style.py --
 Philosophically, I would argue that it is merely an advanced image filter than artificial intelligent. The way I see this deep learning algorithm is just two levels of representation, one for content modeled by CNN and another for style modeled by correlation. Therefore, it will never produce any new contents or styles. On the other hand, some people do think this algorithm is essentially producing _art_ or a mixture of original content and new style :laughing: All right, anyway, the definition of _art_ is very vague and maybe you can never tell yes from no :laughing:
 
 Technically, I would argue that algorithm is not computationally efficient for large-scale commercial use. Also, if you don't have GPU computational power and running this algorithm on CPU, it will be very very slow. Besides, the algorithm does not tell the difference between portrait images and natural sceneries. This will be rather problematic in a way that the algorithm does not about human face which is somehow important in portrait rendering. 
-
-## Tech
 
 # More artworks
 
