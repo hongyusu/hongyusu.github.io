@@ -31,17 +31,17 @@ tags: [Spark, EC2, Amazon]
    1. Go to Amazon console interface and choose from the top-right corner the location of the server. It should be as close to your real geographical location as possible.
    1. There are some choices which you are free to choose from. In my case, I was automatically assigned to a west US server. The list of servers are shown in the following table.
     
-    |Server code | Geographical area|
-    |:---|---:|
-    |ap-northeast-1 | Asia Pacific (Tokyo)
-    |ap-southeast-1 | Asia Pacific (Singapore)
-    |ap-southeast-2 | Asia Pacific (Sydney)
-    |eu-central-1 | EU (Frankfurt)
-    |eu-west-1 | EU (Ireland)
-    |sa-east-1 | South America (Sao Paulo)
-    |us-east-1 | US East (N. Virginia)
-    |us-west-1 | US West (N. California)
-    |us-west-2 | US West (Oregon)
+      |Server code | Geographical area|
+      |:---|---:|
+      |ap-northeast-1 | Asia Pacific (Tokyo)
+      |ap-southeast-1 | Asia Pacific (Singapore)
+      |ap-southeast-2 | Asia Pacific (Sydney)
+      |eu-central-1 | EU (Frankfurt)
+      |eu-west-1 | EU (Ireland)
+      |sa-east-1 | South America (Sao Paulo)
+      |us-east-1 | US East (N. Virginia)
+      |us-west-1 | US West (N. California)
+      |us-west-2 | US West (Oregon)
 
    1. I would like to work with some cluster which is near Helsinki. There is one located in Frankfurt. However the Frankfurt server does not work well in my case. As an alternative I will be using the cluster server located in Dublin. It turns out that the server in Dublin is much more responsive than the one in west US.
    1. After selecting the cluster server located in Dublin, I continue to generate a paired key by pressing the button on the bottom left corner of the web console.
