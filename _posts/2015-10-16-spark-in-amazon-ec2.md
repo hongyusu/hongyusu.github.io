@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Spark in Amazon EC2"
+title: "Spark running on Amazon EC2"
 description: ""
 category: Programming
 tags: [Spark, EC2, Amazon]
@@ -22,14 +22,14 @@ tags: [Spark, EC2, Amazon]
 {:toc}
 
 
-# Setting up Spark on Amazon EC2
+# Setup Spark on Amazon EC2
 
-- Get an Amazon AWS account from Amazon [AWS and EC2](https://aws.amazon.com/ec2/).
+- First off, you need an account -- get an Amazon Web Service (AWS) account from [Amazon AWS and EC2](https://aws.amazon.com/ec2/).
 
-- The next thing is to generate a paired key which will allow SSH connection to Amazon server automatically.
+- The next thing is to generate a paired key which will later allow SSH connection to Amazon server without strict authentication. You will be fine on this with the following steps.
 
-  - First I have to web console interface of Amazon and choose from the top right corner which server I will be using.
-  - There will be a few choices and I was assigned to a west US server by default. But here is a list of servers available shown in the following table.
+  - Go to Amazon console interface and choose from the top-right corner the location of the server. It should be as close to your real geographical location as possible.
+  - There are some choices which you are free to choose from. In my case, I was automatically assigned to a west US server. The list of servers are shown in the following table.
     
     |Code | Name|
     |:---|---:|
@@ -103,4 +103,7 @@ tags: [Spark, EC2, Amazon]
 
 # External sources
 
-- ['Big data mini course'](http://ampcamp.berkeley.edu/big-data-mini-course/index.html) is about running Spark on Amazon EC2.
+- ['Big data mini course'](http://ampcamp.berkeley.edu/big-data-mini-course/index.html) is an introductory course about running Spark  on Amazon EC2.
+
+
+
