@@ -12,6 +12,12 @@ tags: [Life, Exercise]
 
 ![photo1]({{ site.url }}/myimages/ss_20160112_1.jpg)
 
+# Table of content
+* auto-gen TOC:
+{:toc}
+
+
+# Summary
 
 _This is a fairly old post with continuous update when I did any new exercise._
 
@@ -23,6 +29,8 @@ Step into 30, I start to care more about myself :smiley: Then I decide to record
 1. `wheel roll`, for abs :laughing:
 1. some lifting exercises, for arms :muscle:
 
+
+# View history
 
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
