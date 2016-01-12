@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Track my exercises"
+title: "Track my sports"
 description: ""
 category: Life
-tags: [Life, Exercise]
+tags: [Life, Sport]
 ---
 {% include JB/setup %}
 
