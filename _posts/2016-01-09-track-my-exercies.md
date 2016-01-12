@@ -9,6 +9,10 @@ tags: [Life, Exercise]
 
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
+
+![photo1]({{ site.url }}/myimages/ss_20160112_1.jpg)
+
+
 _This is a fairly old post with continuous update when I did any new exercise._
 
 Step into 30, I start to care more about myself :smiley: Then I decide to record the amount of exercises I have done with the hope that the diary will push me to do more and more. Basically, the exercises I love to do include
