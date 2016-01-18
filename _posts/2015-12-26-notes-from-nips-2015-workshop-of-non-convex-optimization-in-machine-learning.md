@@ -10,6 +10,10 @@ tags: [NIPS, Research, Tensor, Nonconvex, Optimization, MachineLearning]
  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
  
+
+<iframe src="https://onedrive.live.com/embed?cid=C8F22FB4EF2311AF&resid=C8F22FB4EF2311AF%2132210&authkey=AJDVDDc5-wB71d4" width="240" height="320" frameborder="0" scrolling="no"></iframe>
+
+
 # Table of content
 * auto-gen TOC:
 {:toc}
