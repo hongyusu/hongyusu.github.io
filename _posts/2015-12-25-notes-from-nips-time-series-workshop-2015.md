@@ -19,7 +19,7 @@ tags: [NIPS, Research, TimeSeries]
 
 This post is about NIPS [time series workshop 2015](https://sites.google.com/site/nipsts2015/home).
 
-# Invited talk by Mehryar Mohri on _time series prediction_
+# Invited talk by Mehryar Mohri on _learning guarantee on time series prediction_
 
 1. It would be nice to have his slide. But I don't have them here. You can have a look at the addition reading materials listed below.
 1. The talk is mostly about a data driven learning bound (learning guarantee) for non-stationary non-mixing stochastic process (time series).
