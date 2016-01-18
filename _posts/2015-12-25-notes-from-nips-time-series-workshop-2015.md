@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Notes from NIPS 2015 workshop of time series"
+title: "Cool stuff in NIPS 2015 (workshop) - Time series"
 description: ""
 category: Research
-tags: [NIPS2015, Research, TimeSeries]
+tags: [NIPS, Research, TimeSeries]
 ---
 {% include JB/setup %}
 <script type="text/javascript"
@@ -28,9 +28,9 @@ This post is about NIPS [time series workshop 2015](https://sites.google.com/sit
 1. The only assumption that can be potentially valid: introducing the loss dependency assumption.
 1. Introduce the concept of discrepancy in time series model.
 1. Build a learning bound for time series with loss dependency assumption. This bound is essentially the same as classical learning bound based on i.i.d assumption except for an additional term describing the discrepancy. 
-1. The following two papers of NIPS this year might be worth checking out
-   1. *Learning Theory and Algorithms for Forecasting Non-stationary Time Series*
-   1. *Revenue Optimization against Strategic Buyers*
+1. The following two papers published in NIPS conference this year might be worth checking out
+   1. [*Learning Theory and Algorithms for Forecasting Non-stationary Time Series*](http://papers.nips.cc/paper/5836-learning-theory-and-algorithms-for-forecasting-non-stationary-time-series.pdf)
+   1. [*Revenue Optimization against Strategic Buyers*](http://papers.nips.cc/paper/6026-revenue-optimization-against-strategic-buyers.pdf)
 
 # Time series workshop panel discussion
 

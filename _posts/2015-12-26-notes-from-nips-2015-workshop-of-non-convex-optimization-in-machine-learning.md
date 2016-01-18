@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Notes from NIPS 2015 workshop of non-convex optimization in machine learning"
+title: "Cool stuff in NIPS 2015 (workshop) - Non-convex optimization in machine learning"
 description: ""
 category: Research
-tags: [NIPS2015, Research, Tensor, Nonconvex, Optimization]
+tags: [NIPS, Research, Tensor, Nonconvex, Optimization, MachineLearning]
 ---
 {% include JB/setup %}
 <script type="text/javascript"
@@ -15,7 +15,7 @@ tags: [NIPS2015, Research, Tensor, Nonconvex, Optimization]
 {:toc}
 
 
-This post is about NIPS 2015 workshop of [non-convex optimization in machine learning](https://sites.google.com/site/nips2015nonconvexoptimization/invited-speakers)
+This blog post is about NIPS 2015 workshop of [non-convex optimization in machine learning](https://sites.google.com/site/nips2015nonconvexoptimization/invited-speakers)
 
 # Invited talk: Recent advances and challenges in non-convex optimization 
 
