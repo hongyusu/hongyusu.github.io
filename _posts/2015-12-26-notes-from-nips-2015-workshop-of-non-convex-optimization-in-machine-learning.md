@@ -21,13 +21,13 @@ tags: [NIPS, Research, Tensor, Nonconvex, Optimization, MachineLearning]
 
 This blog post is about NIPS 2015 workshop of [non-convex optimization in machine learning](https://sites.google.com/site/nips2015nonconvexoptimization/invited-speakers)
 
-# Invited talk: Recent advances and challenges in non-convex optimization 
+# Invited talk on _Recent advances and challenges in non-convex optimization_
 
 1. This invited talk is mostly about approaching some non-convex optimization problem via tensor decomposition or tensor algebra. As many real-world big-data optimization problem are statistically and computationally hard for which we need large number of examples in order to estimate the model and we need to tackle the non-convexity in order to achieve computational feasibility. For example, solving these problem with stochastic gradient descent (SGD) with multiple random initialization will generally give very poor results due to multiple local optimals. On the other hand, some of these hard optimization problems can be formulated as the tensor decomposition or via tensor algebra. Though most tensor decomposition problems are also non-convex and NP-hard, running SGD will provide some satisfactory optimization results. We can converge to global optimal solution despite we have a non-convex optimization problem via tensor decomposition. The last two claims from the speaker are quite strong, it might be worthwhile to check the original publications.
 
 1. Keywords of the talk might be e.g., _tensor decomposition_, _non-convex optimization_, _spectral optimization_, _robust PCA_.
 
-1. The [link](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxuaXBzMjAxNW5vbmNvbnZleG9wdGltaXphdGlvbnxneDo0OGYxMDE2ZjFhNjlkNGRi) for the **slides** of this interesting talk.
+1. [Slide](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxuaXBzMjAxNW5vbmNvbnZleG9wdGltaXphdGlvbnxneDo0OGYxMDE2ZjFhNjlkNGRi) for the talk.
 
 1. Two related papers from her research group that appears in this workshop
    1. [Convolutional dictionary learning through tensor factorization](http://arxiv.org/abs/1506.03509)
@@ -114,7 +114,24 @@ This blog post is about NIPS 2015 workshop of [non-convex optimization in machin
 
 
 
-# Invited talk: Large-scale optimization for deep learning
+# Invited talk on _Large-scale optimization for deep learning_
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
