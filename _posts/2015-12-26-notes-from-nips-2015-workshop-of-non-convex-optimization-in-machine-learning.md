@@ -93,11 +93,13 @@ This blog post is about NIPS 2015 workshop of [non-convex optimization in machin
    ![photo1]({{site.url}}/myimages/ss_20160119_2.png)
    1. **Principal component analysis (PCA)** is an important application of SVD which finds new axises of a data cloud that explains the variance in the data. 
    1. **Tucker decomposition**: 
-      ![photo1]({{site.url}}/myimages/ss_20160119_3.png)
       1. Given an input tensor as a $$I\times J\times K$$ matrix $$X$$, decompose it into a $$I\times R$$ matrix $$A$$, a $$J\times S$$ matrix $$B$$, a $$K\times T$$ matrix $$C$$, and a $$R\times S \times T$$ diagonal matrix $$G$$.
       1. This is a non-convex problem and can be solved approximately by _alternating least square (ALS)_.
-   1. **Canonical decomposition (CANDECOMP) or Parallel factor (PARAFAC)**: given a tensor $$X$$ decompose it as $$X \approx \sum_{i}^{r}\lambda_ia_i\times b_i \times c_i$$, where $$a_i$$, $$b_i$$, and $$c_i$$ are column matrices and $$r$$ is the rank of the tensor. This is almost the same as Tucker decomposition. It is a non-convex problem and is solved by ALS.
-   1. **Tensor decomposition**: given an input tensor (3D matrix) $$T=L+S$$, we aim to recover both $$L$$ and $$S$$, where $$L$$ is a rank $$r$$ orthogonal tensor and $$S$$ is a sparse tensor. In particular, $$L$$ has the form $$L = \sum_{i=1}^{r}\delta_iu_i\otimes u_i \otimes u_i$$. This is non-convex optimization problem.
+   1. **Canonical decomposition (CANDECOMP) or Parallel factor (PARAFAC)**: 
+      ![photo1]({{site.url}}/myimages/ss_20160119_3.png)
+      1. Given an input tensor as a $$I\times J\times K$$ matrix $$X$$, decompose it into a $$I\times R$$ matrix $$A$$, a $$J\times R$$ matrix $$B$$, a $$K\times R$$ matrix $$C$$, and a $$R\times R \times R$$ diagonal matrix $$G$$.
+      1. This is almost the same as Tucker decomposition. It is a non-convex problem and is solved by ALS.
+   1. **Robust tensor decomposition**: given an input tensor (3D matrix) $$T=L+S$$, we aim to recover both $$L$$ and $$S$$, where $$L$$ is a rank $$r$$ orthogonal tensor and $$S$$ is a sparse tensor. In particular, $$L$$ has the form $$L = \sum_{i=1}^{r}\delta_iu_i\otimes u_i \otimes u_i$$. This is non-convex optimization problem.
    1. **Robust PCA**: is the same as tensor decomposition but in a matrix form. This can be formulated either as a convex or non-convex optimization problem.
 
 1. The talk suggests two algorithm for tensor decomposition:
