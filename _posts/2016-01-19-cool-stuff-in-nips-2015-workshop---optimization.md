@@ -35,10 +35,10 @@ This blog post is about NIPS 2015 workshop of [Optimization](http://opt-ml.org/i
 1. There is transient behavior in gradient optimization
    1. Variance of gradient reveals the progress of the optimzation
    1. Therefore, we should aim at decreasing the variance of the gradient geometrically
-1. Geometrically increase the sample size to compute the gradient
-1. Proposed method: use angle information to compute the gradient :questions:
+1. Either, geometrically increase the sample size to compute the gradient
+1. Or, proposed method: use angle information to compute the gradient :question:
    1. It is a transition from stochastic to batch gradient, gradient sampling
-   1. There are papers available for more information :questions:
+   1. There are papers available for more information :question:
    1. Ingredient of the method
       1. Stochastic gradient
       1. Sampling
