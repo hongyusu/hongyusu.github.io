@@ -9,7 +9,12 @@ tags: [Amazon, DeepLearning, Web, API]
 <script type="text/javascript"
  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
- 
+
+
+![photo1]({{ site.url }}/myimages/ss_20160112_0.jpg)
+
+
+
 # Table of content
 * auto-gen TOC:
 {:toc}
