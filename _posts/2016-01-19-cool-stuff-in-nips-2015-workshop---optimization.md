@@ -13,7 +13,7 @@ tags: [NIPS, Research, Optimization, MachineLearning]
 </script>
 
 
-![photo1]({{ site.url }}/myimages/20160111_2.jpg)
+<iframe src="https://onedrive.live.com/embed?cid=C8F22FB4EF2311AF&resid=C8F22FB4EF2311AF%2132210&authkey=AJDVDDc5-wB71d4" width="240" height="320" frameborder="0" scrolling="no"></iframe>
 
  
 # Table of content
@@ -22,7 +22,7 @@ tags: [NIPS, Research, Optimization, MachineLearning]
 
 This blog post is about NIPS 2015 workshop of [Optimization](http://opt-ml.org/index.html).
 
-# Invited talk on _An evoving gradient resampling method_
+# Invited talk on _An evolving gradient resampling method_
 
 1. It would extremely helpful to have the slide of this presentation. But it is no where available.
 1. Some introduction of gradient method
