@@ -42,8 +42,16 @@ This blog post is about NIPS 2015 workshop of [Optimization](http://opt-ml.org/i
 1. Or, proposed method: use angle information to compute the gradient :question:
    1. It is a transition from stochastic to batch gradient, gradient sampling
    1. There are papers available for more information :question:
-   1. Ingredient of the method
+   1. Ingredients of the method
       1. Stochastic gradient
       1. Sampling
       1. Batch gradient
       1. Different growth rate 
+
+
+# Interesting convex optimization papers in the conference 
+
+1. These papers more or less use second order information during the convex optimization 
+   1. [Convergence rates of sub-sampled Newton methods](https://papers.nips.cc/paper/5918-convergence-rates-of-sub-sampled-newton-methods)
+   1. [Newton-stein method: a second order method for GLMs via stein's lemma](https://papers.nips.cc/paper/5750-newton-stein-method-a-second-order-method-for-glms-via-steins-lemma)
+   1. [Natural neural network](https://papers.nips.cc/paper/5953-natural-neural-networks)
