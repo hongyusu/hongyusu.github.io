@@ -31,9 +31,9 @@ This blog post is about NIPS 2015 workshop of [non-convex optimization in machin
    1. we need to tackle the non-convexity in order to achieve computational feasibility.
 1. For example, solving these problem with stochastic gradient descent (SGD) with multiple random initialization will generally give very poor results due to multiple local optimals. 
 1. On the other hand, some of these hard optimization problems can be formulated as the tensor decomposition or via tensor algebra.
-1. Then there are two strong claims about this tensor decomposition:
+1. **Then there are two strong claims about this tensor decomposition:**
    1. Though most tensor decomposition problems are also non-convex and NP-hard, running SGD will provide some satisfactory optimization results.
-   1. We can converge to global optimal solution despite we have a non-convex optimization problem via tensor decomposition. 
+   1. We can converge to global optimal solution despite we have a non-convex optimization problem via tensor decomposition.
 1. Theses two claims from the speaker are quite strong, it might be worthwhile to check the original publications.
 1. Keywords of the talk might be e.g., _tensor decomposition_, _non-convex optimization_, _spectral optimization_, _robust PCA_.
 
