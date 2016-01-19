@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Cool stuff in nips 2015 (symposium) - Algorithm among us"
+title: "Cool stuff in NIPS 2015 (symposium) - Algorithm among us"
 description: ""
 category: Research
 tags: [NIPS, Research, MachineLearning]

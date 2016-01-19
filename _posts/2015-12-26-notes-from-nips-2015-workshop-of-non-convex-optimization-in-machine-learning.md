@@ -11,7 +11,7 @@ tags: [NIPS, Research, Tensor, Nonconvex, Optimization, MachineLearning]
 </script>
  
 
-<iframe src="https://onedrive.live.com/embed?cid=C8F22FB4EF2311AF&resid=C8F22FB4EF2311AF%2132210&authkey=AJDVDDc5-wB71d4" width="240" height="320" frameborder="0" scrolling="no"></iframe>
+![photo]({{site.url}}/myimages/ss_20160119_9.jpg)
 
 
 # Table of content
@@ -20,34 +20,6 @@ tags: [NIPS, Research, Tensor, Nonconvex, Optimization, MachineLearning]
 
 
 "When I am a grown-up I want to do non-convex optimization". This blog post is about NIPS 2015 workshop of [non-convex optimization in machine learning](https://sites.google.com/site/nips2015nonconvexoptimization/invited-speakers) and some interesting papers on non-convex optimization appeared in the NIPS conference. 
-
-
-
-# Cool papers in the conference
-
-1. Non-convex optimization is in general NP-hard. One cool direction on non-convex optimization is developing efficient polynomial time algorithm for some specific optimization problems under some reasonable assumption.
-
-   1. [Solving Random Quadratic Systems of Equations Is Nearly as Easy as Solving Linear Systems](https://papers.nips.cc/paper/5743-solving-random-quadratic-systems-of-equations-is-nearly-as-easy-as-solving-linear-systems)
-      1. The problem is finding a solution $$x$$ to a quadratic system of equations 
-         
-         $$y_i = <a_i,x>^2,\quad i=1,\cdots, m$$.
-      1. It is a non-convex optimization problem.
-      1. The paper is saying that a quadratic system equations with $$n$$ variables can be solved from $$\Theta(n)$$ linear equations.
-      1. The key ingredients:
-         1. Spectral intialization procedure 
-         1. Regularized descend procedure :question:
-      1. Basically, the gradient descent with spectral initialization can work in non-convex optimization problem. Evidence can also be found from this paper [A nonconvex optimization framework for low rank matrix estimation](https://papers.nips.cc/paper/5733-a-nonconvex-optimization-framework-for-low-rank-matrix-estimation)
-      1. Empirically, the speed of the proposed algorithm is about four times of solving a least square problem of the same size.
-
-
-   1. [A Convergent Gradient Descent Algorithm for Rank Minimization and Semidefinite Programming from Random Linear Measurements](https://papers.nips.cc/paper/5830-a-convergent-gradient-descent-algorithm-for-rank-minimization-and-semidefinite-programming-from-random-linear-measurements)
-      1. A simple, scalable, and fast gradient descent algorithm for non-convex optimization of affine rank minimization problem.
-
-         $$\underset{X\in R^{n\times p}}{\min}rank(X), \quad \text{subject to}\, A(X)=b$$
-      1. The rank minimization problem can be written as a particular class of SDP problem, the proposed method offer a fast solution for SDP compare to interior point methods.
-      1. The key ingredient is that the low rank minmization problem is conditioned on the transformation $$A:R^{n\times p}\rightarrow R^m$$.
-      1. The proposed gradient algorithm has a **Linear convergence rate**.
-
 
 
 
@@ -190,6 +162,32 @@ tags: [NIPS, Research, Tensor, Nonconvex, Optimization, MachineLearning]
 There is a very interesting point in this talk: it is relatively easier to optimize a very large neural network on a small machine learning problem.
 
 ![photo1]({{site.url}}/myimages/ss_20160119_4.png)
+
+
+# Cool papers in the conference
+
+1. Non-convex optimization is in general NP-hard. One cool direction on non-convex optimization is developing efficient polynomial time algorithm for some specific optimization problems under some reasonable assumption.
+
+   1. [Solving Random Quadratic Systems of Equations Is Nearly as Easy as Solving Linear Systems](https://papers.nips.cc/paper/5743-solving-random-quadratic-systems-of-equations-is-nearly-as-easy-as-solving-linear-systems)
+      1. The problem is finding a solution $$x$$ to a quadratic system of equations 
+         
+         $$y_i = <a_i,x>^2,\quad i=1,\cdots, m$$.
+      1. It is a non-convex optimization problem.
+      1. The paper is saying that a quadratic system equations with $$n$$ variables can be solved from $$\Theta(n)$$ linear equations.
+      1. The key ingredients:
+         1. Spectral intialization procedure 
+         1. Regularized descend procedure :question:
+      1. Basically, the gradient descent with spectral initialization can work in non-convex optimization problem. Evidence can also be found from this paper [A nonconvex optimization framework for low rank matrix estimation](https://papers.nips.cc/paper/5733-a-nonconvex-optimization-framework-for-low-rank-matrix-estimation)
+      1. Empirically, the speed of the proposed algorithm is about four times of solving a least square problem of the same size.
+
+
+   1. [A Convergent Gradient Descent Algorithm for Rank Minimization and Semidefinite Programming from Random Linear Measurements](https://papers.nips.cc/paper/5830-a-convergent-gradient-descent-algorithm-for-rank-minimization-and-semidefinite-programming-from-random-linear-measurements)
+      1. A simple, scalable, and fast gradient descent algorithm for non-convex optimization of affine rank minimization problem.
+
+         $$\underset{X\in R^{n\times p}}{\min}rank(X), \quad \text{subject to}\, A(X)=b$$
+      1. The rank minimization problem can be written as a particular class of SDP problem, the proposed method offer a fast solution for SDP compare to interior point methods.
+      1. The key ingredient is that the low rank minmization problem is conditioned on the transformation $$A:R^{n\times p}\rightarrow R^m$$.
+      1. The proposed gradient algorithm has a **Linear convergence rate**.
 
 
 

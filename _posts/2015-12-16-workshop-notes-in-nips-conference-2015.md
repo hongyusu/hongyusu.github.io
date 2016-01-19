@@ -12,7 +12,7 @@ tags: [NIPS, Research, MachineLearning]
  
 
 
-<iframe src="https://onedrive.live.com/embed?cid=C8F22FB4EF2311AF&resid=C8F22FB4EF2311AF%2132210&authkey=AJDVDDc5-wB71d4" width="240" height="320" frameborder="0" scrolling="no"></iframe>
+![photo]({{site.url}}/myimages/ss_20160119_9.jpg)
 
 
 
