@@ -208,7 +208,8 @@ There is a very interesting point in this talk: it is relatively easier to optim
    1. [Beyond convexity: stochastic quasi-convex optimization](https://papers.nips.cc/paper/5718-beyond-convexity-stochastic-quasi-convex-optimization)
       1. Convex Lipschitz functions can be minimized efficiently using stochastic gradient descent (SGD).
       1. Propose a stochastic version of Normalized gradient descent (NGD) and prove the convergence for a wide class of functions
-         1. Quasi-convex and locally-Lipschitz
+         1. Quasi-convex
+         1. Locally-Lipschitz
 
 
 
