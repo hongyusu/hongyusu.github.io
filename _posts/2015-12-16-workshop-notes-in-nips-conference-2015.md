@@ -24,6 +24,8 @@ tags: [NIPS, Research, MachineLearning]
 
 ## [Cool stuff in NIPS 2015 (workshop) - Time series]({{site.url}}/research/2015/12/25/notes-from-nips-time-series-workshop-2015/)
 
+## [Cool stuff in NIPS 2015 (other) - Data science in the next 50 years]({{site.url}}/research/2015/12/31/data-science-in-the-next-50-years/)
+
 ### Optimization first talk
 
 ### Invited talk on gradient resampling method
