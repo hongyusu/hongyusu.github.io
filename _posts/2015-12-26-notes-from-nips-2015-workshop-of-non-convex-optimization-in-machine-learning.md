@@ -154,6 +154,10 @@ This blog post is about NIPS 2015 workshop of [non-convex optimization in machin
 
 # Invited talk on _Large-scale optimization for deep learning_
 
+There is a very interesting point in this talk: it is relatively easier to optimize a very large neural network on a small machine learning problem.
+
+![photo1]({{site.url}}/myimages/ss_20160119_4.png)
+
 
 
 
