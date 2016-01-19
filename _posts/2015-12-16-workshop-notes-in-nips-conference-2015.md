@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Thoughts and notes from NIPS conference 2015"
+title: "NIPS conference 2015"
 description: ""
 category: Research
 tags: [NIPS, Research, MachineLearning]
@@ -20,21 +20,28 @@ tags: [NIPS, Research, MachineLearning]
 * auto-gen TOC:
 {:toc}
 
+# Introduction
+
+1. There seems to be an exponential growth for NIPS participants as shown in the following picture. It is said that about 10% papers are from deep learning and roughly 5% from convex optimization.
+1. One big news in NIPS is that Elon Musk plan to commit 1 billion dollars to create a non-profit research organization known as [OpenAI](https://openai.com/blog/introducing-openai/). See also the [press release of the New York Times](http://www.nytimes.com/2015/12/12/science/artificial-intelligence-research-center-is-founded-by-silicon-valley-investors.html?hpw&rref=technology&action=click&pgtype=Homepage&module=well-region&region=bottom-well&WT.nav=bottom-well&_r=1). OpenAI will base in San Fransisco with a long term goal is to create an artificial general intelligence (AGI) that is capable of performing intellectual task as human beings.
+
+![photo1]({{site.url}}/myimages/ss_20160119_6.png)
+
 
 # Workshops
 
-## [Cool stuff in NIPS 2015 (workshop) - Non-convex optimization in machine learning]({{site.url}}/research/2015/12/26/notes-from-nips-2015-workshop-of-non-convex-optimization-in-machine-learning/)
+## [Non-convex optimization in machine learning]({{site.url}}/research/2015/12/26/notes-from-nips-2015-workshop-of-non-convex-optimization-in-machine-learning/)
 
-## [Cool stuff in NIPS 2015 (workshop) - Time series]({{site.url}}/research/2015/12/25/notes-from-nips-time-series-workshop-2015/)
+## [Time series]({{site.url}}/research/2015/12/25/notes-from-nips-time-series-workshop-2015/)
 
-## [Cool stuff in NIPS 2015 (workshop) - Time series]({{site.url}}/research/2015/12/25/notes-from-nips-time-series-workshop-2015/)
+## [Optimization]({{site.url}}/research/2016/01/19/cool-stuff-in-nips-2015-workshop---optimization/)
 
 # Symposiums
 
-## [Cool stuff in NIPS 2015 (symposium) - Algorithm among us]({{site.url}}/research/2016/01/19/cool-stuff-in-nips-2015-symposium-algorithm-among-us/)
+## [Algorithm among us]({{site.url}}/research/2016/01/19/cool-stuff-in-nips-2015-symposium-algorithm-among-us/)
 
-## [Cool stuff in NIPS 2015 (symposium) - Neural style]({{site.url}}/research/2016/01/05/cool-thing-in-nips-2016---neural-style/)
+## [Neural style]({{site.url}}/research/2016/01/05/cool-thing-in-nips-2016---neural-style/)
 
 # Others
 
-## [Cool stuff in NIPS 2015 (other) - Data science in the next 50 years]({{site.url}}/research/2015/12/31/data-science-in-the-next-50-years/)
+## [Data science in the next 50 years]({{site.url}}/research/2015/12/31/data-science-in-the-next-50-years/)
