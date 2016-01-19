@@ -38,14 +38,9 @@ This blog post is about NIPS 2015 workshop of [non-convex optimization in machin
 1. Keywords of the talk might be e.g., _tensor decomposition_, _non-convex optimization_, _spectral optimization_, _robust PCA_.
 
 
-## Additional materials
-1. [Slide](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxuaXBzMjAxNW5vbmNvbnZleG9wdGltaXphdGlvbnxneDo0OGYxMDE2ZjFhNjlkNGRi) for the talk.
 
-1. Two related papers from her research group that appears in this workshop
-   1. [Convolutional dictionary learning through tensor factorization](http://arxiv.org/abs/1506.03509)
-   1. [Tensor vs matrix methods: robust tensor decomposition under block sparse perturbations](http://arxiv.org/abs/1510.04747)
 
-## Method
+## Introduction
 
 1. Learning is like finding needle in a haystack.
    1. Big data is challenging due to large number of variables and high-dimensionalities.
@@ -68,19 +63,21 @@ This blog post is about NIPS 2015 workshop of [non-convex optimization in machin
    ![photo1]({{ site.url}}/myimages/ss_201601-9_0.png)
 
 1. Non-convex optimization and _Curse of dimensionality_
-   1. Difficulty in convex optimization: multiple optimality exist.
+   1. Difficulty in non-convex optimization: multiple optimalities exist.
    1. _Curse of dimensionality_ is the concept we all come across during the introductory course of machine learning but easily forget afterwords. As a short summary, it actually means
       1. The volume of the space increases very quickly when the dimensionality increases such that available data become very sparse.
       1. In order to have statistical significancy, the number of data points required to support the results in the space will grow exponentially with the dimensionality.
-      1. High-dimensionality might not always be good, people like me frequently use dimensionality reduction techniques, e.g., [principal component analysis (PCA)](https://en.wikipedia.org/wiki/Principal_component_analysis) to reduce dimension while keeping the similar amount of useful information.
+      1. High-dimensionality might not always be good, we frequently use dimensionality reduction techniques, e.g., [principal component analysis (PCA)](https://en.wikipedia.org/wiki/Principal_component_analysis) to reduce dimension while keeping the similar amount of useful information.
    1. **I still need to find out the relation of _curse of dimensionality_ and _anomaly detection_.**
-   1. In optimization, _curse of dimensionality_ means exponential number of crucial points (saddle points of which the gradient is zero). 
+   1. **In optimization, _curse of dimensionality_ means exponential number of crucial points (saddle points of which the gradient is zero).** 
 
-1. Model the optimization problem with tensor algebra, run SGD for non-convex tensor decomposition problems.
+1. Method in one sentence: model the optimization problem with tensor algebra, run SGD for non-convex tensor decomposition problems.
+
+## Methods
 
 1. Take data as a tensor object
-   1. Matrix: pairwise correlation
-   1. Tensor: high order correlation
+   1. Matrix view: pairwise correlation.
+   1. Tensor view: high order correlation.
 
 1. Spectral decomposition
    1. Look at matrix decomposition and tensor decomposition
@@ -95,9 +92,13 @@ This blog post is about NIPS 2015 workshop of [non-convex optimization in machin
    1. **Tensor decomposition**: given an input tensor (3D matrix) $$T=L+S$$, we aim to recover both $$L$$ and $$S$$, where $$L$$ is a rank $$r$$ orthogonal tensor and $$S$$ is a sparse tensor. In particular, $$L$$ has the form $$L = \sum_{i=1}^{r}\delta_iu_i\otimes u_i \otimes u_i$$. This is non-convex optimization problem.
    1. **Robust PCA**: is the same as tensor decomposition but in a matrix form. This can be formulated either as a convex or non-convex optimization problem.
 
-1. The talk suggests two algorithm for tensor decomposition. One for orthogonal tensor decomposition problem and the other for non-orthogonal tensor decomposition problem.
+1. The talk suggests two algorithm for tensor decomposition:
+   1. One for orthogonal tensor decomposition problem.
+   1. The other for non-orthogonal tensor decomposition problem.
 
-1. A list of implementation is also provided as in the slides, which also includes [this spark implementation](https://github.com/FurongHuang/SpectralLDA-TensorSpark). **Need to checkout the performance**. However, in the paper they mentioned that the underlying optimization algorithm is _embarrassingly parallel_. 
+## Implementation and applications
+
+1. A list of implementation is also provided as in the slides, which also includes [this spark implementation](https://github.com/FurongHuang/SpectralLDA-TensorSpark). **Need to checkout the performance**. In [this paper](http://arxiv.org/abs/1506.03509) they mentioned that the underlying optimization algorithm is _embarrassingly parallel_. So looks promising :question: 
 
 1. Other interesting tensor decomposition: **dynamic tensor decomposition**, **streaming tensor decomposition**, and **window based tensor analysis**.
 
@@ -107,15 +108,8 @@ This blog post is about NIPS 2015 workshop of [non-convex optimization in machin
    1. Sensor network analysis as a location-type-time tensor.
    1. Social network analysis as a author-keyword-time tensor.
 
-1. She also gave some similar talks about non-convex optimization and tensor decomposition
-   1. [Tensor methods for training neural networks](https://www.youtube.com/watch?v=B4YvhcGaafw).
-   1. [Beating the perils of non-convexity machine learning using tensor methods](https://www.youtube.com/watch?v=YpnlAQTY1Mc).
-   1. [Tensor methods: a new paradigm for training probabilistic models and for feature learning](https://www.youtube.com/watch?v=B4YvhcGaafw).
+## Other information
 
-1. Other interesting materials about tensor decomposition
-   1. [Quora: Open problems in tensor decomposition](https://www.quora.com/Matrix-Decomposition/What-are-some-open-problems-in-Tensor-analysis).
-   1. [Paper: Most tensor problems are NP-hard](http://www.stat.uchicago.edu/~lekheng/work/jacm.pdf). Quoted from this paper _' "Bernd Sturmfels once made the remark to us that “All interesting problems are NP-hard.” In light of this, we would like to view our article as evidence that most tensor problems are interesting."'_
-   1. [Tutorial: Mining Large Time-evolving Data Using Matrix and Tensor Tools ](http://www.cs.cmu.edu/~christos/TALKS/SIGMOD-07-tutorial/).
 
 1. Loss function in deep neural network looks like random Gaussian polynomial.
    1. The main result is that all local minimals have similar values.
@@ -126,6 +120,24 @@ This blog post is about NIPS 2015 workshop of [non-convex optimization in machin
    1. Use noisy stochastic gradient.
    1. Compute a convex envelop.
    1. Smooth out the non-convex function.
+
+
+## Additional materials
+1. [Slide](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxuaXBzMjAxNW5vbmNvbnZleG9wdGltaXphdGlvbnxneDo0OGYxMDE2ZjFhNjlkNGRi) for the talk.
+
+1. Two related papers from her research group that appears in this workshop
+   1. [Convolutional dictionary learning through tensor factorization](http://arxiv.org/abs/1506.03509)
+   1. [Tensor vs matrix methods: robust tensor decomposition under block sparse perturbations](http://arxiv.org/abs/1510.04747)
+
+1. She also gave some similar talks about non-convex optimization and tensor decomposition
+   1. [Tensor methods for training neural networks](https://www.youtube.com/watch?v=B4YvhcGaafw).
+   1. [Beating the perils of non-convexity machine learning using tensor methods](https://www.youtube.com/watch?v=YpnlAQTY1Mc).
+   1. [Tensor methods: a new paradigm for training probabilistic models and for feature learning](https://www.youtube.com/watch?v=B4YvhcGaafw).
+
+1. Other interesting materials about tensor decomposition
+   1. [Quora: Open problems in tensor decomposition](https://www.quora.com/Matrix-Decomposition/What-are-some-open-problems-in-Tensor-analysis).
+   1. [Paper: Most tensor problems are NP-hard](http://www.stat.uchicago.edu/~lekheng/work/jacm.pdf). Quoted from this paper _' "Bernd Sturmfels once made the remark to us that “All interesting problems are NP-hard.” In light of this, we would like to view our article as evidence that most tensor problems are interesting."'_
+   1. [Tutorial: Mining Large Time-evolving Data Using Matrix and Tensor Tools ](http://www.cs.cmu.edu/~christos/TALKS/SIGMOD-07-tutorial/).
 
 
 
