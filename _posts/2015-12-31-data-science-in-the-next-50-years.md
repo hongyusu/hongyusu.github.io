@@ -3,7 +3,7 @@ layout: post
 title: "Data science in the next 50 years - are machine learning and statistics complementary?"
 description: ""
 category: Research 
-tags: [Research, MachineLearning, Statistics, DataScience]
+tags: [NIPS, Research, MachineLearning]
 ---
 {% include JB/setup %}
 <script type="text/javascript"
