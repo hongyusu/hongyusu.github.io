@@ -18,12 +18,11 @@ tags: [NIPS2015, Research]
 
 # Workshops
 
-## [Non-convex optimization in machine learning]({{site.url}}/research/2015/12/26/notes-from-nips-2015-workshop-of-non-convex-optimization-in-machine-learning/)
+## [Cool stuff in NIPS 2015 (workshop) - Non-convex optimization in machine learning]({{site.url}}/research/2015/12/26/notes-from-nips-2015-workshop-of-non-convex-optimization-in-machine-learning/)
 
-##[Time series]({{site.url}}/research/2015/12/25/notes-from-nips-time-series-workshop-2015/)
+## [Cool stuff in NIPS 2015 (workshop) - Time series]({{site.url}}/research/2015/12/25/notes-from-nips-time-series-workshop-2015/)
 
-
-## Workshop: [Optimization for machine learning](http://opt-ml.org/index.html)
+## [Cool stuff in NIPS 2015 (workshop) - Time series]({{site.url}}/research/2015/12/25/notes-from-nips-time-series-workshop-2015/)
 
 ### Optimization first talk
 
