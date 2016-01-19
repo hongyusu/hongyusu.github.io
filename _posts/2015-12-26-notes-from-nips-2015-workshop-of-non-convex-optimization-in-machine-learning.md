@@ -166,20 +166,31 @@ There is a very interesting point in this talk: it is relatively easier to optim
 
 # Cool papers in the conference
 
-1. Non-convex optimization is in general NP-hard. One cool direction on non-convex optimization is developing efficient polynomial time algorithm for some specific optimization problems under some reasonable assumption.
+1. In general, non-convex optimization problems are NP-hard. One interesting direction on non-convex optimization is to develop efficient polynomial time algorithm for some specific optimization problems under some reasonable assumptions.
 
    1. [Solving Random Quadratic Systems of Equations Is Nearly as Easy as Solving Linear Systems](https://papers.nips.cc/paper/5743-solving-random-quadratic-systems-of-equations-is-nearly-as-easy-as-solving-linear-systems)
-      1. The problem is finding a solution $$x$$ to a quadratic system of equations 
+
+      1. [Video](http://research.microsoft.com/apps/video/?id=259586) of the 20 mins oral presentation.
+      1. The problem is finding a solution $$x$$ to a quadratic system of equations (non-linear)
          
          $$y_i = <a_i,x>^2,\quad i=1,\cdots, m$$.
       1. It is a non-convex optimization problem.
-      1. The paper is saying that a quadratic system equations with $$n$$ variables can be solved from $$\Theta(n)$$ linear equations.
+      1. Solving the quadratic system of equation is to find rank one solution based on a collection of linear constraints
+         ![photo1]({{ site.url }}/myimages/ss_20160119_10.png).
+         Therefore, it is similar as low rank matrix estimation.
+      1. The paper is saying that a quadratic system equations with $$n$$ variables can be solved in $$\Theta(n)$$.
       1. The key ingredients:
          1. Spectral intialization procedure 
          1. Regularized descend procedure :question:
       1. Basically, the gradient descent with spectral initialization can work in non-convex optimization problem. Evidence can also be found from this paper [A nonconvex optimization framework for low rank matrix estimation](https://papers.nips.cc/paper/5733-a-nonconvex-optimization-framework-for-low-rank-matrix-estimation)
       1. Empirically, the speed of the proposed algorithm is about four times of solving a least square problem of the same size.
 
+   1. [A Nonconvex Optimization Framework for Low Rank Matrix Estimation](https://papers.nips.cc/paper/5733-a-nonconvex-optimization-framework-for-low-rank-matrix-estimation)
+      1. The problem under study is low rank matrix estimation via non-convex optimization.
+      1. Compared to convex relaxation, non-convex approach has superior empirical performance (this claim comes from this paper).
+      1. Propose an optimization algorithm called _projected oracle divergence_.
+      1. Prove the convergence to global optima for e.g., alternating optimization and gradient-type method for non-convex low rank matrix estimation.
+      1. The optimization algorithm has geometric convergence rate.
 
    1. [A Convergent Gradient Descent Algorithm for Rank Minimization and Semidefinite Programming from Random Linear Measurements](https://papers.nips.cc/paper/5830-a-convergent-gradient-descent-algorithm-for-rank-minimization-and-semidefinite-programming-from-random-linear-measurements)
       1. A simple, scalable, and fast gradient descent algorithm for non-convex optimization of affine rank minimization problem.
