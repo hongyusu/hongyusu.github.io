@@ -55,3 +55,14 @@ This blog post is about NIPS 2015 workshop of [Optimization](http://opt-ml.org/i
    1. [Convergence rates of sub-sampled Newton methods](https://papers.nips.cc/paper/5918-convergence-rates-of-sub-sampled-newton-methods)
    1. [Newton-stein method: a second order method for GLMs via stein's lemma](https://papers.nips.cc/paper/5750-newton-stein-method-a-second-order-method-for-glms-via-steins-lemma)
    1. [Natural neural network](https://papers.nips.cc/paper/5953-natural-neural-networks)
+
+
+# Other potential papers
+
+1. [Logarithmic time online multiclass prediction]()
+1. [Probabilistic line searches for stochastic optimization]()
+1. [The human kernel]()
+1. [Machine teaching workshop]()
+1. [Calibrated structured prediction]()
+1. [The Self-Normalized Estimator for Counterfactual Learning]()
+1. [Competitive Distribution Estimation: Why is Good-Turing Good]()
