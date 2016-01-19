@@ -164,7 +164,7 @@ There is a very interesting point in this talk: it is relatively easier to optim
 ![photo1]({{site.url}}/myimages/ss_20160119_4.png)
 
 
-# Cool papers in the conference
+# Interesting non-convex optimization papers in the conference
 
 1. In general, non-convex optimization problems are NP-hard. One interesting direction on non-convex optimization is to develop efficient polynomial time algorithm for some specific optimization problems under some reasonable assumptions.
 
@@ -180,10 +180,13 @@ There is a very interesting point in this talk: it is relatively easier to optim
          Therefore, it is similar as low rank matrix estimation.
       1. The paper is saying that a quadratic system equations with $$n$$ variables can be solved in $$\Theta(n)$$.
       1. The key ingredients:
-         1. Spectral intialization procedure 
-         1. Regularized descend procedure :question:
+         1. Assumption: 
+            1. Unstructured random system $$A$$ is a random matrix i.i.d.
+            1. This is not very strong, can be well beyond i.i.d. model, as long as there is some non-coherence information.
+         1. Stage 1: regularized spectral intialization procedure.
+         1. Stage 2: regularized iterative descend procedure :question: geometric convergent rate.
       1. Basically, the gradient descent with spectral initialization can work in non-convex optimization problem. Evidence can also be found from this paper [A nonconvex optimization framework for low rank matrix estimation](https://papers.nips.cc/paper/5733-a-nonconvex-optimization-framework-for-low-rank-matrix-estimation)
-      1. Empirically, the speed of the proposed algorithm is about four times of solving a least square problem of the same size.
+      1. **Empirically, the speed of the proposed algorithm solving quadratic system of equations is about four times of solving a least square problem of the same size.**
 
    1. [A Nonconvex Optimization Framework for Low Rank Matrix Estimation](https://papers.nips.cc/paper/5733-a-nonconvex-optimization-framework-for-low-rank-matrix-estimation)
       1. The problem under study is low rank matrix estimation via non-convex optimization.
@@ -200,7 +203,10 @@ There is a very interesting point in this talk: it is relatively easier to optim
       1. The key ingredient is that the low rank minmization problem is conditioned on the transformation $$A:R^{n\times p}\rightarrow R^m$$.
       1. The proposed gradient algorithm has a **Linear convergence rate**.
 
+1. Another direction seems to me more fundamental which is to extend the class of functions that one can solve efficiently
 
+   1. [Beyond convexity: stochastic quasi-convex optimization](https://papers.nips.cc/paper/5718-beyond-convexity-stochastic-quasi-convex-optimization)
+      1.  
 
 
 
