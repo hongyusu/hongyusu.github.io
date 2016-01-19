@@ -159,6 +159,16 @@ There is a very interesting point in this talk: it is relatively easier to optim
 ![photo1]({{site.url}}/myimages/ss_20160119_4.png)
 
 
+# Cool papers in the conference
+
+1. Non-convex optimization is in general NP-hard. One cool direction on non-convex optimization is developing efficient polynomial time algorithm for some specific optimization problems under some reasonable assumption.
+
+   1. [Solving Random Quadratic Systems of Equations Is Nearly as Easy as Solving Linear Systems](https://papers.nips.cc/paper/5743-solving-random-quadratic-systems-of-equations-is-nearly-as-easy-as-solving-linear-systems)
+   1. [A Convergent Gradient Descent Algorithm for Rank Minimization and Semidefinite Programming from Random Linear Measurements](https://papers.nips.cc/paper/5830-a-convergent-gradient-descent-algorithm-for-rank-minimization-and-semidefinite-programming-from-random-linear-measurements)
+      1. A simple, scalable, and fast gradient descent algorithm for non-convex optimization of rank minimization problem.
+      1. The rank minimization problem can be written as SDP, the proposed method offer a fast solution for SDP compare to interior point methods.
+      1. 
+
 
 
 
