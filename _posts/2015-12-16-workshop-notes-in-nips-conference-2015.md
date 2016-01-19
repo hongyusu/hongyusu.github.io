@@ -26,6 +26,5 @@ tags: [NIPS, Research, MachineLearning]
 
 ## [Cool stuff in NIPS 2015 (other) - Data science in the next 50 years]({{site.url}}/research/2015/12/31/data-science-in-the-next-50-years/)
 
-### Optimization first talk
+## [Cool stuff in NIPS 2015 (symposium) - Algorithm among us]({{site.url}}/research/2015/12/31/data-science-in-the-next-50-years/)
 
-### Invited talk on gradient resampling method
