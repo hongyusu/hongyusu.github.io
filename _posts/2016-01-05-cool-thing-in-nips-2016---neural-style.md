@@ -141,7 +141,7 @@ Currently, I am a part of a team aiming at delivering some interesting, useful, 
 
 # In progress
 
-I am working in progress to build a web service + web API by running this algorithm in cloud (Amazon AWS or AliCloud). Let's wait to see what I can achieve there. 
+Currently I am working in progress to build a wep service with APIs by running this deep algorithm in the cloud (e.g. Amazone AWS, AliCloud). Let's see what I can achieve after sometime. 
 
 
 
