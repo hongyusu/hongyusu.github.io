@@ -21,7 +21,6 @@ tags: [NIPS, Research, DeepLearning, Art, Algorithm, MachineLearning]
 
 
 
-
 # Neural style
 
 The deep learning algorithm, _Neural style_, is also known as _neural art_. Some similar algorithmic techniques have been seen in so called _deep dream_. It is a recent work in the filed of _deep learning_, and of course it's super **cool**. The algorithm has been there for a few months already and I have noticed it for a while. Let's take a close look at technology behind the scene.
