@@ -23,38 +23,36 @@ tags: [NIPS, Research, DeepLearning, Art, Algorithm, MachineLearning, Chinese]
 
 # Neural style
 
-今天给大家讲讲今年NIPS会议里很酷炫很好玩的一个东西。这个基于深度学习的工作，被作者起名为neural style，业内人士也称它为neural art。
+今天给大家讲讲今年NIPS会议里很酷炫很好玩的一个东西。这个基于深度学习的算法，被他的作者起名为neural style，业内某些人士（盗版人士）有时候也称它为neural art。相似的深度学习算法也被应用在另外的一个非常有意思的东西里，最近被炒得很火，也许你最近也有听说过他的名字，他就是略有名气的deep dream。Neural style还算是一个非常新的工作，技术层面上也不是特别复杂，相关的内容最开始被发表在arxiv上面，之后发表在今年的NIPS的workshop里面。去年底的时候我就关注过这个酷酷的东西，今天就和大家一起看看这个酷炫东西背后隐藏的深度学习技术。
 
-The deep learning algorithm, _Neural style_, is also known as _neural art_. Some similar algorithmic techniques have been seen in so called _deep dream_. It is a recent work in the filed of _deep learning_, and of course it's super **cool**. The algorithm has been there for a few months already and I have noticed it for a while. Let's take a close look at technology behind the scene.
+但是首先，让我们看看这个neural style到底是用来做什么的。其实很简单，这个深度学习算法会从一张照片中学习这张照片给他人带来的视觉体验，或者是说是这张照片的画风，之后呢，算法用相似的画风去渲染另一张照片，具体说就是在保持张照片的内容的同时，用第一张照片的画风去呈现第二张图片的内容。在计算机视觉领域，相似的工作被也称为photorealistic rendering。其实说白了neural style就是一个特别高大上的滤镜，拍一张照片扔进这个滤镜里面，出来就跟梵高画的一样，也能跟吕克贝松拍出来的一样。实际用起来其实挺也挺坑爹的，接着往下看你就知道了。好吧，还是不太明白这个算法是用来干什么用的，那我再来举个栗子，下面的几张图片是来自于neural style作者发表在arxiv上的的原文
 
-First off, what this clever algorithm does is to render an input image A with some visual experience learnt from another input image B to create a new image (e.g., shown on the very top of this post). This is known as _photorealistic rendering_. From a more technical point of view, the **content** of image A remains while the **visual style** switches to the one used in image B. The following pictures rendered by _neural style_ are from the original technical paper in [arxiv](http://arxiv.org/abs/1508.06576) (although not very technical :relaxed:) where
+1. 图片A是一张等待被渲染的照片
+1. 图片B是一张渲染过后的照片，渲染所用的画风是来自于 The Shipwreck of the Minotaur by J.M.W.Turner, 1805.
+1. 图片C是一张渲染过后的照片，渲染所用的画风是来自于 The Starry Night by Vincent van Gogh, 1889.
+1. 图片D是一张渲染过后的照片，渲染所用的画风是来自于 Der Schrei by Edvard Munch, 1893.
+1. 图片E是一张渲染过后的照片，渲染所用的画风是来自于 Femme nue assise by Pablo Picasso, 1910.
+1. 图片F是一张渲染过后的照片，渲染所用的画风是来自于 Composition VII by Wassily Kandinsky, 1913.
 
-1. Image A is an image to be rendered by this algorithm.
-1. Image B is a rendered image using style of _The Shipwreck of the Minotaur_ by J.M.W.Turner, 1805.
-1. Image C is a rendered image using style of _The Starry Night_ by Vincent van Gogh, 1889.
-1. Image D is a rendered image using style of _Der Schrei_ by Edvard Munch, 1893.
-1. Image E is a rendered image using style of _Femme nue assise_ by Pablo Picasso, 1910.
-1. Image F is a rendered image using style of _Composition VII_ by Wassily Kandinsky, 1913.
-
-For instance, the style of Van Gogh's _The Starry Night_ looks to me peaceful, clear, and purified. It is with high contrast and also with clean color. Similar style has been added into image C. I don't really understand any art. But Chinese readers can check this [Zhihu page](https://www.zhihu.com/question/19708222) to find out why Vincent Van Gogh's art is super good.
+比方说梵高的那张星空是那么的平静，干净，纯净。。。对比度超高。那么相似的画风就被学习并应用到了图片C上。好吧，我承认我根本不懂什么艺术，不过感兴趣的小伙伴可以自行脑补梵高的艺术，或者直接猛戳这个知乎 https://www.zhihu.com/question/19708222 去搞清楚为什么梵高是一个很伟大的画家啊。
 
 ![photo1]({{ site.url }}/myimages/ss_20160105.jpg)
 
-# Technology behind the scene
+# 背后的黑科技
 
 I guess everything starts from the observation that very deep neural network demonstrates near-human performance in the area of visual perception such as object and face recognition, sometimes the performance is even better that human competitors (a lot of reference papers should be listed here in order to make this claim, however I was a bit loose here as this is merely a blog post). On the other hand, human has unique skill of creating a variety of visual experiences by playing around content and style of an arbitrary image. Then the question is really to understand how human create and perceive autistics? Or from another perspective, how to algorithmically create a piece of art by combining style and content. The short answer is through a technology driven by _Convolutional Neural Network_ (CNN). 
 
 The key finding of this work is that the representations of content information and style information in the CNN are separable. In particular, the algorithm is able to model the content and style independently.
 
-## Content representation
+## 如何表述内容
 
 CNN is a feed forward neural network in which each layer can be seen as a collection of image filters. Each filter extracts a certain feature from the input image. The output of each layer is a collection of feature maps composed by different filters. As a result, the input image is transformed into a series of transformations along the processing hierarchy that increasingly care about the actual content of the image rather than exact pixel values. One can reconstruct the origin image from each layer in which lower level layers will reproduce the original pixels while the high level ones will output contextual information. It is not difficult to see that it is relative easy to reproduce the original image from low level layers. In addition, we see that the context of the image can be captured by high level layers. 
 
-## Style representation
+## 如何表述画风
 
 The style of an image is a bit tricky to capture. But remember we have a collection of feature maps in each layer of the deep neural network. The style feature is built on top of the content features. In particular, it consists of correlations between different context features. Thus, we end up with style features in multiple layers and have a stationary, multiple level style representation of the input image.
 
-## Put together
+## 当内容遇到画风
 
 Put together content representation and style representation, we end up with a deep neural network model shown in the following picture (picture taken from the original technical paper). 
 
@@ -111,9 +109,9 @@ Philosophically, I would argue that it is merely an advanced image filter than a
 
 Technically, I would argue that algorithm is not computationally efficient for large-scale commercial use. Also, if you don't have computational power of GPUs and running this algorithm on CPUs, it will be terribly slow. Besides, the algorithm does not tell the difference between portrait images and natural sceneries. This will be rather problematic in a way that the algorithm does not have any knowledge about human face which is somehow important in portrait rendering. 
 
-# More artworks
+# 更多黑科技渲染的照片
 
-Look at a portrait image being rendered by different art styles.
+看看以下这张人物特写被neural style通过不同的画风进行的渲染。
 
 ![photo1]({{ site.url }}/myimages/20160111_0.jpg)
 
@@ -123,9 +121,13 @@ Look at a portrait image being rendered by different art styles.
 ![photo1]({{ site.url }}/myimages/20160111_4.jpg)
 ![photo1]({{ site.url }}/myimages/20160111_5.jpg)
 
-# _Cajal-Turing Club_ team
+# 期待时刻
 
-Currently, I am a part of a team aiming at delivering some interesting, useful, or advanced novel technologies, break-throughs, findings, or experiments on artificial intelligence (AI), neural science, cognitive science, and brain science. Here are the team members :laughing:
+我正在努力得搭建一个云端服务器以及创建相关的API，目的是把neural art的算法变成简单的API接口以及网络服务，这样我们就都可以多一个好玩的滤镜去渲染照片。目前试用亚马逊的AWS，之后可能会用阿里云服务。不知道哪个更好，各有什么问题，高手们可以私信授我以渔。那么最后一个问题来了，我多久能搭好这个服务呢，我看还是不要有奖竞猜的，猜对了我也没法提供奖金。
+
+# _Cajal-Turing Club_ 小组
+
+我一直在想也许我们这个小组的最终目的就是传递一些有或者意思的，或者有用的，或者酷酷的新科技，新突破，新发现，以及先行的实验和结果。目前的领域大概在人工智能，神经科学，认知科学，以及脑科学。原因很简单，人工智能跟脑科学是一对不可分割的好基友嘛。当然我们也有能理解梵高的小伙伴，看我们的logo多么白富美。以下是被neural art渲染过的神一般的队友们
 
 ![photo1]({{ site.url }}/myimages/ns_0.jpg)
 
@@ -141,9 +143,6 @@ Currently, I am a part of a team aiming at delivering some interesting, useful, 
 
 ![photo1]({{ site.url }}/myimages/ns_7.jpg)
 
-# In progress
-
-Currently I am working in progress to build a wep service with APIs by running this deep algorithm in the cloud (e.g. Amazone AWS, AliCloud). Let's see what I can achieve after sometime. 
 
 
 
