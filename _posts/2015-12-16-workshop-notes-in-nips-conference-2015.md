@@ -20,7 +20,7 @@ tags: [NIPS, Research, MachineLearning]
 * auto-gen TOC:
 {:toc}
 
-# Introduction
+# NIPS 2015
 
 1. There seems to be an exponential growth for NIPS participants as shown in the following picture. It is said that about 10% papers are from deep learning and roughly 5% from convex optimization.
    ![photo1]({{site.url}}/myimages/ss_20160119_6.png)
@@ -39,22 +39,83 @@ tags: [NIPS, Research, MachineLearning]
 
 1. My personal comment on these deep companies: I think deep learning involves more engineering work than scientific research. There is no problem for big company like Google and Facebook to invest money and brains for the purpose of making more money. Look at the funding member of both AI research companies, they are all deep learning people. AI or AGI are believed to be far more complicated than engineering. And I think deep learning is very premature to be a working horse of creating an AI or AGI. But throwing money to research is always a good sign :laughing:
 
-1. The following contents are presented more by topics than organization. 
-
 # Workshops
 
-## [Non-convex optimization in machine learning]({{site.url}}/research/2015/12/26/notes-from-nips-2015-workshop-of-non-convex-optimization-in-machine-learning/)
+1. [Non-convex optimization in machine learning]({{site.url}}/research/2015/12/26/notes-from-nips-2015-workshop-of-non-convex-optimization-in-machine-learning/)
 
-## [Time series]({{site.url}}/research/2015/12/25/notes-from-nips-time-series-workshop-2015/)
+1. [Time series]({{site.url}}/research/2015/12/25/notes-from-nips-time-series-workshop-2015/)
 
-## [Optimization]({{site.url}}/research/2016/01/19/cool-stuff-in-nips-2015-workshop---optimization/)
+1. [Optimization]({{site.url}}/research/2016/01/19/cool-stuff-in-nips-2015-workshop---optimization/)
 
 # Symposiums
 
-## [Algorithm among us]({{site.url}}/research/2016/01/19/cool-stuff-in-nips-2015-symposium-algorithm-among-us/)
+1. [Algorithm among us]({{site.url}}/research/2016/01/19/cool-stuff-in-nips-2015-symposium-algorithm-among-us/)
 
-## [Neural style]({{site.url}}/research/2016/01/05/cool-thing-in-nips-2016---neural-style/)
+1. [Neural style]({{site.url}}/research/2016/01/05/cool-thing-in-nips-2016---neural-style/)
+
+
+# Conference papers
+
+## Non-convex optimization
+
+In general, non-convex optimization problems are NP-hard. 
+
+One fundamental direction for non-convex optimization research is to extend the class of functions that one can solve efficiently
+
+1. [Beyond convexity: stochastic quasi-convex optimization](https://papers.nips.cc/paper/5718-beyond-convexity-stochastic-quasi-convex-optimization)
+   1. Convex Lipschitz functions can be minimized efficiently using stochastic gradient descent (SGD).
+   1. Propose a stochastic version of Normalized gradient descent (NGD) and prove the convergence for a wide class of functions
+      1. Quasi-convex
+      1. Locally-Lipschitz
+
+Another interesting direction on non-convex optimization is to develop efficient polynomial time algorithm for some specific optimization problems under some reasonable assumptions.
+
+1. [Solving Random Quadratic Systems of Equations Is Nearly as Easy as Solving Linear Systems](https://papers.nips.cc/paper/5743-solving-random-quadratic-systems-of-equations-is-nearly-as-easy-as-solving-linear-systems)
+
+   1. [Video](http://research.microsoft.com/apps/video/?id=259586) of the 20 mins oral presentation.
+   1. The problem is finding a solution $$x$$ to a quadratic system of equations (non-linear)
+         
+         $$y_i = <a_i,x>^2,\quad i=1,\cdots, m$$.
+   1. It is a non-convex optimization problem.
+   1. Solving the quadratic system of equation is to find rank one solution based on a collection of linear constraints
+      ![photo1]({{ site.url }}/myimages/ss_20160119_10.png).
+      Therefore, it is similar as low rank matrix estimation.
+   1. The paper is saying that a quadratic system equations with $$n$$ variables can be solved in $$\Theta(n)$$.
+   1. The key ingredients:
+      1. Assumption: 
+         1. Unstructured random system $$A$$ is a random matrix i.i.d.
+         1. This is not very strong, can be well beyond i.i.d. model, as long as there is some non-coherence information.
+      1. Stage 1: regularized spectral intialization procedure.
+      1. Stage 2: regularized iterative descend procedure :question: geometric convergent rate.
+   1. Basically, the gradient descent with spectral initialization can work in non-convex optimization problem. Evidence can also be found from this paper [A nonconvex optimization framework for low rank matrix estimation](https://papers.nips.cc/paper/5733-a-nonconvex-optimization-framework-for-low-rank-matrix-estimation)
+   1. **Empirically, the speed of the proposed algorithm solving quadratic system of equations is about four times of solving a least square problem of the same size.**
+
+1. [A Nonconvex Optimization Framework for Low Rank Matrix Estimation](https://papers.nips.cc/paper/5733-a-nonconvex-optimization-framework-for-low-rank-matrix-estimation)
+   1. The problem under study is low rank matrix estimation via non-convex optimization.
+   1. Compared to convex relaxation, non-convex approach has superior empirical performance (this claim comes from this paper).
+   1. Propose an optimization algorithm called _projected oracle divergence_.
+   1. Prove the convergence to global optima for e.g., alternating optimization and gradient-type method for non-convex low rank matrix estimation.
+   1. The optimization algorithm has geometric convergence rate.
+
+1. [A Convergent Gradient Descent Algorithm for Rank Minimization and Semidefinite Programming from Random Linear Measurements](https://papers.nips.cc/paper/5830-a-convergent-gradient-descent-algorithm-for-rank-minimization-and-semidefinite-programming-from-random-linear-measurements)
+   1. A simple, scalable, and fast gradient descent algorithm for non-convex optimization of affine rank minimization problem.
+
+      $$\underset{X\in R^{n\times p}}{\min}rank(X), \quad \text{subject to}\, A(X)=b$$
+   1. The rank minimization problem can be written as a particular class of SDP problem, the proposed method offer a fast solution for SDP compare to interior point methods.
+   1. The key ingredient is that the low rank minmization problem is conditioned on the transformation $$A:R^{n\times p}\rightarrow R^m$$.
+   1. The proposed gradient algorithm has a **Linear convergence rate**.
+
+
+
+
+## Convex optimization
+
+
+
+
+
+
 
 # Others
 
-## [Data science in the next 50 years]({{site.url}}/research/2015/12/31/data-science-in-the-next-50-years/)
+1. [Data science in the next 50 years]({{site.url}}/research/2015/12/31/data-science-in-the-next-50-years/)
