@@ -19,7 +19,9 @@ tags: [NIPS, Research, DeepLearning, Art, Algorithm, MachineLearning, Chinese]
 * auto-gen TOC:
 {:toc}
 
+# 写在前面
 
+说起来自己都觉得点奇怪，这篇其实是在翻译自己的一个文章，内容多少有点删减，去读原文的需要猛戳这里 [http://www.hongyusu.com/research/2016/01/05/cool-thing-in-nips-2016---neural-style/](http://www.hongyusu.com/research/2016/01/05/cool-thing-in-nips-2016---neural-style/).
 
 # Neural style
 
@@ -62,19 +64,19 @@ An input image is represented as a collection of filtered images in each layer o
 
 On the top of the original CNN representation, there is a new feature space capturing the style information of the image. The style feature computes the correlation between different content features of each layer of the neural network. This features focus more on the details of the image and less on the global arrangement of the pixels when going deeper along the network hierarchy.
 
-## Rendering
+## 渲染
 
 Rendering is performed by finding an image that simultaneously matches the content representation of the first image and the style representation of the second image (a classical piece of art). However, one might notice that the content and the style information of an image might not be perfectly separated. Therefore, the algorithm aims to minimize a cost function which contains two terms at the same time. Details can be found from the original technical paper.
 
-# Create your own neural style painting
+# 创建你自己的neural style图片
 
-## Deep dream web application
+## Deep dream 网络服务
 
 ![photo4]({{ site.url }}/myimages/ss_20160106_0.jpg)
 
 There is web service implementing a similar algorithm (possibly?), sometimes known as _deep dream_. The online platform allows you to upload an image and render it with a default style. Follow [this link](http://deepdreamgenerator.com) in order to access the _deep dream_. _I might be wrong about deep dream as I haven't yet check the original paper_.
 
-## DeepForger twitter bot
+## DeepForger twitter 机器人
 
 ![photo4]({{ site.url }}/myimages/ss_20160106_1.jpg)
 
@@ -82,32 +84,27 @@ _Deep dream_ might be the most easies way to render an image using a similar alg
 
 What you need to do is just to send the robot two images, one is the image you want to render and the other is the image you want to use as the style. It is an extremely convenient way of create neural style especially when you are not in a big hurry or you don't have a linux machine. However, if you need to render a collection of images quickly and in a much more flexible way, you might want to continue with this blog post to set up a standalone deep style machine running locally on your own computer.
 
-## Standalone implementation
+## GPU实现
 
-A simple google search will give you many implementation of the same algorithm, for example
+谷歌搜索会告诉你，好吧，这个算法有很多不同的实现。这些实现大多都寄宿在Github上面，我假设你知道Github是什么，以及版本控制软件的基本机制，比方说
 
 1. `neural-style` [Github](https://github.com/jcjohnson/neural-style)
 1. `neural-artistic-style` [Github](https://github.com/andersbll/neural_artistic_style)
 
-### Installation
 
-I will be using the `neural-artistic-style` as this is relatively easier to install and to run. 
-In particular, it should work out with the following steps
+以下我用 `neural-artistic-style` 做一个栗子，因为这个是先看起来安装和执行都比较简单。按照以下的几步进行操作，应该就没什么问题吧，我猜
 
-1. Download the algorithm implementation from Github with `git clone git@github.com:andersbll/neural_artistic_style.git`.
-1. Install `CUDAarry` package [link in Github](https://github.com/andersbll/cudarray).
-1. Install `deeppy` package [link in Github](https://github.com/andersbll/deeppy).
-1. There might be some obstacles during the installation of these two packages (at least in my case). Just be patient and install all Python package dependencies (e.g., `Pillow`, `PIL`, `JPEG`) and you will be fine.
+1. 用这个命令 git clone git@github.com:andersbll/neural_artistic_style.git 去Github上面克隆最新的版本。
+1. 安装 `CUDAarry` 包 [Github链接](https://github.com/andersbll/cudarray)。
+1. 安装 `deeppy` 包 [Github链接](https://github.com/andersbll/deeppy)。
+1. 安装起来可能多少都会有一些些的问题，我觉得耐心点去安装所有Python需要的包比方说 Pillow, PIL, JPEG，就应该能搞定。
 
-### Run
+当你无障碍之行完上面的步骤之后，就可以通过这个命令去运行这个深度学习算法 python neural_artistic_style.py --subject images/tuebingen.jpg --style images/starry_night.jpg。但是这里我需要让你知道的是，如果你没有GPU，这个东西在CPU上运行超级慢。
 
-Run the algorithm with the following command `python neural_artistic_style.py --subject images/tuebingen.jpg --style images/starry_night.jpg`. Unfortunately, this is very slow in my case with CPU.
+# 不一样的声音  
 
-# Criticisms  
-
-Philosophically, I would argue that it is merely an advanced image filter than artificial intelligent. The way I see this deep learning algorithm is just two levels of representation, one for content modeled by CNN and another for style modeled by correlation. Therefore, it will never produce any new contents or styles. On the other hand, some people do think this algorithm is essentially producing _art_ or a mixture of original content and new style :laughing: All right, anyway, the definition of _art_ is very vague and you will never be able to tell yes from no :laughing:
-
-Technically, I would argue that algorithm is not computationally efficient for large-scale commercial use. Also, if you don't have computational power of GPUs and running this algorithm on CPUs, it will be terribly slow. Besides, the algorithm does not tell the difference between portrait images and natural sceneries. This will be rather problematic in a way that the algorithm does not have any knowledge about human face which is somehow important in portrait rendering. 
+不一样的声音其实就是我自己的声音。我一直都觉得neural style就是一个高级一点的照片滤镜，根本谈不上人工智能。具体来说，这个算法有两层抽象表示，一层用CNN去表示图片的内容信息，另一层用correlation表示画风。所以说呢，这个算法不可能产生新的画风或者新的内容。另一方面来说，很多人觉得这个深度学习方法非常酷，简直酷到没有兄弟姐妹，所以就是人工智能啦。他们的观点是基于neural style是在内容与画风基础上生成艺术啊，艺术啊，艺术啊。我只能说艺术是一个反正我自己都说不清楚的东西。一个很难去定义的东西，就看谁更会买东西啦。
+技术上说，我觉得这个深度学习算法很难被用于大规模的商业化。谁用谁知道，如果你没有GPU的话，就基本run不出来结果。另外这个算法没有任何机制去识别人脸，哇塞，这个很重要的，比方说你扔一张人脸照片给他，他会把两只眼睛画的连你自己都不认识了，不信你看看下面生成的照片。人脸识别在机器学习和人工智能领域已经不是一个很难得东西了，结论很简单，neural style可以很容易有很大的提升空间。
 
 # 更多黑科技渲染的照片
 
