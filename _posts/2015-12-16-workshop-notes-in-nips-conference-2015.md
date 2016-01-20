@@ -54,13 +54,11 @@ tags: [NIPS, Research, MachineLearning]
 1. [Neural style]({{site.url}}/research/2016/01/05/cool-thing-in-nips-2016---neural-style/)
 
 
-# Conference papers
+# Interesting conference papers
 
 ## Non-convex optimization
 
-In general, non-convex optimization problems are NP-hard. 
-
-One fundamental direction for non-convex optimization research is to extend the class of functions that one can solve efficiently
+In general, non-convex optimization problems are NP-hard. One fundamental direction for non-convex optimization research is to extend the class of functions that one can solve efficiently
 
 1. [Beyond convexity: stochastic quasi-convex optimization](https://papers.nips.cc/paper/5718-beyond-convexity-stochastic-quasi-convex-optimization)
    1. Convex Lipschitz functions can be minimized efficiently using stochastic gradient descent (SGD).
