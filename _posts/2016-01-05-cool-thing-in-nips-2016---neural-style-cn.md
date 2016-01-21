@@ -27,12 +27,12 @@ tags: [NIPS, DeepLearning, Chinese]
 
 但是首先，让我们看看这个neural style到底是用来做什么的。其实很简单，这个深度学习算法会从一张照片中学习这张照片给他人带来的视觉体验，或者是说是这张照片的画风，之后呢，算法用相似的画风去渲染另一张照片，具体说就是在保持张照片的内容的同时，用第一张照片的画风去呈现第二张图片的内容。在计算机视觉领域，相似的工作被也称为photorealistic rendering。其实说白了neural style就是一个特别高大上的滤镜，拍一张照片扔进这个滤镜里面，出来就跟梵高画的一样，也能跟吕克贝松拍出来的一样。实际用起来其实挺也挺坑爹的，接着往下看你就知道了。好吧，还是不太明白这个算法是用来干什么用的，那我再来举个栗子，下面的几张图片是来自于neural style作者发表在arxiv上的的原文
 
-1. 图片A是一张等待被渲染的照片
-1. 图片B是一张渲染过后的照片，渲染所用的画风是来自于 The Shipwreck of the Minotaur by J.M.W.Turner, 1805.
-1. 图片C是一张渲染过后的照片，渲染所用的画风是来自于 The Starry Night by Vincent van Gogh, 1889.
-1. 图片D是一张渲染过后的照片，渲染所用的画风是来自于 Der Schrei by Edvard Munch, 1893.
-1. 图片E是一张渲染过后的照片，渲染所用的画风是来自于 Femme nue assise by Pablo Picasso, 1910.
-1. 图片F是一张渲染过后的照片，渲染所用的画风是来自于 Composition VII by Wassily Kandinsky, 1913.
+1. 图片A是一张等待被渲染的照片。
+1. 图片B的渲染用的画风是 The Shipwreck of the Minotaur by J.M.W.Turner, 1805.
+1. 图片C的渲染用的画风是 The Starry Night by Vincent van Gogh, 1889.
+1. 图片D的渲染用的画风是 Der Schrei by Edvard Munch, 1893.
+1. 图片E的渲染用的画风是 Femme nue assise by Pablo Picasso, 1910.
+1. 图片F的渲染用的画风是 Composition VII by Wassily Kandinsky, 1913.
 
 比方说梵高的那张星空是那么的平静，干净，纯净。。。对比度超高。那么相似的画风就被学习并应用到了图片C上。好吧，我承认我根本不懂什么艺术，不过感兴趣的小伙伴可以自行脑补梵高的艺术，或者直接猛戳这个知乎 https://www.zhihu.com/question/19708222 去搞清楚为什么梵高是一个很伟大的画家啊。
 
@@ -46,9 +46,7 @@ tags: [NIPS, DeepLearning, Chinese]
 
 ## 如何表述内容
 
-Neural style这个酷酷的深度学习算法主要用到卷积神经网络CNN，不太了解卷积神经网络CNN的小伙伴，这里很抱歉要自行脑补了。CNN可以被看作是一个feed forward很多层的神经网络，其中每一层可以被看作是由一系列的image filter组成的。每一个image filter从图片中得到一些特征信息
-
-CNN is a feed forward neural network in which each layer can be seen as a collection of image filters. Each filter extracts a certain feature from the input image. The output of each layer is a collection of feature maps composed by different filters. As a result, the input image is transformed into a series of transformations along the processing hierarchy that increasingly care about the actual content of the image rather than exact pixel values. One can reconstruct the origin image from each layer in which lower level layers will reproduce the original pixels while the high level ones will output contextual information. It is not difficult to see that it is relative easy to reproduce the original image from low level layers. In addition, we see that the context of the image can be captured by high level layers. 
+Neural style这个酷酷的深度学习算法主要基于卷积神经网络CNN，不太了解卷积神经网络CNN的小伙伴，这里很抱歉要自行脑补了。CNN可以被看作是一个feed forward多层的神经网络，其中每一层可以被看作是由一系列的image filter组成的。每一个image filter从图片中得到一些特征信息。因此每一层的输出可以被当作是一系列的feature map。在训练CNN做图像识别的时候，图像被转换成了一层一层的抽象表示，并且越高的层次的抽象表示越关注图片的内容，越低层次的抽象表示越关注于图像具体的橡塑信息。
 
 ## 如何表述画风
 
@@ -56,13 +54,11 @@ CNN is a feed forward neural network in which each layer can be seen as a collec
 
 ## 当内容遇到画风
 
-Put together content representation and style representation, we end up with a deep neural network model shown in the following picture (picture taken from the original technical paper). 
+当内容表示遇上风格表示，我们就得到了一个很厉害深度学习模型。这个模型的具体结构可以在下面的图片中看得更清楚，图片来源于原文章。
 
 ![photo2]({{ site.url }}/myimages/ss_20160105_3.jpg)
 
-An input image is represented as a collection of filtered images in each layer of the neural network while the number of filtered image increases along the hierarchy of the network. The granularity of the content feature decrease along the hierarchy of the network in which high level layer captures more about content than the detailed pixel values.
-
-On the top of the original CNN representation, there is a new feature space capturing the style information of the image. The style feature computes the correlation between different content features of each layer of the neural network. This features focus more on the details of the image and less on the global arrangement of the pixels when going deeper along the network hierarchy.
+上半部分是用来抽象画风的神经网络结构，下半部分是用来抽象内容的神经网络结构。
 
 ## 渲染
 
