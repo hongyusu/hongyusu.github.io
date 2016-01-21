@@ -9,8 +9,8 @@ tagline:
  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-I will join Nordea Bank Finland as Lead Data Scientist starting from Februray 2016. 
-Before that, I was a postdoctoral researcher affiliated with <a href="http://www.hiit.fi">Helsinki Institute for Information Technology HIIT</a> and <a href="http://ics.aalto.fi/en/">Aalto University</a>. My research is along the direction of Machine Learning for Structured Data. Currently I focus on developing accurate learning models for structured output prediction. In general, I am interested in 
+I will join [Nordea Bank Finland](http://www.nordea.fi) as Lead Data Scientist starting from Februray 2016. 
+I did my PostDoc in <a href="http://www.hiit.fi">Helsinki Institute for Information Technology HIIT</a> and <a href="http://ics.aalto.fi/en/">Aalto University</a>. My research is along the direction of Machine Learning for Structured Data. Currently I focus on developing accurate learning models for structured output prediction. In general, I am interested in 
 
  - Optimization perspective of machine learning
  - Structured output prediction / max-margin learning / multilabel classification
