@@ -74,19 +74,17 @@ Rendering is performed by finding an image that simultaneously matches the conte
 
 ![photo4]({{ site.url }}/myimages/ss_20160106_0.jpg)
 
-There is web service implementing a similar algorithm (possibly?), sometimes known as _deep dream_. The online platform allows you to upload an image and render it with a default style. Follow [this link](http://deepdreamgenerator.com) in order to access the _deep dream_. _I might be wrong about deep dream as I haven't yet check the original paper_.
+从前有个web端服务，其实就是个小页面，他实现了一个跟neural style很相似的深度学习算法，叫做deep dream。这个在线的工具允许你提交一个照片，然后生成一个很奇怪的照片。这个链接 http://deepdreamgenerator.com 会带你去到 deep dream. 对于Deep dream我也许可能或许理解的不太对，因为我还没有好好研读这个文章。
 
 ## DeepForger twitter 机器人
 
 ![photo4]({{ site.url }}/myimages/ss_20160106_1.jpg)
 
-_Deep dream_ might be the most easies way to render an image using a similar algorithm and technology. However, it is not possible to render an image based on a arbitrary style given by another input. _DeepForger twitter bot_ is a valuable alternative. Follow [this link](https://twitter.com/DeepForger) to access this robot. 
-
-What you need to do is just to send the robot two images, one is the image you want to render and the other is the image you want to use as the style. It is an extremely convenient way of create neural style especially when you are not in a big hurry or you don't have a linux machine. However, if you need to render a collection of images quickly and in a much more flexible way, you might want to continue with this blog post to set up a standalone deep style machine running locally on your own computer.
+Deep dream或许是最简单的途径来使用这些深度学习算法生成奇奇怪怪图片。不过呢，Deep dream不能根据你的需求去渲染一张输入图片。那么在这个令人捉急时候DeepForger twitter机器人就来了。按照这个链接 https://twitter.com/DeepForger 去找到这个机器人。简单的说，你需要做的事情就是给这个机器人发两张照片，一张是你要渲染的照片包含着内容，另一张是你想用来做渲染的包括画风的照片。不得不说其实这个机器人是你在没有Linux机器或者机器里面没有装GPU的时候，你可以获得一个非常好的捷径。巴特，如果你很变态的想去渲染一群照片，那么这个机器人就会很捉急。想知道怎么做的又快又好呢，还要继续往下读。想要知道怎么做的更快更好呢，还要看后面几期的内容。
 
 ## GPU实现
 
-谷歌搜索会告诉你，好吧，这个算法有很多不同的实现。这些实现大多都寄宿在Github上面，我假设你知道Github是什么，以及版本控制软件的基本机制，比方说
+谷歌搜索会告诉你，好吧，这个深度学习算法真的有很多不同的实现，而且这些实现大多都寄宿在Github上面。你理所应当知道Github是什么，以及知道版本控制软件的基本机制。然后看看实现，比方说
 
 1. `neural-style` [Github](https://github.com/jcjohnson/neural-style)
 1. `neural-artistic-style` [Github](https://github.com/andersbll/neural_artistic_style)
@@ -103,7 +101,7 @@ What you need to do is just to send the robot two images, one is the image you w
 
 # 不一样的声音  
 
-不一样的声音其实就是我自己的声音。我一直都觉得neural style就是一个高级一点的照片滤镜，根本谈不上人工智能。具体来说，这个算法有两层抽象表示，一层用CNN去表示图片的内容信息，另一层用correlation表示画风。所以说呢，这个算法不可能产生新的画风或者新的内容。另一方面来说，很多人觉得这个深度学习方法非常酷，简直酷到没有兄弟姐妹，所以就是人工智能啦。他们的观点是基于neural style是在内容与画风基础上生成艺术啊，艺术啊，艺术啊。我只能说艺术是一个反正我自己都说不清楚的东西。一个很难去定义的东西，就看谁更会买东西啦。
+不一样的声音其实就是我自己的声音。我一直都觉得neural style就是一个高级一点的照片滤镜，根本谈不上人工智能。换个角度来说，这个算法有两层抽象表示，一层用CNN去表示图片的内容信息，另一层用correlation表示画风。所以说呢，这个算法不可能产生新的画风或者新的内容。但是呢，很多人觉得这个深度学习方法非常酷，简直酷到没有朋友，所以就是人工智能啦。他们的观点是基于neural style是在内容与画风基础上生成艺术啊，艺术啊，艺术啊。我只能说艺术是一个反正我自己都说不清楚的东西。那么，一个很难去定义的东西，就看谁更会买东西啦。
 技术上说，我觉得这个深度学习算法很难被用于大规模的商业化。谁用谁知道，如果你没有GPU的话，就基本run不出来结果。另外这个算法没有任何机制去识别人脸，哇塞，这个很重要的，比方说你扔一张人脸照片给他，他会把两只眼睛画的连你自己都不认识了，不信你看看下面生成的照片。人脸识别在机器学习和人工智能领域已经不是一个很难得东西了，结论很简单，neural style可以很容易有很大的提升空间。
 
 # 更多黑科技渲染的照片
