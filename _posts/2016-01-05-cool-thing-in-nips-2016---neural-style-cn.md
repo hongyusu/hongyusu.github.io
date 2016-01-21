@@ -3,7 +3,7 @@ layout: post
 title: "2015年NIPS会议中酷炫的东西 - Neural Style"
 description: ""
 category: Research
-tags: [NIPS, Research, DeepLearning, Art, Algorithm, MachineLearning, Chinese]
+tags: [NIPS, DeepLearning, Chinese]
 ---
 {% include JB/setup %}
 <script type="text/javascript"
@@ -23,7 +23,7 @@ tags: [NIPS, Research, DeepLearning, Art, Algorithm, MachineLearning, Chinese]
 
 # Neural style
 
-今天给大家讲讲今年NIPS会议里很酷炫很好玩的一个东西。这个基于深度学习的算法，被他的作者起名为neural style，业内某些人士（盗版人士）有时候也称它为neural art。相似的深度学习算法也被应用在另外的一个非常有意思的东西里，最近被炒得很火，也许你最近也有听说过他的名字，他就是略有名气的deep dream。Neural style还算是一个非常新的工作，技术层面上也不是特别复杂，相关的内容最开始被发表在arxiv上面，之后发表在今年的NIPS的workshop里面。去年底的时候我就关注过这个酷酷的东西，今天就和大家一起看看这个酷炫东西背后隐藏的深度学习技术。
+今天给大家讲讲今年NIPS会议里很酷炫很好玩的一个东西。这个基于深度学习的算法，被他的作者起名为neural style，业内某些人士（盗版人士）有时候也称它为neural art。相似的深度学习算法也被应用在另外的一个非常有意思的东西里，最近被炒得很火，也许你最近也有听说过他的名字，他就是略有名气的deep dream。Neural style还算是一个非常新的工作，技术层面上也不是特别复杂，相关的内容最开始被发表在arxiv上面，之后发表在今年的NIPS的workshop里面。文章的题目叫做A neural algorithm of artistic style，这里免费赠送文章在arxiv中的链接http://arxiv.org/pdf/1508.06576v2.pdf。去年底的时候我就关注过这个酷酷的东西，今天就和大家一起看看这个酷炫东西背后隐藏的深度学习技术。
 
 但是首先，让我们看看这个neural style到底是用来做什么的。其实很简单，这个深度学习算法会从一张照片中学习这张照片给他人带来的视觉体验，或者是说是这张照片的画风，之后呢，算法用相似的画风去渲染另一张照片，具体说就是在保持张照片的内容的同时，用第一张照片的画风去呈现第二张图片的内容。在计算机视觉领域，相似的工作被也称为photorealistic rendering。其实说白了neural style就是一个特别高大上的滤镜，拍一张照片扔进这个滤镜里面，出来就跟梵高画的一样，也能跟吕克贝松拍出来的一样。实际用起来其实挺也挺坑爹的，接着往下看你就知道了。好吧，还是不太明白这个算法是用来干什么用的，那我再来举个栗子，下面的几张图片是来自于neural style作者发表在arxiv上的的原文
 
@@ -46,7 +46,7 @@ tags: [NIPS, Research, DeepLearning, Art, Algorithm, MachineLearning, Chinese]
 
 ## 如何表述内容
 
-
+Neural style这个酷酷的深度学习算法主要用到卷积神经网络CNN，不太了解卷积神经网络CNN的小伙伴，这里很抱歉要自行脑补了。CNN可以被看作是一个feed forward很多层的神经网络，其中每一层可以被看作是由一系列的image filter组成的。每一个image filter从图片中得到一些特征信息
 
 CNN is a feed forward neural network in which each layer can be seen as a collection of image filters. Each filter extracts a certain feature from the input image. The output of each layer is a collection of feature maps composed by different filters. As a result, the input image is transformed into a series of transformations along the processing hierarchy that increasingly care about the actual content of the image rather than exact pixel values. One can reconstruct the origin image from each layer in which lower level layers will reproduce the original pixels while the high level ones will output contextual information. It is not difficult to see that it is relative easy to reproduce the original image from low level layers. In addition, we see that the context of the image can be captured by high level layers. 
 
