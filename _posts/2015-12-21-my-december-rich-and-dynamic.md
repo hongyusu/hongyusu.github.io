@@ -3,7 +3,7 @@ layout: post
 title: "A rich and dynamic December"
 description: ""
 category: Life
-tags: [Life, Travel]
+tags: [Travel]
 ---
 {% include JB/setup %}
 <script type="text/javascript"
