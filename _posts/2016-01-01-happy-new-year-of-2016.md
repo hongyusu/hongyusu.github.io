@@ -3,7 +3,7 @@ layout: post
 title: "A super fabulous beginning of a super great year 2016"
 description: ""
 category: Life
-tags: [Life, NewYear]
+tags: [NewYear]
 ---
 {% include JB/setup %}
 <script type="text/javascript"

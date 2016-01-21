@@ -3,7 +3,7 @@ layout: post
 title: "NIPS conference 2015"
 description: ""
 category: Research
-tags: [NIPS, Research, MachineLearning]
+tags: [NIPS]
 ---
 {% include JB/setup %}
 <script type="text/javascript"

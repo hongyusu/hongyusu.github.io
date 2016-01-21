@@ -3,7 +3,7 @@ layout: post
 title: "Cool stuff in NIPS 2015 (workshop) - Time series"
 description: ""
 category: Research
-tags: [NIPS, Research, TimeSeries]
+tags: [NIPS, TimeSeries]
 ---
 {% include JB/setup %}
 <script type="text/javascript"

@@ -3,7 +3,7 @@ layout: post
 title: "My research on machine learning and AI"
 description: ""
 category: Research
-tags: [Research]
+tags: [Optimization]
 ---
 {% include JB/setup %}
 <script type="text/javascript"

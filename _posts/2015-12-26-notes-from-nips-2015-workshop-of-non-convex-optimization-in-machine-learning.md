@@ -3,7 +3,7 @@ layout: post
 title: "Cool stuff in NIPS 2015 (workshop) - Non-convex optimization in machine learning"
 description: ""
 category: Research
-tags: [NIPS, Research, Tensor, Nonconvex, Optimization, MachineLearning]
+tags: [NIPS, Optimization]
 ---
 {% include JB/setup %}
 <script type="text/javascript"

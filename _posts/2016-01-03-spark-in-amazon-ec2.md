@@ -3,7 +3,7 @@ layout: post
 title: "Spark running on Amazon EC2"
 description: ""
 category: Technology
-tags: [Spark, EC2, Amazon]
+tags: [Spark, Amazon]
 ---
 {% include JB/setup %}
 <script type="text/javascript"

@@ -3,7 +3,7 @@ layout: post
 title: "Me"
 description: ""
 category: Life 
-tags: [Life]
+tags: [Me]
 ---
 {% include JB/setup %}
 <script type="text/javascript"

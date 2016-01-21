@@ -3,7 +3,7 @@ layout: post
 title: "Cool stuff in NIPS 2015 (symposium) - Neural Style"
 description: ""
 category: Research
-tags: [NIPS, Research, DeepLearning, Art, Algorithm, MachineLearning]
+tags: [NIPS, DeepLearning]
 ---
 {% include JB/setup %}
 <script type="text/javascript"

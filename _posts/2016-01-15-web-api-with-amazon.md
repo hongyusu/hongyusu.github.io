@@ -3,7 +3,7 @@ layout: post
 title: "Web API with Amazon"
 description: ""
 category: Technology
-tags: [Amazon, DeepLearning, Web, API]
+tags: [Amazon, DeepLearning, WebService]
 ---
 {% include JB/setup %}
 <script type="text/javascript"
