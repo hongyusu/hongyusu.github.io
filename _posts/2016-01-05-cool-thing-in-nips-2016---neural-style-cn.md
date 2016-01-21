@@ -12,7 +12,7 @@ tags: [NIPS, DeepLearning, Chinese]
  
 
 
-![photo1]({{ site.url }}/myimages/20160121_0.jpg)
+![photo1]({{ site.url }}/myimages/ss_20160121_0.jpg)
 
 
 # Table of content
