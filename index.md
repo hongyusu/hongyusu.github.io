@@ -9,8 +9,8 @@ tagline:
  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-
-I am a postdoctoral researcher affiliated with <a href="http://www.hiit.fi">Helsinki Institute for Information Technology HIIT</a> and <a href="http://ics.aalto.fi/en/">Aalto University</a>. My research is along the direction of Machine Learning for Structured Data. Currently I focus on developing accurate learning models for structured output prediction. In general, I am interested in 
+I will join Nordea Bank Finland as Lead Data Scientist starting from Februray 2016. 
+Before that, I was a postdoctoral researcher affiliated with <a href="http://www.hiit.fi">Helsinki Institute for Information Technology HIIT</a> and <a href="http://ics.aalto.fi/en/">Aalto University</a>. My research is along the direction of Machine Learning for Structured Data. Currently I focus on developing accurate learning models for structured output prediction. In general, I am interested in 
 
  - Optimization perspective of machine learning
  - Structured output prediction / max-margin learning / multilabel classification
@@ -18,7 +18,7 @@ I am a postdoctoral researcher affiliated with <a href="http://www.hiit.fi">Hels
  - Social network / influence network analysis
  - Bioinformatics / metagenomics
 
-Here are [some slides]({{site.url}}/research/2015/12/20/some-slides-about-my-research-work-on-machine-learning/) about my research on machine learning and AI. 
+Here are [some slides]({{site.url}}/research/2015/12/20/some-slides-about-my-research-work-on-machine-learning/) about my research on Machine Learning and Artificial Intelligence (AI). 
 
 ##[Blog]({{ site.url }}/pages.html)
 

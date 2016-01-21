@@ -19,9 +19,7 @@ tags: [NIPS, Research, DeepLearning, Art, Algorithm, MachineLearning, Chinese]
 * auto-gen TOC:
 {:toc}
 
-# 写在前面
 
-说起来自己都觉得点奇怪，这篇其实是在翻译自己的一个文章，内容多少有点删减，去读原文的需要猛戳这里 [http://www.hongyusu.com/research/2016/01/05/cool-thing-in-nips-2016---neural-style/](http://www.hongyusu.com/research/2016/01/05/cool-thing-in-nips-2016---neural-style/).
 
 # Neural style
 
@@ -42,17 +40,19 @@ tags: [NIPS, Research, DeepLearning, Art, Algorithm, MachineLearning, Chinese]
 
 # 背后的黑科技
 
-I guess everything starts from the observation that very deep neural network demonstrates near-human performance in the area of visual perception such as object and face recognition, sometimes the performance is even better that human competitors (a lot of reference papers should be listed here in order to make this claim, however I was a bit loose here as this is merely a blog post). On the other hand, human has unique skill of creating a variety of visual experiences by playing around content and style of an arbitrary image. Then the question is really to understand how human create and perceive autistics? Or from another perspective, how to algorithmically create a piece of art by combining style and content. The short answer is through a technology driven by _Convolutional Neural Network_ (CNN). 
+我自己觉得，这所有的一切的一切都是来源于对细微处的观察跟思考。最近的几年，在很多领域，深度学习都了接近人的能力，比方说在视觉感知，物体识别，人脸识别，图像分类等等的问题上面。更厉害的是，在很多问题上，通过深度学习算法取得的正确率居然远远超过了人工。这句话是一个很强的论断，我应该放很多paper在这里支持这句话，不过这毕竟是写博客，不需要那么谨慎。但是你千万不要觉得人类就被机器战胜了，我们人类厉害的地方在于可以玩转内容跟风格，从而产生不同视觉体验的图像。那么问题来了，我们是如何生成和感知艺术的，那人工智能可不可以通过同样的方法通过内容跟风格两个组成分去生成艺术呢？简单来说，当然可能啦，什么事情都是可能的嘛。稍微复杂一点，我们可以通过卷积神经网络去生成艺术。
 
-The key finding of this work is that the representations of content information and style information in the CNN are separable. In particular, the algorithm is able to model the content and style independently.
+这个深度学习的主要发现在于，一件艺术品的内容跟风格是可以被分开建模的。具体来说，一个可以分来模拟内容跟风格从而生成艺术图片的深度学习算法，这个可以有。
 
 ## 如何表述内容
+
+
 
 CNN is a feed forward neural network in which each layer can be seen as a collection of image filters. Each filter extracts a certain feature from the input image. The output of each layer is a collection of feature maps composed by different filters. As a result, the input image is transformed into a series of transformations along the processing hierarchy that increasingly care about the actual content of the image rather than exact pixel values. One can reconstruct the origin image from each layer in which lower level layers will reproduce the original pixels while the high level ones will output contextual information. It is not difficult to see that it is relative easy to reproduce the original image from low level layers. In addition, we see that the context of the image can be captured by high level layers. 
 
 ## 如何表述画风
 
-The style of an image is a bit tricky to capture. But remember we have a collection of feature maps in each layer of the deep neural network. The style feature is built on top of the content features. In particular, it consists of correlations between different context features. Thus, we end up with style features in multiple layers and have a stationary, multiple level style representation of the input image.
+画风这种说不清道不明的东西，要建个数学模型去表示很真的不太容易。不过你还记得么，在之前那个卷积神经网络CNN里面有很多层啊，每层有很多feature map啊。画风的表示就是建立在这些feature map上面的呢。具体来说，就是算一算这些feature map之间的correlation。这样做的结果呢，就是在卷积神经网络CNN的每一层，我们都获得一组额外的feature map去描述一张图片的风格。
 
 ## 当内容遇到画风
 
@@ -66,7 +66,7 @@ On the top of the original CNN representation, there is a new feature space capt
 
 ## 渲染
 
-Rendering is performed by finding an image that simultaneously matches the content representation of the first image and the style representation of the second image (a classical piece of art). However, one might notice that the content and the style information of an image might not be perfectly separated. Therefore, the algorithm aims to minimize a cost function which contains two terms at the same time. Details can be found from the original technical paper.
+其实渲染要做的事情就是就是生成一张图片，这张生成的图片可以完美匹配第一张图片里面的内容信息跟第二张图片里面的画风信息。然而聪明伶俐的你可能已经发现了问题，一张图片的内容跟画风是真的是应该很纠结的，并不能说分开就分开，跟谈恋爱还很不一样。因此，在数学层面，这个深度学习算法要做的其实就是解决一个优化问题：最小化一个cost function，这个函数包括两部分，一部分代表内容，另一部分代表画风。具体的公式呢，我们还是要仔细的看看paper，因为我觉得数学的东西，用文字其实很难说清楚。
 
 # 创建你自己的neural style图片
 
@@ -141,7 +141,9 @@ Deep dream或许是最简单的途径来使用这些深度学习算法生成奇�
 
 
 
+# 写在后面
 
+说起来自己都觉得点奇怪，这篇其实是在翻译自己之前写的一个文章，内容多少有点删减，去读原文的需要猛戳这里 [http://www.hongyusu.com/research/2016/01/05/cool-thing-in-nips-2016---neural-style/](http://www.hongyusu.com/research/2016/01/05/cool-thing-in-nips-2016---neural-style/).
 
 
 
