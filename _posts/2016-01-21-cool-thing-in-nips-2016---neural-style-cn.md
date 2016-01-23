@@ -82,15 +82,15 @@ Deep dream或许是最简单的途径来使用这些深度学习算法生成奇�
 
 谷歌搜索会告诉你，好吧，这个深度学习算法真的有很多不同的实现，而且这些实现大多都寄宿在Github上面。你理所应当知道Github是什么，以及知道版本控制软件的基本机制。然后看看实现，比方说
 
-1. `neural-style` Github链接［https://github.com/jcjohnson/neural-style](https://github.com/jcjohnson/neural-style)
-1. `neural-artistic-style` Github链接［https://github.com/andersbll/neural_artistic_style](https://github.com/andersbll/neural_artistic_style)
+1. `neural-style` Github链接[https://github.com/jcjohnson/neural-style](https://github.com/jcjohnson/neural-style)
+1. `neural-artistic-style` Github链接[https://github.com/andersbll/neural_artistic_style](https://github.com/andersbll/neural_artistic_style)
 
 
 以下我用 `neural-artistic-style` 做一个栗子，因为这个是先看起来安装和执行都比较简单。按照以下的几步进行操作，应该就没什么问题吧，我猜
 
 1. 用这个命令 git clone git@github.com:andersbll/neural_artistic_style.git 去Github上面克隆最新的版本。
-1. 安装 `CUDAarry` 包 Github链接［https://github.com/andersbll/cudarray](https://github.com/andersbll/cudarray)。
-1. 安装 `deeppy` 包 Github链接［https://github.com/andersbll/deeppy](https://github.com/andersbll/deeppy)。
+1. 安装 `CUDAarry` 包 Github链接[https://github.com/andersbll/cudarray](https://github.com/andersbll/cudarray)。
+1. 安装 `deeppy` 包 Github链接[https://github.com/andersbll/deeppy](https://github.com/andersbll/deeppy)。
 1. 安装起来可能多少都会有一些些的问题，我觉得耐心点去安装所有Python需要的包比方说 Pillow, PIL, JPEG，就应该能搞定。
 
 当你无障碍之行完上面的步骤之后，就可以通过这个命令去运行这个深度学习算法 python neural_artistic_style.py --subject images/tuebingen.jpg --style images/starry_night.jpg。但是这里我需要让你知道的是，如果你没有GPU，这个东西在CPU上运行超级慢。
@@ -112,7 +112,7 @@ Deep dream或许是最简单的途径来使用这些深度学习算法生成奇�
 ![photo1]({{ site.url }}/myimages/20160111_4.jpg)
 ![photo1]({{ site.url }}/myimages/20160111_5.jpg)
 
-# 期待时刻
+# 值得期待的时刻
 
 我正在努力得搭建一个云端服务器以及创建相关的API，目的是把neural art的算法变成简单的API接口以及网络服务，这样我们就都可以多一个好玩的滤镜去渲染照片。目前试用亚马逊的AWS，之后可能会用阿里云服务。不知道哪个更好，各有什么问题，高手们可以私信授我以渔。那么最后一个问题来了，我多久能搭好这个服务呢，我看还是不要有奖竞猜的，猜对了我也没法提供奖金。
 
@@ -138,7 +138,7 @@ Deep dream或许是最简单的途径来使用这些深度学习算法生成奇�
 
 # 写在后面
 
-说起来自己都觉得点怪怪得，这篇文章其实是在翻译自己之前写的一个文章，内容多少有点删减，去读原文的话，下伙伴们需要猛戳这里 ［http://www.hongyusu.com/research/2016/01/05/cool-thing-in-nips-2016---neural-style/](http://www.hongyusu.com/research/2016/01/05/cool-thing-in-nips-2016---neural-style/).
+说起来自己都觉得点怪怪得，这篇文章其实是在翻译自己之前写的一个文章，内容多少有点删减，去读原文的话，下伙伴们需要猛戳这里[http://www.hongyusu.com/research/2016/01/05/cool-thing-in-nips-2016---neural-style/](http://www.hongyusu.com/research/2016/01/05/cool-thing-in-nips-2016---neural-style/).
 
 
 
