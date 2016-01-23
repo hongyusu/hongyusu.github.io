@@ -46,11 +46,11 @@ tags: [NIPS, DeepLearning, Chinese]
 
 ## 如何表述内容
 
-Neural style这个酷酷的深度学习算法主要基于卷积神经网络CNN，不太了解卷积神经网络CNN的小伙伴，这里很抱歉要自行脑补了。CNN可以被看作是一个feed forward多层的神经网络，其中每一层可以被看作是由一系列的image filter组成的。每一个image filter从图片中得到一些特征信息。因此每一层的输出可以被当作是一系列的feature map。在训练CNN做图像识别的时候，图像被转换成了一层一层的抽象表示，并且越高的层次的抽象表示越关注图片的内容，越低层次的抽象表示越关注于图像具体的橡塑信息。
+Neural style这个酷酷的深度学习算法主要基于卷积神经网络CNN，不太了解卷积神经网络CNN的小伙伴，这里很抱歉要自行脑补了。CNN可以被看作是一个feed forward多层的神经网络，其中每一层可以被看作是由一系列的filtered image组成的。每一个filtered image是由原始图片经过一个image filter的到，从而filtered image包含原始图片的部分信息。需要注意的是，神经网路的层级越深，里面所包括的image filter跟由此产生的filtered image会变得越来越多，在这里，我们使用downsampling的方法，比方说常见的max pooling function去减少每一层的神经元数目。神经网络每一层的输出可以看作是由filtered image构成的一系列的feature map。在训练CNN做图像识别的时候，图像被转换成了一层一层的抽象表示，并且越高的层次的抽象表示越关注图片的内容，越低层次的抽象表示越关注于图像具体的橡塑信息。
 
 ## 如何表述画风
 
-画风这种说不清道不明的东西，要建个数学模型去表示很真的不太容易。不过你还记得么，在之前那个卷积神经网络CNN里面有很多层啊，每层有很多feature map啊。画风的表示就是建立在这些feature map上面的呢。具体来说，就是算一算这些feature map之间的correlation。这样做的结果呢，就是在卷积神经网络CNN的每一层，我们都获得一组额外的feature map去描述一张图片的风格。
+画风这种说不清道不明的东西，要建个数学模型去表示很真的不太容易。不过你还记得么，在之前那个卷积神经网络CNN里面有很多层啊，每层有很多feature map啊。画风的表示就是建立在这些feature map上面的呢。具体来说，就是算一算这些feature map之间的correlation。这样做的结果呢，就是在卷积神经网络CNN的每一层，我们都可以获得一组额外的feature map去描述一张图片的画风。
 
 ## 当内容遇到画风
 
@@ -62,7 +62,7 @@ Neural style这个酷酷的深度学习算法主要基于卷积神经网络CNN�
 
 ## 渲染
 
-其实渲染要做的事情就是就是生成一张图片，这张生成的图片可以完美匹配第一张图片里面的内容信息跟第二张图片里面的画风信息。然而聪明伶俐的你可能已经发现了问题，一张图片的内容跟画风是真的是应该很纠结的，并不能说分开就分开，跟谈恋爱还很不一样。因此，在数学层面，这个深度学习算法要做的其实就是解决一个优化问题：最小化一个cost function，这个函数包括两部分，一部分代表内容，另一部分代表画风。具体的公式呢，我们还是要仔细的看看paper，因为我觉得数学的东西，用文字其实很难说清楚。
+其实渲染要做的事情就是就是生成一张图片，这张生成的图片可以完美匹配第一张图片里面的内容信息跟第二张图片里面的画风信息。然而聪明伶俐的你可能已经发现了问题，一张图片的内容跟画风是真的是应该很纠结的，并不能说分开就分开，跟谈恋爱还很不一样。因此，在数学层面，这个深度学习算法要做的其实就是解决一个优化问题：最小化一个cost function，这个function包括两部分，一部分代表内容，另一部分代表画风。具体的公式呢，我们还是要仔细的看看paper，因为我觉得数学的东西，用文字其实很难说清楚。
 
 # 创建你自己的neural style图片
 
@@ -82,15 +82,15 @@ Deep dream或许是最简单的途径来使用这些深度学习算法生成奇�
 
 谷歌搜索会告诉你，好吧，这个深度学习算法真的有很多不同的实现，而且这些实现大多都寄宿在Github上面。你理所应当知道Github是什么，以及知道版本控制软件的基本机制。然后看看实现，比方说
 
-1. `neural-style` [Github](https://github.com/jcjohnson/neural-style)
-1. `neural-artistic-style` [Github](https://github.com/andersbll/neural_artistic_style)
+1. `neural-style` Github链接［https://github.com/jcjohnson/neural-style](https://github.com/jcjohnson/neural-style)
+1. `neural-artistic-style` Github链接［https://github.com/andersbll/neural_artistic_style](https://github.com/andersbll/neural_artistic_style)
 
 
 以下我用 `neural-artistic-style` 做一个栗子，因为这个是先看起来安装和执行都比较简单。按照以下的几步进行操作，应该就没什么问题吧，我猜
 
 1. 用这个命令 git clone git@github.com:andersbll/neural_artistic_style.git 去Github上面克隆最新的版本。
-1. 安装 `CUDAarry` 包 [Github链接](https://github.com/andersbll/cudarray)。
-1. 安装 `deeppy` 包 [Github链接](https://github.com/andersbll/deeppy)。
+1. 安装 `CUDAarry` 包 Github链接［https://github.com/andersbll/cudarray](https://github.com/andersbll/cudarray)。
+1. 安装 `deeppy` 包 Github链接［https://github.com/andersbll/deeppy](https://github.com/andersbll/deeppy)。
 1. 安装起来可能多少都会有一些些的问题，我觉得耐心点去安装所有Python需要的包比方说 Pillow, PIL, JPEG，就应该能搞定。
 
 当你无障碍之行完上面的步骤之后，就可以通过这个命令去运行这个深度学习算法 python neural_artistic_style.py --subject images/tuebingen.jpg --style images/starry_night.jpg。但是这里我需要让你知道的是，如果你没有GPU，这个东西在CPU上运行超级慢。
@@ -118,7 +118,7 @@ Deep dream或许是最简单的途径来使用这些深度学习算法生成奇�
 
 # _Cajal-Turing Club_ 小组
 
-我一直在想也许我们这个小组的最终目的就是传递一些有或者意思的，或者有用的，或者酷酷的新科技，新突破，新发现，以及先行的实验和结果。目前的领域大概在人工智能，神经科学，认知科学，以及脑科学。原因很简单，人工智能跟脑科学是一对不可分割的好基友嘛。当然我们也有能理解梵高的小伙伴，看我们的logo多么白富美。以下是被neural art渲染过的神一般的队友们
+我一直在想也许我们这个小组的最终目的就是传递一些有或者意思的，或者有用的，或者酷酷的新科技，新突破，新发现，以及先行的实验和结果。目前我们关注的领域包括人工智能，神经科学，认知科学。原因很简单，人工智能跟脑科学是一对不可分割的好基友嘛。当然我们也有能理解梵高的小伙伴，看我们的logo多么白富美。以下是被neural art渲染过的神一般的队友们
 
 ![photo1]({{ site.url }}/myimages/ns_0.jpg)
 
@@ -136,10 +136,9 @@ Deep dream或许是最简单的途径来使用这些深度学习算法生成奇�
 
 
 
-
 # 写在后面
 
-说起来自己都觉得点怪怪得，这篇文章其实是在翻译自己之前写的一个文章，内容多少有点删减，去读原文的话，下伙伴们需要猛戳这里 [http://www.hongyusu.com/research/2016/01/05/cool-thing-in-nips-2016---neural-style/](http://www.hongyusu.com/research/2016/01/05/cool-thing-in-nips-2016---neural-style/).
+说起来自己都觉得点怪怪得，这篇文章其实是在翻译自己之前写的一个文章，内容多少有点删减，去读原文的话，下伙伴们需要猛戳这里 ［http://www.hongyusu.com/research/2016/01/05/cool-thing-in-nips-2016---neural-style/](http://www.hongyusu.com/research/2016/01/05/cool-thing-in-nips-2016---neural-style/).
 
 
 
