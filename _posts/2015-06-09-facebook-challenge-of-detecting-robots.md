@@ -3,7 +3,7 @@ layout: post
 title: "Facebook challenge of detecting robots"
 description: ""
 category: Competition
-tags: [Kaggle, Competition, Machine Learning, Facebook, Bidding, SVM, Random Forest]
+tags: [Kaggle, Facebook, FraudDetection]
 ---
 {% include JB/setup %}
 

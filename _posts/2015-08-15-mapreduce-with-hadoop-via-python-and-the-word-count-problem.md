@@ -2,8 +2,8 @@
 layout: post
 title: "Mapreduce with Hadoop via Python with Examples"
 description: ""
-category: Programming
-tags: [Programming, Hadoop, mapreduce, bigdata, python]
+category: Technology
+tags: [Hadoop, MapReduce, BigData, python]
 ---
 {% include JB/setup %}
 

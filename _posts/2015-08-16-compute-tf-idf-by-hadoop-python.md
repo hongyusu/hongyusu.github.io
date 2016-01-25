@@ -2,8 +2,8 @@
 layout: post
 title: "Compute TF-IDF with Hadoop Python"
 description: ""
-category: Programming
-tags: [Programming, Hadoop, mapreduce, bigdata, python, tf-idf]
+category: Technology
+tags: [Hadoop, MapReduce, BigData, Python]
 ---
 {% include JB/setup %}
 

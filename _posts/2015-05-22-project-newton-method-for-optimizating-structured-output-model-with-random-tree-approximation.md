@@ -3,7 +3,7 @@ layout: post
 title: "A projected Newton method for optimizing structured output model" 
 description: ""
 category: Research
-tags: [Research, Optimization, Newton method]
+tags: [Optimization, Newton]
 ---
 {% include JB/setup %}
 

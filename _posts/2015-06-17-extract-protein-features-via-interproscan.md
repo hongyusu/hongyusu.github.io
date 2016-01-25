@@ -2,8 +2,8 @@
 layout: post
 title: "Feature extraction for protein sequences via InterProScan"
 description: ""
-category: Lessons
-tags: [Programming, InterProScan, Bioinformatics, Feature Extraction, Protein sequence]
+category: Research
+tags: [Bioinformatics, FeatureExtraction, Protein]
 ---
 {% include JB/setup %}
 

@@ -3,7 +3,7 @@ layout: post
 title: "Dynamic programming related problems"
 description: ""
 category: Programming
-tags: [Programming, Algorithm, LeetCode]
+tags: [Algorithm, LeetCode]
 ---
 {% include JB/setup %}
 

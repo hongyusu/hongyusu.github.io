@@ -3,7 +3,7 @@ layout: post
 title: "SQL refreshment"
 description: ""
 category: Programming 
-tags: [programming, SQL]
+tags: [SQL]
 ---
 {% include JB/setup %}
 

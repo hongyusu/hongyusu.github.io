@@ -3,7 +3,7 @@ layout: post
 title: "Some useful Coding techniques"
 description: ""
 category: Programming
-tags: [Programming, GitHub, Python]
+tags: [GitHub, Python]
 ---
 {% include JB/setup %}
 

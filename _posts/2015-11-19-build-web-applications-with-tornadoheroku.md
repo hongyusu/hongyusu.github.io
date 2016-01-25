@@ -2,8 +2,8 @@
 layout: post
 title: "Build web applications with Flask+Heroku"
 description: ""
-category: Programming 
-tags: [Programming, Heroku, Python, Tornado, Web]
+category: Technology
+tags: [Heroku, Python, Tornado, Web]
 ---
 {% include JB/setup %}
 <script type="text/javascript"

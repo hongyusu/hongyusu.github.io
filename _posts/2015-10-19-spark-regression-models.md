@@ -2,7 +2,7 @@
 layout: post
 title: "Spark regression models"
 description: ""
-category: Programming
+category: Technology
 tags: [Spark, Regression]
 ---
 {% include JB/setup %}

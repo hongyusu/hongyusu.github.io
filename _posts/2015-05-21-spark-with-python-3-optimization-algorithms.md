@@ -2,8 +2,8 @@
 layout: post
 title: "Spark with Python: optimization algorithms"
 description: ""
-category: 
-tags: []
+category: Technology
+tags: [Spark, Python, Optimization]
 ---
 {% include JB/setup %}
 

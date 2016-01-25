@@ -3,7 +3,7 @@ layout: post
 title: "BFS and DFS"
 description: ""
 category: Programming 
-tags: [programming, algorithm, DFS, BFS, searching]
+tags: [Algorithm, Search]
 ---
 {% include JB/setup %}
 <script type="text/javascript"

@@ -3,7 +3,7 @@ layout: post
 title: "Outstanding doctoral candidate award of 2014"
 description: ""
 category: Life
-tags: [Award, Life]
+tags: [Award, PhD]
 ---
 {% include JB/setup %}
 

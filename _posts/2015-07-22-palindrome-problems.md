@@ -2,7 +2,7 @@
 layout: post
 title: "Palindrome problems"
 description: ""
-category: algorithm
+category: Programming
 tags: [Algorithm, Palindrome]
 ---
 

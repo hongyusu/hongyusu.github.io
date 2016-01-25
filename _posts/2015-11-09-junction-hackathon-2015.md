@@ -3,7 +3,7 @@ layout: post
 title: "Xplanner in Junction Hackathon 2015"
 description: ""
 category: Competition 
-tags: [Junction2015, Hackathon, Python, Web, Heroku, Programming]
+tags: [Hackathon, Python, Web, Heroku]
 ---
 {% include JB/setup %}
 <script type="text/javascript"

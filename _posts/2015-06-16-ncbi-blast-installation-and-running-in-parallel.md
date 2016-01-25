@@ -2,8 +2,8 @@
 layout: post
 title: "Sequence alignment with NCBI-BLAST search"
 description: ""
-category: Lessons
-tags: [Programming, BLAST, Bioinformatics, Sequence alignment]
+category: Research
+tags: [BLAST, Bioinformatics]
 ---
 {% include JB/setup %}
 

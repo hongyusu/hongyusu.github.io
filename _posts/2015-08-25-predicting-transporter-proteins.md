@@ -3,7 +3,7 @@ layout: post
 title: "Predicting transporter proteins"
 description: ""
 category: Research
-tags: [Research, MachineLearning, Bioinformatics, Protein]
+tags: [MachineLearning, Bioinformatics, Protein]
 ---
 {% include JB/setup %}
 <script type="text/javascript"

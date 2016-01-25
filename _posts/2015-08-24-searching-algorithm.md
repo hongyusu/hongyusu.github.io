@@ -2,8 +2,8 @@
 layout: post
 title: "Searching Algorithm"
 description: ""
-category: Algorithm
-tags: [Algorithm, Search]
+category: Programming
+tags: [Search,LeetCode]
 ---
 {% include JB/setup %}
 <script type="text/javascript"

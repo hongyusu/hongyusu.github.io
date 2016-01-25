@@ -2,8 +2,8 @@
 layout: post
 title: "Feature extraction, selection and predictive modeling with Scikit"
 description: ""
-category: Programming
-tags: [Python, Programming, Scikit, FeatureSelection, FeatureExtraction]
+category: Technology
+tags: [Python, Scikit, FeatureExtraction]
 ---
 {% include JB/setup %}
 <script type="text/javascript"

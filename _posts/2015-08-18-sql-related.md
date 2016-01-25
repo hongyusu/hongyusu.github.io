@@ -2,8 +2,8 @@
 layout: post
 title: "SQL related"
 description: ""
-category: 
-tags: []
+category: Programming
+tags: [SQL, LeetCode]
 ---
 {% include JB/setup %}
 <script type="text/javascript"

@@ -2,8 +2,8 @@
 layout: post
 title: "Spark with Python: linear models in MLlib"
 description: ""
-category: Programming
-tags: [Introduction, Algorithm, Programming, Spark, Python, BigData]
+category: Technology
+tags: [Spark, Python, Model]
 ---
 {% include JB/setup %}
 

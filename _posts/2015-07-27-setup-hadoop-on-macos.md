@@ -2,8 +2,8 @@
 layout: post
 title: "Setup Hadoop on Macos"
 description: ""
-category: Programming
-tags: [Programming, Hadoop, bigdata, Macos]
+category: Technology
+tags: [Hadoop, BigData, MacOS]
 ---
 {% include JB/setup %}
 

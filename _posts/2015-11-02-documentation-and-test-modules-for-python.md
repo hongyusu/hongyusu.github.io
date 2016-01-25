@@ -2,8 +2,8 @@
 layout: post
 title: "Documentation and test modules for Python"
 description: ""
-category: 
-tags: []
+category: Programming
+tags: [Test, Python]
 ---
 {% include JB/setup %}
 <script type="text/javascript"

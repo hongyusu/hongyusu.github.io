@@ -2,8 +2,8 @@
 layout: 		post
 title: 			"The quickest way to blog, GitHub + Jekyll"
 description:	""
-category:		Programming
-tags: [Introduction, Programming, Jekyll, GitHub]
+category:		Technology
+tags: [Jekyll, GitHub]
 ---
 {% include JB/setup %}
 

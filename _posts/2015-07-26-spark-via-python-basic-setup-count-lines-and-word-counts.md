@@ -2,8 +2,8 @@
 layout: post
 title: "Spark via Python: basic setup, count lines, and word counts"
 description: ""
-category: Programming
-tags: [Introduction, Programming, Spark, Python, BigData]
+category: Technology
+tags: [Spark, Python, BigData]
 ---
 {% include JB/setup %}
 

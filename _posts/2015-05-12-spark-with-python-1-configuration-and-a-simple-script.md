@@ -2,8 +2,8 @@
 layout: post
 title: "Spark with Python: configuration and a simple Python script"
 description: ""
-category: Programming
-tags: [Introduction, Programming, Spark, Python, BigData]
+category: Technology
+tags: [Spark, Python, BigData]
 ---
 {% include JB/setup %}
 

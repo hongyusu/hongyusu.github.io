@@ -2,8 +2,8 @@
 layout: post
 title: "Spark classification models"
 description: ""
-category: Programming
-tags: [Spark, classification]
+category: Technology
+tags: [Spark, Classification]
 ---
 {% include JB/setup %}
 <script type="text/javascript"

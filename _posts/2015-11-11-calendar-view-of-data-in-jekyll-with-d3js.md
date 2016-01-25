@@ -2,8 +2,8 @@
 layout: post
 title: "Calendar view of data in Jekyll with D3.js"
 description: ""
-category: Programming
-tags: [Programming, Jekyll, Javascript, D3, Visualization]
+category: Technology
+tags: [Jekyll, Javascript, D3, Visualization]
 ---
 {% include JB/setup %}
 <script type="text/javascript"

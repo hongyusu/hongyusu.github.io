@@ -2,8 +2,8 @@
 layout: post
 title: "Novelty detection and outlier detection with Scikit"
 description: ""
-category: Programming
-tags: [Python, Programming, Scikit, MNIST, outlier, novelty]
+category: Technology
+tags: [Python, Scikit, MNIST, OutlierDetection]
 ---
 {% include JB/setup %}
 <script type="text/javascript"

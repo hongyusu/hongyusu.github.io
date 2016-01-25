@@ -2,8 +2,8 @@
 layout: post
 title: "Scikit: A machine learning package for Python"
 description: ""
-category: Programming
-tags: [Python, Programming, Scikit, MNIST]
+category: Technology
+tags: [Python, Scikit, MNIST]
 ---
 {% include JB/setup %}
 

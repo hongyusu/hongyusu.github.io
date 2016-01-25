@@ -2,8 +2,8 @@
 layout: post
 title: "Get Emoji support for Jekyll pages"
 description: ""
-category: Programming
-tags: [Emoji, Programming, Jekyll, GitHub]
+category: Technology
+tags: [Emoji, Jekyll, GitHub]
 ---
 {% include JB/setup %}
 

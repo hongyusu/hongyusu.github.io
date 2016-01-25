@@ -2,8 +2,8 @@
 layout: post
 title: "Spark with Python: collaborative filtering"
 description: ""
-category: Programming
-tags: [Introduction, Programming, Algorithm, Spark, Python, BigData]
+category: Technology
+tags: [Algorithm, Spark, Python, BigData]
 ---
 {% include JB/setup %}
 

@@ -3,7 +3,7 @@ layout: post
 title: "Tiny little bit of Python Pandas"
 description: ""
 category: Programming
-tags: [Python, Pandas, Beginner]
+tags: [Python, Pandas]
 ---
 {% include JB/setup %}
 

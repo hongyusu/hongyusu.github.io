@@ -3,7 +3,7 @@ layout: post
 title: "Chinese national day celebration in China embassy Helsinki"
 description: ""
 category: Life
-tags: [Award, Life]
+tags: [Award, PhD]
 ---
 {% include JB/setup %}
 <script type="text/javascript"

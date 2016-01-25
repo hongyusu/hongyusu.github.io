@@ -2,8 +2,8 @@
 layout: post
 title: "One class classification with Scikit"
 description: ""
-category: Programming
-tags: [Python, Programming, Scikit, MNIST]
+category: Technology
+tags: [Python, Scikit, MNIST]
 ---
 {% include JB/setup %}
 <script type="text/javascript"
