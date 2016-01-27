@@ -12,11 +12,10 @@ tagline:
 I will join [Nordea Bank Finland](http://www.nordea.fi) as Lead Data Scientist starting from Februray 2016. 
 I did my PostDoc in <a href="http://www.hiit.fi">Helsinki Institute for Information Technology HIIT</a> and <a href="http://ics.aalto.fi/en/">Aalto University</a>. My research is along the direction of Machine Learning for Structured Data. Currently I focus on developing accurate learning models for structured output prediction. In general, I am interested in 
 
- - Optimization perspective of machine learning
- - Structured output prediction / max-margin learning / multilabel classification
+ - Optimization research and Machine learning
+ - Structured output prediction / multilabel classification
  - Kernel methods for complex data
- - Social network / influence network analysis
- - Bioinformatics / metagenomics
+ - Social network analysis / Bioinformatics / Metagenomics
 
 Here are [some slides]({{site.url}}/research/2015/12/20/some-slides-about-my-research-work-on-machine-learning/) about my research on Machine Learning and Artificial Intelligence (AI). 
 
