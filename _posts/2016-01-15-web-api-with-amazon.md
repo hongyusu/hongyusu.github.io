@@ -32,3 +32,35 @@ There are always very good external reading materials available on the web.
 1. In addition, you can reed this article ['How to serve 100k users without breaking server'](http://blogging.alastair.is/how-i-served-100k-users-without-crashing-and-only-spent-0-32/) for more practical details on building a website with Amazon S3.
 1. Still, ['Getting started with AWS and Python'](http://aws.amazon.com/articles/Amazon-EC2/3998) offers a excellent running example :question: of running an small web application on Amazon using S3, EC2, and SQS.
 1. And maybe ['Setting up EC2 and Django'](http://markhops.blogspot.fi/2012/05/how-to-setting-up-ec2-and-django.html) is also useful for our purpose.
+
+
+
+# GPU stuffs
+
+
+# Reading materials
+
+
+1. Install _torch 7_
+   Run the following command in terminal to install _torch 7_
+   
+   ```
+   cd ~/
+   curl -s https://raw.githubusercontent.com/torch/ezinstall/master/install-deps | bash
+   git clone https://github.com/torch/distro.git ~/torch --recursive
+   cd ~/torch; ./install.sh
+   ```
+   
+   Remember to use `sudo` right during the installation.
+   
+   
+
+There are always some cool information available on the web. In particular, I find the following blogs useful!
+
+1. [How to install Theano on Amazon EC2 GPU](http://markus.com/install-theano-on-aws/). This is s simple, clear, instructive blog about installing deep learning environment such as _theano_ and _cuda_ on Amazon EC2 GPU instance.
+
+1. [Using covnet to detect facial keypoints](http://danielnouri.org/notes/2014/12/17/using-convolutional-neural-nets-to-detect-facial-keypoints-tutorial/) is a tutorial for [a kaggle competition](https://www.kaggle.com/c/facial-keypoints-detection/details/deep-learning-tutorial).
+
+
+
+
