@@ -50,7 +50,7 @@ There are always very good external reading materials available on the web.
 ## Installation
 
 
-1. Install _torch 7_
+1. Install _torch 7_ manually
 
    Run the following command in terminal to install _torch 7_
    
@@ -61,8 +61,7 @@ There are always very good external reading materials available on the web.
    cd ~/torch; ./install.sh
    ```
    
-   Remember to use `sudo` right during the installation.
-   
+   Remember to use `sudo` right during the installation. If you use Amazon EC2 GPU cluster with Amazon Machine Image (ami-2557e256), you do not have to worry about _torch 7_ as it is already installed for this machine image.
    
 1. Install _loadcaffe_
 
