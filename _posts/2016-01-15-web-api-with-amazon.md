@@ -35,6 +35,14 @@ There are always very good external reading materials available on the web.
 
 
 
+
+
+
+
+
+
+
+
 # GPU stuffs
 
 
@@ -111,6 +119,8 @@ There are always very good external reading materials available on the web.
 1. Now the cool thing is that the running time is just about **2 mins** on **GPU** instead of very very long on **CPU**.
 
 1. You also get intermediate pictures at 100, 200, ..., upto 1000 iterations.
+
+   ![photo1]({{ site.url}}/myimages/ss_20160130_0.jpg)
 
 
 
