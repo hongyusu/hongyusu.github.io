@@ -43,9 +43,16 @@ There are always very good external reading materials available on the web.
 
 
 
-# GPU stuffs
+# Computing with GPU
 
+This section is mainly about running _neural style_ algorithm on GPU cluster. As mentioned already, running this algorithm on standard CPU cluster is pretty pretty slow in which rendering an image ofter takes about **0.5** hours. As this is a deep learning algorithm and we would like to use GPU to naturally make it faster.
 
+As long as you have a desktop/laptop, you have a CPU, but the thing is that not everyboday have a GPU. It seems to me that we have two options:
+
+1. Purchase your own GPU and make a GPU cluster.
+1. Use cloud computing services e.g., Amazon EC2.
+
+I don't have the money to buy my own GPU cluster. Therefore, I will be using Amazon EC2 GPU computing services. The cost of computing is roughly **0.7** per hour. 
 
 ## Installation
 
