@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Web API with Amazon"
+title: "Build a web app on Amazon"
 description: ""
 category: Technology
-tags: [Amazon, DeepLearning, WebService]
+tags: [Amazon, DeepLearning, WebApp]
 ---
 {% include JB/setup %}
 <script type="text/javascript"
