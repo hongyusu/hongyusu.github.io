@@ -38,10 +38,12 @@ There are always very good external reading materials available on the web.
 # GPU stuffs
 
 
-# Reading materials
+
+## Installation
 
 
 1. Install _torch 7_
+
    Run the following command in terminal to install _torch 7_
    
    ```
@@ -54,6 +56,68 @@ There are always very good external reading materials available on the web.
    Remember to use `sudo` right during the installation.
    
    
+1. Install _loadcaffe_
+
+   1. Take a look at the official website of _loadcaffee_ from [github](https://github.com/szagoruyko/loadcaffe) and follow the instucution there. Otherwise, please go ahead with the following steps.
+   
+   1. _loadcaffe_ has no _caffe_ dependency, but you need to install _protobuf_ with the following command
+
+      `sudo apt-get install libprotobuf-dev protobuf-compiler`
+	  
+	   If two packages cannot be found from the repository, you need to update your `apt-get` with the following command
+	   
+	   `sudo apt-get update`
+	   
+	   And you will just be fine.
+	  
+   1. Then you should install _loadcaffe_ package by running the following command 
+
+      `sudo luarocks install loadcaffe`
+	  
+	  In case that `luarocks` cannot find the _loadcaffe_ package, the problem can be solved with the following command at least in my case
+
+      `sudo luarocks --from=https://raw.githubusercontent.com/torch/rocks/master/ install loadcaffe`
+	  
+	  Again you will just be fine.
+   
+   
+1. Install _neural-style_
+
+   1. Now we have environment ready. We should go ahead with real stuffs. Take a look at the _neural-style_ in [github](https://github.com/jcjohnson/neural-style).
+   
+   1. Clone the package with the following git command 
+
+      `git clone git@github.com:jcjohnson/neural-style.git` 
+
+   1. Get into the cloned directory and download _VGG_ model with the following command
+
+      `sh models/download_models.sh`
+ 
+   
+   
+## Running
+
+
+1. Right now, running _neural-style_ is pretty straight-forward. In particular, you can try the following example code
+
+   `th neural_style.lua -style_image examples/inputs/starry_night.jpg -content_image examples/inputs/tubingen.jpg`
+   
+1. After about 700 iteration, your rendering should be ready. Copy the result from Amazon EC2 to your local with the following command
+
+   `scp -i SparkEC2Key.pem ubuntu@ec2-54-229-54-221.eu-west-1.compute.amazonaws.com:~/neural-style/*png ~/Desktop/`
+   
+   And yes, your Amazon EC2 instance is just like a normal server and can be accessed with `ssh` and `scp`.
+   
+1. Now the cool thing is that the running time is just about **2 mins** on **GPU** instead of very very long on **CPU**.
+
+1. You also get intermediate pictures at 100, 200, ..., upto 1000 iterations.
+
+
+
+   
+   
+   
+# Reading materials
 
 There are always some cool information available on the web. In particular, I find the following blogs useful!
 
