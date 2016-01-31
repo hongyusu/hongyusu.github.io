@@ -119,6 +119,8 @@ There are always some cool information available on the web. In particular, I fi
 
 1. [Using covnet to detect facial keypoints](http://danielnouri.org/notes/2014/12/17/using-convolutional-neural-nets-to-detect-facial-keypoints-tutorial/) is a tutorial for [a kaggle competition](https://www.kaggle.com/c/facial-keypoints-detection/details/deep-learning-tutorial).
 
+1. Jeff Barr's introductory blog post on the GPU computing with Amazon - ['build 3D streaming application with EC2's G2 instance'](https://aws.amazon.com/blogs/aws/build-3d-streaming-applications-with-ec2s-new-g2-instance-type/).
+
 
 
 
