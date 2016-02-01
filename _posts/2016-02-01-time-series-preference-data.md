@@ -49,9 +49,9 @@ The reasons are
 - During the data preprocessing and exploration, a lot of operations are done based on key/value pairs. `MapReduce` heuristics will naturally optimize these key/value operations.
 - Machine learning is also expected to be scalable on large scale data. Spark has a machine learning library with parallelized learning algorithms.
 
-Complete code for customer A and results are in my [Github](https://github.com/hongyusu/SparkViaPython/tree/master/Examples/Campanja).
+Complete code for customer A and results are in my [Github](https://github.com/hongyusu/SparkViaPython/tree/master/Examples/Campanja_codes/Campanja).
 
-Complete code for customer B and results are in my [Github](https://github.com/hongyusu/SparkViaPython/tree/master/Examples/CampanjaB).
+Complete code for customer B and results are in my [Github](https://github.com/hongyusu/SparkViaPython/tree/master/Examples/Campanja_codes/CampanjaB).
 
 Code can be run in Spark with the following command (in my case)
 
