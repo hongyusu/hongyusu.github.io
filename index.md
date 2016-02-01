@@ -24,11 +24,11 @@ Here are [some slides]({{site.url}}/research/2015/12/20/some-slides-about-my-res
 I maintain a [**technical blog**]({{ site.url }}/pages.html) to document my :broken_heart: work and my :heart: life. Fortunately, with [Pabulo]({{ site.url }}/life/2015/10/20/pabulo/), my life is not very technical.
 
 
-##Educations
+## Educations
 
 I completed my **PhD** in the field of Information and Computer Science from <a href="http://www.hiit.fi">Helsinki Institute for Information Technology HIIT</a> and <a href="http://ics.aalto.fi/en/">Aalto University</a> during 2012.3 - 2015.4. I got my **MSc** from <a href="http://cs.helsinki.fi">University of Helsinki</a> and <a href="http://www.hiit.fi">HIIT</a> in 2010. I got my **BEng** from <a href="http://www.xidian.edu.cn">Xidian University, China</a> in 2007.
 
-##Outside Research
+## Outside Research
 
 I enjoy aggressive sport like basketball before I broke my knee cruciate ligament (ACL). Now I opt to bouldering, scuba diving (holding <a href="http://www.padi.com/scuba-diving/padi-courses/course-catalog/open-water-diver/">OWD license</a>), snowboarding (downhill) that explores the unknown part of my life. I also enjoy hiking and traveling a lot for which I share some of the pictures on <a href="http://www.flickr.com/photos/123885344@N02/" title="See my photos on Flickr!"><img src="https://s.yimg.com/pw/images/goodies/white-flickr.png" width="40" height="20" alt=""></a>
 
