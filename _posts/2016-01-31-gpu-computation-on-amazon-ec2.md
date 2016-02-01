@@ -23,7 +23,7 @@ tags: [GPU, Amazon]
 
 # Introduction
 
-This blog post is mainly about running a deep learning algorithm _neural style_ on Amazone GPU instance. As mentioned in this previous blog post '[nips 2016 neural style]({{site.url}}/research/2016/01/05/cool-thing-in-nips-2016---neural-style/)', running this deep learning algorithm for image rendering is very computational intensive. It is pretty slow on a traditional CPU cluster. Naturally, we would like to run this algorithm on GPU to achieve a feasible computation. As long as you have a desktop/laptop, you have a CPU, but the problem is that not everyboday have a GPU. It seems to me that we have two options:
+This blog post is mainly about running a deep learning algorithm _neural style_ on Amazone GPU instance. As mentioned in this previous blog post '[nips 2016 neural style]({{site.url}}/research/2016/01/05/cool-thing-in-nips-2016-neural-style)', running this deep learning algorithm for image rendering is very computational intensive. It is pretty slow on a traditional CPU cluster. Naturally, we would like to run this algorithm on GPU to achieve a feasible computation. As long as you have a desktop/laptop, you have a CPU, but the problem is that not everyboday have a GPU. It seems to me that we have two options:
 
 1. Purchase your own GPU and make a GPU cluster.
 1. Use cloud computing services e.g., Amazon EC2.
