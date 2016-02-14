@@ -24,6 +24,16 @@ tags: [Amazon, DeepLearning, WebApp]
 
 coming soon :laughing:
 
+### Create administration users
+
+1. Create a administration group
+1. Create IAM users
+1. Create account alias
+   1. TODO
+
+
+###
+
 # Extra reading materials
 
 There are always very good external reading materials available on the web. 
