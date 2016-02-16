@@ -24,15 +24,24 @@ tags: [Amazon, DeepLearning, WebApp]
 
 coming soon :laughing:
 
-### Create administration users
+1. Set-up environment variable
 
-1. Create a administration group
-1. Create IAM users
-1. Create account alias
-   1. TODO
+   ```
+   # Change to your own unique S3 bucket name:
+   source_bucket=alestic-lambda-example
+
+   # Do not change this. Walkthrough code assumes this name
+   target_bucket=${source_bucket}resized
+
+   function=CreateThumbnail
+   lambda_execution_role_name=lambda-$function-execution
+   lambda_execution_access_policy_name=lambda-$function-execution-access
+   lambda_invocation_role_name=lambda-$function-invocation
+   lambda_invocation_access_policy_name=lambda-$function-invocation-access
+   log_group_name=/aws/lambda/$function
+   ```
 
 
-###
 
 # Extra reading materials
 
