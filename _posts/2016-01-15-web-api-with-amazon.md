@@ -27,10 +27,11 @@ coming soon :laughing:
 
 1. Set up environment variables
 
-   {%highlight bash%}
+   {%highlight bash linenos%}
    # S3 bucket names
    source_bucket=hongyusuoriginal
    target_bucket=${source_bucket}resized
+   # Function name
    function=CreateThumbnail
    # Role and Policy names
    lambda_execution_role_name=lambda-$function-execution
