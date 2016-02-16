@@ -42,21 +42,24 @@ coming soon :laughing:
    {%endhighlight%}
 
 1. Create buckets in S3 and upload a sample image
-   ```
+
+   {%highlight bash linenos%}
    aws s3 mb s3://$source_bucket
    aws s3 mb s3://$target_bucket
    aws s3 cp HappyFace.jpg s3://$source_bucket/
-   ```
+   {%endhighlight%}
 
 1. Create a lambda function deployment package
-   ```
+
+   {%highlight bash linenos%}
    wget -q -O $function.js http://run.alestic.com/lambda/aws-examples/CreateThumbnail.js
    npm install async gm
    zip -r $function.zip $function.js node_modules
-   ```
+   {%highlight%}
    
 1. Create an IAM role for lambda function
-   ```
+
+   {%highlight bash linenos%}
    lambda_execution_role_arn=$(aws iam create-role \
      --role-name "$lambda_execution_role_name" \
      --assume-role-policy-document '{
@@ -76,10 +79,10 @@ coming soon :laughing:
      --query 'Role.Arn'
    )
    echo lambda_execution_role_arn=$lambda_execution_role_arn
-   ```
+   {%endhighlight%}
    
    Define the scope which can be accessed by lambda function.
-   ```
+   {%highlight bash linenos%}
    aws iam put-role-policy \
      --role-name "$lambda_execution_role_name" \
      --policy-name "$lambda_execution_access_policy_name" \
@@ -109,11 +112,11 @@ coming soon :laughing:
          }
        ]
      }'
-   ```
+   {%endlighlight%}
    
 1. Upload the deployment package and test it manully
 
-   ```
+   {%highlight bash linenos%}
    aws lambda create-function \
      --region us-west-2 \
 	 --function-name "$function" \
@@ -124,11 +127,11 @@ coming soon :laughing:
 	 --runtime nodejs 
 	 --timeout 10 
 	 --memory-size 1024
-   ```
+   {%endhighlight%}
    
 1. Define a fake S3 event
 
-   ```
+   {%highlight bash linenos%}
    cat > $function-data.json <<EOM
    {  
       "Records":[  
@@ -169,14 +172,15 @@ coming soon :laughing:
       ]
    }
    EOM
-   ```
+   {%endhighlight%}
    
    Invoke the lambda function, passing in the fake S3 event data
-   ```
+   
+   {%highlight bash linenos%}
    aws lambda invoke-async \
      --function-name "$function" \
      --invoke-args "$function-data.json"
-   ```
+   {%endhighlight%}
    
    
 
