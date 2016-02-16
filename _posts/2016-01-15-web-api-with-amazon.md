@@ -25,14 +25,10 @@ tags: [Amazon, DeepLearning, WebApp]
 coming soon :laughing:
 
 1. Set-up environment variable
-
    ```
    # Change to your own unique S3 bucket name:
-   source_bucket=alestic-lambda-example
-
-   # Do not change this. Walkthrough code assumes this name
+   source_bucket=hongyusuoriginal
    target_bucket=${source_bucket}resized
-
    function=CreateThumbnail
    lambda_execution_role_name=lambda-$function-execution
    lambda_execution_access_policy_name=lambda-$function-execution-access
@@ -40,6 +36,47 @@ coming soon :laughing:
    lambda_invocation_access_policy_name=lambda-$function-invocation-access
    log_group_name=/aws/lambda/$function
    ```
+
+1. Create buckets in S3
+   ```
+   aws s3 mb s3://$source_bucket
+   aws s3 mb s3://$target_bucket
+   ``` 
+   Upload a sample image
+   ```
+   aws s3 cp HappyFace.jpg s3://$source_bucket/
+   ```
+
+1. Create a lambda function deployment package
+   ```
+   wget -q -O $function.js http://run.alestic.com/lambda/aws-examples/CreateThumbnail.js
+   npm install async gm
+   zip -r $function.zip $function.js node_modules
+   ```
+   
+1. Create an IAM role for lambda function
+   ```
+   lambda_execution_role_arn=$(aws iam create-role \
+     --role-name "$lambda_execution_role_name" \
+     --assume-role-policy-document '{
+         "Version": "2012-10-17",
+         "Statement": [
+           {
+             "Sid": "",
+             "Effect": "Allow",
+             "Principal": {
+               "Service": "lambda.amazonaws.com"
+             },
+             "Action": "sts:AssumeRole"
+           }
+         ]
+       }' \
+     --output text \
+     --query 'Role.Arn'
+   )
+   echo lambda_execution_role_arn=$lambda_execution_role_arn
+   ```
+   
 
 
 
