@@ -31,7 +31,6 @@ coming soon :laughing:
    # S3 bucket names
    source_bucket=hongyusuoriginal
    target_bucket=${source_bucket}resized
-   # Function name
    function=CreateThumbnail
    # Role and Policy names
    lambda_execution_role_name=lambda-$function-execution
