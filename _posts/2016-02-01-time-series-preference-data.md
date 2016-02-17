@@ -56,9 +56,9 @@ Complete code for customer B and results are in my [Github](https://github.com/h
 
 Code can be run in Spark with the following command (in my case)
 
-{%highlight bash linenos%}
+```bash
 $../../spark-1.4.1-bin-hadoop2.6/bin/spark-submit solution.py
-{%endhighlight%}
+```
 
 # Question 1: Modeling
 
