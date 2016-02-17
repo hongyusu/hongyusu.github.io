@@ -29,7 +29,9 @@ author      :
 
 markdown: kramdown
 
-gems:
+gems: [jekyll-paginate]
+
+gems:	
   - jemoji
 
 # The production_url is only used when full-domain names are needed
@@ -90,6 +92,8 @@ JB :
   tags_path :         /tags.html
   atom_path :         /atom.xml
   rss_path :          /rss.xml
+  
+  
 
   # Settings for comments helper
   # Set 'provider' to the comment provider you want to use.
