@@ -2,9 +2,10 @@
 # For more see: http://jekyllrb.com/docs/permalinks/
 permalink: /:categories/:year/:month/:day/:title 
 
+
+gems: [jekyll-paginate, jekyll-gist, jemoji]
+  
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
-#highlighter: rouge
-highlighter: pygments
 
 paginate: 10 #pagination based on number of posts
 paginate_path: "page:num"
@@ -28,11 +29,10 @@ author      :
   email_md5 : 
 
 markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 
-gems: [jekyll-paginate]
-
-gems:	
-  - jemoji
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
