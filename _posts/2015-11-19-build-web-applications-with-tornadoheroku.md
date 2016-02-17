@@ -26,7 +26,7 @@ tags: [Heroku, Python, Tornado, Web]
 
 - Create a virtual environment with the `virtualenv venv` which will generate the information as follows.
 
-  {%highlight bash%}
+  ```bash
   New python executable in venv/bin/python
   Installing setuptools, pip, wheel...done.
   ```
@@ -70,25 +70,25 @@ tags: [Heroku, Python, Tornado, Web]
 
 - To check if the submitted web services is running on `Heroku` remote service, you can use the following command.
 
-  {%highlight Bash linenos%}
+  ```bash
   $heroku ps:scale web=1
   ```
 
 - Or open a browser window to the web service running in `Heroku` remote server with the following command.
 
-  {%highlight Bash linenos%}
+  ```bash
   $heroku open
   ```
 
 - Or run `Heroku` web services on local machine with the following command.
 
-  {%highlight Bash linenos%}
+  ```bash
   $heroku local
   ```
 
 - In case of problems that the web application did not run on `heroku` server check log with the following command.
 
-  {%highlight Bash linenos%}  
+  ```bash  
   $heroku logs
   ```
 
