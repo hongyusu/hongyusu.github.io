@@ -79,33 +79,33 @@ This post is about how to set up Spark for Python. In particular, it shows the s
 - The question is to count the number of lines in a big file.
 - The first thing you should do is to include some necessary Python libraries
 
-{% highlight Python%}
+```python
 from pyspark import SparkContext
 from pyspark import SparkConf
-{% endhighlight%} 
+```
 
 - Then you have to configure the python script
 
-{% highlight Python%}
+```python
 APP_NAME = 'my python script'
 conf = SparkConf().setAppName(APP_NAME)
 conf = conf.setMaster('spark://ukko178:7077')
 sc = SparkContext(conf=conf)
-{% endhighlight%}
+```
 
 - The core part of the script is 
 
-{%highlight Python%}
+```python
 lines = sc.textFile("../spark-1.4.1-bin-hadoop2.6/README.md")
 lineLength = lines.map(lambda s: len(s))
 lineLengths.persist()
 totalLength = lineLength.reduce(lambda a,b:a+b)
 print totalLength
-{%endhighlight%}
+```
 
 - Then you need to organize the above code into a python function, e.g., the following code 
 
-{%highlight Python%}
+```python
 from pyspark import SparkContext
 from pyspark import SparkConf
 def count_lines():
@@ -123,7 +123,7 @@ def count_lines():
   print totalLength
 if __name__ == '__main__':
   count_lines()
-{%endhighlight%}
+```
 
 - Then you need to submit the job with the following command
 
@@ -133,7 +133,7 @@ if __name__ == '__main__':
 
 - The above Python script use `lambda` expression to realize `map-reduce` operation. This can be replaced with functions that define more complicated operations. For example, the following code does the same function without `lambda` expression. Corresponding Python code can be found from the [link](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/count_lines_mapReduce.py).
 
-{%highlight Python%}
+```python
 from pyspark import SparkContext
 from pyspark import SparkConf
 def count_lines_functioncall():
@@ -154,7 +154,7 @@ def reducer(length1,length2):
   return length1+length2
 if __name__ == '__main__':
   count_lines_functioncall()
-{%endhighlight%}
+```
 
 ### Example: word counts
 
@@ -162,7 +162,7 @@ if __name__ == '__main__':
 - The question is to summary the word count in a big file.
 - An example Python solution is described as the following
 
-{%highlight Python%}
+```python
 from pyspark import SparkContext
 from pyspark import SparkConf
 def word_count_lambdaexpression():
@@ -181,11 +181,11 @@ def word_count_lambdaexpression():
     print x
 if __name__ == '__main__':
   word_count_lambdaexpression()
-{%endhighlight%}
+```
 
 - The above Python solution uses `lambda` expression which can be replaced with functions that allow more complicated operations. For example, the following code also does the word counts. Python code is also available from [link](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/words_count_mapReduce.py).
 
-{%highlight Python%}
+```python
 from pyspark import SparkContext
 from pyspark import SparkConf
 def word_count_functioncall():
@@ -207,7 +207,7 @@ def reducer(a, b):
   return a+b
 if __name__ == '__main__':
   word_count_functioncall()
-{%endhighlight%}
+```
 
 
 

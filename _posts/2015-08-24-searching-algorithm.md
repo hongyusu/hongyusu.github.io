@@ -19,7 +19,7 @@ tags: [Search,LeetCode]
 ### Lowest Common Ancestor of a Binary Search Tree [in LeetCode](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)
 1. Searching an item in a binary search tree is O(logn).
 1. The solution to the problem is given as the following
-{%highlight python linenos%}
+```python
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):
@@ -55,12 +55,12 @@ def get_path(root,p):
             path.append(root)
             root = root.right
     return path
-{%endhighlight%}
+```
 
 ###Search insert position [in LeetCode](https://leetcode.com/problems/search-insert-position/)
 1. Time complexity for binary search is O(logN).
 1. The solution is given as the following
-{%highlight python linenos%}
+```python
 class Solution:
     # @param {integer[]} nums
     # @param {integer} target
@@ -86,14 +86,14 @@ def BinarySearch(nums,pos,target):
     elif nums[i] > target: return BinarySearch(nums[:i],pos,target)
     else: return BinarySearch(nums[i:],pos+i,target)
     pass
-{%endhighlight%}
+```
 
 ###Sqrt(x) [in LeetCode](https://leetcode.com/problems/sqrtx/)
 1. The question can be reduced into a binary search problem.
 1. In particular, we should search for a base number within the range.
 1. The time complexity of finding the base number is O(logN)
 1. The solution is given as the following
-{%highlight python linenos%}
+```python
 class Solution:
     # @param {integer} x
     # @return {integer}
@@ -113,7 +113,7 @@ def solution(x):
         if m**2 > x: i,j = i,m
         if m**2 < x: i,j = m,j        
     pass
-{%endhighlight%}
+```
 
 
 ###Pow(x,n) [in LeetCode](https://leetcode.com/problems/powx-n/)

@@ -11,7 +11,7 @@ tags: [Algorithm, Palindrome]
 ### [Palindrome partitioning](https://leetcode.com/submissions/detail/33825539/)
 1. Given a string s, partition s such that every substring of the partition is a palindrome.
 1. Solution is given as the following
-{%highlight python%}
+```python
 class Solution:
     # @param {string} s
     # @return {string[][]}
@@ -27,4 +27,4 @@ def solution(s,path,res):
             cur_s = s[:i+1]
             if cur_s == cur_s[::-1]:
                 solution(s[i+1:],path + [cur_s],res)
-{%endhighlight%}
+```

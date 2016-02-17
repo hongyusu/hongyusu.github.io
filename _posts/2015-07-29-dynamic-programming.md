@@ -13,7 +13,7 @@ Here are some interesting algorithmic problems related to dynamic programming
 - Given a 2D binary matrix filled with 0's and 1's, find the largest square containing all 1's and return its area.
 - The problem can be formulated as a DP problem where in each step we compute the value of matrix[i][j] by analyzing other three values in its block (matrix[i-1][j-1],matrix[i][j-1],matrix[i-1][j]).
 - A Python solution is given as the following
-{%highlight Python%}
+```python
 class Solution:
     # @param {character[][]} matrix
     # @return {integer}
@@ -57,4 +57,4 @@ def solution(matrix):
                         res = matrix[i][j]
     if len(matrix) == 2: print matrix 
     return res**2
-{%endhighlight%}
+```

@@ -24,7 +24,7 @@ _Depth first search_ uses a lot of recursion techniques. Therefore, it might be 
 1. The time complexity of the current solution is O(n). 
 1. In addition, another O(n) space is required to store the generated list of numbers.
 1. An example Python code is given as the following
-{% highlight python linenos %}
+```python
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, x):
@@ -63,12 +63,12 @@ def solution(root,res):
     if root.right != None:
         solution(root.right,res)
     pass
-{% endhighlight %}
+```
 
 ### Binary Tree Maximum Path Sum [in LeetCode](https://leetcode.com/problems/binary-tree-maximum-path-sum/)
 1. The time complexity for the recursion is O(n) where n is the number of node in the binary search tree, since every node has to be visited in order to find of the maximum valued path.
 1. An example Python code is given as the following
-{% highlight python linenos %}
+```python
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, x):
@@ -83,12 +83,12 @@ class Solution(object):
             right = solution(node.right)
             return [node.val + max(left[0],right[0],0),max(left+right+[node.val+left[0]+right[0]])]
         return max(solution(root))
-{% endhighlight %}
+```
 
 ### Flatten Binary Tree to Linked List [in LeetCode](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/)
 1. The flatten binary tree corresponds to preorder traversal of the original binary tree.
 1. An example Python code is given as the following
-{% highlight python linenos %}
+```python
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, x):
@@ -116,13 +116,13 @@ def solution(root):
         p.right = node
         p = p.right
     pass
-{% endhighlight %}
+```
 
 ### Construct Binary Tree from Inorder and Postorder Traversal [in LeetCode](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)
 1. The trick is to realize the last item in the postorder traversal is the root node of the subtree.
 1. The solution use recursion.
 1. An example Python code is given as the following
-{% highlight python linenos %}
+```python
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, x):
@@ -144,13 +144,13 @@ def solution(inorder, postorder):
     root.right = solution(inorder[index+1:],postorder)
     root.left  = solution(inorder[:index],postorder)
     return root
-{% endhighlight %}
+```
 
 ### Construct Binary Tree from Preorder and Inorder Traversal [in LeetCode](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
 1. The trick is to realize the first element of the preorder traversal is the root node of the subtree.
 1. The solution uses recursion.
 1. An example Python code is given as the following
-{% highlight python linenos %}
+```python
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, x):
@@ -174,7 +174,7 @@ def solution(preorder,inorder):
     root.right = solution(preorder,inorder[ind+1:])
     return root
     pass
-{% endhighlight %}
+```
 
 # Breadth First Search (BFS)
 
@@ -182,7 +182,7 @@ def solution(preorder,inorder):
 1. The trick is to build two dictionaries one maps from node label to node object, the other maps from node label to neighbor labels. Once two dictionaries are built, one connect the objects from the first dictionary using the information from the second dictionary.
 1. _BFS_ is used to acquire all neighbors of a particular node. 
 1. An example Python solution is given as the following:
-{% highlight python linenos %}
+```python
 # Definition for a undirected graph node
 # class UndirectedGraphNode(object):
 #     def __init__(self, x):
@@ -214,7 +214,7 @@ def solution(root):
         for nb in n2nb[node]:
             i2n[node].neighbors.append(i2n[nb])
     return i2n[root.label]
-{% endhighlight %}
+```
 
 ### Course Schedule [in LeetCode](https://leetcode.com/problems/course-schedule/)
 1. The solution heuristics is to
@@ -223,7 +223,7 @@ def solution(root):
    1. Return `False` when there exist nodes that cannot be removed.
 1. It is worth noting that the directed graph is represented as a link list implemented by Python `dictionary`. Therefore, it is easy to make update the number of parents for each node when a node is removed from the graph.
 1. An example Python solution is given as the following:
-{% highlight python linenos %}
+```python
 class Solution(object):
     def canFinish(self, numCourses, prerequisites):
         """
@@ -251,14 +251,14 @@ def solution(N,pairs):
             for c in p2c[node]:
                 pCount[c]-=1
     return True
-{% endhighlight %}
+```
 
 ### Course Schedule II [in LeetCode](https://leetcode.com/problems/course-schedule-ii/)
 1. Build a dependency graph (direct graph) where pre-requisitions are parents and following courses are children.
 1. Traverse the graph from root to leaves and pop a node to the result when all its parents are visited.
 1. Return an empty array if there are nodes remained in the graph with unvisited parents. 
 1. An example Python solution is given as the following:
-{% highlight python linenos %}
+```python
 class Solution:
     # @param {integer} numCourses
     # @param {integer[][]} prerequisites
@@ -297,13 +297,13 @@ def solution(N,pairs):
                     pCount[k] -=1
                     p2c[node][k] =0
     return res
-{% endhighlight%}
+```
 
 ### Word Ladder [in LeetCode](https://leetcode.com/problems/word-ladder/)
 1. The solution is by performing double end _breadth first search_ in which we search for all possible words from a small end to find out if the possible words include any word from the other end.
 1. To check if two collections of words are overlap, we use union operation `&` of set.
 1. The following solution is based on the [discussion](https://leetcode.com/discuss/48083/share-python-solutions-concise-160ms-optimized-solution-100ms)
-{% highlight python linenos %}
+```python
 class Solution(object):
     def ladderLength(self, beginWord, endWord, wordDict):
         """
@@ -333,14 +333,14 @@ def solution(start,end,words):
         words-=head
     return 0
     pass
-{% endhighlight %}
+```
 
 ### Word Ladder II [in LeetCode](https://leetcode.com/problems/word-ladder-ii/)
 1. The solution is similar as [Word Ladder](https://leetcode.com/problems/word-ladder/).
 1. In stead of double end _BFS_, we  only do _breadth first search_ from the head. Meanwhile, we maintain a dictionary to store all paths up to current word.
 1. Keep in mind the we can use `union` operation on `set` object.
 1. An example Python solution is shown as the following
-{% highlight python linenos %}
+```python
 class Solution(object):
     def findLadders(self, start, end, dict):
         """
@@ -380,12 +380,12 @@ def solution(start,end,words):
             d = newd
             words = words-head
     return []
-{% endhighlight %}
+```
 
 ### Binary Tree Right Side View [in LeetCode](https://leetcode.com/problems/binary-tree-right-side-view/)
 1. The heuristics for solving the problem is to perform the _breadth first search_ on the binary tree level by level. During the processing of the tree node, always first put the right child and then the left child.
 1. An example Python solution is shown as the following.
-{% highlight python linenos %}
+```python
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):
@@ -415,7 +415,7 @@ def solution(root):
         nodelist = newnodelist
     return res
     pass
-{% endhighlight%}
+```
 
 # Union Find
 
@@ -426,7 +426,7 @@ Unior find is one type of problems where the goal is find a union of same object
 1. The heuristics is straight forward: apply _breadth first search_.
 1. In particular, we scan the table and perform _BFS_ as soon as we find an 'O'. The _BFS_ will find the whole 'O' region. Then the whole region is flipped to 'X' if any element is on the boarder of the chess board.
 1. An example python solution is shown as the following
-{% highlight python linenos %}
+```python
 class Solution:
     # @param {character[][]} board
     # @return {void} Do not return anything, modify board in-place instead.
@@ -501,14 +501,14 @@ def solution(board):
             if board[i][j] == 'V':
                 board[i][j] = 'O'
     pass
-{% endhighlight %}
+```
 
 
 ### Number of Islands [in LeetCode](https://leetcode.com/problems/number-of-islands/)
 1. The strategy is to use _breadth first search_.
 1. In particular, we scan the table and perform _BFS_ as soon as we find an `1`. The _BFS_ will find all `1` in the same island. Then we mark the island and continue to scan the table for other islands.
 1. An example Python code is shown as the following
-{% highlight python linenos %}
+```python
 class Solution:
     # @param {character[][]} grid
     # @return {integer}
@@ -550,6 +550,6 @@ def solution(grid):
                 #print node,nodelist
     return ct
     pass
-{% endhighlight %}
+```
 
 

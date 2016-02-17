@@ -43,7 +43,7 @@ In this article I will try to set up two examples of running mapreduce functions
 - The function will read in a partition of data (probably a section of a file) from the standard input stream `STDIN` and output key and value pairs.
 - An example `mapper.py` is given as the following
 
-{%highlight python linenos %}
+```python
 #!/usr/bin/env python
 import sys
 def main():
@@ -53,7 +53,7 @@ def main():
       print "%s\t1" % word
 if __name__ == "__main__":
   main()
-{%endhighlight%}
+```
 
 - It is worth noting that the first line is important which make the script executable by Hadoop.
 - Make sure `mapper.py` are accessible by executing the command `chmod a+X mapper.py`

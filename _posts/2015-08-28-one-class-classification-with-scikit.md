@@ -43,7 +43,7 @@ One class SVMs is quite similar as standard SVMs except that it aims to maximize
 
 1. It is clear that the performance of one class SVM is poor in classifying the object from the training class. However, it is good at identifying abnormalities, e.g. all other digits except 0 are correctly classified as non-0 images.
 1. An implementation with Python and scikit package is given as the following. Data and codes can also be found from [Github-ScikitExamples](https://github.com/hongyusu/ScikitExamples).
-{% highlight Python linenos %}
+```python
 from sklearn.datasets import fetch_mldata
 from sklearn import svm
 from sklearn.cross_validation import train_test_split
@@ -72,4 +72,4 @@ def oneclass_svm_baseline():
   pass
 if __name__ == '__main__':
   oneclass_svm_baseline()
-{% endhighlight %}
+```

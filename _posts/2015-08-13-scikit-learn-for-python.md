@@ -44,7 +44,7 @@ The installation of Scikit-learn package seems to require an administration righ
 1. For the above setting, I get 9435/10000 writings correct.
 1. The script is shown as the following
 
-{% highlight python linenos %}
+```python
 from sklearn.datasets import fetch_mldata
 from sklearn import svm
 from sklearn.cross_validation import train_test_split
@@ -67,7 +67,7 @@ def svm_baseline():
   pass
 if __name__ == '__main__':
   svm_baseline()
-{% endhighlight %}
+```
 
 ## Random Forest for MNIST dataset
 
@@ -88,7 +88,7 @@ if __name__ == '__main__':
 1. The training time of a random forest classifier is much faster that SVMs.
 1. The Python script is shown as the following.
 
-{% highlight python linenos %}
+```python
 from sklearn.datasets import fetch_mldata
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.cross_validation import train_test_split
@@ -111,5 +111,5 @@ def rf_baseline():
   pass
 if __name__ == '__main__':
   rf_baseline()
-{% endhighlight %}
+```
 

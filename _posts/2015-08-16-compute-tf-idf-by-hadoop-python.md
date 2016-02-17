@@ -38,7 +38,7 @@ In this article, I will be computing the TF-IDF from these files.
 
 ## `mapper` function
 
-{% highlight python linenos %}
+```python
 #!/usr/bin/env python
 import sys
 import os
@@ -49,11 +49,11 @@ def tfmapper():
       print "%s\t%s\t1" % (word,os.getenv('mapreduce_map_input_file','noname'))
 if __name__ == '__main__':
   tfmapper()
-{% endhighlight%}
+```
 
 ## `reducer` function
 
-{% highlight python linenos %}
+```python
 #!/usr/bin/env python
 import sys
 def tfreducer():
@@ -74,13 +74,13 @@ def tfreducer():
   print "%s\t%s" % (curprefix,curcount)
 if __name__=='__main__':
   tfreducer()
-{% endhighlight%}
+```
 
 ## Deploy mapreduce functions on Hadoop
 
 When deploy the mapreduce functions on Hadoop, we can use wild card in the input filename such that all files match the wild card will be sent to input stream. In particular, we can submit the above mapreduce function with the following command
 
-{% highlight bash linenos %}
+```bash
 hadoop jar \
      /usr/local/Cellar/hadoop/2.7.1/libexec/share/hadoop/tools/lib/hadoop-streaming-2.7.1.jar \
      -files ./mapper.py,./reducer.py \
@@ -88,7 +88,7 @@ hadoop jar \
      -reducer tfreducer.py \
      -input /5000-* \
      -output /tmp
-{% endhighlight %}
+```
 
 Take a look at the output `hadoop fs -cat /tmp/par*|head -50`
 
@@ -114,7 +114,7 @@ We will use the result file from the last step. In particular, we copy and renam
 
 The `mapper` function will read each record from the above result and add 1 to the end of each record. An example `mapper` function is given as the following
 
-{% highlight python linenos %}
+```python
 #!/usr/bin/env python
 import sys
 import os
@@ -123,14 +123,14 @@ def dfmapper():
     print "%s\t1" % line.strip()
 if __name__ == '__main__':
   dfmapper()
-{% endhighlight %}
+```
 
 
 ## `reduce` function
 
 The `reducer` function will for each word read corresponding records into a buffer and compute the number of documents having the word. In the end, it will output all record from the buffer and add the number of the documents to the end of each record.
 
-{% highlight python linenos %}
+```python
 #!/usr/bin/env python
 import sys
 def dfreducer():
@@ -157,19 +157,19 @@ def dfreducer():
     print "%s\t%d" % (item,curcount)
 if __name__=='__main__':
   dfreducer()
-{% endhighlight%}
+```
 
 ## Deploy mapreduce functions on Hadoop
 
 Now, we need to submit the mapreduce function to Hadoop. We need to clarify mapper function `dfmapper.py` and reducer function `dfreduce.py`, as well as input data file in HDFS. The following command can be used to submit the job
 
-{% highlight bash linenos %}
+```bash
 hadoop jar \
      /usr/local/Cellar/hadoop/2.7.1/libexec/share/hadoop/tools/lib/hadoop-streaming-2.7.1.jar \
      -files ./dfmapper.py,./dfreducer.py \
      -mapper dfmapper.py -reducer dfreducer.py \
      -input /tf -output /tmp
-{% endhighlight %}
+```
 
 As a results, we have each line from the result file with the format `word-file-tfcount-dfcount`
 

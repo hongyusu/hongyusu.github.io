@@ -16,29 +16,29 @@ tags: [Jekyll, GitHub]
 
 I install [Jekyll-Bootstrap](http://jekyllbootstrap.com) with the following command
 
-{% highlight c++ %}
+```c
 git clone git@github.com:plusjade/jekyll-bootstrap.git hongyusu.github.io
-{% endhighlight %}
+```
 
 There is a [GitHub tutorial](https://pages.github.com) for building personal website.
 Follow the instruction and build a place holder in GitHub.
 Then config another remote name which points to my GitHub folder and commit the content to my GitHub
 
-{% highlight c++ %}
+```c
 git remove add origin-hongyusu git@github.com:hongyusu/hongyusu.github.io.git
 git add -A
 git commit -m'first commit' .
 git push -u origin-hongyusu master
-{% endhighlight %}
+```
 
 
 The website can be accessed from `hongyuu.github.io`.
 To make it fancier, I will _borrow_ the [UI theme](http://themes.jekyllbootstrap.com) for [Jekyll-Bootstrap](http://jekyllbootstrap.com).
 In particular, this website is based on the [Hooligan Theme](http://themes.jekyllbootstrap.com/preview/hooligan/) which can be added to the Jekyll website by running following command in the website folder
 
-{% highlight c++ %}
+```c
 rake theme:install git="https://github.com/dhulihan/hooligan.git"
-{% endhighlight %}
+```
 
 One of the good thing I can think of the Hooligan theme is that the syntax highlight of the programming code is very well displayed (see the following section).
 I saw someone is using [_twitter_ theme](http://themes.jekyllbootstrap.com/preview/twitter/) or _mark-reid_ theme.
@@ -54,9 +54,9 @@ Yes, it is quite complicated to modify the website, update GitHub, and check the
 Instead, we can run the website locally by Jekyll.
 Run the following command in the website folder
 
-	{% highlight c++ %}
+	```c
 	jekyll server --watch
-	{% endhighlight %}
+	```
 
 In addition, I need lines to be number in my code. Therefore, I add the following two line in `syntax.css` file
 
@@ -75,22 +75,22 @@ Next, I need to modify the `./_config.yml` file to e.g., change the name of the 
 
 Writing a new post can be initialized with the following Rake command
 
-	{% highlight c++ %}
+	```c
 	rake post title="title of the post"
-	{% endhighlight %}
+	```
 
 The command will essentially generate a post page in `_posts/`.
 The name of the post will follow the order of year, month, day, title.
 Then I start to add content of the post by editing the file with my favourite editor `vim`. 
 First, I add the meta information about this post e.g.,
 
-{% highlight c++ %}
+```c
 layout: post
 title: "The quickest way to blog, GitHub + Jekyll"
 description: ""
 category: Programming
 tags: [Introduction, Programming, Jekyll, GitHub]
-{% endhighlight s%}
+```
 
 Then I edit the content with [make down language](https://help.github.com/articles/markdown-basics/) or HTML.
 
@@ -110,25 +110,25 @@ Then [Pygments](http://pygments.org) will do the trick.
 For example, it I write down the following piece of Python code
 
 ~~~
-{% raw %}{% highlight python %}
+{% raw %}```python
 for i in range(10):
   i = i + 1
   print i
-{% endhighlight %}{% endraw %}
+```{% endraw %}
 ~~~
 
 it will appear as
 
-{% highlight python %}
+```python
 for i in range(10):
   i = i + 1
   print i
-{% endhighlight %}
+```
 
 The following piece of Javascript code
 
 ~~~
-{% raw %}{% highlight javascript %}
+{% raw %}```javascript
 <!DOCTYPE html>
 <html>
 <body>
@@ -142,12 +142,12 @@ document.getElementById("demo").innerHTML = txt1 + txt2;
 </script>
 </body>
 </html>
-{% endhighlight %}{% endraw %}
+```{% endraw %}
 ~~~
 
 will appear as
 
-{% highlight javascript %}
+```javascript
 <!DOCTYPE html>
 <html>
 <body>
@@ -161,7 +161,7 @@ document.getElementById("demo").innerHTML = txt1 + txt2;
 </script>
 </body>
 </html>
-{% endhighlight %}
+```
 
 
 ##Add support for Latex
@@ -170,17 +170,17 @@ The original Makedown language lacks the support of editing mathematics equation
 Meanwhile, mathematical notations and equations are crucial in data science to convert exact ideas.
 To enable Latex in Jekyll, we modify the head of each individual page or the `default.html` by adding the following JaveScript
 
-	{% highlight javascript %}
+	```javascript
 	<script type="text/javascript"
 	 src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 	</script>
-	{% endhighlight %}
+	```
 
 As a results, for example, when we write down the following optimization problem of the Support Vector Machines
 
-	{% highlight latex %}
+	```latex
 	$$ \underset{\mathbf{w},\xi}{\min}\quad  \frac{1}{2}||\mathbf{w}||^2 + C\sum_{i=1}^{n}\xi_i\\\text{s.t.}\quad C\ge0, \xi_i\ge0, \forall i\in\{1,\cdots,n\}.$$
-	{% endhighlight %}
+	```
 
 it will appear as
 

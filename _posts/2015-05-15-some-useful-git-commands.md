@@ -29,67 +29,67 @@ tags: [GitHub, Python]
 
 - As a alternative, you can check the commit with commit id in GitHub webpage or client.
 - Revert to the selected commit
-{%highlight bash%}
+```bash
 git checkout 955cd428160a6d61a260564b193b175ae26f43c2
-{%endhighlight%}
+```
 
 ###Remove files from Git but keep local copies
 - Check files that are tracked by Git
-{% highlight bash%}
+```bash
 git ls-files
-{% endhighlight%}
+```
 
 - Remove files from Git tracking system
-{%highlight bash%}
+```bash
 git rm --cached filename
-{%endhighlight%}
+```
 
 - Check the revision of the repository
-{%highlight bash%}
+```bash
 git status
-{%endhighlight%}
+```
 
 - Modify the tracked file list
-{%highlight bash%}
+```bash
 git add -u
-{%endhighlight%}
+```
 
 - Commit changes
-{%highlight bash%}
+```bash
 git commit -m'commit message'
-{%endhighlight%}
+```
 
 #Python
 
 ###Repeat a string
-{%highlight python%}
+```python
 'this is a string' * 100
-{%endhighlight%}
+```
 
 ###Sort a list `nums` and return index
-{%highlight python%}
+```python
 >>> nums=[1,2,3,4,2,2,1,2,3,2,1,2,3,4,5]
 >>> ind = sorted(range(len(nums)), key = lambda x: nums[x])
-{%endhighlight%}
+```
 
 ###Iterate over a list with index and value
-{%highlight Python%}
+```python
 for i,v in enumerate(mylist):
   print i,v
-{%endhighlight%}
+```
 
 ###Pair up value in lists
-{%highlight Python%}
+```python
 for v1,v2 in zip(None,v1List,v2List):
   print v1,v2
-{%endhighlight%}
+```
 
 ###Product of lists
-{%highlight Python%}
+```python
 import itertools
 for v1,v2 in list(itertools.product(v1List,v2List))
   print v1,v2 
-{%endhighlight%}
+```
 
 ### `pop()`
 1. `l.pop()` is to get and remove the last item from the list.

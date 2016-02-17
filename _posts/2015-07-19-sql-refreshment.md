@@ -18,30 +18,30 @@ tags: [SQL]
 1. `%` can be used as wild card in `like` statement.
 1. An example code is given as the following:
 
-{%highlight SQL%}
+```sql
 select distinct name
 from empinfo
 where age > 40 and firstname like 'bob%'
-{%endhighlight%}
+```
 
 ###Aggregation functions
 1. Aggregation functions include `distinct`, `min`, `max`, `sum`, `avg`, `count`, and `count(*)` where return the number of rows.
 1. An example code is given as the following:
 
-{%highlight SQL%}
+```sql
 select max(salary), firstname, lastname
 from empinfo
-{%endhighlight%}
+```
 
 ###`group by` statement
 1. `group by` statement will group rows with same attribute. It is usually followed with aggregation function.
 1. An example code is given as the following:
 
-{%highlight SQL%}
+```sql
 select max(salary), department
 from empinfo
 group by department
-{%endhighlight%} 
+``` 
 
 ###`having` statement
 1. `having` statement usually follows `group by` statement.
@@ -51,87 +51,87 @@ group by department
    1. `having` can only use with `group by` statement.
 1. An example code is given as the following:
 
-{%highlight SQL%}
+```sql
 select max(salary),department
 from empinfo
 where department like 'elec%'
 group by department
 having avg(salary) > 5000
-{%endhighlight%}
+```
 
 ###`order by` statement
 1. `order by` statement can be used with two options `ASC` or `DESC`.
 1. An example code is given as the following:
 
-{%highlight SQL%}
+```sql
 select employee_id, department, firstname, lastname
 from empinfor
 where department like 'core%'
 order by salary DESC, name ASC
-{%endhighlight%}
+```
 
 ###`in` and `between` statements
 1. `in` and `between` statements can be combined to make more powerful boolean clauses.
 1. Two example codes are given as the following:
 
-{%highlight SQL%}
+```sql
 select employee_id, salary, department, firstname, lastname
 from empinfor
 where firstname in ('John', 'Bob', 'William')
 and (salary between 2000 and 5000)
-{%endhighlight%} 
+``` 
 
-{%highlight SQL%}
+```sql
 select title from movie
 where id in ('11768','11955','21191')
-{%endhighlight%} 
+``` 
 
 ###`join` statement
 1. `join` statement makes ralational database _ralational_.
 1. `join` statement can make the database operation easier. For example, one can use `join` statement instead of writing a complicated code using `select` and `where` statements.
 1. For example, we have a database table of custom information and other table about purchaes. An example code of operating on there two tables is given as followings:
 
-{%highlight SQL%}
+```sql
 select customers.firstname, customers.lastname, purchases.id, purchases.name, purchases.price
 from customer, purchases
 where customer.id == purchases.customerid
-{%endhighlight%}
+```
 
-{%highlight SQL%}
+```sql
 select customers.firstname, customers.lastname, purchases.id, purchases.name, purchases.price
 from customer inner join purchases
 on customer.id == purchases.customerid
-{%endhighlight%}
+```
 
 
 ###Arithmetic operation
 1. Arithmetic operation can be used to generate new column of the data table
 1. An example code is given as the following:
-{%highlight SQL%}
+```sql
 select name, gdp/population
 from world
 where area > 500000
-{%endhighlight%}
+```
 
 ###Check the difference in date
 1. Function `datediff()` can be used to check the difference in date variables.
 1. An example code is given as the following:
-{%highlight SQL%}
+```sql
 select w2.Id
 from Weather w1 join Weather w2
 on datediff(w2.Date,w1.Date) = 1
 where w1.Temperature < w2.Temperature
-{%endhighlight%}
+```
 
 
 ###`coalesce` statement
 1. `coalesce` statement will replace the `null` entries with `0`.
 1. Two example codes are given as the following, which is the answer to the 13th question from the [exerciese](http://sqlzoo.net/wiki/The_JOIN_operation).
-{%highlight SQL%}
+```sql
 select name,coalesce(mobile,'07986 444 2266')
 from teacher
-{%endhighlight%}
-{%highlight SQL%}
+```
+```sql
 select c.m1,team1,COALESCE(s1,0),team2,COALESCE(s2,0)
 from
 (
@@ -169,14 +169,14 @@ on id = tmpid
 )f
 on c.id1 = f.id2
 order by m1
-{%endhighlight%}
+```
 
 ###`isnull()` function
 1. `isnull()` function is usually worked with `where` to form boolean claus.
 1. An example code is given as the followings which is the solution to the [first exercise](http://sqlzoo.net/wiki/Using_Null).
-{%highlight SQL%}
+```sql
 select name from teacher where isnull(dept)
-{%endhighlight%}
+```
 
 ### Different `join` statements
 1. There are several join statements include `inner join`, `left outer join`, and `full outer join`.
@@ -230,17 +230,17 @@ select name from teacher where isnull(dept)
    		ELSE def_value 
    	END
 1. Example codes are given as the following where the third code is from the [sqlzoo](http://sqlzoo.net/wiki/CASE).
-{%highlight SQL%}
+```sql
 select name,
 case when dept=1 or dept=2 then 'Sci' else 'Art' end
 from teacher
-{%endhighlight%}
-{%highlight SQL%}
+```
+```sql
 SELECT id,mdate m2,team2,
   CASE WHEN teamid=team2 THEN 1 ELSE 0 END score2
   FROM game JOIN goal ON matchid = id
-{%endhighlight%}
-{%highlight SQL%}
+```
+```sql
 SELECT name, population
       ,CASE WHEN population<1000000 
             THEN 'small'
@@ -249,7 +249,7 @@ SELECT name, population
             ELSE 'large'
        END
   FROM bbc
-{%endhighlight%}
+```
 
 ###`cast()` function
 1. Use `cast()` function to transfer, e.g., `char` to `int`.
@@ -258,36 +258,36 @@ SELECT name, population
 ###`concat()` function
 1. `concat()` function is used to combine, e.g., two strings.
 1. An example code of using `concat()` function is given as the following which is the solution to the fifth exercise in [sqlzoo](http://sqlzoo.net/wiki/SELECT_within_SELECT_Tutorial).
-{%highlight SQL%}
+```sql
 select name, concat(round(population/(select population from world where name = 'Germany')*100),'%')
 from world
 where continent = 'Europe'
-{%endhighlight%}
+```
 
 
 ###`all` statement
 1. `all` statement allows boolean operators `>`,`<`,`>=`,`<=` act on a set of numbers.
 1. One can also apply `max()` or `min()` operators first on the set of numbers.
 1. An example code is given as the following
-{%highlight SQL%}
+```sql
 select name from world
 where gdp >= all(select coalesce(gdp,0) from world where continent = 'Europe') and continent != 'Europe'
-{%endhighlight%}
+```
 
 ###Nested `select` statements
 1. Variables in the outer `select` statement can be used in the inner `select` statement.
 1. An example code is given as following which is the solution to the 7th exercises in [sqlzoo](http://sqlzoo.net/wiki/SELECT_within_SELECT_Tutorial).
-{%highlight SQL%}
+```sql
 select continent, name,area
 from world x
 where area >= all
 (select area from world y
 where x.continent = y.continent and y.area > 0)
-{%endhighlight%}
+```
 
 ###`not exist` statement
 1. The solution to the 9th exercises in [sqlzoo](http://sqlzoo.net/wiki/SELECT_within_SELECT_Tutorial).
-{%highlight SQL%}
+```sql
 select name,continent,population
 from world x
 where not exists (
@@ -295,27 +295,27 @@ select *
 from world y
 where y.continent = x.continent and y.population> 25000000
 )
-{%endhighlight%}
+```
 
 ###More about `in` statement
 1. The expression `in` can be used as a value - it will be 0 or 1.
 1. An example code is given as the following
-{%highlight SQL%}
+```sql
 SELECT winner, subject, subject IN ('Physics','Chemistry') ord
   FROM nobel
  WHERE yr=1984
  ORDER BY ord,subject,winner
-{%endhighlight%}
+```
 
 ###'limit n offset m' statement
 1. It is used to get n rows starting from the mth row.
 1. An example code is given as the following
-{%highlight SQL%}
+```sql
 select distinct Salary
 from Employee
 order by Salary DESC
 limit 1 offset N
-{%endhighlight%}
+```
 
 
 ###Order and get the rank of some attribute
@@ -329,7 +329,7 @@ limit 1 offset N
 1. Use `count()` and `group by` statement to obtain the number of items that has value smaller/greater than the current value.
 1. Use `count(distinct )` statement to allow ranking same value twice.
 1. An example code is given as the following which is the solution to the [SQL exercise: Department Top Three Salaries](https://leetcode.com/problems/department-top-three-salaries/) from LeetCode.
-{%highlight SQL%}
+```sql
 select Department.Name,mytable.Name,mytable.Salary
 from 
 (select e1.DepartmentId as DepartmentId, e1.Name as Name, e1.Salary as Salary, count(distinct e2.Salary) as Counter
@@ -338,7 +338,7 @@ Employee as e1 join Employee as e2 on e1.DepartmentId = e2.DepartmentId and e1.S
 group by e1.Name) as mytable
 join Department on mytable.DepartmentId = Department.Id
 where mytable.Counter<=3
-{%endhighlight%}
+```
 
 ###`delete` statement
 1. `delete` statement is used to delete one item from the database table following the form `delete from table where [clause]`.
