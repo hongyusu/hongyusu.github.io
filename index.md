@@ -19,11 +19,11 @@ In general, I am interested in
  - Social network analysis / Bioinformatics / Metagenomics
  - Deep learning / Large scale learning / Distributed optimization 
 
-Here are [some slides]({{site.url}}/research/2015/12/20/some-slides-about-my-research-work-on-machine-learning/) about my research on Machine Learning and Artificial Intelligence (AI). 
+Here are [some slides]({{site.url}}/research/2015/12/20/some-slides-about-my-research-work-on-machine-learning) about my research on Machine Learning and Artificial Intelligence (AI). 
 
 ## [Blog]({{ site.url }}/pages.html)
 
-I maintain a [**technical blog**]({{ site.url }}/pages.html) to document my :broken_heart: work and my :heart: life. Fortunately, with [Pabulo]({{ site.url }}/life/2015/10/20/pabulo/), my life is not very technical.
+I maintain a [**technical blog**]({{ site.url }}/pages.html) to document my :broken_heart: work and my :heart: life. Fortunately, with [Pabulo]({{ site.url }}/life/2015/10/20/pabulo), my life is not very technical.
 
 
 ## Educations
@@ -35,9 +35,9 @@ I completed my **PhD** in the field of Information and Computer Science from <a 
 I enjoy aggressive sport like basketball before I broke my knee cruciate ligament (ACL). Now I opt to bouldering, scuba diving (holding <a href="http://www.padi.com/scuba-diving/padi-courses/course-catalog/open-water-diver/">OWD license</a>), snowboarding (downhill) that explores the unknown part of my life. I also enjoy hiking and traveling a lot for which I share some of the pictures on <a href="http://www.flickr.com/photos/123885344@N02/" title="See my photos on Flickr!"><img src="https://s.yimg.com/pw/images/goodies/white-flickr.png" width="40" height="20" alt=""></a>
 
 ## Recent Activities
-- I was in Montreal for [NIPS conference 2015](https://nips.cc). Some thoughts and notes will be in this [blog]({{ site.url }}/research/2015/12/16/workshop-notes-in-nips-conference-2015/).
-- We delivered [**Xplanner**](http://tripassistant.herokuapp.com) with 10 hours programming in [Junction Hackathon 2015](http://hackjunction.com), see [my blog]({{ site.url }}/competition/2015/11/09/junction-hackathon-2015/) for more information.
-- I received from our ambassador the [**Chinese government award for outstanding doctoral candidate of 2014**]({{ site.url }}/life/2015/08/12/outstanding-doctoral-candidate-award-2014/).
+- I was in Montreal for [NIPS conference 2015](https://nips.cc). Some thoughts and notes will be in this [blog]({{ site.url }}/research/2015/12/16/workshop-notes-in-nips-conference-2015).
+- We delivered [**Xplanner**](http://tripassistant.herokuapp.com) with 10 hours programming in [Junction Hackathon 2015](http://hackjunction.com), see [my blog]({{ site.url }}/competition/2015/11/09/junction-hackathon-2015) for more information.
+- I received from our ambassador the [**Chinese government award for outstanding doctoral candidate of 2014**]({{ site.url }}/life/2015/08/12/outstanding-doctoral-candidate-award-2014).
 - [***My ensemble model***](http://hongyusu.github.io/FacebookChallenge) ranked ***52th***/985 with AUC score ***93.269%***/94.254% in the [Facebook challenge](https://www.kaggle.com/c/facebook-recruiting-iv-human-or-bot) of fraud detection in the online bidding environment.
 - I defended my <a href="https://aaltodoc.aalto.fi/handle/123456789/15362">dissertation 'Multilabel classification through structured output learning'</a> in lecture hall T2 <a href="http://sci.aalto.fi/en/">School of Science</a> on 27th March 2015.
 
@@ -70,7 +70,7 @@ I enjoy aggressive sport like basketball before I broke my knee cruciate ligamen
 -->
 
 ## Fundings and Awards
-- [Chinese government award for outstanding doctoral students]({{ site.url }}/life/2015/08/12/outstanding-doctoral-candidate-award-2014/) for [top 500 students world wide](http://www.csc.edu.cn/chuguo/b922167aeb84451b9e48d10407865c52.shtml), 2014
+- [Chinese government award for outstanding doctoral students]({{ site.url }}/life/2015/08/12/outstanding-doctoral-candidate-award-2014) for [top 500 students world wide](http://www.csc.edu.cn/chuguo/b922167aeb84451b9e48d10407865c52.shtml), 2014
 - Fully funded position from Helsinki Doctoral Programme in Computer Science (HeCSE), 2011-2014
 - Master thesis grant from Center of Excellence Grant 118653 ALGODAN, 2010
 - International Master's Degree Student Award, University of Helsinki, 2008
