@@ -37,7 +37,7 @@ Here I will introduce the technologies and ticks to make the calendar view of da
 - Source code of this page can be found from [**here**](https://raw.githubusercontent.com/hongyusu/hongyusu.github.io/master/_posts/2015-11-11-calendar-view-of-data-in-jekyll-with-d3js.md).
 - I have collected all my exercises data in `json` format including date and amount of exercises I did for each particular date. A part of data is shown in the following block.
 
-  {%highlight text%}
+  ```text
   var sessions = [
 {'date': '2015-11-11', 'pull_up': 40, 'push_up': 0   , 'ab_wheel_roll': 0  , 'bar_dip': 60  , 'gym': 1, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
 {'date': '2015-10-30', 'pull_up': 50, 'push_up': 70  , 'ab_wheel_roll': 0  , 'bar_dip': 0   , 'gym': 1, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
@@ -45,7 +45,7 @@ Here I will introduce the technologies and ticks to make the calendar view of da
 ...
 {'date': '2015-05-08', 'pull_up': 20, 'push_up': 100 , 'ab_wheel_roll': 0  , 'bar_dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder': 0 , 'bouldering': 0 },
 ];
-  {%endhighlight%}
+  ```
 
 - The idea is to be able to render a calendar view of this data with `D3.js`.
 
@@ -367,19 +367,19 @@ var peopleTable = tabulate(sessions1, ["date", "pull_up", "push_up", "ab_wheel_r
 
 - First add `d3.js` interpreter into markdown file.
 
-  {%highlight javascript linenos%}
+  ```javascript
   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-  {%endhighlight%}
+  ```
 
 - The most important thing here is to write your Javascript within the environment shown as follows so that markdown interpreter will understant the script.
   
-  {%highlight javascript linenos%}
+  ```javascript
   <example>
 	<script>
 		...
 	</script>
   </example>
-  {%endhighlight%}
+  ```
 
   In addition, in your Javascript, you should initialize an object by selecting the environment you have defined. For example, in the above case, you should select `example`. 
 
@@ -387,7 +387,7 @@ var peopleTable = tabulate(sessions1, ["date", "pull_up", "push_up", "ab_wheel_r
 
 - With the following Javascript, a table will be printed on the screen with the JSON data we have defined in the very beginning.
 
-  {%highlight javascript linenos%}
+  ```javascript
 <example2>
 	<script>
 function tabulate(data, columns) {
@@ -432,7 +432,7 @@ var peopleTable = tabulate(sessions1, ["date", "pull_up", "push_up", "ab_wheel_r
 </script>
 
 </example2>
-  {%endhighlight%} 
+  ``` 
 
 - Basically, you need to define a object to be rendered on `example2` and render the table with `tabulate` function.
 
@@ -440,7 +440,7 @@ var peopleTable = tabulate(sessions1, ["date", "pull_up", "push_up", "ab_wheel_r
 
 - With the following Javascript, you will be able to render a calendar view of the JSON data.
 
-  {%highlight javascript linenos%}
+  ```javascript
 
 <example1>
 
@@ -608,11 +608,11 @@ function yearTitle (t0) {
 </script>
 
 </example1>
-  {%endhighlight%}
+  ```
 
 - In addition, a style block is also need for better visualization
 
-  {%highlight javascript linenos%}
+  ```javascript
 <style>
 
 body {
@@ -643,7 +643,7 @@ body {
 .RdYlGn .q10-11{fill:rgb(0,104,55)}
 
 </style>
-  {%endhighlight%}
+  ```
 
 - I will add more details later on.
 

@@ -54,9 +54,9 @@ Two classification learning methods will be discussed, support vector machines S
 - `loadLibSVMFile` is the function to load data from file in `libsvm` format, which is a very popular file format for spark feature representation.
 - In particular, load data from file in `libsvm` format with the following command. This command will generate a Spark labelPoint data structure.
 
-  {% highlight Python linenos %}
+  ```python
     parsedData = MLUtils.loadLibSVMFile(sc, "../Data/a6a")
-  {% endhighlight %}
+  ```
 
 - It is worth noting that if you load training and test dataset separately it is possible that the dimension of the feature in training and test sets are different due to the spark representation of `libsvm` file format. Therefore, it is better to load the whole dataset and split for training and test later on. If you have to load training and test data separately, you can set the dimension of the feature as one of the input argument of the function.
 - `saveAsLibSVMFile` is the function to save data into a file in `libsvm` format.
@@ -80,7 +80,7 @@ Two classification learning methods will be discussed, support vector machines S
 
 - The following code performs a parameter selection (grid search) of SVM on training data.
 
-  {% highlight Python linenos %}
+  ```python
   # train a SVM model
   numIterValList = [100,200]
   regParamValList = [0.01,0.1,1,10,100]
@@ -105,13 +105,13 @@ Two classification learning methods will be discussed, support vector machines S
       bestRegTypeVal = regTypeVal
       bestTrainErr = trainErr
   print bestNumIterVal,bestRegParamVal,bestStepSizeVal,bestRegTypeVal,bestTrainErr
-  {% endhighlight %}
+  ```
 
 ### Model test
 
 - Test the performance of the model in both training data and test data by the following code block.
 
-  {% highlight Python linenos %}
+  ```python
   # Evaluating the model on training data
   labelsAndPreds = trainingData.map(lambda p: (p.label, model.predict(p.features)))
   trainErr = labelsAndPreds.filter(lambda (v, p): v != p).count() / float(trainSize)
@@ -121,7 +121,7 @@ Two classification learning methods will be discussed, support vector machines S
   labelsAndPreds = testData.map(lambda p: (p.label, model.predict(p.features)))
   testErr = labelsAndPreds.filter(lambda (v, p): v != p).count() / float(testSize)
   print testErr
-  {% endhighlight %}
+  ```
 
 ### Experimental results
 
@@ -212,7 +212,7 @@ Two classification learning methods will be discussed, support vector machines S
 
 - Python code for running parameter selection procedure of logistic regression is shown in the following code block
 
-  {% highlight Python linenos %}
+  ```python
   def lr(trainingData,testData,trainingSize,testSize):
   '''
   linear lr classifier
@@ -242,11 +242,11 @@ Two classification learning methods will be discussed, support vector machines S
       bestTrainErr = trainErr
     print numIterVal,regParamVal,stepSizeVal,regTypeVal,trainErr
   print bestNumIterVal,bestRegParamVal,bestStepSizeVal,bestRegTypeVal,bestTrainErr
-  {% endhighlight%} 
+  ``` 
 
 - The performance of the best model can be computed on training and test datasets with the following code
 
-  {% highlight Python linenos %}
+  ```python
   model = LogisticRegressionWithSGD.train(trainingData, iterations=bestNumIterVal, regParam=bestRegParamVal, step=bestStepSizeVal, regType=bestRegTypeVal)
 
   # Evaluating the model on training data
@@ -258,7 +258,7 @@ Two classification learning methods will be discussed, support vector machines S
   labelsAndPreds = testData.map(lambda p: (p.label, model.predict(p.features)))
   testErr = labelsAndPreds.filter(lambda (v, p): v != p).count() / float(testSize)
   print testErr
-  {% endhighlight %}
+  ```
 
 ### Experimental results
 

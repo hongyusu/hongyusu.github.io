@@ -30,7 +30,7 @@ tags: [Test, Python]
 - `pydoc` module will generate a `man`-like documentation for Python functions.
 - To write documentation just use a commented test after the function definition as shown in the following code
 
-  {%highlight Python Linenos%}
+  ```python
   def dist(x1,y1, x2,y2, x3,y3):
   '''
   compute distance from a point to line segment
@@ -53,11 +53,11 @@ tags: [Test, Python]
   dy = y - y3
   dist = math.sqrt(dx*dx + dy*dy)
   return dist
-  {%endhighlight%}
+  ```
 
 - It also allows documentation for classes as shown in the following code
 
-  {%highlight Python Linenos%}
+  ```python
   class TestMethods(unittest.TestCase):
   '''
   class to define a set of unit test with Python unittest module
@@ -73,19 +73,19 @@ tags: [Test, Python]
     '''
     self.assertEqual(GPS2POS((52.516288,13.377689)), (-6.48982764810209, 9.159322471000536))
   pass
-  {%endhighlight%}
+  ```
 
 ### Generate documentation
 
 - When finishing writing the documentation for the delivered functions, the document of the function can be seen with the following command in the command line.
 
-  {%highlight Bash linenos%}
+  ```bash
   pydoc solution
-  {%endhighlight%}
+  ```
 
 - The documentation of the function will print on the screen.
 
-  {%highlight Bash%}
+  ```bash
 Help on module solution:
 
 NAME
@@ -184,7 +184,7 @@ VERSION
 
 AUTHOR
     Hongyu Su
-  {%endhighlight%}
+  ```
 
 # Unit test
 
@@ -200,7 +200,7 @@ This brings an old topic of test-driven development (TDD) which is to design a s
 - The return from the test case should match exactly the following line written in the documentation part of the Python code.
 - For example, the following code will compute the shortest distance of a point to a line segment, and a test case is written into the documentation part of the code.
 
-  {%highlight Python linenos%}
+  ```python
   def dist(x1,y1, x2,y2, x3,y3):
   '''
   compute distance from a point to line segment
@@ -223,7 +223,7 @@ This brings an old topic of test-driven development (TDD) which is to design a s
   dy = y - y3
   dist = math.sqrt(dx*dx + dy*dy)
   return dist 
-  {%endhighlight%}
+  ```
 
 - In particular, this is a test case in the code which compute the distance with function `dist(-7.83434151195,17.378188238,-17.5348765366,0.375603802,-0.0,0.0)` with expected return value `15.416540040627943`.
 
@@ -232,7 +232,7 @@ This brings an old topic of test-driven development (TDD) which is to design a s
 - There are two ways to run the test case
 - To enable the test, add `doctest.testmod()` to the Python script. For example, in my code it looks like 
 
-  {%highlight Python linenos%}
+  ```python
   if __name__ == '__main__':
   '''
   __name__ to make sure the function be excuted when used as a script not as a loaded module
@@ -246,27 +246,27 @@ This brings an old topic of test-driven development (TDD) which is to design a s
   # run actual code
   find_her() 
   pass
-  {%endhighlight%}
+  ```
 
   Then run the test with the following command
 
-  {%highlight bash linenos%}
+  ```bash
   python solution.py -v
-  {%endhighlight%}
+  ```
 
   The command line argument `-v` will enable verbosity output which print detail information of the test. As mentioned already, this requires adding the above `doctest.testmod()` into your code.
 
 - As alternative, the test can be perform with the following command
 
-  {%highlight bash linenos%}
+  ```bash
   python -m doctest -v solution.py
-  {%endhighlight%}
+  ```
 
   This is more flexible and does not need to add the above `doctest.testmod()` into your code.
 
 - The above command will generate the following information printed to the screen. Oh I have another function `GPS2POS` under test as well.
 
-  {%highlight Bash%}
+  ```bash
 Trying:
     GPS2POS((52.516288,13.377689))
 Expecting:
@@ -298,7 +298,7 @@ ok
 2 tests in 16 items.
 2 passed and 0 failed.
 Test passed.
-  {%endhighlight%}
+  ```
 
 - Another nice thing about `doctest` is that you can write you test code separately into a txt file and perform the test with `python -m doctest -v txtfilefortest.txt`.
 
@@ -321,7 +321,7 @@ The work flow of performing a unit test with `unittest` is
 
 - Build up a class for test by defining a class and test functions
 
-  {%highlight Python linenos%}
+  ```python
   class TestMethods(unittest.TestCase):
   '''
   class to define a set of unit test with Python unittest module
@@ -337,7 +337,7 @@ The work flow of performing a unit test with `unittest` is
     '''
     self.assertEqual(GPS2POS((52.516288,13.377689)), (-6.48982764810209, 9.159322471000536))
   pass
-  {%endhighlight%}
+  ```
 
 - Basically, the test use a variety of `assert` arguments shown in the following table
 
@@ -360,7 +360,7 @@ The work flow of performing a unit test with `unittest` is
 
 - Add `unittest.main()` to your Python script. For example, my code looks like the following.
 
-  {%highlight Python linenos%}
+  ```python
   if __name__ == '__main__':
   '''
   __name__ to make sure the function be excuted when used as a script not as a loaded module
@@ -383,28 +383,28 @@ The work flow of performing a unit test with `unittest` is
   # run actual code
   find_her() 
   pass
-  {%endhighlight%}
+  ```
 
 - With command `python solution.py -v` all test defined in the class `TestMethods` will be executed and functions returns when all tests finished (without the rest of the function being executed). 
 - This can be avoided by defining a test suite with the following commands.
 
-  {%highlight Python linenos%}
+  ```python
   suite = unittest.TestSuite()
   suite.addTest(TestMethods('test_dist'))
   suite.addTest(TestMethods('test_GPS2POS'))
   unittest.TextTestRunner(verbosity=2).run(suite)
-  {%endhighlight%}
+  ```
 
 - The test suite will run all test defined within the suite and continue with the rest of the code when tests are done. The test will generate the following information printed on the screen.
 
-  {%highlight Bash%}
+  ```bash
   test_dist (__main__.TestMethods) ... ok
   test_GPS2POS (__main__.TestMethods) ... ok
-  {%endhighlight%}
+  ```
 
 - As a alternative to `main` function and test suite, test functions defined in unit test class can be executed from command line directly.
 
-  {%highlight Bash%}
+  ```bash
 guest37:tmpSolution su$ python -m unittest -v solution.TestMethods.test_dist
 test_dist (solution.TestMethods) ... ok
 
@@ -427,15 +427,15 @@ test_dist (solution.TestMethods) ... ok
 Ran 2 tests in 0.000s
 
 OK
-  {%endhighlight%}
+  ```
 
 ### Other functionalities
 
 - Run unit test with `unittest` for files with suffix `.py` in the directory with the following command.
 
-  {%highlight Bash linenos%}
+  ```bash
   $ python -m unittest discover -v -p *py
-  {%endhighlight%}
+  ```
 
 - `setup` and `teardown` methods.
 
@@ -447,7 +447,7 @@ OK
 
 The test case for `nose` is quite similar as `unittest` but is much simpler. I don't need to define classes. Just go straight forwards to write a test function. The function that implemented the same test case as described above can be coded simply as the following.
 
-  {%highlight Python linenos%}
+  ```python
 def test_dist():
   '''unit test with nose'''
   assert dist(-7.83434151195,17.378188238,-17.5348765366,0.375603802,-0.0,0.0) == 15.416540040627943
@@ -457,19 +457,19 @@ def test_GPS2POS():
   '''unit test with nose'''
   assert GPS2POS((52.516288,13.377689)) == (-6.48982764810209, 9.159322471000536)
   pass
-  {%endhighlight%}
+  ```
 
 ### Run test
 
 - With the following command, we can run a unit test built with `nose`. The command can also run unit test coded with `unittest`.
 
-{%highlight Bash linenos%}
+```bash
 nosetests -v solution.py
-{%endhighlight%}
+```
 
 The command line argument `-v` is same as before which is to print detailed test information on screen. The result is shown as the follows.
 
-{%highlight Bash %}
+```bash
 test GPS2POS function ... ok
 test the function dist() ... ok
 unit test with nose ... ok
@@ -479,7 +479,7 @@ unit test with nose ... ok
 Ran 4 tests in 0.002s
 
 OK
-{%endhighlight%}
+```
 
 There are 4 tests in total in which the first two tests are built with `unittest` and the last two tests are built with `nose`.
 
@@ -490,7 +490,7 @@ There are 4 tests in total in which the first two tests are built with `unittest
 - With `nose`, the setup and teardown functionalities can be implemented with simple Python function calls with prefix `setup_` and `teardown_`. They are applied to test by calling a decorator `@with_setup(setup_func,teardown_func)`.
 - The following Python code implements a simple test with `setup` and `teardown` functionalities to initialize and destroy a global variable for the unit test.
 
-  {%highlight Python linenos%}
+  ```python
 from nose.tools import *
 #--------------------- test with nose: decorator ---------------------------
 _globals = {'tmpPoint':None}
@@ -507,7 +507,7 @@ def teardown_test_GPS2POS():
 def test():
   tmpPoint = _globals['tmpPoint']
   assert GPS2POS(tmpPoint) == (-6.48982764810209, 9.159322471000536)
-  {%endhighlight%}
+  ```
 
 ### Other functionalities with `nose`
 

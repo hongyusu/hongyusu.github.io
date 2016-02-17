@@ -67,21 +67,21 @@ I just try to sketch the general idea of the algorithm as in the following bulle
   - Edit the file `conf/spark-env.sh`.
   - After adding following lines to the file, Spark will work nicely again :bowtie:
 
-  {% highlight Bash linenos %}
+  ```bash
   export SPARK_DAEMON_MEMORY=8g
   export SPARK_WORKER_MEMORY=8g
   export SPARK_DAEMON_JAVA_OPTS="-Xms8g -Xmx8g"
   export SPARK_JAVA_OPTS="-Xms8g -Xmx8g"
   export SPARK_LOCAL_DIRS='/cs/work/group/urenzyme/workspace/SparkViaPython/tmp/'
-  {% endhighlight%}
+  ```
 
 - Sometimes, Spark will also complain about memory issue. This is, in my case, local `/tmp/` directory is almost full. The solution is to specify another temporary directory for Spark by writing again the configuration file according to the following
   - Edit the file `conf/spark-env.sh`.
   - After adding following line to the file, Spark will work again :laughing:
 
-  {% highlight Bash linenos %}
+  ```bash
   export SPARK_LOCAL_DIRS='/cs/work/group/urenzyme/workspace/SparkViaPython/tmp/'
-  {% endhighlight%}
+  ```
 
 ## Results
 
@@ -213,28 +213,28 @@ I just try to sketch the general idea of the algorithm as in the following bulle
 - Python script of the following codes can be found from [HERE](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/collaborative_filtering.py).
 - To use Spark Python interface we have to include Spark-Python package
 
-{% highlight Python linenos %}
+```python
 from pyspark import SparkConf, SparkContext
 from pyspark.mllib.recommendation import ALS
 import itertools
 from math import sqrt
 import sys
 from operator import add
-{% endhighlight %}
+```
 
 - The next step is to configure the current python script with Spark context. In particular, we use local machine for testing the code and use cluster to run the script. 
 
-{% highlight Python linenos %}
+```python
 # set up Spark environment
 APP_NAME = "Collaboratove filtering for movie recommendation"
 conf = SparkConf().setAppName(APP_NAME)
 conf = conf.setMaster('spark://ukko160:7077')
 sc = SparkContext(conf=conf)
-{% endhighlight %}
+```
 
 - After that, we have to read in the data file as RDD and take a look at the summary of the data
 
-{% highlight Python linenos %}
+```python
 # read in data
 data = sc.textFile(filename)
 ratings = data.map(parseRating)
@@ -242,34 +242,34 @@ numRatings  = ratings.count()
 numUsers    = ratings.values().map(lambda r:r[0]).distinct().count()
 numMovies   = ratings.values().map(lambda r:r[1]).distinct().count()
 print "--- %d ratings from %d users for %d movies\n" % (numRatings, numUsers, numMovies)
-{% endhighlight %}
+```
 
 - The `parseRating` function is defined as
 
-{% highlight Python linenos %}
+```python
 def parseRating(line):
   """
   Parses a rating record in MovieLens format userId::movieId::rating::timestamp.
   """
   fields = line.strip().split("::")
   return (int(int(fields[0])%10),int(int(fields[1])%10)), (int(fields[0]), int(fields[1]), float(fields[2]))
-{% endhighlight %}
+```
 
 - Then we will partition the data into training, validation and test partitions. However,for the purpose of demonstration we use all data for training validation and test. In particular, we get all data from RDD and repartition the data.
 
-{% highlight Python linenos %}
+```python
 numPartitions = 10
 training    = ratings.filter(lambda r: not(r[0][0]<=0 and r[0][1]<=1) ).values().repartition(numPartitions).cache()
 test        = ratings.filter(lambda r: r[0][0]<=0 and r[0][1]<=1 ).values().cache()
 numTraining = training.count()
 numTest     = test.count()
 print "ratings:\t%d\ntraining:\t%d\ntest:\t\t%d\n" % (ratings.count(), training.count(),test.count())
-{% endhighlight %}
+```
 
 - After that we will run ALS with parameter selection on the training and validation sets. The performance of the model is measured with _rooted mean square error (RMSE)_.
 # model training with parameter selection on the validation dataset
 
-{% highlight Python linenos %}
+```python
 ranks       = [10,20,30]
 lambdas     = [0.1,0.01,0.001]
 numIters    = [10,20]
@@ -292,19 +292,19 @@ for rank, lmbda, numIter in itertools.product(ranks, lambdas, numIters):
     bestNumIter = numIter
 print bestRank, bestLambda, bestNumIter, bestValidationRmse 
 print "ALS on train:\t\t%.2f" % bestValidationRmse
-{% endhighlight %}
+```
 
 - Use mean imputation to test the performance on training data.
 
-{% highlight Python linenos %}
+```python
 meanRating = training.map(lambda x: x[2]).mean()
 baselineRmse = sqrt(training.map(lambda x: (meanRating - x[2]) ** 2).reduce(add) / numTraining)
 print "Mean imputation:\t\t%.2f" % baselineRmse
-{% endhighlight %}
+```
 
 - The prediction of the best model on the test data can be computed from
 
-{% highlight Python linenos %}
+```python
   # predict test ratings
   try:
     predictions             = bestModel.predictAll(test.map(lambda x:(x[0],x[1])))
@@ -314,23 +314,23 @@ print "Mean imputation:\t\t%.2f" % baselineRmse
     print myerror
     testRmse          = sqrt(test.map(lambda x: (x[0] - 0) ** 2).reduce(add) / float(numTest))
   print "ALS on test:\t%.2f" % testRmse
-{% endhighlight %}
+```
 
 - We can also compare the performance of ALS with naive approach where we predict all ratings with the average ratings.
 
-{% highlight Python linenos %}
+```python
 # use mean rating as predictions 
 meanRating = training.map(lambda x: x[2]).mean()
 baselineRmse = sqrt(test.map(lambda x: (meanRating - x[2]) ** 2).reduce(add) / numTest)
 print "Mean imputation:\t%.2f" % baselineRmse
-{% endhighlight %}
+```
 
 - When everything is done, we will stop Spark context with the following Python command.
 
-{% highlight Python linenos %}
+```python
 # shut down spark
 sc.stop()
-{% endhighlight %}
+```
 
 # External sources
 - ["Alternating least square method for collaborative filtering"](http://bugra.github.io/work/notes/2014-04-19/alternating-least-squares-method-for-collaborative-filtering/) is an OK blog about basic knowledge of ALS and CF. The blog post also includes some running Python code. However, it is not about Spark MLlib.

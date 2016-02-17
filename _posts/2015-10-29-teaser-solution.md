@@ -89,27 +89,27 @@ tags: [Teaser]
 - The following Python function translates from a GPS point to a point on orthogonal coordinate system. The origin of the system is the point on the bottom left corner of the search space.
 - It is worth noting that the GPS points given in the puzzle are not in degree, there is no need to normalized the number by $$\frac{\pi}{180}$$.
 
-  {%highlight Python linenos %}
+  ```python
   def GPS2POS((lat,lng)):
   '''
   transform from GPS to coordinate system (POS)
   '''
   return ((lng-startGPS[1]) * math.cos(startGPS[0]) * 111.323, (lat-startGPS[0]) * 111.323)
-  {%endhighlight%}
+  ```
 
 - The following Python function translates from a coordinate back to GPS.
-  {%highlight Python linenos %}
+  ```python
   def POS2GPS((x,y)):
   '''
   transform from coordinate system (POS) to GPS
   '''
   return (y/111.323+startGPS[0], x/111.323/math.cos(startGPS[0]) + startGPS[1])
-  {%endhighlight%}
+  ```
 
 ### Distance of a point to a line segment
 
 - Given a coordinate of a point and a line segment in terms of starting and stopping points in orthogonal coordinate system, the following Python function compute the distance of the point to the line segment
-  {%highlight Python linenos %}
+  ```python
   def dist(x1,y1, x2,y2, x3,y3):
   '''
   compute distance from a point to line segment
@@ -129,14 +129,14 @@ tags: [Teaser]
   dy = y - y3
   dist = math.sqrt(dx*dx + dy*dy)
   return dist
-  {%endhighlight%}
+  ```
 
 ### Probability of a point based on river Spree
 
 - Based on river Spree, the probability of a point being a possible location is given by a _Gaussian_ distribution on the distance of the point to river Spree.
 - The mean of _Gaussian_ is $$\mu=0$$ and standard deviation is $$\delta=\frac{2.730}{1.96}$$.
 - The following Python function will compute the probability of a point being a possible location given the coordinate of the point and the coordinates of river Spree.
-  {%highlight Python linenos %}
+  ```python
   def prob_river(pointPOS,riverPOS):
   '''
   compute probability according to Gaussian distribution base on river
@@ -148,7 +148,7 @@ tags: [Teaser]
     d = dist(riverPOS[i-1][0],riverPOS[i-1][1],riverPOS[i][0],riverPOS[i][1],pointPOS[0],pointPOS[1])
     if min_d > d: min_d =d
   return min_d,norm.pdf(min_d,mu,delta)
-  {%endhighlight%}
+  ```
 
 - With 500 meter as resolution, I ended up with 1044 points in the search space. The distance and the probability of each point defined by river Spree are visualized in the following figure.
 
@@ -169,7 +169,7 @@ tags: [Teaser]
   $$m_{mode} = \exp(\mu-\delta^2)$$
 
 - The following Python function will compute the probability of a point being a possible location, given the coordinate of the point and the coordinate of Brandenburg gate.
-  {%highlight Python linenos %}
+  ```python
   def prob_gate(pointPOS,gatePOS):
   '''
   compute probability according to lognormal distribution base on gate
@@ -178,7 +178,7 @@ tags: [Teaser]
   mu      = (2*math.log(4.700) + math.log(3.877)) / float(3)
   delta   = math.sqrt(2/3*(math.log(4.7)-math.log(3.877)))
   return d,lognorm.pdf(d,mu,delta)
-  {%endhighlight%}
+  ```
 
 - With 500 meter as resolution, I ended up with 1044 points in the search space. The distance and the probability of each point defined by Brandenburg gate are visualized in the following figure.
 
@@ -194,7 +194,7 @@ tags: [Teaser]
 - I just assume the track of the satellite is a straight line on the map defined by its starting and stopping locations.
 - The _mean_ of Gaussian is $$\mu=0$$ and the standard deviation is $$\delta = \frac{2.400}{1.96}$$.
 - The following Python function will compute the probability of a point being a possible location, given the coordinate of the point and the line segment of the satellite track.
-  {%highlight Python linenos%}
+  ```python
   def prob_satellite(pointPOS,satellitePOS):
   '''
   compute probability according to Gaussian distribution for satellite
@@ -203,7 +203,7 @@ tags: [Teaser]
   mu    = 0
   delta = 2.400/1.96
   return d,norm.pdf(d,mu,delta)
-  {%endhighlight%}
+  ```
 
 - With 500 meter as resolution, I ended up with 1044 points in the search space. The distance and the probability of each point defined by the satellite track are visualized in the following figure.
 
@@ -225,7 +225,7 @@ tags: [Teaser]
   $$D((x,y)) = D_{river}((x,y)) + D_{gate}((x,y)) + D_{sat}((x,y))$$
 
 - The following Python function will compute the joint probability and the joint distance described above for each point in the search space.
-  {%highlight Python linenos%}
+  ```python
   def compute_joint_probability(ss,gatePOS,satellitePOS,riverPOS):
   '''
   compute joint probability of all point in the search space
@@ -240,7 +240,7 @@ tags: [Teaser]
     except Exception as error:
       print error
   return np.array(res)
-  {%endhighlight%}
+  ```
 
 - With 500 meter as resolution, I ended up with 1044 points in the search space. The distance and the probability of each point jointly defined by the river, the gate, and the track are visualized in the following figure.
 
@@ -276,7 +276,7 @@ tags: [Teaser]
 
 - The following Python code will perform ranking and generate a HTML with Javascript to visualize points on the Google map.
 
-  {%highlight Python linenos%}
+  ```python
   def show_result(res):
   '''
   show results on google map
@@ -290,13 +290,13 @@ tags: [Teaser]
     s += '[ %.6f,%.6f,%d],\n' % (pointGPS[0],pointGPS[1],i)
   for line in open('tail') : s+=line
   open('map.html','w').write(s)
-  {%endhighlight%}
+  ```
 
 ### Plot heatmaps
 
 - In addition, heatmaps in terms of distances or probabilities shown above are generated from the following Python function.
 
-  {%highlight Python linenos%}
+  ```python
   def plot_res(res):
   ind = 0
   for i in range(2,10):
@@ -321,7 +321,7 @@ tags: [Teaser]
     subplot.set_ylabel('Y')
   plt.show()
   pass
-  {%endhighlight%}
+  ```
 
 # Complete Code ([link to code](https://github.com/hongyusu/TeaserSolution))
 
@@ -329,7 +329,7 @@ tags: [Teaser]
 - The complete Python code as well as html header and tail codes are shown as follows.
 - Python code
 
-  {%highlight Python linenos%}
+  ```python
 import math
 import numpy as np
 from scipy.stats import norm
@@ -526,11 +526,11 @@ def find_her():
 
 if __name__ == '__main__':
   find_her() 
-{%endhighlight%}
+```
 
 - HTML header
 
-{%highlight HTML linenos%}
+```html
 <!DOCTYPE html>
 <html>
   <head>
@@ -625,11 +625,11 @@ function initMap() {
   satPath.setMap(map);
 
 var markers = [
-{%endhighlight%}
+```
 
 - HTML tail
 
-{%highlight HTML linenos%}
+```html
 ];
 
 for (i = 0; i < markers.length; i++) {  
@@ -647,4 +647,4 @@ for (i = 0; i < markers.length; i++) {
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA87riG059bu_a7cXr4z5ZgthV7sfttntg&signed_in=true&callback=initMap"></script>
   </body>
 </html>
-{%endhighlight%}
+```

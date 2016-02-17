@@ -99,9 +99,9 @@ Three linear regression models will be covered in this blog post, including leas
 - `loadLibSVMFile` is the function to load data from file in `libsvm` format, which is a very popular file format for spark feature representation.
 - In particular, load data from file in `libsvm` format with the following command. This command will generate a Spark labelPoint data structure.
 
-  {% highlight Python linenos %}
+  ```python
     parsedData = MLUtils.loadLibSVMFile(sc, "../Data/cadata")
-  {% endhighlight %}
+  ```
 
 - `saveAsLibSVMFile` is the function to save data into a file in `libsvm` format which however will not be covered in this post.
 
@@ -120,7 +120,7 @@ Three linear regression models will be covered in this blog post, including leas
 
 - The following code performs a parameter selection (grid search) of least square on training data.
 
-  {% highlight Python linenos %}
+  ```python
   # train a lr model
   numIterValList = [1000,3000,5000]
   stepSizeValList = [1e-11,1e-9,1e-7,1e-5]
@@ -144,13 +144,13 @@ Three linear regression models will be covered in this blog post, including leas
         bestTrainingRMSE = trainingRMSE
     print numIterVal,stepSizeVal,trainingRMSE
   print bestNumIterVal,bestStepSizeVal,bestTrainingRMSE
-  {% endhighlight %}
+  ```
 
 ### Model test
 
 - Test the performance of the model in both training data and test data by the following code.
 
-  {% highlight Python linenos %}
+  ```python
   model = LinearRegressionWithSGD.train(trainingData, iterations=bestNumIterVal, step=bestStepSizeVal, regParam=regParamVal, regType=regTypeVal)
 
   # Evaluating the model on training data
@@ -162,7 +162,7 @@ Three linear regression models will be covered in this blog post, including leas
   ValsAndPreds = testData.map(lambda p: (p.label, model.predict(p.features)))
   testRMSE = math.sqrt(ValsAndPreds.map(lambda (v, p): (v - p)**2).reduce(lambda x, y: x + y) / testSize)
   print testRMSE
-  {% endhighlight %}
+  ```
 
 ### Experimental results
 
@@ -221,7 +221,7 @@ is the L2 norm regularization of the feature weight parameter $$w$$. L2 norm reg
 
 - The following code performs a parameter selection (grid search) of Lasso on training data.
 
-  {% highlight Python linenos %}
+  ```python
   # train a lr model
   numIterValList = [1000,3000,5000]
   stepSizeValList = [1e-11,1e-9,1e-7,1e-5]
@@ -246,13 +246,13 @@ is the L2 norm regularization of the feature weight parameter $$w$$. L2 norm reg
         bestTrainingRMSE = trainingRMSE
     print numIterVal,stepSizeVal,trainingRMSE
   print bestNumIterVal,bestStepSizeVal,bestTrainingRMSE
-  {% endhighlight %}
+  ```
 
 ### Model test
 
 - I use the following code to test the performance of the constructed model on both training and test set. The performance is measured by rooted mean square error RMSE.
 
-  {% highlight Python linenos %}
+  ```python
   model = LinearRegressionWithSGD.train(trainingData, iterations=bestNumIterVal, step=bestStepSizeVal, regParam=regParamVal, regType=regTypeVal)
   # Evaluating the model on training data
   ValsAndPreds = trainingData.map(lambda p: (p.label, model.predict(p.features)))
@@ -262,7 +262,7 @@ is the L2 norm regularization of the feature weight parameter $$w$$. L2 norm reg
   ValsAndPreds = testData.map(lambda p: (p.label, model.predict(p.features)))
   testRMSE = math.sqrt(ValsAndPreds.map(lambda (v, p): (v - p)**2).reduce(lambda x, y: x + y) / testSize)
   print testRMSE
-  {% endhighlight %}
+  ```
 
 ### Experimental results for Lasso
 
@@ -480,7 +480,7 @@ is the L2 norm regularization of the feature weight parameter $$w$$. L2 norm reg
 
 - The Python function for training a decision tree regressor is shown in the following code block. The complete Python script can be found from [my GitHub page](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/linear_regression.py).
 
-  {% highlight Python Linenos %}
+  ```python
   def decisionTreeRegression(trainingData,testData,trainingSize,testSize):
   '''
   decision tree for regression
@@ -520,7 +520,7 @@ is the L2 norm regularization of the feature weight parameter $$w$$. L2 norm reg
   ValsAndPreds = testData.map(lambda x:x.label).zip(predictions)
   testRMSE = math.sqrt(ValsAndPreds.map(lambda (v, p): (v - p)**2).reduce(lambda x, y: x + y) / testSize)
   print testRMSE
-  {% endhighlight %}
+  ```
 
 # Random forest regressor ([code](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/linear_regression.py))
 
@@ -606,7 +606,7 @@ is the L2 norm regularization of the feature weight parameter $$w$$. L2 norm reg
 
 - The Python function for training a random forest regressor is shown in the following code block. The complete Python script can be found from [my GitHub page](https://github.com/hongyusu/SparkViaPython/blob/master/Examples/linear_regression.py).
 
-  {% highlight Python Linenos %}
+  ```python
   def randomForestRegression(trainingData,testData,trainingSize,testSize):
   '''
   random forest for regression
@@ -649,7 +649,7 @@ is the L2 norm regularization of the feature weight parameter $$w$$. L2 norm reg
   ValsAndPreds = testData.map(lambda x:x.label).zip(predictions)
   testRMSE = math.sqrt(ValsAndPreds.map(lambda (v, p): (v - p)**2).reduce(lambda x, y: x + y) / testSize)
   print testRMSE
-  {% endhighlight %}
+  ```
 
 # External reading materials
 
