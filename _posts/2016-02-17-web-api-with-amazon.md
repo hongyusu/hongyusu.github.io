@@ -80,6 +80,7 @@ coming soon :laughing:
    ```
    
    Define the scope which can be accessed by lambda function.
+   
    ```bash
    aws iam put-role-policy \
      --role-name "$lambda_execution_role_name" \
