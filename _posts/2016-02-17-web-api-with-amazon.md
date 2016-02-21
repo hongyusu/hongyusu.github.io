@@ -22,7 +22,19 @@ tags: [Amazon, WebApp]
 
 # Introduction
 
-The goal really is to define an Amazon lambda function which will response to an put event invoked by Amazon S3. An example is to upload an image to Amazon S3 which will automatically triggle a put event. The put event will then triggle an Amazon lambda function which will resize the image, generate an new  image and put the new image back to Amazon S3. ['Using AWS Lambda with Amazon S3'] is a fairly nice tutorial from Aazone which gives a step-by-step instruction to achieve the goal. Meanwhile, everything documented there can also be achieved by the following scripts via Amazone AWS CLI.
+The goal really is to define an Amazon lambda function which will eventually response to an event invoked by Amazon S3. There are many real world applications which can fit into this scenario. For example, uploading an image to Amazon S3 which will automatically triggle a put event. The put event will then triggle an Amazon lambda function which will resize the image, generate an new image, and put the new image back to Amazon S3. The whole process can be illustrated with the following pictures from Amazon
+
+![photo](http://docs.aws.amazon.com/lambda/latest/dg/images/push-s3-example-10.png)
+
+where we have the following steps of processings.
+
+1. User uploads an object to an S3 bucket (object-created event).
+1. Amazon S3 detects the object-created event.
+1. Amazon S3 invokes a Lambda function that is specified in the bucket notification configuration.
+1. AWS Lambda executes the Lambda function by assuming the execution role that you specified at the time you created the Lambda function.
+1. The Lambda function executes.
+
+['Using AWS Lambda with Amazon S3'](http://docs.aws.amazon.com/lambda/latest/dg/with-s3.html) is a fairly nice tutorial from Aazone which gives a step-by-step instruction to achieve the goal. Meanwhile, everything documented there can also be achieved by the following scripts via Amazone AWS CLI.
 
 # Detailed instructions
 
