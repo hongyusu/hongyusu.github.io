@@ -18,11 +18,14 @@ tags: [Amazon, WebApp]
 # Table of content
 * auto-gen TOC:
 {:toc}
+ 
 
-coming soon :laughing:
+# Introduction
 
+The goal really is to define an Amazon lambda function which will response to an put event invoked by Amazon S3. An example is to upload an image to Amazon S3 which will automatically triggle a put event. The put event will then triggle an Amazon lambda function which will resize the image, generate an new  image and put the new image back to Amazon S3. ['Using AWS Lambda with Amazon S3'] is a fairly nice tutorial from Aazone which gives a step-by-step instruction to achieve the goal. Meanwhile, everything documented there can also be achieved by the following scripts via Amazone AWS CLI.
 
-# Workflow
+# Detailed instructions
+
 
 
 ### Create an Lambda function
