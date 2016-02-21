@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Build a web app on Amazon"
+title: "Build a simple web application with Amazon AWS"
 description: ""
 category: Technology
-tags: [Amazon, DeepLearning, WebApp]
+tags: [Amazon, WebApp]
 ---
 {% include JB/setup %}
 <script type="text/javascript"
@@ -29,9 +29,16 @@ coming soon :laughing:
 1. Set up environment variables
 
    ```bash
-   source_bucket=hongyusuoriginal
-   target_bucket=${source_bucket}resized
-   function=CreateThumbnail
+	# variable names
+	source_bucket=hongyusuoriginal
+	target_bucket=${source_bucket}resized
+	function=CreateThumbnail
+   ```
+   
+   and define the name of different access roles
+   
+   ```bash
+   # role name
    lambda_execution_role_name=lambda-$function-execution
    lambda_execution_access_policy_name=lambda-$function-execution-access
    lambda_invocation_role_name=lambda-$function-invocation
@@ -39,20 +46,28 @@ coming soon :laughing:
    log_group_name=/aws/lambda/$function
    ```
 
-1. Create buckets in S3 and upload a sample image
+1. Create two buckets in Amazon S3 and upload a sample image
 
    ```bash
-   aws s3 mb s3://$source_bucket
-   aws s3 mb s3://$target_bucket
-   aws s3 cp HappyFace.jpg s3://$source_bucket/
+	# bucket
+	aws s3 mb s3://$source_bucket
+	aws s3 mb s3://$target_bucket
+	aws s3 cp HappyFace.jpg s3://$source_bucket/
    ```
 
-1. Create a lambda function deployment package
+1. Create a lambda function deployment package by download the java script 
 
    ```bash
    wget -q -O $function.js http://run.alestic.com/lambda/aws-examples/CreateThumbnail.js
    npm install async gm
    zip -r $function.zip $function.js node_modules
+   ```
+   
+   and make a delivery jave script pacakge with all dependencies
+   
+   ```bash
+   npm install async gm
+   zip -r $function.zip $function.js node_models
    ```
    
 1. Create an IAM role for lambda function
@@ -67,7 +82,7 @@ coming soon :laughing:
              "Sid": "",
              "Effect": "Allow",
              "Principal": {
-               "Service": "lambda.amazonaws.com"
+             "Service": "lambda.amazonaws.com"
              },
              "Action": "sts:AssumeRole"
            }
@@ -79,7 +94,7 @@ coming soon :laughing:
    echo lambda_execution_role_arn=$lambda_execution_role_arn
    ```
    
-   Define the scope which can be accessed by lambda function.
+   and the associated policy
    
    ```bash
    aws iam put-role-policy \
@@ -113,7 +128,7 @@ coming soon :laughing:
      }'
    ```
    
-1. Upload the deployment package and test it manully
+1. Upload the deployment package
 
    ```bash
    aws lambda create-function \
@@ -128,7 +143,7 @@ coming soon :laughing:
 	 --memory-size 1024
    ```
    
-1. Define a fake S3 event
+1. Define a fake S3 event consist of data which will be passed to lambda function
 
    ```bash
    cat > $function-data.json <<EOM
@@ -173,7 +188,7 @@ coming soon :laughing:
    EOM
    ```
    
-   Invoke the lambda function, passing in the fake S3 event data
+1. Invoke the lambda function and pass in the json data
    
    ```bash
    aws lambda invoke-async \
@@ -181,7 +196,100 @@ coming soon :laughing:
      --invoke-args "$function-data.json"
    ```
    
+   and check the generated image from the target S3 bucket
    
+   ```bash
+   aws s3 ls s3://$target_bucket
+   ```
+   
+1. Create IAM role for S3
+
+   ```bash
+   lambda_invocation_role_arn=$(aws iam create-role \
+     --role-name "$lambda_invocation_role_name" \
+     --assume-role-policy-document '{
+         "Version": "2012-10-17",
+         "Statement": [
+           {
+             "Sid": "",
+             "Effect": "Allow",
+             "Principal": {
+               "Service": "s3.amazonaws.com"
+             },
+             "Action": "sts:AssumeRole",
+             "Condition": {
+               "StringLike": {
+                 "sts:ExternalId": "arn:aws:s3:::*"
+               }
+             }
+           }
+         ]
+       }' \
+     --output text \
+     --query 'Role.Arn'
+   )
+   echo lambda_invocation_role_arn=$lambda_invocation_role_arn
+   ```
+   
+1. Creat the policy for this role
+
+   ```bash
+   aws iam put-role-policy \
+     --role-name "$lambda_invocation_role_name" \
+     --policy-name "$lambda_invocation_access_policy_name" \
+     --policy-document '{
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Action": [
+              "lambda:InvokeFunction"
+            ],
+            "Resource": [
+              "*"
+            ]
+          }
+        ]
+      }'
+   ```
+   
+1. Get ARN of lambda function
+
+   ```bash
+   lambda_function_arn=$(aws lambda get-function-configuration \
+     --function-name "$function" \
+     --output text \
+     --query 'FunctionARN'
+   )
+   echo lambda_function_arn=$lambda_function_arn
+   ```
+   
+1. Configure S3 with lambda function
+
+
+   ```bash
+   aws s3api put-bucket-notification \
+     --bucket "$source_bucket" \
+     --notification-configuration '{
+       "CloudFunctionConfiguration": {
+         "CloudFunction": "'$lambda_function_arn'",
+         "InvocationRole": "'$lambda_invocation_role_arn'",
+         "Event": "s3:ObjectCreated:*"
+       }
+     }'
+   ``` 
+ 
+1. Check lambda function with real S3 event
+
+   ```bash
+   aws s3 ls s3://$source_bucket
+   aws s3 ls s3://$target_bucket
+   aws s3 rm s3://$source_bucket/HappyFace.jpg
+   aws s3 rm s3://$source_bucket/resized-HappyFace.jpg
+   aws s3 cp HappyFace.jpg s3://$source_bucket/
+   aws s3 ls s3://$source_bucket
+   aws s3 ls s3://$target_bucket
+   ```  
    
    
 
