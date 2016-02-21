@@ -36,9 +36,10 @@ where we have the following steps of processings.
 
 ['Using AWS Lambda with Amazon S3'](http://docs.aws.amazon.com/lambda/latest/dg/with-s3.html) is a fairly nice tutorial from Aazone which gives a step-by-step instruction to achieve the goal. Meanwhile, everything documented there can also be achieved by the following scripts via Amazone AWS CLI.
 
+
 # Lambda function in JavaScript
 
-
+The bash script for running JavaScript through Amazon lambda function can be found from [my Github](https://raw.githubusercontent.com/hongyusu/AmazonCodes/master/AWSExample/code_js.sh).
 
 ### Create an Lambda function
 
