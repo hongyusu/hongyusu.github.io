@@ -9,10 +9,9 @@ tagline:
  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-I will join [Nordea Bank](http://www.nordea.fi) as Lead Data Scientist starting from Februray 2016. 
+I joint [Nordea Bank](http://www.nordea.fi) as Lead Data Scientist from 2016. 
 Before that, I was a PostDoc in <a href="http://www.hiit.fi">Helsinki Institute for Information Technology HIIT</a> and <a href="http://ics.aalto.fi/en/">Aalto University</a>. My research is along the direction of Optimization Research and Machine Learning.
-Currently, I focus on large scale machine learning.
-In general, I am interested in 
+Currently, I focus on large scale learning and optimization. In general, I am interested in 
 
  - Optimization research and Machine learning
  - Structured output prediction / Kernel methods 
