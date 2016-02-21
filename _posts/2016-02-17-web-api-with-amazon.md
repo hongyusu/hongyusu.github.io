@@ -25,6 +25,8 @@ coming soon :laughing:
 # Workflow
 
 
+### Create an Lambda function
+
 
 1. Set up environment variables
 
@@ -70,6 +72,8 @@ coming soon :laughing:
    zip -r $function.zip $function.js node_models
    ```
    
+### Define Lambda role and policy
+
 1. Create an IAM role for lambda function
 
    ```bash
@@ -128,6 +132,8 @@ coming soon :laughing:
      }'
    ```
    
+### Upload the Lambda function and test with fake S3 event
+
 1. Upload the deployment package
 
    ```bash
@@ -202,6 +208,8 @@ coming soon :laughing:
    aws s3 ls s3://$target_bucket
    ```
    
+### Define S3 role and policy
+
 1. Create IAM role for S3
 
    ```bash
@@ -253,6 +261,8 @@ coming soon :laughing:
       }'
    ```
    
+### Connect Lambda with S3
+
 1. Get ARN of lambda function
 
    ```bash
@@ -279,6 +289,8 @@ coming soon :laughing:
      }'
    ``` 
  
+### Check Lambda with real S3 event
+
 1. Check lambda function with real S3 event
 
    ```bash
@@ -291,6 +303,8 @@ coming soon :laughing:
    aws s3 ls s3://$target_bucket
    ```  
    
+### Clean up
+
 1. Clean up workspace in Amazon server
 
    ```bash
