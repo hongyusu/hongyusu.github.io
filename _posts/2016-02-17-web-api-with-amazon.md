@@ -20,7 +20,7 @@ tags: [Amazon, WebApp]
 {:toc}
  
 
-# Introduction
+# Lambda function responding S3 event
 
 The goal really is to define an Amazon lambda function which will eventually response to an event invoked by Amazon S3. There are many real world applications which can fit into this scenario. For example, uploading an image to Amazon S3 which will automatically triggle a put event. The put event will then triggle an Amazon lambda function which will resize the image, generate an new image, and put the new image back to Amazon S3. The whole process can be illustrated with the following pictures from Amazon
 
@@ -37,7 +37,7 @@ where we have the following steps of processings.
 ['Using AWS Lambda with Amazon S3'](http://docs.aws.amazon.com/lambda/latest/dg/with-s3.html) is a fairly nice tutorial from Aazone which gives a step-by-step instruction to achieve the goal. Meanwhile, everything documented there can also be achieved by the following scripts via Amazone AWS CLI.
 
 
-# Lambda function in JavaScript
+## Lambda function in JavaScript
 
 The bash script for running JavaScript through Amazon lambda function can be found from [my Github](https://raw.githubusercontent.com/hongyusu/AmazonCodes/master/AWSExample/code_js.sh).
 
