@@ -72,6 +72,7 @@ body {
 
 
   var sessions = [
+{'date': '2016-02-25', 'pull_up':  0, 'push_up': 140 , 'ab_wheel_roll': 30 , 'bar_dip': 0   , 'gym': 0, 'arm': 0  , 'shoulder':  0, 'bouldering': 0  , 'ski': 0 },
 {'date': '2016-02-19', 'pull_up': 65, 'push_up':   0 , 'ab_wheel_roll': 40 , 'bar_dip': 0   , 'gym': 1, 'arm': 0  , 'shoulder':  0, 'bouldering': 0  , 'ski': 0 },
 {'date': '2016-02-12', 'pull_up': 40, 'push_up': 100 , 'ab_wheel_roll': 40 , 'bar_dip': 0   , 'gym': 1, 'arm': 0  , 'shoulder':  0, 'bouldering': 0  , 'ski': 0 },	
 {'date': '2016-02-05', 'pull_up': 40, 'push_up':   0 , 'ab_wheel_roll':  0 , 'bar_dip': 0   , 'gym': 1, 'arm': 0  , 'shoulder': 50, 'bouldering': 0  , 'ski': 0 },		  
