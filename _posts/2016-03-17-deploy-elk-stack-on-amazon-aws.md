@@ -22,9 +22,12 @@ tags: []
 
 1. Download the Elasticsearch package
 
-```bash
-wget https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.2.1/elasticsearch-2.2.1.tar.gz
-```
+   ```bash
+      elasticsearchURL=https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.2.1/elasticsearch-2.2.1.tar.gz
+	  wget $elasticsearchURL
+	  tar -xvvf elasticsearch-2.2.1.tar.gz
+   ```
+
 
 ### Logstash
 
