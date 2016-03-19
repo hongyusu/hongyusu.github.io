@@ -16,14 +16,16 @@ tags: []
 
 # Deploy ELK stack on Amazon AWS
 
-## Elasticsearch
+### Setup Amazon AWS
 
-## Logstash
+### Elasticsearch
 
-## Kibana
+### Logstash
 
-## Fix access rules
+### Kibana
 
-## Runing example
+### Fix access rules
+
+### Runing example
 
 # External reading
