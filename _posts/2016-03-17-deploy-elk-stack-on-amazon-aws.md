@@ -42,8 +42,8 @@ tags: []
    ```
    You should expect the following message after running the above command
 
-   ```
-	  {
+   ```bash
+     {
 	    "name" : "example_name",
 	    "cluster_name" : "example_cluster",
 	    "version" : {
