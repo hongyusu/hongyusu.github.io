@@ -80,6 +80,8 @@ tags: []
 	  echo "deb http://packages.elastic.co/elasticsearch/2.2/debian stable main" | sudo tee -a /etc/apt/sources.list.d/elasticsearch-2.2.list
 	  sudo apt-get update
 	  sudo apt-get install elasticsearch
+	  sudo service elasticsearch start
+	  sudo service elasticsearch status
    ```
 
 ## Logstash
@@ -93,7 +95,19 @@ tags: []
 	  tar -xvvf logstash-2.2.2.tar.gz
    ```
 
-1.    
+1. Well, now we should have a data file to parse with logstash. This should be a log file originally, but essentially, you can utilize the searching power on any file of similar format. The next thing is to config Logstash with a configuration file in while we will be writing the parsing pattern.
+
+1. Run logstash with configuration file
+
+   ```bash
+      ./logstash-2.2.2/bin/logstash agent -f ~/elk_data/logstash.conf
+   ```
+   
+1. Still, if everything runs as expected, with the following commands you can read the mapping status of logstash from elasticsearch HTTP server
+
+   ```bash 
+   curl -XGET 'http://localhost:9200/_mapping?pretty'
+   ```
 
 
 ### Install as a system service
