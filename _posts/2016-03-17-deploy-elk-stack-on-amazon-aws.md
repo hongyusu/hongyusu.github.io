@@ -67,7 +67,7 @@ tags: []
    
 ### Install as a system service
 
-1. As a alternative, we can also run Elasticsearch as a system service with the following lines of command
+1. As a alternative, we can also run Elasticsearch as a system service with the following lines of commands
 
    ```bash
       wget -qO - https://packages.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
@@ -75,6 +75,10 @@ tags: []
 	  sudo apt-get update
 	  sudo apt-get install elasticsearch
    ```
+
+## Logstash
+
+1. As a alternative, of course, you can also deploy Logstash as a system service, via the following lines of commands
 
    ```bash
 	  echo "deb http://packages.elasticsearch.org/logstash/2.2/debian stable main" | sudo tee -a /etc/apt/sources.list
@@ -85,7 +89,6 @@ tags: []
 	  sudo service logstash status
    ```
 
-## Logstash
 
 ## Kibana
 
