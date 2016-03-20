@@ -41,6 +41,7 @@ tags: []
       curl -XGET 'http://localhost:9200'
    ```
    You should expect the following message after running the above command
+
    ```
 	  {
 	    "name" : "example_name",
@@ -55,8 +56,13 @@ tags: []
 	    "tagline" : "You Know, for Search"
 	  }
    ```
-
-
+   
+   In addition, as we haven't done any mapping with Logstash yet, you should not be able to see any mapping by running the following command
+   
+   ```bash
+      curl -XGET 'http://localhost:9200/_mapping?pretty'
+   ```
+   
 ### Logstash
 
 ### Kibana
