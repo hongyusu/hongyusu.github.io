@@ -16,7 +16,7 @@ tags: []
 
 # Deploy ELK stack on Amazon AWS
 
-### Setup Amazon AWS
+## Setup Amazon AWS
 
 1. Login Amazon AWS with your own creditial via SSH
 
@@ -24,11 +24,13 @@ tags: []
       ssh -i "hongyusuireland.pem" ubuntu@ec2-54-194-211-18.eu-west-1.compute.amazonaws.com
    ```
 
-### Elasticsearch
+## Elasticsearch
+
+### Simple installation
 
 1. Download the Elasticsearch package
 
-   ```sh
+   ```bash
 	  wget https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.2.1/elasticsearch-2.2.1.tar.gz
 	  tar -xvvf elasticsearch-2.2.1.tar.gz
    ```
@@ -57,18 +59,22 @@ tags: []
 	  }
    ```
    
-   In addition, as we haven't done any mapping with Logstash yet, you should not be able to see any mapping by running the following command
+1. In addition, as we haven't done any mapping with Logstash yet, you should not be able to see any mapping by running the following command
    
    ```bash
       curl -XGET 'http://localhost:9200/_mapping?pretty'
    ```
    
-### Logstash
+### Install as a system service
 
-### Kibana
+1. We can also run Elasticsearch as a system service.
 
-### Fix access rules
+## Logstash
 
-### Runing example
+## Kibana
+
+## Fix access rules
+
+## Runing example
 
 # External reading
