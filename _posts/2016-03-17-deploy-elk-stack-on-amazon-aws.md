@@ -59,10 +59,16 @@ tags: []
 	  }
    ```
    
-1. In addition, as we haven't done any mapping with Logstash yet, you should not be able to see any mapping by running the following command
+1. In addition, as we haven't done any mapping with Logstash yet, you should not be able to see any mapping by running the following command. So running
    
    ```bash
       curl -XGET 'http://localhost:9200/_mapping?pretty'
+   ```
+   
+   will give you :laughing:
+   
+   ```bash
+      {}
    ```
    
 ### Install as a system service
@@ -77,6 +83,12 @@ tags: []
    ```
 
 ## Logstash
+
+### Simple installation
+
+
+
+### Install as a system service
 
 1. As a alternative, of course, you can also deploy Logstash as a system service, via the following lines of commands
 
