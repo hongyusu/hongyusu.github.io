@@ -42,7 +42,7 @@ tags: []
    ```bash
       curl -XGET 'http://localhost:9200'
    ```
-   You should expect the following message after running the above command
+   You should expect the following message after running the above command. Of course, the name of the elasticsearch instance should match the one you write in configuration file.
 
    ```bash
      {
