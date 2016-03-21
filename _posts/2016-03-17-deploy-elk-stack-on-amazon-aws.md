@@ -110,7 +110,7 @@ Yup, you should continue with the [documentation of logstash](https://www.elasti
 1. Still, if everything runs as expected, with the following commands you can read the mapping status of logstash from elasticsearch HTTP server
 
    ```bash 
-   curl -XGET 'http://localhost:9200/_mapping?pretty'
+      curl -XGET 'http://localhost:9200/_mapping?pretty'
    ```
 
 
