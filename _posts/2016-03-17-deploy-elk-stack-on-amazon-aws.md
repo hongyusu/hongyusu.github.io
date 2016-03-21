@@ -116,7 +116,7 @@ Yup, you should continue with the [documentation of logstash](https://www.elasti
 
 ### Install as a system service
 
-As a alternative, of course, you can also deploy Logstash as a system service, via the following lines of commands
+1. As a alternative, of course, you can also deploy Logstash as a system service, via the following lines of commands
 
    ```bash
 	  echo "deb http://packages.elasticsearch.org/logstash/2.2/debian stable main" | sudo tee -a /etc/apt/sources.list
@@ -124,7 +124,8 @@ As a alternative, of course, you can also deploy Logstash as a system service, v
 	  sudo apt-get install logstash
 	  sudo update-rc.d logstash defaults 97 8
    ```
-You can then start the service and check the status with the following commands. Yep, I guess stopping the service is very straight forward thing to do :laughing:
+   
+   You can then start the service and check the status with the following commands. Yep, I guess stopping the service is very straight forward thing to do :laughing:
 		
    ```bash
 	  sudo service logstash start
