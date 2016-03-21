@@ -86,6 +86,8 @@ tags: []
 
 ## Logstash
 
+Yup, you shoud start with the [documentation of logstash](https://www.elastic.co/guide/en/logstash/current/index.html). But you can also dive much faster with the following steps. 
+
 ### Simple installation
 
 1. Download the Elasticsearch package
