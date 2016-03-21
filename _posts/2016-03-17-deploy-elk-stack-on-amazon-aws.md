@@ -89,15 +89,15 @@ tags: []
 
 ## Logstash
 
-![](https://www.elastic.co/guide/en/logstash/current/static/images/basic_logstash_pipeline.png)
-
 Logstash is a data collection engine with real time pipeline capability. It is able to unify data from different sources. It does data cleaness and democratization and eventually pipes data into downstream analytics. Logstash works with Elasticsearch and Kibana, and handles all kinds of logging data (e.g., system logs, web logs, IoT logs, databases, and Kafka) as well as event streaming data. With [Grok](https://www.elastic.co/guide/en/logstash/current/plugins-filters-grok.html) you are able to derive structured data out from unstructured data and with all kinds of plugins you are able to parse data of different format.
+
+![](https://www.elastic.co/guide/en/logstash/current/static/images/basic_logstash_pipeline.png)
 
 Yup, you should continue with the [documentation of logstash](https://www.elastic.co/guide/en/logstash/current/index.html). But you can also dive much faster with the following steps.
 
 ### Simple installation
 
-1. Download the Elasticsearch package
+1. Download the Logstash package
 
    ```bash
 	  wget https://download.elastic.co/logstash/logstash/logstash-2.2.2.tar.gz
