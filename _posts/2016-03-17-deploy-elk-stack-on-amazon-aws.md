@@ -104,7 +104,7 @@ Yup, you should continue with the [documentation of logstash](https://www.elasti
 	  tar -xvvf logstash-2.2.2.tar.gz
    ```
 
-1. Well, now we should have a data file to parse with logstash. This should be a log file originally, but essentially, you can utilize the searching power on any file of similar format. The next thing is to config Logstash with a configuration file in while we will be writing the parsing pattern.
+1. Well, now we should have a data file to parse with logstash. This should be a log file originally, but essentially, you can utilize the searching power on any file of similar format. The next thing is to config Logstash with a configuration file in while we will be defining the parsing pattern.
 
 1. Run logstash with configuration file
 
@@ -130,7 +130,7 @@ Yup, you should continue with the [documentation of logstash](https://www.elasti
 	  sudo update-rc.d logstash defaults 97 8
    ```
    
-   You can then start the service and check the status with the following commands. Yep, I guess stopping the service is very straight forward thing to do :laughing:
+   You can then start the service and check the status with the following commands. Yep, I guess stopping the service is a very straight forward thing to do :laughing:
 		
    ```bash
 	  sudo service logstash start
