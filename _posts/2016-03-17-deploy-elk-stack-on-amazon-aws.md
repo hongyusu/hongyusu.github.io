@@ -89,7 +89,7 @@ tags: []
 
 ## Logstash
 
-Logstash is a data collection engine with real time pipeline capability. It is able to unify data from different sources. It does data cleaness and democratization and eventually pipes data into downstream analytics. Logstash works with Elasticsearch and Kibana, and handles all kinds of logging data (e.g., system logs, web logs, IoT logs, databases, and Kafka) as well as event streaming data. With [Grok](https://www.elastic.co/guide/en/logstash/current/plugins-filters-grok.html) you are able to derive structured data out from unstructured data and with all kinds of plugins you are able to parse data of different format.
+Logstash is a data collection engine with real time pipeline capability. It is able to unify data from different sources. It does data cleanses, democratization, and eventually pipes data into downstream analytics. Logstash works well with Elasticsearch and Kibana. It handles all kinds of log type data and event streaming data, for example, system log, web log, IoT log, databases, and Kafka. Logstash is equipped with a large collection of [input plugins](https://www.elastic.co/guide/en/logstash/current/input-plugins.html) which enables a variety of events to be read into Logstash, [output plugins](https://www.elastic.co/guide/en/logstash/current/output-plugins.html) which sends data to a variety of destinies, ad well as [filter plugins](https://www.elastic.co/guide/en/logstash/current/filter-plugins.html) which parses unstructured data, data of different formats, and describes the properties of events.
 
 ![](https://www.elastic.co/guide/en/logstash/current/static/images/basic_logstash_pipeline.png)
 
@@ -140,8 +140,8 @@ Yup, you should continue with the [documentation of logstash](https://www.elasti
 
 ## Kibana
 
-## Fix access rules
+## Fix AWS access rules
 
-## Runing example
+## Running example
 
 # External reading
