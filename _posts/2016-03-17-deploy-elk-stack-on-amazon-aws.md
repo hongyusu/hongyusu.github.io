@@ -93,7 +93,7 @@ Logstash is a data collection engine with real time pipeline capability. It is a
 
 ![](https://www.elastic.co/guide/en/logstash/current/static/images/basic_logstash_pipeline.png)
 
-Yup, you should continue with the [documentation of logstash](https://www.elastic.co/guide/en/logstash/current/index.html). But you can also dive much faster with the following steps.
+Yep, you should continue with [Logstash documentation](https://www.elastic.co/guide/en/logstash/current/index.html). But you can also dive much faster with the following steps which will use Logstash to process stock market data.
 
 ### Simple installation
 
