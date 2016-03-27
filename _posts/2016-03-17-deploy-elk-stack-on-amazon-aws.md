@@ -97,14 +97,43 @@ Yep, you should continue with [Logstash documentation](https://www.elastic.co/gu
 
 ### Simple installation
 
-1. Download the Logstash package
+1. Download the installation package, will be based on version 2.2.2, many other online Logstash examples are mostly built on version 1.7 which is not likely to be continued.
 
    ```bash
 	  wget https://download.elastic.co/logstash/logstash/logstash-2.2.2.tar.gz
 	  tar -xvvf logstash-2.2.2.tar.gz
    ```
 
-1. Well, now we should have a data file to parse with logstash. This should be a log file originally, but essentially, you can utilize the searching power on any file of similar format. The next thing is to config Logstash with a configuration file in while we will be defining the parsing pattern.
+1. Well, now we should have a data file to parse with logstash. Originally, this should be a log file, but essentially, you can utilize the searching power on any file of similar format. 
+
+1. The next thing is to config Logstash with a configuration file in while we will define the pattern of the data file to parse. In particular, the configuration file look like in the following code blocks.
+
+   ```bash
+	  input {  
+	    file {
+	      path => "/home/ubuntu/elk/data/data.csv"
+	      start_position => "beginning"    
+	    }
+	  }
+
+
+	  filter {  
+	    csv {
+	        separator => ","
+	        columns => ["Date","Open","High","Low","Close","Volume","Adj Close"]
+	    }
+	    mutate {convert => ["High", "float"]}
+	    mutate {convert => ["Open", "float"]}
+	    mutate {convert => ["Low", "float"]}
+	    mutate {convert => ["Close", "float"]}
+	    mutate {convert => ["Volume", "float"]}
+	  }
+
+
+	  output {
+	    elasticsearch { hosts => ["localhost:9200"] }
+	  }
+   ```
 
 1. Run logstash with configuration file
 
