@@ -104,9 +104,12 @@ Yep, you should continue with [Logstash documentation](https://www.elastic.co/gu
 	  tar -xvvf logstash-2.2.2.tar.gz
    ```
 
-1. Well, now we should have a data file to parse with logstash. Originally, this should be a log file, but essentially, you can utilize the searching power on any file of similar format. 
+1. Well, now we should have a data file to parse with logstash. Originally, this should be a log file, but essentially, you can utilize the searching power on any file of similar format. So, let's download some historical stock data 
+   ```bash
+      wget https://gist.githubusercontent.com/chrtze/51fa6bb4025ba9c7c2b3/raw/9ca9e8bc33fd1b81f44b78f830a8e33d0dbf7646/data.csv
+   ```
 
-1. The next thing is to config Logstash with a configuration file in while we will define the pattern of the data file to parse. In particular, the configuration file look like in the following code blocks.
+1. The next thing is to config Logstash with a configuration file in while we will define the pattern of the data file to parse. The configuration file look like in the following code blocks.
 
    ```bash
 	  input {  
@@ -134,37 +137,37 @@ Yep, you should continue with [Logstash documentation](https://www.elastic.co/gu
 	    elasticsearch { hosts => ["localhost:9200"] }
 	  }
    ```
+   In particular, `input` block defines the path of the data file to be loaded into Logstash, `filter` block defines the format of lines and converts from string variables to numerical variables, and `output` block defines the destination of data stream after processed by Logstash.
 
-1. Run logstash with configuration file
+1. Run Logstash with this configuration file
 
    ```bash
-      ./logstash-2.2.2/bin/logstash agent -f ~/elk_data/logstash.conf
+      ./logstash-2.2.2/bin/logstash agent -f ~/elk/data/stock.conf
    ```
    
-1. Still, if everything runs as expected, with the following commands you can read the mapping status of logstash from elasticsearch HTTP server
+1. Still, if everything runs as expected, with the following commands you can read the mapping status of Logstash from Elasticsearch HTTP server
 
    ```bash 
       curl -XGET 'http://localhost:9200/_mapping?pretty'
    ```
 
-
 ### Install as a system service
 
-1. As a alternative, of course, you can also deploy Logstash as a system service, via the following lines of commands
-
+1. I would prefer to install Logstash as a software as it is easy to run, debug, and experiment with different settings and configurations. On the other hand, when almost everything are more or less stabilized, we hope to run it as a system service. Follow the lines of commands below to deploy Logstash as a system service. 
    ```bash
-	  echo "deb http://packages.elasticsearch.org/logstash/2.2/debian stable main" | sudo tee -a /etc/apt/sources.list
+      echo "deb http://packages.elastic.co/logstash/2.2/debian stable main" | sudo tee -a /etc/apt/sources.list
 	  sudo apt-get update
 	  sudo apt-get install logstash
 	  sudo update-rc.d logstash defaults 97 8
    ```
    
-   You can then start the service and check the status with the following commands. Yep, I guess stopping the service is a very straight forward thing to do :laughing:
-		
+   You can then start the service and check the status with the following commands. Yep, I guess stopping the service is a very straight forward thing to do :laughing:		
    ```bash
 	  sudo service logstash start
 	  sudo service logstash status
    ```
+   
+   By the way, if you install Logstash as a system service, the configuration file `logstash.conf` is located in `/etc/logstash/conf.d` directory.
 
 
 ## Kibana
