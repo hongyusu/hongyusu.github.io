@@ -72,8 +72,8 @@ body {
 
 
   var sessions = [
-{'date': '2016-05-17', 'pull_up': 60, 'push_up': 100 , 'ab_wheel_roll':  0 , 'bar_dip': 0   , 'gym': 1, 'arm': 0  , 'shoulder':  0, 'bouldering': 0  , 'ski': 0 },	
-{'date': '2016-05-10', 'pull_up': 60, 'push_up':  50 , 'ab_wheel_roll': 40 , 'bar_dip': 0   , 'gym': 1, 'arm': 0  , 'shoulder':  0, 'bouldering': 0  , 'ski': 0 },	
+{'date': '2016-06-17', 'pull_up': 60, 'push_up': 100 , 'ab_wheel_roll':  0 , 'bar_dip': 0   , 'gym': 1, 'arm': 0  , 'shoulder':  0, 'bouldering': 0  , 'ski': 0 },	
+{'date': '2016-06-10', 'pull_up': 60, 'push_up':  50 , 'ab_wheel_roll': 40 , 'bar_dip': 0   , 'gym': 1, 'arm': 0  , 'shoulder':  0, 'bouldering': 0  , 'ski': 0 },	
 {'date': '2016-04-29', 'pull_up': 50, 'push_up':  50 , 'ab_wheel_roll': 10 , 'bar_dip': 0   , 'gym': 1, 'arm': 0  , 'shoulder':  0, 'bouldering': 0  , 'ski': 0 },	
 {'date': '2016-04-22', 'pull_up': 50, 'push_up':  50 , 'ab_wheel_roll': 10 , 'bar_dip': 0   , 'gym': 1, 'arm': 0  , 'shoulder':  0, 'bouldering': 0  , 'ski': 0 },	
 {'date': '2016-04-03', 'pull_up': 40, 'push_up':   0 , 'ab_wheel_roll': 40 , 'bar_dip': 0   , 'gym': 1, 'arm': 0  , 'shoulder':  0, 'bouldering': 0  , 'ski': 0 },	
