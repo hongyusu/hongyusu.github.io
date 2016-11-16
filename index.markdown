@@ -50,16 +50,16 @@ I have also just started another blog called [_Hacker & Hiker_](/sap) on data en
 </div>
 
 <div class="section" markdown="1">
-[Reading](http://librarything.com/home/hongyu.su)
-==============================================
-<script type="text/javascript" src="http://www.librarything.com/jswidget.php?reporton=HongyuSu&show=recent&header=&num=8&covers=small&text=title&tag=show&css=0&style=2&version=1"> </script>
+[Twitter](http://twitter.com/hongyusu)
+====================================
+<a href="https://twitter.com/hongyusu" class="twitter-follow-button" data-show-count="false">Follow @hongyusu</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
 
 
 <div class="section" markdown="1">
-[Twitter](http://twitter.com/hongyusu)
-====================================
-<a href="https://twitter.com/hongyusu" class="twitter-follow-button" data-show-count="false">Follow @hongyusu</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+[Reading](http://librarything.com/home/hongyu.su)
+==============================================
+<div id="w0f1b0d7d00e37043ea087e441ab7777f"></div><script type="text/javascript" charset="UTF-8" src="https://www.librarything.com/widget_get.php?userid=Hongyu.Su&theID=w0f1b0d7d00e37043ea087e441ab7777f"></script><noscript><a href="http://www.librarything.com/profile/Hongyu.Su">My Library</a> at <a href="http://www.librarything.com">LibraryThing</a></noscript>
 </div>
 
 
