@@ -1,15 +1,23 @@
 ---
-title: track 
-
-excerpt: Some promotion for the new StackOverflow-like question and answer site for machine learning, NLP and computer vision.
-
-location: Sydney, Australia
-
-layout: iem-post
-
+layout: iem-post 
+title: "Track my sports"
+location: Helsinki
+tags: [Sport]
 ---
 
-This is a fairly old post with continuous update when I did any new exercise. Step into 30, I start to care more about myself :smiley: Then I decide to record the amount of exercises I have done with the hope that the diary will push me to do more and more. Basically, the exercises I love to do include
+
+
+Step into 30, I start to care more about myself :smiley: Then I decide to record the amount of exercises I have done with the hope that the diary will push me to do more and more. Basically, the exercises I love to do include
+
+_This is a fairly old post with continuous update when I did any new exercise._
+
+
+# Table of content
+* auto-gen TOC:
+{:toc}
+
+
+# Summary
 
 1. `push up`, for chest muscle
 1. `pull up`, for back and arm 
@@ -17,6 +25,7 @@ This is a fairly old post with continuous update when I did any new exercise. St
 1. `wheel roll`, for abs :laughing:
 1. some lifting exercises, for arms :muscle:
 
+![photo1]({{ site.url }}/myimages/ss_20160112_1.jpg)
 
 # View history
 
