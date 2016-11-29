@@ -4,12 +4,51 @@ section: Code
 title: Code
 ---
 
-<img class='inset right' src='/images/me_matrix.png' title='Mark Reid' alt='Mark Reid in the Matrix' width='120px' />
+<img class='inset right' src='/images/hongyu_su.jpg' title='Hongyu Su' alt='Hongyu Su' width='120px' />
 
 Code
 ====
 Eventually this page will contain links to most of the research and non-research
 related programming I've done.
+
+<div class="section" markdown="1">
+Hackthon
+=====
+[_Xplanner_](http://tripassistant.herokuapp.com)
+:       A trip planner organising everything for your holiday [Github](https://github.com/czli/Junction2015).
+
+[_Personalised route recommendation system_](http://hongyusu.github.io/AaltoHackathon2015/)
+:       Graph based recommendation system developed during Aalto Data Science Hackathon 2015 [Github](http://hongyusu.github.io/AaltoHackathon2015/). 
+</div>
+
+
+<div class="section" markdown="1">
+Other Codes
+=====
+[_Transporter Protein Classification_](http://hongyusu.github.io/ProteinFunctionPrediction/)
+:      A research project aims to prediction the classification of transporter proteins [Github](http://hongyusu.github.io/ProteinFunctionPrediction/).
+
+[_Online Fraud Detection_](http://hongyusu.github.io/FacebookChallenge)
+:      _Facebook challenge_ of **fraud detection** in online bidding platform [Github](http://hongyusu.github.io/FacebookChallenge).
+
+[_L2RTA_](https://github.com/hongyusu/RTA)
+:      Conditional gradient optimization with convex combination of multiple update directions (_L2RTA_) in random spanning tree approximation algorithm [Github](https://github.com/hongyusu/RTA).
+
+[_RTA_](https://github.com/hongyusu/RTA)
+:      Random spanning tree approximation (_RTA_) for structured output learning on complete output graph [Github](https://github.com/hongyusu/RTA).
+
+[_SPIN_](https://github.com/hongyusu/SPIN)
+:      Structured output prediction of network response (_SPIN_) for social network analysis [Github](https://github.com/hongyusu/SPIN).
+
+[_MKL_](http://hongyusu.github.io/Molecular_Classification)
+:      _Multiple kernel learning_ for classifying small graph structured in molecular classification problem [Github](http://hongyusu.github.io/Molecular_Classification).
+
+[_Dissertation_](http://hongyusu.github.io/Dissertation/)
+:      Template I used for writing my doctoral dissertation. The template included cover page, abstract page, copy right statement, as well as main part of so called article dissertation of Aalto University [Github](http://hongyusu.github.io/Dissertation/).
+</div>
+
+<!-- 
+
 
 <div class="section" markdown="1">
 Demos
@@ -69,3 +108,5 @@ Other Hacking
 [bibdesktolyx]: http://threewordslong.com/projects/bibdesk_to_lyx
 [bibdesk]: http://bibdesk.sourceforge.net/
 [Jekyll]: http://github.com/mojombo/jekyll/tree/master
+
+-->
