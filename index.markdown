@@ -16,15 +16,15 @@ Yeah, you certainly find more about me by clicking links [here](/work) and [ther
 [flickr]: https://www.flickr.com/photos/123885344@N02/
 
 <div class="section" markdown="1">
-Research
+Academia
 ========
-I got [Ph.D](/work) in Machine Learning from Aalto University and did [PostDoc](/work) in Helsinki Institute for Information Technology HIIT.
+I got [Ph.D](/work) in Machine Learning from Aalto University and did [PostDoc](/work) in Helsinki Institute for Information Technology HIIT and Aalto.
 </div>
 
 <div class="section" markdown="1">
-Blog
+Data Science
 =====
-I maintain a technical blog called [_Hacker & Hiker_](/iem) on machine learning and data science, where recent posts include:
+I maintain a technical blog called [_Data & Logic_](/iem) on machine learning and data science, where recent posts include:
 {% for post in site.categories.iem limit:3 %}
 <ul class="compact recent">
 <li>
@@ -38,7 +38,7 @@ I maintain a technical blog called [_Hacker & Hiker_](/iem) on machine learning 
 <div class="section" markdown="1">
 Code
 =====
-I have also just started another blog called [_Hacker & Hiker_](/sap) on data engineering and architecture, where recent posts include:
+I have also just started another blog called [_Architecture & Bricks_](/sap) on data engineering and architecture, where recent posts include:
 {% for sappost in site.categories.sap limit:3 %}
 <ul class="compact recent">
 <li>
