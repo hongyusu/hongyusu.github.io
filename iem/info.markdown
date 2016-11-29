@@ -6,7 +6,7 @@ layout: iem
 
 ---
 
-About _Hacker & Hiker_
+About _Data & Logic_ 
 ===========================
 
 [I][] started this blog in [September 2007][start] shortly after I began my
