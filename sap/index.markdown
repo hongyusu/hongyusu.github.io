@@ -10,7 +10,7 @@ keywords: Blog, Programming, Clojure
 Programming Lab Notes
 =====================
 
-Programming is all about _structure_ and _process_ and this blog is all about
+Programming is all about _Automata_ and this blog is all about
 [Mark Reid](/)'s adventures in programming. Enjoy!
 
 [![Feed icon](/files/css/feed-icon-14x14.png){:title="Atom feed of recent posts" .right}][feed]

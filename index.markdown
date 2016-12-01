@@ -24,7 +24,7 @@ I got [Ph.D](/work) in Machine Learning from Aalto University and did [PostDoc](
 <div class="section" markdown="1">
 Data Science
 =====
-I maintain a technical blog called [_Data & Logic_](/iem) on machine learning and data science, where recent posts include:
+I maintain a technical blog called [_Informatica_](/iem) on machine learning and data science, where recent posts include:
 {% for post in site.categories.iem limit:3 %}
 <ul class="compact recent">
 <li>
@@ -36,9 +36,9 @@ I maintain a technical blog called [_Data & Logic_](/iem) on machine learning an
 </div>
 
 <div class="section" markdown="1">
-Code
+Architechture
 =====
-I have also just started another blog called [_Architecture & Bricks_](/sap) on data engineering and architecture, where recent posts include:
+I have also just started another blog called [_Automata_](/sap) on data engineering and architecture, where recent posts include:
 {% for sappost in site.categories.sap limit:3 %}
 <ul class="compact recent">
 <li>
