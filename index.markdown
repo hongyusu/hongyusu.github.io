@@ -10,7 +10,7 @@ section: Home
 [Welcome]()
 =======
 
-I'm Hongyu Su, a Ph.D on Machine Learning, downhill snowboarding unprofessional, scuba diver, cat person, terrible guitar player, researcher, lead data scientist in a bank, nerdy vim user, hiker and [photographer][flickr], etc & etc.
+I'm Hongyu Su, a Ph.D on Machine Learning, downhill snowboarding unprofessional, scuba diver, cat person, terrible guitar player, researcher, lead data scientist in a bank, nerdy vim user, [publishing papers](/work/pub/), hiker and [photographer][flickr], [etc](/work/) & [etc](/iem/).
 Yeah, you certainly find more about me by clicking links [here](/work) and [there](/iem).  
 
 [flickr]: https://www.flickr.com/photos/123885344@N02/
@@ -36,7 +36,7 @@ I maintain a technical blog called [_Informatica_](/iem) on machine learning and
 </div>
 
 <div class="section" markdown="1">
-Architechture
+Data Engineering
 =====
 I have also just started another blog called [_Automata_](/sap) on data engineering and architecture, where recent posts include:
 {% for sappost in site.categories.sap limit:3 %}

@@ -25,7 +25,7 @@ DISQUS = RestClient::Resource.new DISQUS_BASE
 DB_USER = 'root'
 DB_NAME = 'inductio'
 
-TARGET_URL = 'http://mark.reid.dev/iem/'
+TARGET_URL = 'http://www.hongyusu.com/'
 
 # Gets the first forum key associated with USER_KEY
 def forum_key

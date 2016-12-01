@@ -5,8 +5,8 @@ require 'json'
 DISQUS_BASE = 'http://disqus.com/api/'
 DISQUS = RestClient::Resource.new DISQUS_BASE
 
-SOURCE_URL = 'http://mark.reid.dev/iem/'
-TARGET_URL = 'http://mark.reid.name/iem/'
+SOURCE_URL = 'http://www.hongyusu.com'
+TARGET_URL = 'http://www.hongyusu.com'
 
 THREADS = {
 10211725 => 'http://mark.reid.name/iem/behold-jensens-inequality.html',
