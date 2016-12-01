@@ -6,9 +6,32 @@ layout: iem
 
 ---
 
-About _Data & Logic_ 
+About _Informatica_ 
 ===========================
 
+[I][] started this [_Informatica_ blog][iem] in late Autumn 2015 shortly after I finished my [PhD][pubs] and started my [PostDoc][work]. 
+The original idea is to keep track [my research][work] and keep developing [interesting things][code] in the field of Machine Learning and Data Science.
+
+
+Popular Posts
+-------------
+
+Licence
+-------
+
+Unless specified otherwise, all content within this site is 
+licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License</a>. Style of this site is designed by [Mark Reid][mr]
+
+
+
+[I]: /
+[iem]: /iem/
+[work]: /work/
+[pubs]: /work/pubs/
+[code]: /code/
+[mr]: /
+
+<!--
 [I][] started this blog in [September 2007][start] shortly after I began my
 current [post-doctoral][] appointment. I wanted an outlet 
 for research-related writing that lies somewhere between my notebooks and 
@@ -68,8 +91,5 @@ design and technology I use at the main site's [colophon][].
 [maruku]: http://maruku.rubyforge.org/
 [colophon]: /info/site.html
 
-Licence
--------
 
-Unless specified otherwise, all design and content within this site is 
-licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License</a>.
+-->
