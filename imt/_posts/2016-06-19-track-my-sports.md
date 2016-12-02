@@ -5,11 +5,11 @@ location: Helsinki
 tags: [Sport]
 ---
 
+After living in this planet for about 30 years, I decided to track my sport activities somehow which mostly is to record the amount of exercises I have done.
+I am also hoping that this kind of _sport history_ will eventually encourage me to do more and more.
+Of course, for the sake of data science and analytics, activities are documents as in a _json_ table and presented via _javascript_ in particular _D3.js_.
 
-
-Step into 30, I start to care more about myself :smiley: Then I decide to record the amount of exercises I have done with the hope that the diary will push me to do more and more. Basically, the exercises I love to do include
-
-_This is a fairly old post with continuous update when I did any new exercise._
+**NB:** _this is a fairly old post with continuous update when I did any new exercise._
 
 
 # Table of content
@@ -25,7 +25,7 @@ _This is a fairly old post with continuous update when I did any new exercise._
 1. `wheel roll`, for abs :laughing:
 1. some lifting exercises, for arms :muscle:
 
-![photo1]({{ site.url }}/myimages/ss_20160112_1.jpg)
+![photo1](/images/ss_20160112_1.jpg){:width="600"}
 
 # View history
 

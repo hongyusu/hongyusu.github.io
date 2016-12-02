@@ -7,10 +7,6 @@ tags: [NIPS, DeepLearning, Chinese]
 ---
 
  
-
-
-
-
 NIPS是理论机器学习人工智能领域顶级的学术会议。NIPS论文的接受率相比其他顶级机器学习会议（ICML，AISTATS，ICCV，CVPR）略低。NIPS会议偏好一些理论性很强的工作，开创性和前瞻性的工作，以及里程碑性的工作。自己也曾被导师邀请审过历年NIPS的文章，审稿过程中最经常问自己的问题就是，手上这篇文章是原创性的还是建立在之前工作基础上的，跟后者沾边的文章基本夭折。有些刚刚步入机器学习和人工智能的小伙伴可能会有疑问，为什NIP文章的引用率会比其他机器学习会议文章引用率偏低，其实原因很简单嘛，因为大多数人都读不懂NIPS文章，看不懂怎么去引用啊。翻开就是一页一页数学公式的学术论文，我用真心向明月啊，我读你知道我缺不知道啊。不过我认为数学向来以简洁准确通用著称，我想这也是NIPS的魅力之一吧。身为一个机器学习人工智能的从（lan）业（ling）人（gong）员（ren），去年12月我也飞去这个又黑又冷的蒙特利尔，去让自己的智商被无数次的凌辱，凌辱，凌辱。在接下来的几个帖子里面，我会陆续总（zi）结（can）2015年NIPS的点点滴滴。
 
 那第一期先不自残了，给大家说一个今年NIPS里面灰常好玩的一个东西。
@@ -18,11 +14,6 @@ NIPS是理论机器学习人工智能领域顶级的学术会议。NIPS论文的
 * auto-gen TOC:
 {:toc}
 
-<script type="text/javascript"
- src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-![photo1]({{ site.url }}/myimages/ss_20160121_0.jpg)
 
 # Neural style
 
@@ -39,7 +30,7 @@ NIPS是理论机器学习人工智能领域顶级的学术会议。NIPS论文的
 
 比方说梵高的那张星空是那么的平静，干净，纯净。。。对比度超高。那么相似的画风就被学习并应用到了图片C上。好吧，我承认我根本不懂什么艺术，不过感兴趣的小伙伴可以自行脑补梵高的艺术，或者直接猛戳这个知乎 https://www.zhihu.com/question/19708222 去搞清楚为什么梵高是一个很伟大的画家啊。
 
-![photo1]({{ site.url }}/myimages/ss_20160105.jpg)
+![photo1](/images/ss_20160105.jpg){:width="600"}
 
 # 背后的黑科技
 
@@ -59,7 +50,7 @@ Neural style这个酷酷的深度学习算法主要基于卷积神经网络CNN�
 
 当内容表示遇上风格表示，我们就得到了一个很厉害深度学习模型。这个模型的具体结构可以在下面的图片中看得更清楚，图片来源于原文章。
 
-![photo2]({{ site.url }}/myimages/ss_20160105_3.jpg)
+![photo2](/images/ss_20160105_3.jpg){:width="600"}
 
 上半部分是用来抽象画风的神经网络结构，下半部分是用来抽象内容的神经网络结构。
 
@@ -71,13 +62,13 @@ Neural style这个酷酷的深度学习算法主要基于卷积神经网络CNN�
 
 ## Deep dream 网络服务
 
-![photo4]({{ site.url }}/myimages/ss_20160106_0.jpg)
+![photo4](/images/ss_20160106_0.jpg){:width="600"}
 
 从前有个web端服务，其实就是个小页面，他实现了一个跟neural style很相似的深度学习算法，叫做deep dream。这个在线的工具允许你提交一个照片，然后生成一个很奇怪的照片。这个链接 http://deepdreamgenerator.com 会带你去到 deep dream. 对于Deep dream我也许可能或许理解的不太对，因为我还没有好好研读这个文章。
 
 ## DeepForger twitter 机器人
 
-![photo4]({{ site.url }}/myimages/ss_20160106_1.jpg)
+![photo4](/images/ss_20160106_1.jpg){:width="600"}
 
 Deep dream或许是最简单的途径来使用这些深度学习算法生成奇奇怪怪图片。不过呢，Deep dream不能根据你的需求去渲染一张输入图片。那么在这个令人捉急时候DeepForger twitter机器人就来了。按照这个链接 https://twitter.com/DeepForger 去找到这个机器人。简单的说，你需要做的事情就是给这个机器人发两张照片，一张是你要渲染的照片包含着内容，另一张是你想用来做渲染的包括画风的照片。不得不说其实这个机器人是你在没有Linux机器或者机器里面没有装GPU的时候，你可以获得一个非常好的捷径。巴特，如果你很变态的想去渲染一群照片，那么这个机器人就会很捉急。想知道怎么做的又快又好呢，还要继续往下读。想要知道怎么做的更快更好呢，还要看后面几期的内容。
 
@@ -107,41 +98,19 @@ Deep dream或许是最简单的途径来使用这些深度学习算法生成奇�
 
 看看以下这张人物特写被neural style通过不同的画风进行的渲染。
 
-![photo1]({{ site.url }}/myimages/20160111_0.jpg)
+![photo1](/images/20160111_0.jpg){:width="600"}
 
-![photo1]({{ site.url }}/myimages/20160111_2.jpg)
-![photo1]({{ site.url }}/myimages/20160111_1.jpg)
-![photo1]({{ site.url }}/myimages/20160111_3.jpg)
-![photo1]({{ site.url }}/myimages/20160111_4.jpg)
-![photo1]({{ site.url }}/myimages/20160111_5.jpg)
-
-# 值得期待的时刻
-
-我正在努力得搭建一个云端服务器以及创建相关的API，目的是把neural art的算法变成简单的API接口以及网络服务，这样我们就都可以多一个好玩的滤镜去渲染照片。目前试用亚马逊的AWS，之后可能会用阿里云服务。不知道哪个更好，各有什么问题，高手们可以私信授我以渔。那么最后一个问题来了，我多久能搭好这个服务呢，我看还是不要有奖竞猜的，猜对了我也没法提供奖金。
-
-# _Cajal-Turing Club_ 小组
-
-我一直在想也许我们这个小组的最终目的就是传递一些有或者意思的，或者有用的，或者酷酷的新科技，新突破，新发现，以及先行的实验和结果。目前我们关注的领域包括人工智能，神经科学，认知科学，类脑科技。原因很简单，人工智能跟脑科学是一对不可分割的好基友嘛。当然我们也有能理解梵高的小伙伴，看我们的logo多么白富美。以下是被neural art渲染过的神一般的队友们
-
-![photo1]({{ site.url }}/myimages/ns_0.jpg)
-
-![photo1]({{ site.url }}/myimages/ns_1.jpg)
-
-![photo1]({{ site.url }}/myimages/ns_3.jpg)
-
-![photo1]({{ site.url }}/myimages/ns_4.jpg)
-
-![photo1]({{ site.url }}/myimages/ns_5.jpg)
-
-![photo1]({{ site.url }}/myimages/ns_6.jpg)
-
-![photo1]({{ site.url }}/myimages/ns_7.jpg)
+![photo1](/images/20160111_2.jpg){:width="600"}
+![photo1](/images/20160111_1.jpg){:width="600"}
+![photo1](/images/20160111_3.jpg){:width="600"}
+![photo1](/images/20160111_4.jpg){:width="600"}
+![photo1](/images/20160111_5.jpg){:width="600"}
 
 
 
 # 写在后面
 
-说起来自己都觉得点怪怪得，这篇文章其实是在翻译自己之前写的一个文章，内容多少有点删减，去读原文的话，下伙伴们需要猛戳这里[http://www.hongyusu.com/research/2016/01/05/cool-thing-in-nips-2016---neural-style/](http://www.hongyusu.com/research/2016/01/05/cool-thing-in-nips-2016---neural-style/)。本文也可以猛戳这里看到[http://www.hongyusu.com/research/2016/01/21/cool-thing-in-nips-2016---neural-style-cn/](http://www.hongyusu.com/research/2016/01/21/cool-thing-in-nips-2016---neural-style-cn/).
+说起来自己都觉得点怪怪得，这篇文章其实是在翻译自己之前写的一个文章，内容多少有点删减，去读原文的话，下伙伴们需要猛戳这里[http://www.hongyusu.com/research/2016/01/05/cool-thing-in-nips-2016---neural-style/](/imt/research/cool-thing-in-nips-2016-neural-style.html)。本文也可以猛戳这里看到[http://www.hongyusu.com/research/2016/01/21/cool-thing-in-nips-2016---neural-style-cn/](/imt/research/cool-thing-in-nips-2016-neural-style-cn.html).
 
 
 

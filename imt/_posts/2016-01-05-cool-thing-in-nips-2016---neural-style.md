@@ -10,20 +10,9 @@ tags: [NIPS, DeepLearning]
 
 The deep learning algorithm, _Neural style_, is also known as _neural art_. Some similar algorithmic techniques have been seen in so called _deep dream_. It is a recent work in the filed of _deep learning_, and of course it's super **cool**. The algorithm has been there for a few months already and I have noticed it for a while. Let's take a close look at technology behind the scene.
 
-<script type="text/javascript"
- src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
- 
-
-
-![photo1]({{ site.url }}/myimages/ss_20160121_0.jpg)
-
-
 # Table of content
 * auto-gen TOC:
 {:toc}
-
-
 
 # Introduction
 
@@ -38,7 +27,7 @@ First off, what this clever algorithm does is to render an input image A with so
 
 For instance, the style of Van Gogh's _The Starry Night_ looks to me peaceful, clear, and purified. It is with high contrast and also with clean color. Similar style has been added into image C. I don't really understand any art. But Chinese readers can check this [Zhihu page](https://www.zhihu.com/question/19708222) to find out why Vincent Van Gogh's art is super good.
 
-![photo1]({{ site.url }}/myimages/ss_20160105.jpg)
+![photo1](/images/ss_20160105.jpg){:width="600"}
 
 # Technology behind the scene
 
@@ -58,7 +47,7 @@ The style of an image is a bit tricky to capture. But remember we have a collect
 
 Put together content representation and style representation, we end up with a deep neural network model shown in the following picture (picture taken from the original technical paper). 
 
-![photo2]({{ site.url }}/myimages/ss_20160105_3.jpg)
+![photo2](/images/ss_20160105_3.jpg){:width="600"}
 
 An input image is represented as a collection of filtered images in each layer of the neural network while the number of filtered image increases along the hierarchy of the network. The granularity of the content feature decrease along the hierarchy of the network in which high level layer captures more about content than the detailed pixel values.
 
@@ -72,13 +61,13 @@ Rendering is performed by finding an image that simultaneously matches the conte
 
 ## Deep dream web application
 
-![photo4]({{ site.url }}/myimages/ss_20160106_0.jpg)
+![photo4](/images/ss_20160106_0.jpg){:width="600"}
 
 There is web service implementing a similar algorithm (possibly?), sometimes known as _deep dream_. The online platform allows you to upload an image and render it with a default style. Follow [this link](http://deepdreamgenerator.com) in order to access the _deep dream_. _I might be wrong about deep dream as I haven't yet check the original paper_.
 
 ## DeepForger twitter bot
 
-![photo4]({{ site.url }}/myimages/ss_20160106_1.jpg)
+![photo4](/images/ss_20160106_1.jpg){:width="600"}
 
 _Deep dream_ might be the most easies way to render an image using a similar algorithm and technology. However, it is not possible to render an image based on a arbitrary style given by another input. _DeepForger twitter bot_ is a valuable alternative. Follow [this link](https://twitter.com/DeepForger) to access this robot. 
 
@@ -115,33 +104,15 @@ Technically, I would argue that algorithm is not computationally efficient for l
 
 Look at a portrait image being rendered by different art styles.
 
-![photo1]({{ site.url }}/myimages/20160111_0.jpg)
+![photo1](/images/20160111_0.jpg){:width="600"}
 
-![photo1]({{ site.url }}/myimages/20160111_2.jpg)
-![photo1]({{ site.url }}/myimages/20160111_1.jpg)
-![photo1]({{ site.url }}/myimages/20160111_3.jpg)
-![photo1]({{ site.url }}/myimages/20160111_4.jpg)
-![photo1]({{ site.url }}/myimages/20160111_5.jpg)
+![photo1](/images/20160111_2.jpg){:width="600"}
+![photo1](/images/20160111_1.jpg){:width="600"}
+![photo1](/images/20160111_3.jpg){:width="600"}
+![photo1](/images/20160111_4.jpg){:width="600"}
+![photo1](/images/20160111_5.jpg){:width="600"}
 
-# _Cajal-Turing Club_ team
-
-Currently, I am a part of a team aiming at delivering some interesting, useful, or advanced novel technologies, break-throughs, findings, or experiments on artificial intelligence (AI), neural science, cognitive science, and brain science. Here are the team members :laughing:
-
-![photo1]({{ site.url }}/myimages/ns_0.jpg)
-
-![photo1]({{ site.url }}/myimages/ns_1.jpg)
-
-![photo1]({{ site.url }}/myimages/ns_3.jpg)
-
-![photo1]({{ site.url }}/myimages/ns_4.jpg)
-
-![photo1]({{ site.url }}/myimages/ns_5.jpg)
-
-![photo1]({{ site.url }}/myimages/ns_6.jpg)
-
-![photo1]({{ site.url }}/myimages/ns_7.jpg)
-
-# In progress
+# Work in progress
 
 Currently I am working in progress to build a wep service with APIs by running this deep algorithm in the cloud (e.g. Amazone AWS, AliCloud). Let's see what I can achieve after sometime. 
 
