@@ -3,3 +3,5 @@
 **/._*
 _site
 *.save
+_drafts/
+*.tar
