@@ -1,5 +1,5 @@
 ---
-layout: iem
+layout: amt 
 title: Archives
 section: Past
 
@@ -10,7 +10,7 @@ keywords: Machine Learning, Statistics, Blog, Research, Academia
 Archives
 ========
 
-This is the complete archive of posts from _[Informatica](/iem)_
+This is the complete archive of posts from _[Automata](/amt)_
 in reverse chronological order.
 
 {% for post in site.categories.iem %}

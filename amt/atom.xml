@@ -1,12 +1,12 @@
 ---
-layout: nil
+layout: nil 
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
  
  <title>Structure &amp; Process</title>
- <link href="http://mark.reid.name/sap/atom.xml" rel="self"/>
- <link href="http://mark.reid.name/sap/"/>
+ <link href="http://mark.reid.name/amt/atom.xml" rel="self"/>
+ <link href="http://mark.reid.name/amt/"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
  <id>http://mark.reid.name/sap/</id>
  <author>
@@ -14,7 +14,7 @@ layout: nil
    <email>mark@reid.name</email>
  </author>
  
- {% for post in site.categories.sap limit:5 %}
+ {% for post in site.categories.amt limit:5 %}
  <entry>
    <title>{{ post.title }}</title>
    <link href="http://mark.reid.name{{ post.url }}"/>

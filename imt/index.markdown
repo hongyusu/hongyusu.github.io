@@ -1,5 +1,5 @@
 ---
-layout: iem
+layout: imt
 title: Home
 section: Home
 
@@ -17,12 +17,12 @@ More [information](info.html) about this blog, its [kith](kith.html) (blogroll, 
 [![Feed icon](/files/css/feed-icon-14x14.png){:title="Atom feed of recent posts" .right}][feed]
 A [feed][] of the most recent posts is also available.
 
-[feed]: /iem/atom.xml
+[feed]: /imt/atom.xml
 
 Recent Posts
 ------------
 
-{% for post in site.categories.iem limit:5 %}
+{% for post in site.categories.imt limit:5 %}
 <div class="section list">
   <h1>{{ post.date | date_to_string }}</h1>
   <p class="line">

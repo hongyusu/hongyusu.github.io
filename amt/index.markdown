@@ -1,5 +1,5 @@
 ---
-layout: sap
+layout: amt 
 title: Home
 section: Home
 
@@ -11,17 +11,17 @@ Programming Lab Notes
 =====================
 
 Programming is all about _Automata_ and this blog is all about
-[Mark Reid](/)'s adventures in programming. Enjoy!
+[Hongyu Su](/)'s adventures in programming. Enjoy!
 
 [![Feed icon](/files/css/feed-icon-14x14.png){:title="Atom feed of recent posts" .right}][feed]
 A [feed][] of the most recent posts is available.
 
-[feed]: /sap/atom.xml
+[feed]: /amt/atom.xml
 
 Recent Posts
 ------------
 
-{% for post in site.categories.sap limit:5 %}
+{% for post in site.categories.amt limit:5 %}
 <div class="section list">
   <h1>{{ post.date | date_to_string }}</h1>
   <p class="line">

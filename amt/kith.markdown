@@ -1,11 +1,11 @@
 ---
-layout: iem
+layout: amt 
 
 title: Kith
 section: Kith
 ---
 
-Machine Learning Resources
+Data Engineering Resources
 ==========================
 
 >**kith** (kıθ), _n_:    
@@ -21,7 +21,7 @@ machine learning research.
 
 Blogs
 -----
-
+<!--
 The following list of machine learning and data mining blogs is by no means 
 exhaustive. They represent those I find most interesting and which are updated 
 on a semi-regular basis:
@@ -42,20 +42,27 @@ on a semi-regular basis:
 *  Mikio Braun's [Marginally Interesting](http://blog.mikiobraun.de/)
 *  Yisong Yue's [Random Ponderings](http://yyue.blogspot.com/)
 *  Bob Carpenter's [LingPipe Blog](http://lingpipe-blog.com/)
+-->
 
 Papers
 ------
 
+<!--
 I keep track of papers to read using the service 
 [CiteULike](http://www.citeulike.org/user/mdreid). I have also started a 
 [Statistical Machine Learning group](http://www.citeulike.org/groupfunc/3808)
 there. Please join up if you want to see what others are reading and want
 to share and discuss your finds.
+-->
+
 Bookmarks
 ---------
 
+<!--
 I collect machine learning (and other) bookmarks using the service 
 [delicious](http://delicious.com/mreid). Here are the latest ones that I have
 tagged '[machinelearning](http://delicious.com/mreid/machinelearning)'.
 
 <script type="text/javascript" src="http://feeds.delicious.com/v2/js/mreid/machinelearning?title=Bookmarks&count=5&sort=date&extended"></script>
+
+-->

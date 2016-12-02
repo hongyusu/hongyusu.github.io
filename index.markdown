@@ -10,8 +10,8 @@ section: Home
 [Welcome]()
 =======
 
-I'm Hongyu Su, a Ph.D on Machine Learning, downhill snowboarding unprofessional, scuba diver, cat person, terrible guitar player, researcher, lead data scientist in a bank, nerdy vim user, [publishing papers](/work/pub/), hiker and [photographer][flickr], [etc](/work/) & [etc](/iem/).
-Yeah, you certainly find more about me by clicking links [here](/work) and [there](/iem).  
+I'm Hongyu Su, a Ph.D on Machine Learning, downhill snowboarding unprofessional, scuba diver, cat person, terrible guitar player, researcher, lead data scientist in a bank, nerdy vim user, [publishing papers](/work/pub/), hiker and [photographer][flickr], [etc](/work/) & [etc](/imt/).
+Yeah, you certainly find more about me by clicking links [here](/work) and [there](/imt).  
 
 [flickr]: https://www.flickr.com/photos/123885344@N02/
 
@@ -24,8 +24,8 @@ I got [Ph.D](/work) in Machine Learning from Aalto University and did [PostDoc](
 <div class="section" markdown="1">
 Data Science
 =====
-I maintain a technical blog called [_Informatica_](/iem) on machine learning and data science, where recent posts include:
-{% for post in site.categories.iem limit:3 %}
+I maintain a technical blog called [_Informatica_](/imt) on machine learning and data science, where recent posts include:
+{% for post in site.categories.imt limit:3 %}
 <ul class="compact recent">
 <li>
 	<a href="{{ post.url }}" title="{{ post.excerpt }}">{{ post.title }}</a>
@@ -38,12 +38,12 @@ I maintain a technical blog called [_Informatica_](/iem) on machine learning and
 <div class="section" markdown="1">
 Data Engineering
 =====
-I have also just started another blog called [_Automata_](/sap) on data engineering and architecture, where recent posts include:
-{% for sappost in site.categories.sap limit:3 %}
+I have also just started another blog called [_Automata_](/amt) on data engineering and architecture, where recent posts include:
+{% for amtpost in site.categories.amt limit:3 %}
 <ul class="compact recent">
 <li>
-	<a href="{{ sappost.url }}" title="{{ sappost.excerpt }}">{{ sappost.title }}</a>
-	<span class="date">{{ sappost.date | date_to_string }}</span> 
+	<a href="{{ amtpost.url }}" title="{{ amtpost.excerpt }}">{{ amtpost.title }}</a>
+	<span class="date">{{ amtpost.date | date_to_string }}</span> 
 </li>
 </ul>
 {% endfor %}

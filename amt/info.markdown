@@ -2,15 +2,15 @@
 title: About
 section: Info
 
-layout: iem
+layout: amt 
 
 ---
 
-About _Informatica_ 
+About _Automata_ 
 ===========================
 
-[I][] started this [_Informatica_ blog][iem] in late Autumn 2015 shortly after I finished my [PhD][pubs] and started my [PostDoc][work]. 
-The original idea is to keep track [my research][work] and keep developing [interesting things][code] in the field of Machine Learning and Data Science.
+[I][] recently started this [_Automata_ ][amt] blog which is approximately in early winter 2016. After being working in the bank as a lead data scientis for about half a year, I realize the industry is very much engineering oriented. Machine Learning and Data Science are still far from most industrial sectors. Then I decided to separate the fancy or fantasy science from the tedious hard work coding and building things. 
+
 
 
 Popular Posts
@@ -23,12 +23,8 @@ Unless specified otherwise, all content within this site is
 licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License</a>. Style of this site is designed by [Mark Reid][mr]
 
 
-
-[I]: /
-[iem]: /iem/
-[work]: /work/
-[pubs]: /work/pubs/
-[code]: /code/
+[I]: / 
+[amt]: /amt/
 [mr]: /
 
 <!--

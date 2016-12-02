@@ -47,7 +47,7 @@ Here are some slides about my research on Machine Learning and Artificial Intell
 <div class="section" markdown="1">
 [Blog](/iem/)
 ====
-I maintain a technical blog called [_Hacker & Hiker_](/iem) on machine learning and data science. Here are some recent posts:
+I maintain a technical blog called [_Informatica_](/iem) on machine learning and data science. Here are some recent posts:
 {% for post in site.categories.iem limit:3 %}
 <ul class="compact recent">
 <li>

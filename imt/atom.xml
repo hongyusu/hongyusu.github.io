@@ -1,20 +1,20 @@
 ---
-layout: nil
+layout: nil 
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
  
  <title>Inductio Ex Machina</title>
- <link href="http://mark.reid.name/iem/atom.xml" rel="self"/>
- <link href="http://mark.reid.name/iem/"/>
+ <link href="http://mark.reid.name/imt/atom.xml" rel="self"/>
+ <link href="http://mark.reid.name/imt/"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
- <id>http://mark.reid.name/iem/</id>
+ <id>http://mark.reid.name/imt/</id>
  <author>
    <name>Mark Reid</name>
    <email>mark@reid.name</email>
  </author>
  
- {% for post in site.categories.iem limit:5 %}
+ {% for post in site.categories.imt limit:5 %}
  <entry>
    <title>{{ post.title }}</title>
    <link href="http://mark.reid.name{{ post.url }}"/>
