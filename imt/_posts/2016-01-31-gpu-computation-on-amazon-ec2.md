@@ -6,12 +6,12 @@ category: Technology
 tags: [GPU, Amazon]
 ---
 
-This article is about running a deep learning algorithm _neural style_ on Amazone GPU instance.
+Running a deep learning algorithm properly is not a big deal. 
+We discuss the setting that allows us to run a deep learning algorithm, in particular _neural stype_ on Amazon GPU instances. 
 
 # Table of content
 * auto-gen TOC:
 {:toc}
-
 
 # Introduction
 

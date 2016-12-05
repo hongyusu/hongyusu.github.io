@@ -21,9 +21,8 @@ The problem is very interesting and makes a lot sense in the real world. For exa
 
 
 
-# Permanent links
+# Link to the code 
 
-- Permanent [link](http://www.hongyusu.com/programming/2016/02/01/time-series-preference-data) to this page [http://www.hongyusu.com/programming/2016/02/01/time-series-preference-data](http://www.hongyusu.com/programming/2016/02/01/time-series-preference-data).
 - permanent [link](https://github.com/hongyusu/SparkViaPython/tree/master/Examples/Campanja_codes/) to code [https://github.com/hongyusu/SparkViaPython/tree/master/Examples/Campanja_codes/](https://github.com/hongyusu/SparkViaPython/tree/master/Examples/Campanja_codes/).
 - [Code for Custom B](https://github.com/hongyusu/SparkViaPython/tree/master/Examples/Campanja_codes/CampanjaB) is only slightly different from [code for custom A](https://github.com/hongyusu/SparkViaPython/tree/master/Examples/Campanja_codes/Campanja).
 

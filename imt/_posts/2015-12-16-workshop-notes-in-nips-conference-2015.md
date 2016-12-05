@@ -70,7 +70,7 @@ Another interesting direction on non-convex optimization is to develop efficient
          $$y_i = <a_i,x>^2,\quad i=1,\cdots, m$$.
    1. It is a non-convex optimization problem.
    1. Solving the quadratic system of equation is to find rank one solution based on a collection of linear constraints
-      ![photo1](/images/ss_20160119_10.png).
+      ![photo1](/images/ss_20160119_10.png){:width="600"}
       Therefore, it is similar as low rank matrix estimation.
    1. The paper is saying that a quadratic system equations with $$n$$ variables can be solved in $$\Theta(n)$$.
    1. The key ingredients:

@@ -5,16 +5,13 @@ description: ""
 category: Programming
 tags: [Teaser]
 ---
-Teaser solution
+
+The task is to provide an easy-to-read map for recruiters to find the top analyst. This was one of the interview quiz from Zalando.
 
 # Table of content
 * auto-gen TOC:
 {:toc}
 
-# Problem definition
-
-- The task is to provide an easy-to-read map for recruiters to find the top analyst.
- 
 # Result
 
 ### Permanent links to code and solution
@@ -326,7 +323,7 @@ Teaser solution
 - The complete Python code as well as html header and tail codes are shown as follows.
 - Python code
 
-  ```python
+```python
 import math
 import numpy as np
 from scipy.stats import norm
