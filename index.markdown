@@ -10,7 +10,18 @@ section: Home
 [Welcome]()
 =======
 
-I'm Hongyu Su, a Ph.D on Machine Learning, downhill snowboarding unprofessional, scuba diver, cat person, terrible guitar player, researcher, lead data scientist in a bank, nerdy vim user, [publishing papers](/work/pubs/), hiker and [photographer][flickr], [etc](/work/) & [etc](/imt/).
+I'm Hongyu Su,
+a Ph.D on Machine Learning,
+downhill snowboarding unprofessional,
+scuba diver,
+cat person,
+terrible guitar player,
+researcher,
+lead data scientist in a bank,
+[publishing papers](/work/pubs/),
+nerdy vim user,
+hiker and [photographer][flickr],
+[etc](/work/) & [etc](/imt/).
 Yeah, you certainly find more about me by clicking links [here](/work) and [there](/imt).  
 
 [flickr]: https://www.flickr.com/photos/123885344@N02/
