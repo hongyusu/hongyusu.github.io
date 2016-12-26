@@ -7,14 +7,15 @@ tags: [Programming, DeepLearning, Heroku]
 ---
 
 
-
-I have been thinking for a long while to build a web service for sentiment analysis, the idea of which is tell the emotional positivity (negativity) given a piece of text.  Despite of the potentially huge and interesting applications or use-cases, we will be focusing the sentiment analysis for tweets.
-
+I have been thinking for a long while to build a web service for sentiment analysis, the idea of which is tell the emotional positivity (negativity) given a piece of text.  Despite of the potentially huge and interesting applications or use-cases, we will be focusing the sentiment analysis for tweets. 
 Basically this article is telling what happened and how.
+
 As a short summary, I have trained a sentiment prediction model using IMDB review data.
 The model is essentially a Convonlutional Neural Network (CNN) using pretrained sentiment140 word2vec as embedding layer.
 The implementation of the model is through Keras API running tensorflow as backend.
 The web service is built with Python flask and hosted in Heroku.
+
+Online demo lives in Heroku accessible via [http://sentipred.heroku.com](http://sentipred.heroku.com). A bit slow when loading the page but have fun!
 
  
 # Table of content
@@ -22,16 +23,64 @@ The web service is built with Python flask and hosted in Heroku.
 {:toc}
 
 
+# Design
+
+The architechture is not very compilcated as shown in the following picture.
+
+![photo1](/images/architecture_sentiment_predictor.jpg){:width="600"}
+
+There are two major components, offline training to make a model, a web service utilizing the model for scoring.
+As tensorflow is running as backend, model training can be done either via CPU or via GPU. 
+Prediction or scoring can only be perform with GPU since currently there is no GPU available for Heroku dyno.
+In addition, the load balancing is taken care of by Heroku itself. 
+
 # Code Repository 
 
-[link](http://www.hongyusu.com/sentiment_predictor/)
+There should always be a [link](http://www.hongyusu.com/sentiment_predictor/) to the [real stuffs](http://www.hongyusu.com/sentiment_predictor/).
 
 
-# Build a Deep Learning Model for Sentiment Prediction
+# Deep Learning Model for Sentiment Prediction
 
-##  
 
-# Build a Web Application with Python Flask
+# Web Application via Python Flask
+
+1. Full code can be found from [here](https://github.com/hongyusu/sentiment_predictor/blob/master/app.py). 
+
+1. When the url is called, a front page (_index.html_) will be display which is defined by the following code block in _flask_
+
+   ```python
+   @app.route('/')
+   def index(name=None):
+       return render_template('index.html')
+   ```
+
+1. There is a button defined in _index.html_, and when clicked an action is triggered. The result is computed by the following code block again in _flask_
+
+   ```python
+   @app.route('/action1', methods=['POST'])
+   def action1(name=None):
+       ht = request.get_json()
+       cPickle.dump(ht,open("hashtag.pickle","wb"))
+       print "---> {} : started".format(ht)
+       os.system("python wrapper_twitter.py")
+       while True:
+           if os.path.isfile("hashtag_res.pickle"):
+               try:
+                   data = cPickle.load(open("hashtag_res.pickle","r+"))
+                   os.system("rm hashtag_res.pickle")
+                   print "---> {} : ended".format(ht)
+                   break
+               except:
+                   pass
+       return flask.jsonify(data)
+   ```
+
+1. Once the web service is ready, it can be activated offline
+
+   ```bash
+   python app.py
+   ```
+   and tested offline by accessing _localhost:5000_ 
 
 # Host the Application with Heroku 
 
