@@ -24,6 +24,7 @@ The web service is built with Python flask and hosted in Heroku.
 
 # Code Repository 
 
+[link](http://www.hongyusu.com/sentiment_predictor/)
 
 
 # Build a Deep Learning Model for Sentiment Prediction
@@ -33,3 +34,79 @@ The web service is built with Python flask and hosted in Heroku.
 # Build a Web Application with Python Flask
 
 # Host the Application with Heroku 
+
+1. Install virtual environment, the only step requires _sudo_ right
+
+   ```bash
+   sudo python install virtualenv
+   ``` 
+
+1. Set up a new virtual environment and name it with _venv_
+
+   ```bash
+   virtualenv venv
+   ```
+
+1. Activate the virtual environment
+
+   ```bash
+   souce ./venv/Scripts/activate
+   ```
+
+1. Install all requirement Python packages
+
+   ```bash
+   pip install keras==1.0.3       
+   pip install theano==0.8.2       
+   pip install tensorflow==0.12.0rc0       
+   pip install pandas==0.19.1       
+   pip install sklearn==0.08.1       
+   pip install flask==0.11.1       
+   pip install tweep==3.5.0       
+   pip install h5py==2.6.0
+   ```
+
+1. Create a dependency file _requirement.txt_ which includes all packages and patterns. We do this via
+
+   ```bash
+   pip freeze > requirement.txt
+   ```
+
+1. Tensorflow needs some special treatment (revision) to the requirement file. So remove the tensor flow line, something like
+
+   ```bash
+   tensorflow==0.10.0
+   ```
+
+   and add one line
+
+   ```bash
+   https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.10.0-cp27-none-linux_x86_64.whl
+   ```
+
+1. Create a _runtime.txt_ file and add the following line to declare python version used in this web app
+
+   ```bash
+   python-2.7.12
+   ```
+
+1. Create a _Procfile_ file and add the following line to specify how to run the application when deployed
+
+   ```bash
+   web: bin/web
+   ```
+
+   also create the _bin/web_ file with the following content
+
+   ```bash
+   python app.py
+   ```
+
+1. Version control via Git all required files. 
+
+1. Push to Heroku repository 
+
+   ```bash
+   git push -u heroku master
+   ```
+
