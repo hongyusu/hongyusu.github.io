@@ -8,8 +8,7 @@ tags: [Programming, DeepLearning, Heroku]
 
 
 
-I have been thinking for a long while to build a web service for sentiment analysis, the idea of which is tell the emotional positivity (negativity) given a piece of text.  
-Despite of the potentially huge and interesting applications or use-cases, we will be focusing the sentiment analysis for tweets.
+I have been thinking for a long while to build a web service for sentiment analysis, the idea of which is tell the emotional positivity (negativity) given a piece of text.  Despite of the potentially huge and interesting applications or use-cases, we will be focusing the sentiment analysis for tweets.
 
 Basically this article is telling what happened and how.
 As a short summary, I have trained a sentiment prediction model using IMDB review data.
