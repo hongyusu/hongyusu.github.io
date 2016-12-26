@@ -41,6 +41,10 @@ There should always be a [link](http://www.hongyusu.com/sentiment_predictor/) to
 
 # Deep Learning Model for Sentiment Prediction
 
+1. Full code for learning part can be found from [sentiment_predictor.py](https://github.com/hongyusu/sentiment_predictor/blob/master/sentiment_predictor.py).
+
+1. A wrapper that ommunicats with Twitter via Tweeter API can be found from [wrappter_twitter.py](https://github.com/hongyusu/sentiment_predictor/blob/master/sentiment_predictor.py). 
+
 
 # Web Application via Python Flask
 

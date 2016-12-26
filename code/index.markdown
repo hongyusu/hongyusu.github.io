@@ -25,6 +25,10 @@ Hackthon
 <div class="section" markdown="1">
 Other Codes
 =====
+
+[_Sentipred_](http://sentipred.heroku.com)
+:      A web service that does sentiment analysis based on deep learning for Tweeter [Github](http://hongyusu.github.io/sentiment_predictor/).
+
 [_Transporter Protein Classification_](http://hongyusu.github.io/ProteinFunctionPrediction/)
 :      A research project aims to prediction the classification of transporter proteins [Github](http://hongyusu.github.io/ProteinFunctionPrediction/).
 
