@@ -1,5 +1,5 @@
 ---
-layout: imt-post 
+layout: amt-post 
 title: "Track my sports"
 location: Helsinki
 tags: [Sport]

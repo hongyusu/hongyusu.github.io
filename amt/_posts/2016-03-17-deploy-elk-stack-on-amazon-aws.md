@@ -1,5 +1,5 @@
 ---
-layout: imt-post
+layout: amt-post
 title: "Deploy ELK stack on Amazon AWS"
 description: ""
 category: 

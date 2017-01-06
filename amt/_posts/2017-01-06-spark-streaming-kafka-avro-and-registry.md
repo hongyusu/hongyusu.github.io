@@ -1,11 +1,11 @@
 ---
-layout: imt-post 
+layout: amt-post 
 title: "Spark streaming, Kafka, Avro, and schema registry"
 location: Helsinki
 tags: [Streaming]
 ---
 
-This article is about Spark Streaming, Kafka streaming, Avro, and [Confluent.io]()'s schema registry.
+This article is about Spark Streaming, Kafka streaming, Avro, and Confluent.io's schema registry.
 
 
 # Table of content

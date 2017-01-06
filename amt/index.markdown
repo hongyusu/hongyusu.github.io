@@ -7,7 +7,7 @@ feed: atom.xml
 keywords: Blog, Programming, Clojure
 ---
 
-Programming Lab Notes
+Thoughts on big data processing 
 =====================
 
 _Automata_ is [Hongyu Su](/)'s journey on data engineering and architecture !

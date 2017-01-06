@@ -1,5 +1,5 @@
 ---
-layout: imt-post
+layout: amt-post
 title: "Build web applications with Flask+Heroku"
 description: ""
 category: Technology

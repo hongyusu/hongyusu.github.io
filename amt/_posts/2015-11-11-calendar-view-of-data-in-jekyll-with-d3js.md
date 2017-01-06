@@ -1,5 +1,5 @@
 ---
-layout: imt-post
+layout: amt-post
 title: "Calendar view of data in Jekyll with D3.js"
 description: ""
 category: Technology

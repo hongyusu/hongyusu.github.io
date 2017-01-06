@@ -1,5 +1,5 @@
 ---
-layout: imt-post
+layout: amt-post
 title: "Spark running on Amazon EC2"
 description: ""
 category: Technology

@@ -1,5 +1,5 @@
 ---
-layout: imt-post
+layout: amt-post
 title: "Build a simple web application with Amazon AWS"
 description: ""
 category: Technology
