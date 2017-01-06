@@ -10,8 +10,7 @@ keywords: Blog, Programming, Clojure
 Programming Lab Notes
 =====================
 
-Programming is all about _Automata_ and this blog is all about
-[Hongyu Su](/)'s adventures in programming. Enjoy!
+_Automata_ is [Hongyu Su](/)'s journey on data engineering and architecture !
 
 [![Feed icon](/files/css/feed-icon-14x14.png){:title="Atom feed of recent posts" .right}][feed]
 A [feed][] of the most recent posts is available.
