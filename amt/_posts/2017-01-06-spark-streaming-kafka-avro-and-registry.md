@@ -12,6 +12,10 @@ This article is about Spark Streaming, Kafka streaming, Avro, and Confluent.io's
 * auto-gen TOC:
 {:toc}
 
+# Code
+
+Running code can be found from [my code repository:bigdata ETL:streaming](https://github.com/hongyusu/bigdata_etl/tree/master/streaming).
+
 # Installations  
 
 1. _brew_ should be installed first 
@@ -87,6 +91,7 @@ compile( 'org.apache.spark:spark-streaming-kafka_2.10:1.6.2' )
 
 ## Make a Kafka stream producer in Java  
 
+1. Complete code can be found from [KafkaCustomerProducer.java](https://github.com/hongyusu/bigdata_etl/blob/master/streaming/src/main/java/streaming/KafkaCustomerProducer.java)
 1. Write the code
 
    ```java
@@ -169,6 +174,7 @@ compile( 'org.apache.spark:spark-streaming-kafka_2.10:1.6.2' )
    
 ## Make a Kafka stream consumer in Java  
 
+1. Complete code can be found from [KafkaCustomerConsumer.java](https://github.com/hongyusu/bigdata_etl/blob/master/streaming/src/main/java/streaming/KafkaCustomerConsumer.java)
 1. Write code 
 
    ```java
@@ -215,6 +221,7 @@ compile( 'org.apache.spark:spark-streaming-kafka_2.10:1.6.2' )
 
 # Make a Kafka Avro producer in Java  
 
+1. Complete code can be found from [KafkaAvroProducer.java](https://github.com/hongyusu/bigdata_etl/blob/master/streaming/src/main/java/streaming/KafkaAvroProducer.java)
 1. Add _twitter bijection_ dependencies
 
    ```
@@ -357,6 +364,7 @@ In this section, we introduce a consumer as implemented in Spark Streaming frame
 
 It's good to point out here the difference between Spark streaming processing/transformation and Kafka processing/transformation is Spark engine is essentially working on a stream of RDDs which are created in a certain time window/interval.
 
+1. Complete code can be found from [SparkKafkaConsumer.java](https://github.com/hongyusu/bigdata_etl/blob/master/streaming/src/main/java/streaming/SparkKafkaConsumer.java)
 1. Initialize Spark streaming context in which time window to generate RDDs is specified in `Duration.seconds()`
 
    ```java
@@ -442,15 +450,18 @@ It's good to point out here the difference between Spark streaming processing/tr
     }
    ``` 
 
-1. Compile and run the Spark kafka consumer. 
+1. Compile and run the Spark kafka consumer. While the Kafka Avro Producer is being executed via 
 
+   ```
+   spark-submit --class streaming.KafkaAvroProducer build/libs/streaming-all.jar
+   ```
 
+   start the Spark stream Avro consumer
 
+   ```
+   spark-submit --class streaming.SparkKafkaConsumer build/libs/streaming-all.jar
+   ```
 
-
-
-
- 
 
 # Connect to Schema registry
 
