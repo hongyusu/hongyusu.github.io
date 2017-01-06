@@ -15,16 +15,19 @@ This article is about Spark Streaming, Kafka streaming, Avro, and Confluent.io's
 # Installations  
 
 1. _brew_ should be installed first 
+
    ```bash
    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
    ```
 
 1. Install Zookeeper and Kafka. Zookeeper is part of this Kafka distribution
+
    ```bash
    brew install kafka
    ```
 
 1. Install gradle to enable building the project coded in Java
+
    ```bash
    brew install gradle
    ```
@@ -32,6 +35,7 @@ This article is about Spark Streaming, Kafka streaming, Avro, and Confluent.io's
 # Kafka CLI operations
 
 1. kafka won't work without zookeep, so start zookeeper
+
    ```bash
    zkserver start
    ```
