@@ -1,36 +1,43 @@
 ---
 layout: amt-post 
-title: "Spark streaming, Kafka, Avro, and schema registry"
+title: "Integration of Spark streaming, Kafka, Avro, and schema registry"
 location: Helsinki
 tags: [Streaming]
 ---
 
-This article is about Spark Streaming, Kafka streaming, Avro, and Confluent.io's schema registry.
 
+Streaming data processing is another interesting topic data science. In this article, we will walk through the integration of Spark streaming, Kafka streaming, Avro, and schema registry. Note that this IS NOT a high level introduction in pseudocode, all following implementations should defintely work when compiled properly. In addition, Spark, Kafka and Zookeeper are running on a single machine (standalone cluster). The actual configurations of Spark, Kafka, and Zookeeper are to some extend irrelevant to the integration. 
+  
 
 # Table of content
 * auto-gen TOC:
 {:toc}
 
-# Code
 
-Running code can be found from [my code repository:bigdata ETL:streaming](https://github.com/hongyusu/bigdata_etl/tree/master/streaming).
+# Code repository
+
+All implementation can be found from my [code repository:bigdata ETL:streaming](https://github.com/hongyusu/bigdata_etl/tree/master/streaming).
+
 
 # Installations  
 
-1. _brew_ should be installed first 
+We need Spark, Kafka, Zookeeper, and schema registry server installed before running through the actual integration. The following installation guide targets MacOS and will produce a standalone cluster.
+
+1. First _brew_ needs to be installed on MacOS
 
    ```bash
    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
    ```
 
-1. Install Zookeeper and Kafka. Zookeeper is part of this Kafka distribution
+1. Install Kafka via _brew_. Zookeeper comes as a extra as it is part of this Kafka distribution for MacOS
 
    ```bash
    brew install kafka
    ```
 
-1. Install gradle to enable building the project coded in Java
+1. Spark can be 'installed' by downloading the distribution from [Spark download page](http://spark.apache.org/downloads.html).
+
+1. Install _gradle_ in order to compile the project codes written in Java
 
    ```bash
    brew install gradle
@@ -38,48 +45,50 @@ Running code can be found from [my code repository:bigdata ETL:streaming](https:
 
 # Kafka CLI operations
 
-1. kafka won't work without zookeep, so start zookeeper
+Kafka can operate in Command-Line-Interface (CLI) mode where messages can be produced and consumed by Kafka via Kafka shell command.
+
+1. Kafka won't work without Zookeeper, so first Zookeeper needs to be started
 
    ```bash
    zkserver start
    ```
 
-1. start kafka server
+1. Start Kafka server
 
    ```bash
    kafka-server-start /usr/local/etc/kafka/server.properties
    ```
 
-1. create a topic, _zookeeper URL_, _partition_, and _replication factor_ need to be given as input parameters 
+1. Create a topic, _zookeeper URL_, _partition_, and _replication factor_ need to be given as input parameters. _partition_ defines the number of Kafka brokers (Kafka servers) and _replication factor_ defines how many times each message will be replicated. 
 
    ```bash
    kafka-topics --zookeeper localhost:2181 --create --topic test --partition 1 --replication-factor 1
    ```
 
-1. start a kafka producer, _broker server url_ need to be specified
+1. start a Kafka producer, _broker server url_ need to be specified
 
    ```bash
    kafka-console-producer --topic test --broker-list localhost:9092
    ```
 
-   or send to stream content in file
+   Type messages line by line in console or send a file to Kafka stream 
 
    ```bash
    kafka-console-producer --topic test --broker-list localhost:9092 < test.csv
    ```
 
-1. start kafka consumer
+1. Start Kafka consumer after which messages being sent to Kafka stream will be consumed and printed to the screen 
 
    ```bash
    kafka-console-consumer --zookeeper localhost:2181 --topic test
    ```
 
 
-# kafka Java operation
+# Kafka integration in Java API 
 
 ## Dependency
 
-The following _kafka_ and _spark_ versions are compatible and should work together. In short, kafka version 0.10.1.0 should be paied with spark version 1.6.2. In practice, the following _gradle_ dependencies need to be added to build script.
+The following _Kafka_ and _Spark_ versions are compatible and should work together. In short, Kafka version 0.10.1.0 should be paired with spark version 1.6.2. In practice, the following _gradle_ dependencies need to be added to gradle build script.
 
 ```
 compile( 'org.apache.kafka:kafka-clients:0.10.1.0' )           
@@ -89,7 +98,7 @@ compile( 'org.apache.spark:spark-streaming_2.10:1.6.2')
 compile( 'org.apache.spark:spark-streaming-kafka_2.10:1.6.2' ) 
 ```
 
-## Make a Kafka stream producer in Java  
+## Kafka producer in Java  
 
 1. Complete code can be found from [KafkaCustomerProducer.java](https://github.com/hongyusu/bigdata_etl/blob/master/streaming/src/main/java/streaming/KafkaCustomerProducer.java)
 1. Write the code
