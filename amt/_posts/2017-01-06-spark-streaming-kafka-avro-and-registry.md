@@ -21,21 +21,23 @@ All implementation can be found from my [code repository:bigdata ETL:streaming](
 
 # Installations  
 
-We need Spark, Kafka, Zookeeper, and schema registry server installed before running through the actual integration. The following installation guide targets MacOS and will produce a standalone cluster.
+We need Spark, Kafka, Zookeeper, and schema registry server installed before running through the actual integration. The following installation guide targets OsX and will produce a standalone cluster.
 
-1. First _brew_ needs to be installed on MacOS
+1. First _brew_ needs to be installed on OsX
 
    ```bash
    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
    ```
 
-1. Install Kafka via _brew_. Zookeeper comes as a extra as it is part of this Kafka distribution for MacOS
+1. Install Kafka via _brew_. Zookeeper comes as a extra as it is part of this Kafka distribution for OsX
 
    ```bash
    brew install kafka
    ```
 
 1. Spark can be 'installed' by downloading the distribution from [Spark download page](http://spark.apache.org/downloads.html).
+
+1. Schema registry from confluent.io will be 'installed' by downloading the distribution from [confluent.io installation](http://docs.confluent.io/3.0.0/installation.html#installation).
 
 1. Install _gradle_ in order to compile the project codes written in Java
 
@@ -181,7 +183,7 @@ compile( 'org.apache.spark:spark-streaming-kafka_2.10:1.6.2' )
       Records streamed from Kafka Java producer will be received and print out directly to the terminal.
       
    
-## Make a Kafka stream consumer in Java  
+## Kafka stream consumer in Java  
 
 1. Complete code can be found from [KafkaCustomerConsumer.java](https://github.com/hongyusu/bigdata_etl/blob/master/streaming/src/main/java/streaming/KafkaCustomerConsumer.java)
 1. Write code 
@@ -228,7 +230,7 @@ compile( 'org.apache.spark:spark-streaming-kafka_2.10:1.6.2' )
 
       messages populated to Kafka topic _test_ will be consumed and printed out to the terminal.
 
-# Make a Kafka Avro producer in Java  
+# Kafka Avro producer in Java  
 
 1. Complete code can be found from [KafkaAvroProducer.java](https://github.com/hongyusu/bigdata_etl/blob/master/streaming/src/main/java/streaming/KafkaAvroProducer.java)
 1. Add _twitter bijection_ dependencies
@@ -366,7 +368,7 @@ compile( 'org.apache.spark:spark-streaming-kafka_2.10:1.6.2' )
    ...
    ```
 
-# Make a Spark Kafka Avro consumer in Java  
+# Spark Kafka Avro consumer in Java  
 
 The implementation described in the previous section makes sure messages are in Avro format before sending into Kafka topic.
 In this section, we introduce a consumer as implemented in Spark Streaming framework. The consumer will eat Avro message produced by Kafka Avro producer and process the Avro message via Spark Streaming map reduce operations. 
@@ -474,7 +476,17 @@ It's good to point out here the difference between Spark streaming processing/tr
 
 # Connect to Schema registry
 
+1. Start schema registry server
 
+
+1. Schema registry CLI operation
+
+   1. Register a new schema to registry
+
+   1. Retrieve a schema from registry
+
+
+1. Retrieve schema from registry via Java native integration 
 
 
 
