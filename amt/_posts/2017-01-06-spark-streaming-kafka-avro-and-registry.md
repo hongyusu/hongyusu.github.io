@@ -491,69 +491,69 @@ It's good to point out here the difference between Spark streaming processing/tr
 
    1. Disable schema registry backwards compatibility checking 
 
-   ```
-   # disable compatibility check
-   curl -X PUT http://localhost:8081/config \
-       -H "Content-Type: application/vnd.schemaregistry.v1+json" \
-       --data '{"compatibility": "NONE"}'
-   ```
+      ```
+      # disable compatibility check
+      curl -X PUT http://localhost:8081/config \
+          -H "Content-Type: application/vnd.schemaregistry.v1+json" \
+          --data '{"compatibility": "NONE"}'
+      ```
 
    1. Define new schemas in JSON
 
-   ```
-   schemaTest='{"schema":'\
-   '  "{\"type\":\"record\",'\
-   '    \"name\":\"test\",'\
-   '    \"fields\":['\
-   '                {\"name\":\"date\",\"type\":\"string\" },'\
-   '                {\"name\":\"time\",\"type\":\"string\" },'\
-   '                {\"name\":\"name\",\"type\":\"string\" },'\
-   '                {\"name\":\"address\",\"type\":\"string\" },'\
-   '                {\"name\":\"country\",\"type\":\"string\" },'\
-   '                {\"name\":\"info_6\",\"type\":\"string\" },'\
-   '                {\"name\":\"info_7\",\"type\":\"string\" },'\
-   '                {\"name\":\"info_8\",\"type\":\"string\" },'\
-   '                {\"name\":\"info_9\",\"type\":\"string\" },'\
-   '                {\"name\":\"info_0\",\"type\":\"string\" }]}"}'
-   schemaTestout='{"schema":'\
-   '  "{\"type\":\"record\",'\
-   '    \"name\":\"testout\",'\
-   '    \"fields\":['\
-   '                {\"name\":\"testout_date\",\"type\":\"string\" },'\
-   '                {\"name\":\"testout_time\",\"type\":\"string\" },'\
-   '                {\"name\":\"testout_name\",\"type\":\"string\" },'\
-   '                {\"name\":\"testout_address\",\"type\":\"string\" },'\
-   '                {\"name\":\"testout_country\",\"type\":\"string\" },'\
-   '                {\"name\":\"testout_info_6\",\"type\":\"string\" },'\
-   '                {\"name\":\"testout_info_7\",\"type\":\"string\" },'\
-   '                {\"name\":\"testout_info_8\",\"type\":\"string\" },'\
-   '                {\"name\":\"testout_info_9\",\"type\":\"string\" },'\
-   '                {\"name\":\"testout_info_0\",\"type\":\"string\" }]}"}'
-   ```
+      ```
+      schemaTest='{"schema":'\
+      '  "{\"type\":\"record\",'\
+      '    \"name\":\"test\",'\
+      '    \"fields\":['\
+      '                {\"name\":\"date\",\"type\":\"string\" },'\
+      '                {\"name\":\"time\",\"type\":\"string\" },'\
+      '                {\"name\":\"name\",\"type\":\"string\" },'\
+      '                {\"name\":\"address\",\"type\":\"string\" },'\
+      '                {\"name\":\"country\",\"type\":\"string\" },'\
+      '                {\"name\":\"info_6\",\"type\":\"string\" },'\
+      '                {\"name\":\"info_7\",\"type\":\"string\" },'\
+      '                {\"name\":\"info_8\",\"type\":\"string\" },'\
+      '                {\"name\":\"info_9\",\"type\":\"string\" },'\
+      '                {\"name\":\"info_0\",\"type\":\"string\" }]}"}'
+      schemaTestout='{"schema":'\
+      '  "{\"type\":\"record\",'\
+      '    \"name\":\"testout\",'\
+      '    \"fields\":['\
+      '                {\"name\":\"testout_date\",\"type\":\"string\" },'\
+      '                {\"name\":\"testout_time\",\"type\":\"string\" },'\
+      '                {\"name\":\"testout_name\",\"type\":\"string\" },'\
+      '                {\"name\":\"testout_address\",\"type\":\"string\" },'\
+      '                {\"name\":\"testout_country\",\"type\":\"string\" },'\
+      '                {\"name\":\"testout_info_6\",\"type\":\"string\" },'\
+      '                {\"name\":\"testout_info_7\",\"type\":\"string\" },'\
+      '                {\"name\":\"testout_info_8\",\"type\":\"string\" },'\
+      '                {\"name\":\"testout_info_9\",\"type\":\"string\" },'\
+      '                {\"name\":\"testout_info_0\",\"type\":\"string\" }]}"}'
+      ```
 
    1. Register new schemas to registry
 
-   ```
-   # register 'testout' schema
-   curl -X POST http://localhost:8081/subjects/schemaTestout/versions \
-       -H "Content-Type: application/vnd.schemaregistry.v1+json" \
-       --data "${schemaTestout}" 
-
-   # register 'test' schema 
-   curl -X POST http://localhost:8081/subjects/schemaTest/versions \
-       -H "Content-Type: application/vnd.schemaregistry.v1+json" \
-       --data "${schemaTest}" 
-   ```
+      ```
+      # register 'testout' schema
+      curl -X POST http://localhost:8081/subjects/schemaTestout/versions \
+          -H "Content-Type: application/vnd.schemaregistry.v1+json" \
+          --data "${schemaTestout}" 
+   
+      # register 'test' schema 
+      curl -X POST http://localhost:8081/subjects/schemaTest/versions \
+          -H "Content-Type: application/vnd.schemaregistry.v1+json" \
+          --data "${schemaTest}" 
+      ```
 
    1. Retrieve registered schemas from registry
 
-   ```
-   # retrive schema: schemaTest with the latest version
-   curl -X GET -i http://localhost:8081/subjects/schemaTest/versions/latest
-   
-   # retrive schema: schemaTestout with the latest version
-   curl -X GET -i http://localhost:8081/subjects/schemaTestout/versions/latest
-   ```
+      ```
+      # retrive schema: schemaTest with the latest version
+      curl -X GET -i http://localhost:8081/subjects/schemaTest/versions/latest
+      
+      # retrive schema: schemaTestout with the latest version
+      curl -X GET -i http://localhost:8081/subjects/schemaTestout/versions/latest
+      ```
 
 ## Schema registry integration via Java 
 
