@@ -478,12 +478,73 @@ It's good to point out here the difference between Spark streaming processing/tr
 
 1. Start schema registry server
 
+   ```
+   cd confluent-3.0.0/bin/
+   schema-registry-start ../etc/schema-registry/schema-registry.properties
+   ```
 
 1. Schema registry CLI operation
 
-   1. Register a new schema to registry
+   1. Disable schema registry backwards compatibility checking 
+
+      ```
+      # disable compatibility check
+      curl -X PUT http://localhost:8081/config \
+          -H "Content-Type: application/vnd.schemaregistry.v1+json" \
+          --data '{"compatibility": "NONE"}'
+      ```
+
+   1. Define new schemas in JSON
+
+      ```
+      schemaTest='{"schema":'\
+      '  "{\"type\":\"record\",'\
+      '    \"name\":\"test\",'\
+      '    \"fields\":['\
+      '                {\"name\":\"date\",\"type\":\"string\" },'\
+      '                {\"name\":\"time\",\"type\":\"string\" },'\
+      '                {\"name\":\"name\",\"type\":\"string\" },'\
+      '                {\"name\":\"address\",\"type\":\"string\" },'\
+      '                {\"name\":\"country\",\"type\":\"string\" },'\
+      '                {\"name\":\"info_6\",\"type\":\"string\" },'\
+      '                {\"name\":\"info_7\",\"type\":\"string\" },'\
+      '                {\"name\":\"info_8\",\"type\":\"string\" },'\
+      '                {\"name\":\"info_9\",\"type\":\"string\" },'\
+      '                {\"name\":\"info_0\",\"type\":\"string\" }]}"}'
+      schemaTestout='{"schema":'\
+      '  "{\"type\":\"record\",'\
+      '    \"name\":\"testout\",'\
+      '    \"fields\":['\
+      '                {\"name\":\"testout_date\",\"type\":\"string\" },'\
+      '                {\"name\":\"testout_time\",\"type\":\"string\" },'\
+      '                {\"name\":\"testout_name\",\"type\":\"string\" },'\
+      '                {\"name\":\"testout_address\",\"type\":\"string\" },'\
+      '                {\"name\":\"testout_country\",\"type\":\"string\" },'\
+      '                {\"name\":\"testout_info_6\",\"type\":\"string\" },'\
+      '                {\"name\":\"testout_info_7\",\"type\":\"string\" },'\
+      '                {\"name\":\"testout_info_8\",\"type\":\"string\" },'\
+      '                {\"name\":\"testout_info_9\",\"type\":\"string\" },'\
+      '                {\"name\":\"testout_info_0\",\"type\":\"string\" }]}"}'
+      ```
+
+   1. Register new schemas to registry
+
+      ```
+      # register 'testout' schema
+      curl -X POST http://localhost:8081/subjects/schemaTestout/versions \
+          -H "Content-Type: application/vnd.schemaregistry.v1+json" \
+          --data "${schemaTestout}" 
+
+      # register 'test' schema 
+      curl -X POST http://localhost:8081/subjects/schemaTest/versions \
+          -H "Content-Type: application/vnd.schemaregistry.v1+json" \
+          --data "${schemaTest}" 
+      ```
 
    1. Retrieve a schema from registry
+
+      ```
+      ```
 
 
 1. Retrieve schema from registry via Java native integration 
