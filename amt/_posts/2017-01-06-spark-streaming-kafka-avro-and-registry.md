@@ -61,19 +61,19 @@ Kafka can operate in Command-Line-Interface (CLI) mode where messages can be pro
    kafka-server-start /usr/local/etc/kafka/server.properties
    ```
 
-1. Create a topic, _zookeeper URL_, _partition_, and _replication factor_ need to be given as input parameters. _partition_ defines the number of Kafka brokers (Kafka servers) and _replication factor_ defines how many times each message will be replicated. 
+1. Create a topic, _zookeeper URL_, _partition_, and _replication factor_ need to be given as input parameters. _partition_ defines the number of Kafka brokers (Kafka servers) and _replication factor_ defines how many times each message will be replicated. We use default value `partition=1` and `replication-factor=1` running as standalone cluster. 
 
    ```bash
    kafka-topics --zookeeper localhost:2181 --create --topic test --partition 1 --replication-factor 1
    ```
 
-1. start a Kafka producer, _broker server url_ need to be specified
+1. Start a Kafka producer to generate messages to the queue, _broker server url_ need to be specified
 
    ```bash
    kafka-console-producer --topic test --broker-list localhost:9092
    ```
 
-   Type messages line by line in console or send a file to Kafka stream 
+   Type in messages one line by another in console or send a file to Kafka stream 
 
    ```bash
    kafka-console-producer --topic test --broker-list localhost:9092 < test.csv
@@ -86,7 +86,7 @@ Kafka can operate in Command-Line-Interface (CLI) mode where messages can be pro
    ```
 
 
-# Kafka integration in Java API 
+# Kafka integration via Java API 
 
 ## Dependency
 
@@ -103,7 +103,7 @@ compile( 'org.apache.spark:spark-streaming-kafka_2.10:1.6.2' )
 ## Kafka producer in Java  
 
 1. Complete code can be found from [KafkaCustomerProducer.java](https://github.com/hongyusu/bigdata_etl/blob/master/streaming/src/main/java/streaming/KafkaCustomerProducer.java)
-1. Write the code
+1. Write up the code in Java 
 
    ```java
    Properties props = new Properties();
@@ -120,7 +120,7 @@ compile( 'org.apache.spark:spark-streaming-kafka_2.10:1.6.2' )
    
    producer.close();
    ```
-   The code will generate to a Kafka _test_ topic 100 lines of records.
+   The will generate to a Kafka _test_ topic 100 lines of records.
 
 1. Compile and run
    1. Code should be compiled with _gradle_. First, generate a gradle wrapper
@@ -129,25 +129,25 @@ compile( 'org.apache.spark:spark-streaming-kafka_2.10:1.6.2' )
       gradle wrapper
       ``` 
 
-   1. Compile the code with gradle wrapper
-
-      ```bash
-      ./gradlew build
-      ```
-
    1. Add the following line to specify which class will be run by gradle 
 
       ```bash
       mainClassName = 'streaming.KafkaCustomerProducer'
       ``` 
 
-   1. The most straight forward way is to use gradle wrapper
+   1. Compile the code with gradle wrapper
+
+      ```bash
+      ./gradlew build
+      ```
+
+   1. The most straight forward way is to run by gradle wrapper
 
       ```bash
       ./gradlew run 
       ```
 
-   1. To build a fatJar add the following stuffs to `build.gradle`
+   1. As an alternative, build a fatJar by adding the following stuffs to `build.gradle`
 
       ```
       task fatJar(type: Jar){
@@ -174,19 +174,19 @@ compile( 'org.apache.spark:spark-streaming-kafka_2.10:1.6.2' )
       spark-submit --class streaming.KafkaCustomerProducer streaming.jar
       ``` 
 
-   1. While the code is running, execute a Kafka CLI consumer.
+   1. While the code is running, execute a Kafka consumer eating messages from topic _test_.
 
       ```bash
       kafka-console-consumer --zookeeper localhost:2181 --topic test
       ```
 
-      Records streamed from Kafka Java producer will be received and print out directly to the terminal.
+      Records streamed from Kafka Java producer will be received and printed out directly to the terminal.
       
    
-## Kafka stream consumer in Java  
+## Kafka stream consumer via Java API 
 
 1. Complete code can be found from [KafkaCustomerConsumer.java](https://github.com/hongyusu/bigdata_etl/blob/master/streaming/src/main/java/streaming/KafkaCustomerConsumer.java)
-1. Write code 
+1. Write up code in Java 
 
    ```java
    Properties props = new Properties();
@@ -208,6 +208,7 @@ compile( 'org.apache.spark:spark-streaming-kafka_2.10:1.6.2' )
    
    consumer.close();
    ```
+
 1. Compile and run 
    1. Add the following line to specify which class will be run by gradle 
 
@@ -216,7 +217,7 @@ compile( 'org.apache.spark:spark-streaming-kafka_2.10:1.6.2' )
       ``` 
 
    1. Follow the same principle, the code can be run via _gradle_ wrapper or _spark_.
-   1. While the Java Kafka consumer is running, execute a Kafka CLI producer
+   1. While the Java Kafka consumer is running, execute a Kafka producer from command line
 
       ```bash
       kafka-console-producer --topic test --broker-list localhost:9092
@@ -233,12 +234,14 @@ compile( 'org.apache.spark:spark-streaming-kafka_2.10:1.6.2' )
 # Kafka Avro producer in Java  
 
 1. Complete code can be found from [KafkaAvroProducer.java](https://github.com/hongyusu/bigdata_etl/blob/master/streaming/src/main/java/streaming/KafkaAvroProducer.java)
-1. Add _twitter bijection_ dependencies
+
+1. Add _twitter bijection_ dependencies to work with Avro format
 
    ```
    compile( 'org.apache.avro:avro:1.8.0' )
    compile( 'com.twitter:bijection-avro_2.10:0.9.2' )
    ```
+
    and import packages
 
    ```java
@@ -345,7 +348,7 @@ compile( 'org.apache.spark:spark-streaming-kafka_2.10:1.6.2' )
    kafka-console-consumer --zookeeper localhost:2181 --topic test
    ```
 
-   The following message are sent as Kafka Avro message
+   The following message are sent as Kafka Avro messages
 
    ```
    date_1,time_1,name_1,address_1,time_1,info_6_1,info_7_1,info_8_1,info_9_1,info_0_1
@@ -353,7 +356,7 @@ compile( 'org.apache.spark:spark-streaming-kafka_2.10:1.6.2' )
    ...
    ``` 
 
-   While the CLI consumer will print out the following message as they are Avro messages in byte stream 
+   The Kafka consumer will print out the following messages. They are not the same as input messages as they are Avro messages in byte stream 
 
    ```
    date_1
@@ -373,9 +376,10 @@ compile( 'org.apache.spark:spark-streaming-kafka_2.10:1.6.2' )
 The implementation described in the previous section makes sure messages are in Avro format before sending into Kafka topic.
 In this section, we introduce a consumer as implemented in Spark Streaming framework. The consumer will eat Avro message produced by Kafka Avro producer and process the Avro message via Spark Streaming map reduce operations. 
 
-It's good to point out here the difference between Spark streaming processing/transformation and Kafka processing/transformation is Spark engine is essentially working on a stream of RDDs which are created in a certain time window/interval.
+It's good to point out here the difference between Spark streaming processing/transformation and Kafka processing/transformation is that Spark engine essentially works on a stream of RDDs which are created in a certain time window/interval.
 
 1. Complete code can be found from [SparkKafkaConsumer.java](https://github.com/hongyusu/bigdata_etl/blob/master/streaming/src/main/java/streaming/SparkKafkaConsumer.java)
+
 1. Initialize Spark streaming context in which time window to generate RDDs is specified in `Duration.seconds()`
 
    ```java
@@ -386,7 +390,7 @@ It's good to point out here the difference between Spark streaming processing/tr
    JavaStreamingContext jssc = new JavaStreamingContext(sparkConf, Durations.seconds(batchSize));
    ```
 
-1. Initialize Spark Stream connector to Kafka topic  
+1. Initialize Spark Stream connector connecting to Kafka topic  
 
    ```java
    Map<String, String> kafkaParams = new HashMap<>();
@@ -412,9 +416,9 @@ It's good to point out here the difference between Spark streaming processing/tr
        lines.print();
    }
    ```
-   Notice that the actual mapper function is implemented via a customerized function.
+   Notice that the actual mapper function is implemented via a customized function.
 
-1. The implemnetaion of the mapper function is as follows
+1. The implementation of the mapper function is as follows
 
    ```java
    public class MapperTestToTestout implements Function<Tuple2<String, byte[]>, String> {
@@ -449,6 +453,7 @@ It's good to point out here the difference between Spark streaming processing/tr
    
    }
    ``` 
+
    The decoding from byte array to Avro message is through `invert()` from _bijection_ package.
    As the function call (mapper) will be executed on every worker, variables used in this mapper call need to be defined as static variables and initialized via Java static initialization
 
@@ -461,7 +466,7 @@ It's good to point out here the difference between Spark streaming processing/tr
     }
    ``` 
 
-1. Compile and run the Spark kafka consumer. While the Kafka Avro Producer is being executed via 
+1. Compile and run the Spark Kafka consumer. While the Kafka Avro Producer is being executed via 
 
    ```
    spark-submit --class streaming.KafkaAvroProducer build/libs/streaming-all.jar
@@ -477,7 +482,7 @@ It's good to point out here the difference between Spark streaming processing/tr
 # Connect to Schema registry
 
 
-## Schema registry CLI operation
+## Schema registry CLI operations
 
 1. Complete code for schema registry CLI can be found from [Code repository](https://github.com/hongyusu/bigdata_etl/blob/master/streaming/bin/populate_registry.sh)
 
