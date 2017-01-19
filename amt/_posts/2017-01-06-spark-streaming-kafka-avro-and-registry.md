@@ -6,7 +6,7 @@ tags: [Streaming]
 ---
 
 
-Streaming data processing is another interesting topic data science. In this article, we will walk through the integration of Spark streaming, Kafka streaming, Avro, and schema registry. Note that this IS NOT a high level introduction in pseudocode, all following implementations should defintely work when compiled properly. In addition, Spark, Kafka and Zookeeper are running on a single machine (standalone cluster). The actual configurations of Spark, Kafka, and Zookeeper are to some extend irrelevant to the integration. 
+Streaming data processing is yet another interesting topic in data science. In this article, we will walk through the integration of Spark streaming, Kafka streaming, and Schema registry for the purpose of communicating Avro-format messages. The following implementations should work when the package is compiled properly. In addition, Spark, Kafka and Zookeeper are running on a single machine (standalone cluster). The actual configurations of Spark, Kafka, and Zookeeper are to some extend irrelevant to this integration. 
   
 
 # Table of content
@@ -23,7 +23,7 @@ All implementation can be found from my [code repository:bigdata ETL:streaming](
 
 We need Spark, Kafka, Zookeeper, and schema registry server installed before running through the actual integration. The following installation guide targets OsX and will produce a standalone cluster.
 
-1. First _brew_ needs to be installed on OsX
+1. First, _brew_ needs to be installed on OsX
 
    ```bash
    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -484,17 +484,17 @@ It's good to point out here the difference between Spark streaming processing/tr
 
 ## Schema registry CLI operations
 
-1. Complete code for schema registry CLI can be found from [Code repository](https://github.com/hongyusu/bigdata_etl/blob/master/streaming/bin/populate_registry.sh)
+1. Complete code for schema registry CLI operations can be found from [Code repository](https://github.com/hongyusu/bigdata_etl/blob/master/streaming/bin/populate_registry.sh).
 
-1. Start schema registry server
+1. Schema registry can be obtained from confluent.io by downloading the distribution. Then, start schema registry server
 
    ```
    cd confluent-3.0.0/bin/
+   # start registry server
    schema-registry-start ../etc/schema-registry/schema-registry.properties
    ```
 
-
-   1. Disable schema registry backwards compatibility checking 
+   1. For test integration, we disable schema registry backwards compatibility checking 
 
       ```
       # disable compatibility check
@@ -503,7 +503,7 @@ It's good to point out here the difference between Spark streaming processing/tr
           --data '{"compatibility": "NONE"}'
       ```
 
-   1. Define new schemas in JSON
+   1. Define new schemas as a JSON string in a shell script. Schema _test_ and _testout_ are defined as follows
 
       ```
       schemaTest='{"schema":'\
@@ -536,7 +536,7 @@ It's good to point out here the difference between Spark streaming processing/tr
       '                {\"name\":\"testout_info_0\",\"type\":\"string\" }]}"}'
       ```
 
-   1. Register new schemas to registry
+   1. Via a shell command, register new schemas to the schema registry server
 
       ```
       # register 'testout' schema
@@ -560,10 +560,81 @@ It's good to point out here the difference between Spark streaming processing/tr
       curl -X GET -i http://localhost:8081/subjects/schemaTestout/versions/latest
       ```
 
-## Schema registry integration via Java 
+## Kafka and Schema registry integration via Java 
+
+The purpose of schema registry is to automatically check/encode/decode schema while producing or consuming messages from Kafka stream. In particular, we will **NOT** send a byte string (which encodes an actual Avro message) when we send Avro message to a Kafka stream. Instread we send directly a Avro message contain both schema and actual data. Similarly, when consuming a Avro message from a Kafka stream, we will consume directly the Avro message which is decoded by Schema registry and there is no need to do the decoding in the actual code. The encoding in producer and decoding in consumer are both automatical and hidden from user.
+
+1. Producer code 
+
+   1. The complete producer code that reads messages from a CSV file and sends Avro messages to a stream while acknowledging schema registry can be checked from [Code Repository](https://github.com/hongyusu/bigdata_etl/blob/master/streaming/src/main/java/streaming/KafkaRegistrySerializer.java).
+
+   1. The key here is to add key and value serializer configuration in Kafka producer configuration as the following Java code
 
 
+      ```java
+      props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,io.confluent.kafka.serializers.KafkaAvroSerializer.class);
+      props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,io.confluent.kafka.serializers.KafkaAvroSerializer.class);
+      ```
 
+      which will make sure Avro messages when being sent will be properly encoded and serialized.
+
+
+   1. The actual producer code is rather straight forward as the following Java code
+
+
+      ```java
+      for (int i = 0; i < line.length; i++){
+          avroRecord.put(i,line[i]);
+      }
+      ProducerRecord record = new ProducerRecord<Object, Object>(topic, "key", avroRecord);
+      try{
+          producer.send(record, new KafkaRegistrySerializerCallback("", messageCount, startTime));
+      }catch(SerializationException ex){
+      }
+      ```
+
+      which will prepare a Avro message and send via a simple Kafka producer. 
+
+   1. If you are checking the schema registry server while running this code, you will notice there are rest calls to the server which will register the schema to the registry server.
+
+1. Consumer code
+
+   The consumer code will initialize a Spark-Streaming conumser which reads from the Avro stream as produced above and processes the message inside the Spark Stream. In particular, this spark consumer will read directly Avro message the decoding is automatic through schema registry server. This approach is quite different from the previous case where we read byte message and decode into Avro. The full code can be found from [Code Repository](https://github.com/hongyusu/bigdata_etl/blob/master/streaming/src/main/java/streaming/SparkRegistrySerializer.java).
+
+   1. The key is to define a proper Kafka stream inside the Spark streaming as in the following Java code
+
+      ```java
+      kafkaMSG = KafkaUtils.createStream(
+              jssc,
+              String.class, 
+              GenericRecord.class, 
+              StringDecoder.class, 
+              KafkaAvroDecoder.class, 
+              kafkaParams, 
+              topicMap,
+              StorageLevel.MEMORY_AND_DISK_SER());
+      ``` 
+
+      in which the value type field is _GenericRecord.clas_ and decode class is _KafkaAvroDecoder.class_.
+
+   1. Then where is a Spark Stream mapping function generating the actual Avro message out from the key-value pair as follows
+
+      ```java 
+      JavaDStream<GenericRecord> avroInMSG = kafkaMSG.map(
+              new Function<Tuple2<String, GenericRecord>,GenericRecord >(){
+                  @Override
+                  public GenericRecord call(Tuple2<String, GenericRecord> tuple2) throws Exception{
+                      return tuple2._2();
+                  }
+              });
+      ``` 
+
+# Conclusion
+
+We have been discussing briefly the integration of Kafka Streaming, Spark Streaming, and Schema Registry Server. The goal is to be able to produce and consumer Avro message from/to Kafka streaming and Spark streaming in a native way. Code examples in Java are provided as in [Code Repository](https://github.com/hongyusu/bigdata_etl/tree/master/streaming).
+      
+
+    
 
 
 
