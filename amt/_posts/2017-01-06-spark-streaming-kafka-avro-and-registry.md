@@ -13,6 +13,19 @@ Streaming data processing is yet another interesting topic in data science. In t
 * auto-gen TOC:
 {:toc}
 
+# Architecture
+
+1. Data preparation
+   1. Data are prepared as in Kafka topics by Kafka producer
+1. Data processing
+   1. Consume data via Kafka consumer or KStream processor
+   1. Concume data via Spark streaming processor 
+1. Data provision
+   1. Kafka producer will provide the processed data
+   1. KStream prossor will provide the processed data
+1. Schema validation
+   1. Schema registry server will check and verify schema
+
 
 # Code repository
 
