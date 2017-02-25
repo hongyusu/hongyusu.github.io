@@ -1,6 +1,6 @@
 ---
 layout: amt-post 
-title: "Integration of Spark Streaming, Kafka, Schema Registry, and Avro"
+title: "Streaming processing with Spark Streaming, Kafka, Avro, etc (I): Introduction and Integration"
 location: Helsinki
 tags: [Streaming]
 ---
