@@ -1,6 +1,6 @@
 ---
 layout: amt-post 
-title: "Streaming processing with Spark Streaming, Kafka, Avro (I): Integration"
+title: "Streaming processing (I): Kafka, Spark, Avro Integration"
 location: Helsinki
 tags: [Streaming]
 ---
@@ -15,8 +15,9 @@ Streaming data processing is yet another interesting topic in data science. In t
 
 # Related articles
 
-1. [Streaming processing with Spark Streaming, Kafka, Avro (II): Best Practice](/amt/streaming-processing-ii.html)
-2. [Streaming processing with Spark Streaming, Kafka, Avro (I): Integration](/amt/spark-streaming-kafka-avro-and-registry.html)
+1. [Streaming processing (III): Best Spark Practice](/amt/streaming-processing-iii.html)
+1. [Streaming processing (II):  Best Kafka Practice](/amt/streaming-processing-ii.html)
+1. [Streaming processing (I):   Kafka, Spark, Avro Integration](/amt/spark-streaming-kafka-avro-and-registry.html)
 
 # Architecture
 
