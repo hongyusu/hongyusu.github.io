@@ -36,7 +36,7 @@ I got [Ph.D](/work) in Machine Learning from Aalto University and did [PostDoc](
 Data Science
 =====
 I maintain a technical blog called [_Informatica_](/imt) on machine learning and data science, where recent posts include:
-{% for post in site.categories.imt limit:3 %}
+{% for post in site.categories.imt limit:5 %}
 <ul class="compact recent">
 <li>
 	<a href="{{ post.url }}" title="{{ post.excerpt }}">{{ post.title }}</a>
@@ -50,7 +50,7 @@ I maintain a technical blog called [_Informatica_](/imt) on machine learning and
 Data Engineering
 =====
 I have also just started another blog called [_Automata_](/amt) on data engineering and architecture, where recent posts include:
-{% for amtpost in site.categories.amt limit:3 %}
+{% for amtpost in site.categories.amt limit:5 %}
 <ul class="compact recent">
 <li>
 	<a href="{{ amtpost.url }}" title="{{ amtpost.excerpt }}">{{ amtpost.title }}</a>
