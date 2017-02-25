@@ -33,7 +33,7 @@ I got [Ph.D](/work) in Machine Learning from Aalto University and did [PostDoc](
 </div>
 
 <div class="section" markdown="1">
-Data Science
+[Data Science](/imt)
 =====
 I maintain a technical blog called [_Informatica_](/imt) on machine learning and data science, where recent posts include:
 {% for post in site.categories.imt limit:5 %}
@@ -47,7 +47,7 @@ I maintain a technical blog called [_Informatica_](/imt) on machine learning and
 </div>
 
 <div class="section" markdown="1">
-Data Engineering
+[Data Engineering](/amt)
 =====
 I have also just started another blog called [_Automata_](/amt) on data engineering and architecture, where recent posts include:
 {% for amtpost in site.categories.amt limit:5 %}
