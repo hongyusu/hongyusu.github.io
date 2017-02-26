@@ -6,7 +6,7 @@ tags: [Streaming]
 ---
 
 
-Streaming data processing is yet another interesting topic in data science. In this article, we will walk through the integration of Spark streaming, Kafka streaming, and Schema registry for the purpose of communicating Avro-format messages. The following implementations should work when the package is compiled properly. In addition, Spark, Kafka and Zookeeper are running on a single machine (standalone cluster). The actual configurations of Spark, Kafka, and Zookeeper are to some extend irrelevant to this integration. 
+Streaming data processing is yet another interesting topic in data science. In this article, we will walk through the integration of Spark streaming, Kafka streaming, and Schema registry for the purpose of communicating Avro-format messages. Spark, Kafka and Zookeeper are running on a single machine (standalone cluster). The actual configurations of Spark, Kafka, and Zookeeper are to some extend irrelevant to this integration.  
   
 
 # Related articles
@@ -35,8 +35,11 @@ Streaming data processing is yet another interesting topic in data science. In t
 
 # Code repository
 
-All implementation can be found from my [code repository:bigdata ETL:streaming](https://github.com/hongyusu/bigdata_etl/tree/master/streaming).
+All implementation can be found from my code repository [bigdata ETL - kafka streaming](https://github.com/hongyusu/bigdata_etl/tree/master/etl_kafka) and  [bigdata ETL - spark streaming](https://github.com/hongyusu/bigdata_etl/tree/master/etl_spark).
 
+NOTE: implementation in this post is no loger maintained. please check the second and third part for more detailed implementation.
+- [Streaming processing (III): Best Spark Practice](/amt/streaming-processing-iii.html)
+- [Streaming processing (II):  Best Kafka Practice](/amt/streaming-processing-ii.html)
 
 # Installations  
 
