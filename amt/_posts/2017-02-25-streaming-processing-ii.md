@@ -17,7 +17,6 @@ In the previous article, I briefly discussed the basic setup and integration of 
 * auto-gen TOC:
 {:toc}
 
-
 # Package and versions
 
 1. The following packages need to be prepared.
