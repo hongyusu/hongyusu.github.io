@@ -23,13 +23,12 @@ In the previous article, I briefly discussed the basic setup and integration of 
 1. The following packages need to be prepared.
 
    | Packages           | Version  | Repository                                 |
-   |:------------------:|:---------|:-------------------------------------------|
+   |:-------------------|---------:|-------------------------------------------:|
    | mvn                | 3.3.9    |                                            | 
    | gradle             | 3.3      |                                            |
    | kafka              | 0.10.1.0 | git@github.com:hongyusu/kafka.git          |
-   | schemaregistry     | 3.1.2    | git@github.com:hongyusu/schema-registry    |
    | flume              | 1.8.0    | git@github.com:hongyusu/flume.git          |
-   | kafka-connect-jdbc | 3.1.2    | git@github.com:hongyusu/kafka-connect-jdbc |
+   | schemaregistry     | 3.1.2    | git@github.com:hongyusu/schema-registry    |
 
 
 1. They can be compiled and built via
@@ -422,7 +421,7 @@ Github is still a good place for code base. In particular, Kafka part can be fou
 
 # Conclusion
 
-  I walk through some _best_ practices when apply Kafka to streaming processing using mostly KStream including some implementation and unit testing cases as well. Examples are mostly about KStream operations, e.g. `ValueMapper`, `Predicate`, `KeyValueMapper`. Following these example, one should be able to process Kafka stream of GenericRecord (Avro) in a more efficient way. 
+I walk through some _best_ practices when apply Kafka to streaming processing using mostly KStream including some implementation and unit testing cases as well. Examples are mostly about KStream operations, e.g. `ValueMapper`, `Predicate`, `KeyValueMapper`. Following these example, one should be able to process Kafka stream of GenericRecord (Avro) in a more efficient way. 
 
 
 
