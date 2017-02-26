@@ -45,7 +45,6 @@ Previous article illustrates some experience when applying Kafka on processing s
      gradle build -x test
      ```
 
-
 # Spark Stream
 
 1. On a conceptual level, the following Spark Stream example will
