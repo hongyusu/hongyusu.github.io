@@ -7,15 +7,16 @@ tags: [Streaming]
 
 In the previous article, I briefly discussed the basic setup and integration of Spark Streaming, Kafka, Confluent Schema Registry, and Avro for streaming data processing. My focus here is to demonstrate the best practices when it comes to applying these streaming processing technologies. In particular, I will illustrate a few common KStream operations (e.g., **ValueMapper**, **KeyValueMapper**, **ValueJoiner**, **Predicate**), serialization and deserialization, and unit test for Kafka streaming processing. 
 
-# Table of content
-* auto-gen TOC:
-{:toc}
-
 # Related articles
 
 1. [Streaming processing (III): Best Spark Practice](/amt/streaming-processing-iii.html)
 1. [Streaming processing (II):  Best Kafka Practice](/amt/streaming-processing-ii.html)
 1. [Streaming processing (I):   Kafka, Spark, Avro Integration](/amt/spark-streaming-kafka-avro-and-registry.html)
+
+# Table of content
+* auto-gen TOC:
+{:toc}
+
 
 # Package and versions
 
@@ -129,7 +130,7 @@ Github is still a good place for code base. In particular, Kafka part can be fou
         .mapValues( new GenerateAvroFromByte(schema_loguser) )
         .mapValues( new Processloguser() )
         .filter( new Filterloguser() )
-        .map( new RepartitionViaColumn("loguser_CUSTOMER_ID") )
+        .map( new RepartitionViaColumn("loguser_id") )
         .through(stringSerde, avroSerde, "loguser-user");
    ``` 
 
@@ -282,10 +283,147 @@ Github is still a good place for code base. In particular, Kafka part can be fou
    testCompile files( '/Users/hongyusu/Codes/Packages/kafka/streams/build/libs/kafka-streams-0.10.1.0-sources.jar')
    ```
 
-1. 
+1. Test `ValueMapper` operation
 
+   - For complete code, refer to [ProcessloguserTest.java][kafkatestvaluemapper].
+
+   - Prepare a list of `GenericRecord` as input and another list of `GenericRecord` as expected output. For example, we are testing *Processloguser()* which does a processing on one input field, therefore, we just modify that particular field of input data and use as expected output data.
+
+     ```java
+        // MSG
+        GenericRecord [] msgIn  = new GenericRecord[TestDataLoguser.size];
+        GenericRecord [] msgOut = new GenericRecord[TestDataLoguser.size];
+        for(int k = 0; k < TestDataLoguser.lines.length; k++){
+            msgIn[k]  = new GenericData.Record(schema_loguser);
+            msgOut[k] = new GenericData.Record(schema_loguser);
+            String[] fields = TestDataLoguser.lines[0].split(",",-1); 
+            try{
+                for (int i = 0; i < fields.length; i++){
+                    if (fields[i] == null){
+                        msgIn[k].put(i,"");
+                        msgOut[k].put(i,"");
+                    }else{
+                        msgIn[k].put(i,fields[i]);
+                        msgOut[k].put(i,fields[i]);
+                    }
+                }
+            }catch(Exception ex){
+            }
+            msgOut[k].put("loguser_id",msgOut[k].get("loguser_id").toString().substring(2));
+        }
+     ``` 
+
+   - Process input data and get output data 
+
+     ```java
+        // STREAM DEFINITION
+        KStream<String, GenericRecord> stream;
+        MockProcessorSupplier<String, GenericRecord> processor = new MockProcessorSupplier<>();
+        stream = builder.stream(stringSerde, avroSerde, topicName);
+        stream.mapValues(new Processloguser()).process(processor);
+        // DRIVER 
+        driver = new KStreamTestDriver(builder);
+        // PROCESS DATA
+        for (int i = 0; i < TestDataLoguser.size; i++) {
+            driver.process(topicName, "key", msgIn[i]);
+        }
+     ```
+
+   - Use assertion to evalue the output againt the expected output. 
+
+     ```java
+        // TEST SIZE
+        assertEquals(TestDataLoguser.size, processor.processed.size());
+        // TEST RESULT
+        for (int i = 0; i < TestDataLoguser.size; i++) {
+            assertEquals("key:"+msgOut[i].toString(), processor.processed.get(i));
+        }
+     ```
+
+1. Test `KeyValueMapper` operation
+
+   - For complete code, refer to [RepartitionViaColumnTest.java][kafkatestkeyvaluemapper].
+
+   - Prepare input data in a similar way as testing `ValueMapper` in which a list of input and another list of expected output need to be defined.
+
+   - Setup the test such that the input KStream will go through the `KeyValueMapper` operation which in this case is _RepartitionViaColumn.java_ function. The key of the input KStream will be altered.
+
+     ```java
+        // STREAM DEFINITION
+        KStream<String, GenericRecord> stream;
+        MockProcessorSupplier<String, GenericRecord> processor = new MockProcessorSupplier<>();
+        stream = builder.stream(stringSerde, avroSerde, topicName);
+        try{
+            stream.map( new RepartitionViaColumn("loguser_id") ).process(processor);
+        }catch(Exception ex){
+        }
+        // DRIVER 
+        driver = new KStreamTestDriver(builder);
+        // PROCESS DATA
+        for (int i = 0; i < TestDataLoguser.size; i++) {
+            driver.process(topicName, "key", msgIn[i]);
+        }
+     ```
+
+   - User Java unit test assertion to evalue the expected output and the real output
+
+     ```java
+        // TEST SIZE
+        assertEquals(TestDataLoguser.size, processor.processed.size());
+        // TEST RESULT
+        for (int i = 0; i < TestDataLoguser.size; i++) {
+            assertEquals(msgOut[i].get("loguser_CUSTOMER_ID").toString()+":"+msgOut[i].toString(), processor.processed.get(i));
+        }
+     ``` 
+
+ 
+
+1. Test `Predicate` operation  
+
+   - For complete code, refer to [FilterloguserForPCTest.java][kafkatestpredicate].
+
+   - Prepare input data in a similar way as testing `ValueMapper`. 
+
+   - Setup the test such that one input KStream will be branched into two KStreams via `branch()` and `Predicte` functions under test. 
+  
+     ```java
+        KStream<String, GenericRecord> stream;
+        KStream<String, GenericRecord> [] branches;
+        MockProcessorSupplier<String, GenericRecord>[] processors;
+        stream = builder.stream(stringSerde, avroSerde, topicName);
+        branches = stream.branch( new FilterloguserForPC("P"), new FilterloguserForPC("C") );
+        assertEquals(2, branches.length);
+        processors = (MockProcessorSupplier<String, GenericRecord>[]) Array.newInstance(MockProcessorSupplier.class, branches.length);
+        for (int i = 0; i < branches.length; i++) {
+            processors[i] = new MockProcessorSupplier<>();
+            branches[i].process(processors[i]);
+        }
+        // DRIVER
+        driver = new KStreamTestDriver(builder);
+        // TEST
+        for (int i = 0; i < TestDataLoguser.size; i++) {
+            driver.process(topicName, "key", msgIn[i]);
+     ```
+   
+   - User java unit assertion to evalute the number of messages comming out from each branched KStreams
+
+     ```java
+        assertEquals(23, processors[0].processed.size());
+        assertEquals(5, processors[1].processed.size());
+     ```
+      
+
+# Others
+
+  Other  related topics will be introduced in some separate articles in the near future including:
+
+  1. Kafka connector to JDBC, HDFS, HBASE
+  1. Integration of Kafka towards Flume
 
 # Conclusion
+
+  I walk through some _best_ practices when apply Kafka to streaming processing using mostly KStream including some implementation and unit testing cases as well. Examples are mostly about KStream operations, e.g. `ValueMapper`, `Predicate`, `KeyValueMapper`. Following these example, one should be able to process Kafka stream of GenericRecord (Avro) in a more efficient way. 
+
 
 
     
@@ -293,6 +431,9 @@ Github is still a good place for code base. In particular, Kafka part can be fou
 [kafkapackage]: https://github.com/hongyusu/bigdata_etl/tree/master/etl_kafka
 [kafkabuild]:   https://github.com/hongyusu/bigdata_etl/blob/master/etl_kafka/build.gradle
 [kafkamain]:    https://github.com/hongyusu/bigdata_etl/blob/master/etl_kafka/src/main/java/etl_kafka/KafkaETLMain.java
+[kafkatestvaluemapper]:       https://github.com/hongyusu/bigdata_etl/blob/master/etl_kafka/src/test/java/etl_kafka/ProcessloguserTest.java
+[kafkatestkeyvaluemapper]:    https://github.com/hongyusu/bigdata_etl/blob/master/etl_kafka/src/test/java/etl_kafka/RepartitionViaColumnTest.java
+[kafkatestpredicate]:         https://github.com/hongyusu/bigdata_etl/blob/master/etl_kafka/src/test/java/etl_kafka/FilterloguserForPCTestt.java
 [sparkpackage]: https://github.com/hongyusu/bigdata_etl/tree/master/etl_spark
 [sparkbuild]:   https://github.com/hongyusu/bigdata_etl/blob/master/etl_spark/build.gradle
 
