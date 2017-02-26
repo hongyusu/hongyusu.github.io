@@ -45,7 +45,6 @@ In the previous article, I briefly discussed the basic setup and integration of 
    gradle build -x test
    ```
 
-
 # Kafka
 
 1. As an overview, what I am trying to achieve in this Kafka KStream processing is
