@@ -5,6 +5,7 @@ location: Helsinki
 tags: [Ingestion]
 ---
 
+To discuss data ingestion, sqoop and flume.
 
 # Table of content
 * auto-gen TOC:
