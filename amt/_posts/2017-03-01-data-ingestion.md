@@ -103,15 +103,15 @@ To discuss data ingestion, sqoop and flume.
 
    - Hive to MySql ingestion, the following command will import a Hive table defined above into a mySql table for which table structure should be defined prior to the ingestion.
 
-    ```shell
-    sqoop export \
-        --connect jdbc:mysql://localhost/test \
-        --username root \
-        --password pwd \
-        --table ratings \
-        --export-dir /user/hive/warehouse/test.db/ratings \
-        -m 1
-    ```
+     ```shell
+     sqoop export \
+         --connect jdbc:mysql://localhost/test \
+         --username root \
+         --password pwd \
+         --table ratings \
+         --export-dir /user/hive/warehouse/test.db/ratings \
+         -m 1
+     ```
    
    
 # Flume 
