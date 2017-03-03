@@ -113,10 +113,9 @@ brew install mariadb
 mysql.server start
 ```
 
-   
 # Set up Hive on OsX
 
-1.  Install *Hive* and *MySql*
+1.  Install *Hive* from *home brew* 
 
    ```shell
    brew install mysql
@@ -197,6 +196,14 @@ mysql.server start
    ```
 
 1.  Start Hive with `hive`. 
+
+
+# Set up Hbase on OsX
+
+1.  Install *hbase* from home brew
+
+
+
 
 # Sqoop
 
