@@ -1,5 +1,5 @@
 ---
-layout: amt 
+layout: amt
 title: Archives
 section: Past
 
@@ -13,7 +13,7 @@ Archives
 This is the complete archive of posts from _[Automata](/amt)_
 in reverse chronological order.
 
-{% for post in site.categories.iem %}
+{% for post in site.categories.amt %}
 <div class="section list">
   <h1>{{ post.date | date_to_string }}</h1>
   <p class="line">
