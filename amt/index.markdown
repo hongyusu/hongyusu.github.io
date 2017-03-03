@@ -31,6 +31,10 @@ Recent Posts
 </div>
 {% endfor %}
 
+<p>
+<a href="past.html">Older Posts &rarr;</a>
+</p>
+
 <script type="text/javascript">
 //<![CDATA[
 (function() {
