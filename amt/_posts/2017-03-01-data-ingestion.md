@@ -22,9 +22,9 @@ To discuss data ingestion, sqoop and flume.
 | flume   | 1.8.0   |
 
 
-# Installation and set up
+# Installation and setup
 
-## Set up Hadoop on OsX
+## Hadoop
 
 1. Install *Hadoop*
 
@@ -106,7 +106,7 @@ To discuss data ingestion, sqoop and flume.
 
 1. Format *hdfs* with `hdfs namenode1.format` and start *Hadoop* with `hstart`
 
-## Set up MySql on OsX
+## MySql
 
 Install MariaDB according to the followings
 
@@ -115,7 +115,7 @@ brew install mariadb
 mysql.server start
 ```
 
-## Set up Hive on OsX
+## Hive
 
 1.  Install *Hive* from *home brew* 
 
