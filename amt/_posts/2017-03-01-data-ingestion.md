@@ -1,6 +1,6 @@
 ---
 layout: amt-post 
-title: "Data ingestion: Flume and Sqoop"
+title: "Data ingestion and loading: Flume, Sqoop, Hive, and HBase"
 location: Helsinki
 tags: [Ingestion]
 ---
@@ -11,7 +11,7 @@ To discuss data ingestion, sqoop and flume.
 * auto-gen TOC:
 {:toc}
 
-# Packages
+# Package and version
 
 | Package | Version |
 |:--------|:-------:|
@@ -22,7 +22,9 @@ To discuss data ingestion, sqoop and flume.
 | flume   | 1.8.0   |
 
 
-# Set up Hadoop on OsX
+# Installation and set up
+
+## Set up Hadoop on OsX
 
 1. Install *Hadoop*
 
@@ -77,7 +79,7 @@ To discuss data ingestion, sqoop and flume.
    </configuration>
    ```
 
-   For convinient, add the following two line to `~/.profile` and load with `source ~/.profile`
+   For convenient, add the following two line to `~/.profile` and load with `source ~/.profile`
 
    ```shell
    export HADOOP_HOME=/usr/local/Cellar/hadoop/2.7.3
@@ -104,7 +106,7 @@ To discuss data ingestion, sqoop and flume.
 
 1. Format *hdfs* with `hdfs namenode1.format` and start *Hadoop* with `hstart`
 
-# Set up MySql on OsX
+## Set up MySql on OsX
 
 Install MariaDB according to the followings
 
@@ -113,7 +115,7 @@ brew install mariadb
 mysql.server start
 ```
 
-# Set up Hive on OsX
+## Set up Hive on OsX
 
 1.  Install *Hive* from *home brew* 
 
@@ -187,7 +189,7 @@ mysql.server start
    schematool1. initSchema1. dbType mysql
    ```
 
-1.  Initial Hive folder structure and assign proper promission
+1.  Initial Hive folder structure and assign proper permission
 
    ```shell
    hdfs dfs1. mkdir1. p /user/hive/warehouse
