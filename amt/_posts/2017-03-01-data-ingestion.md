@@ -200,7 +200,7 @@ mysql.server start
 1.  Start Hive with `hive`. 
 
 
-# Set up Hbase on OsX
+## Hbase
 
 1.  Install *hbase* from home brew
 
