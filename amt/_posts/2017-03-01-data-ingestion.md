@@ -21,182 +21,182 @@ To discuss data ingestion, sqoop and flume.
 | sqoop   | 1.4.6   |
 | flume   | 1.8.0   |
 
-# Set up Hadoop and Hive
 
-1. Set up Hadoop on OsX
+# Set up Hadoop on OsX
 
-   - Install *Hadoop*
+1. Install *Hadoop*
 
-     ```shell
-     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-     brew install hadoop
-     ```
+   ```shell
+   ruby1.e "$(curl1.fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+   brew install hadoop
+   ```
 
-   - Configure *Hadoop*
+1. Configure *Hadoop*
 
-     Locate file `/usr/local/Cellar/hadoop/2.7.3/libexec/etc/hadoop/hadoop-env.sh` and change or update the following line
+   Locate file `/usr/local/Cellar/hadoop/2.7.3/libexec/etc/hadoop/hadoop-env.sh` and change or update the following line
 
-     ```shell
-     export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true -Djava.security.krb5.realm= -Djava.security.krb5.kdc="
-     ```
+   ```shell
+   export HADOOP_OPTS="$HADOOP_OPTS1.Djava.net.preferIPv4Stack=true1.Djava.security.krb5.realm=1.Djava.security.krb5.kdc="
+   ```
 
-     Locate file `/usr/local/Cellar/hadoop/2.7.3/libexec/etc/hadoop/core-site.xml` and change or update the following line
+   Locate file `/usr/local/Cellar/hadoop/2.7.3/libexec/etc/hadoop/core-site.xml` and change or update the following line
 
-     ```xml
-     <configuration>
-         <property>
-             <name>hadoop.tmp.dir</name>
-             <value>/usr/local/Cellar/hadoop/hdfs/tmp</value>
-             <description>A base for other temporary directories.</description>
-         </property>
-         <property>
-             <name>fs.default.name</name>
-             <value>hdfs://localhost:9000</value>
-         </property>
-     </configuration>
-     ```
+   ```xml
+   <configuration>
+       <property>
+           <name>hadoop.tmp.dir</name>
+           <value>/usr/local/Cellar/hadoop/hdfs/tmp</value>
+           <description>A base for other temporary directories.</description>
+       </property>
+       <property>
+           <name>fs.default.name</name>
+           <value>hdfs://localhost:9000</value>
+       </property>
+   </configuration>
+   ```
 
-     Locate file `/usr/local/Cellar/hadoop/2.7.3/libexec/etc/hadoop/mapred-site.xml` and change or update the following line
+   Locate file `/usr/local/Cellar/hadoop/2.7.3/libexec/etc/hadoop/mapred-site.xml` and change or update the following line
 
-     ```xml
-     <configuration>
-     <property>
-         <name>mapred.job.tracker</name>
-         <value>localhost:9010</value>
-     </property>
-     </configuration>
-     ```
+   ```xml
+   <configuration>
+   <property>
+       <name>mapred.job.tracker</name>
+       <value>localhost:9010</value>
+   </property>
+   </configuration>
+   ```
 
-     Locate file `/usr/local/Cellar/hadoop/2.7.3/libexec/etc/hadoop/hdfs-site.xml` and change or update the following line
+   Locate file `/usr/local/Cellar/hadoop/2.7.3/libexec/etc/hadoop/hdfs-site.xml` and change or update the following line
 
-     ```xml
-     <configuration>
-     <property>
-         <name>mapred.job.tracker</name>
-         <value>localhost:9010</value>
-     </property>
-     </configuration>
-     ```
+   ```xml
+   <configuration>
+   <property>
+       <name>mapred.job.tracker</name>
+       <value>localhost:9010</value>
+   </property>
+   </configuration>
+   ```
 
-     For convinient, add the following two line to `~/.profile` and load with `source ~/.profile`
+   For convinient, add the following two line to `~/.profile` and load with `source ~/.profile`
 
-     ```shell
-     export HADOOP_HOME=/usr/local/Cellar/hadoop/2.7.3
-     export HIVE_HOME=/usr/local/Cellar/hive/2.1.0/libexec
-     alias hstart="/usr/local/Cellar/hadoop/2.7.3/sbin/start-dfs.sh;/usr/local/Cellar/hadoop/2.7.3/sbin/start-yarn.sh"
-     alias hstop="/usr/local/Cellar/hadoop/2.7.3/sbin/stop-yarn.sh;/usr/local/Cellar/hadoop/2.7.3/sbin/stop-dfs.sh"
-     export PATH=/usr/local/Cellar/hive/2.1.0/bin/:$PATH
-     ```
+   ```shell
+   export HADOOP_HOME=/usr/local/Cellar/hadoop/2.7.3
+   export HIVE_HOME=/usr/local/Cellar/hive/2.1.0/libexec
+   alias hstart="/usr/local/Cellar/hadoop/2.7.3/sbin/start-dfs.sh;/usr/local/Cellar/hadoop/2.7.3/sbin/start-yarn.sh"
+   alias hstop="/usr/local/Cellar/hadoop/2.7.3/sbin/stop-yarn.sh;/usr/local/Cellar/hadoop/2.7.3/sbin/stop-dfs.sh"
+   export PATH=/usr/local/Cellar/hive/2.1.0/bin/:$PATH
+   ```
 
-   - Check and fix SSH connection
+1. Check and fix SSH connection
+ 
+   Check SSh connection to localhost with following command
+ 
+   ```shell
+   cat ~/.ssh/id_res.pub >> ~/.ssh/authorized_keys
+   ssh localhost
+   ```
+  
+   In case of port 22 not open for ssh, fix with the following command
+
+   ```shell
+   sudo systemsetup1.setremotelogin on
+   ```
+
+1. Format *hdfs* with `hdfs namenode1.format` and start *Hadoop* with `hstart`
+
+# Set up MySql on OsX
+
+Install MariaDB according to the followings
+
+```shell
+brew install mariadb
+mysql.server start
+```
+
    
-     Check SSh connection to localhost with following command
-   
-     ```shell
-     cat ~/.ssh/id_res.pub >> ~/.ssh/authorized_keys
-     ssh localhost
-     ```
-    
-     In case of port 22 not open for ssh, fix with the following command
+# Set up Hive on OsX
 
-     ```shell
-     sudo systemsetup -setremotelogin on
-     ```
+1.  Install *Hive* and *MySql*
 
-   - Format *hdfs* with `hdfs namenode -format` and ttart *Hadoop* with `hstart`
+   ```shell
+   brew install mysql
+   brew install hive
+   ```
 
-1. Set up MySql on OsX
+1.  Download driver class, in this case, jdbd driver *mysql-connector-java-5.1.41-bin.jar*. Copy the jar file to *Hive* lib.
 
-   - Install MariaDB according to the followings
-   
-     ```shell
-     brew install mariadb
-     mysql.server start
-     ```
+1.  Set Hive metastore on MySql, first run shell command and get into MySql
 
-   
-1. Set up Hive on OsX
+   ```shell
+   mysqladmin1. u root password 'pwd'
+   mysql1. u root1. p
+   ```
 
-   - Install *Hive* and *MySql*
+   then run the following SQL
 
-     ```shell
-     brew install mysql
-     brew install hive
-     ```
+   ```shell
+   CREATE DATABASE metastore;
+   USE metastore;
+   ALTER DATABASE metastore CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+   CREATE USER 'hiveuser'@'localhost' IDENTIFIED BY 'hivepwd';
+   GRANT ALL PRIVILEGES ON *.* TO 'hiveuser'@'localhost' WITH GRANT OPTION;
+   ```
 
-   - Download driver class, in this case, jdbd driver *mysql-connector-java-5.1.41-bin.jar*. Copy the jar file to *Hive* lib.
+1.  Configure Hive
 
-   - Set Hive metastore on MySql, first run shell command and get into MySql
+   ```xml
+   <property>
+      <name>javax.jdo.option.ConnectionURL</name>
+      <value>jdbc:mysql://localhost/metastore</value>
+   </property>
+   <property>
+       <name>javax.jdo.option.ConnectionDriverName</name>
+       <value>com.mysql.jdbc.Driver</value>
+   </property>
+   <property>
+      <name>javax.jdo.option.ConnectionUserName</name>
+      <value>hiveuser</value>
+   </property>
+   <property>
+      <name>javax.jdo.option.ConnectionPassword</name>
+      <value>hivepwd</value>
+   </property>
+   <property>
+      <name>datanucleus.fixedDatastore</name>
+      <value>false</value>
+   </property>
+   <property>
+      <name>hive.exec.local.scratchdir</name>
+      <value>/tmp/hive</value>
+   <description>Local scratch space for Hive jobs</description>
+   </property>
+   <property>
+      <name>hive.downloaded.resources.dir</name>
+      <value>/tmp/hive</value>
+   <description>Temporary local directory for added resources in the remote file system.</description>
+   </property>
+   <property>
+      <name>hive.querylog.location</name>
+      <value>/tmp/hive</value>
+   <description>Location of Hive run time structured log file</description>
+   </property>
+   ```
 
-     ```shell
-     mysqladmin -u root password 'pwd'
-     mysql -u root -p
-     ```
+1.  Run Hive schema tool for initialization
 
-     then run the following SQL
+   ```shell
+   schematool1. initSchema1. dbType mysql
+   ```
 
-     ```shell
-     CREATE DATABASE metastore;
-     USE metastore;
-     ALTER DATABASE metastore CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-     CREATE USER 'hiveuser'@'localhost' IDENTIFIED BY 'hivepwd';
-     GRANT ALL PRIVILEGES ON *.* TO 'hiveuser'@'localhost' WITH GRANT OPTION;
-     ```
+1.  Initial Hive folder structure and assign proper promission
 
-   - Configure Hive
+   ```shell
+   hdfs dfs1. mkdir1. p /user/hive/warehouse
+   hdfs dfs1. chmod g+w /tmp
+   hdfs dfs1. chmod g+w /user/hive/warehouse
+   ```
 
-     ```xml
-     <property>
-        <name>javax.jdo.option.ConnectionURL</name>
-        <value>jdbc:mysql://localhost/metastore</value>
-     </property>
-     <property>
-         <name>javax.jdo.option.ConnectionDriverName</name>
-         <value>com.mysql.jdbc.Driver</value>
-     </property>
-     <property>
-        <name>javax.jdo.option.ConnectionUserName</name>
-        <value>hiveuser</value>
-     </property>
-     <property>
-        <name>javax.jdo.option.ConnectionPassword</name>
-        <value>hivepwd</value>
-     </property>
-     <property>
-        <name>datanucleus.fixedDatastore</name>
-        <value>false</value>
-     </property>
-     <property>
-        <name>hive.exec.local.scratchdir</name>
-        <value>/tmp/hive</value>
-     <description>Local scratch space for Hive jobs</description>
-     </property>
-     <property>
-        <name>hive.downloaded.resources.dir</name>
-        <value>/tmp/hive</value>
-     <description>Temporary local directory for added resources in the remote file system.</description>
-     </property>
-     <property>
-        <name>hive.querylog.location</name>
-        <value>/tmp/hive</value>
-     <description>Location of Hive run time structured log file</description>
-     </property>
-     ```
-
-   - Run Hive schema tool for initialization
-
-     ```shell
-     schematool -initSchema -dbType mysql
-     ```
-
-   - Initial Hive folder structure and assign proper promission
-
-     ```shell
-     hdfs dfs -mkdir -p /user/hive/warehouse
-     hdfs dfs -chmod g+w /tmp
-     hdfs dfs -chmod g+w /user/hive/warehouse
-     ```
-   - Start Hive with `hive`. 
+1.  Start Hive with `hive`. 
 
 # Sqoop
 
