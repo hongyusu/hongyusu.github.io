@@ -5,7 +5,9 @@ location: Helsinki
 tags: [Ingestion]
 ---
 
-To discuss data ingestion, sqoop and flume.
+
+In this article, we will focus on data ingestion in particular from/to HDFS, Hbase, MySQL, Hive via Sqoop and Flume. As a bonus, we will discuss on the installation and configuration of Hadoop, Hbase, Hive, Sqoop on OsX.
+
 
 # Table of content
 * auto-gen TOC:
@@ -29,7 +31,7 @@ To discuss data ingestion, sqoop and flume.
 1. Install *Hadoop*
 
    ```shell
-   ruby1.e "$(curl1.fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
    brew install hadoop
    ```
 
@@ -38,7 +40,7 @@ To discuss data ingestion, sqoop and flume.
    Locate file `/usr/local/Cellar/hadoop/2.7.3/libexec/etc/hadoop/hadoop-env.sh` and change or update the following line
 
    ```shell
-   export HADOOP_OPTS="$HADOOP_OPTS1.Djava.net.preferIPv4Stack=true1.Djava.security.krb5.realm=1.Djava.security.krb5.kdc="
+   export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true -Djava.security.krb5.realm= -Djava.security.krb5.kdc="
    ```
 
    Locate file `/usr/local/Cellar/hadoop/2.7.3/libexec/etc/hadoop/core-site.xml` and change or update the following line
@@ -101,10 +103,10 @@ To discuss data ingestion, sqoop and flume.
    In case of port 22 not open for ssh, fix with the following command
 
    ```shell
-   sudo systemsetup1.setremotelogin on
+   sudo systemsetup -setremotelogin on
    ```
 
-1. Format *hdfs* with `hdfs namenode1.format` and start *Hadoop* with `hstart`
+ 1. Format *hdfs* with `hdfs namenode -format` and start *Hadoop* with `hstart`
 
 ## MySql
 
@@ -129,8 +131,8 @@ mysql.server start
 1.  Set Hive metastore on MySql, first run shell command and get into MySql
 
    ```shell
-   mysqladmin1. u root password 'pwd'
-   mysql1. u root1. p
+   mysqladmin - u root password 'pwd'
+   mysql - u root - p
    ```
 
    then run the following SQL
@@ -186,15 +188,15 @@ mysql.server start
 1.  Run Hive schema tool for initialization
 
    ```shell
-   schematool1. initSchema1. dbType mysql
+   schematool -initSchema -dbType mysql
    ```
 
 1.  Initial Hive folder structure and assign proper permission
 
    ```shell
-   hdfs dfs1. mkdir1. p /user/hive/warehouse
-   hdfs dfs1. chmod g+w /tmp
-   hdfs dfs1. chmod g+w /user/hive/warehouse
+   hdfs dfs -mkdir -p /user/hive/warehouse
+   hdfs dfs -chmod g+w /tmp
+   hdfs dfs -chmod g+w /user/hive/warehouse
    ```
 
 1.  Start Hive with `hive`. 
@@ -202,10 +204,28 @@ mysql.server start
 
 ## Hbase
 
-1.  Install *hbase* from home brew
+1. Install *hbase* from home brew
 
+   ```shell
+   brew install hbase
+   export PATH=/usr/local/Cellar/hbase/1.2.2/bin/:$PATH
+   alias hshell="hbase shell"
+   ```
 
+1. Edit the file `/usr/local/Cellar/hbase/1.2.2/libexec/conf/hbase-site.xml` by adding the following property.
 
+   ```xml
+   <configuration>
+   <property>
+       <name>hbase.rootdir</name>
+       <value>hdfs://localhost:9000/hbase</value>
+   </property>
+   </configuration>
+   ``` 
+
+1. Start Hbase server `start-hbase.sh` and access via shell `hbase shell`.
+
+1. create a namespace and an empty table `create_namespace test; create "test:testtable","field1"`.
 
 # Sqoop
 
@@ -290,6 +310,23 @@ mysql.server start
          -m 1
      ```
    
+1. Hbase
+
+   - MySql to Hbase ingestion, the following command will import a mySql table defined above into a Hbase table.
+
+     ```shell
+     sqoop import \
+         --bindir ./ \
+         --connect jdbc:mysql://localhost/test \
+         --username root \
+         --password pwd \
+         --table testtable  \
+         --columns "column1, column2"  \
+         --hbase-table testtable  \
+         --column-family f1  \
+         --hbase-row-key column1 \
+         -m 1 -verbose
+     ``` 
    
 # Flume 
 
