@@ -241,13 +241,7 @@ mysql.server start
          -m 1
      ```
 
-  
-
-
-
-   - Install and setup Hive
-
-     - in which one needs to download and install Hive, configures metastore in mySql, setup hdfs folder structure.
+1. Hive 
 
    - Create a hive table and import data from a CSV file. HQL script can be found from [Github:BigDataETL:Hive][hivepackage].
 
