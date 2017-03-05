@@ -5,8 +5,7 @@ location: Helsinki
 tags: [Ingestion]
 ---
 
-
-In this article, we will focus on data ingestion in particular from/to HDFS, Hbase, MySQL, Hive via Sqoop and Flume. As a bonus, we will discuss on the installation and configuration of Hadoop, Hbase, Hive, Sqoop on OsX.
+Extraction and loading are important parts of BigData ETL operations. In this article, we will be focusing on data ingestion operations mainly with Sqoop and Flume. These operations are quite often used to transfer data between file systems e.g. HDFS, noSql databases e.g. Hbase, Sql databases e.g. Hive, message queuing system e.g. Kafka, as well as other sources and sinks. 
 
 
 # Table of content
@@ -332,10 +331,55 @@ mysql.server start
 
 1. Complete code can be found from my [Github:BigData:ETL:Flume][flumepackage]
 
+1. Save the following flume ingestion configuration file as for example `example.conf`. The file defines an ingestion from twiiter firehose to a kafka topic which will constantly fetch data from Twitter and send it to a kafka topic.
+
+   ``` shell
+   a1.sources  = twitterS 
+   a1.channels = memoryC
+   a1.sinks    = kafkaD 
+   
+   # source : exec
+   a1.sources.execS.type    = exec
+   a1.sources.execS.command = tail -F /var/log/system.log
+   
+   # source : twitter 
+   a1.sources.twitterS.type                   = org.apache.flume.source.twitter.TwitterSource
+   a1.sources.twitterS.channels               = memoryC
+   a1.sources.twitterS.consumerKey            = ncMZ2CP7YmScHkLYwmfCYaTZz
+   a1.sources.twitterS.consumerSecret         = ZkFEJXxXEOUlqkhrJ14kzWakrXjqIe11de7ks28DyC79P31t9q
+   a1.sources.twitterS.accessToken            = 1157786504-XB3DXGrMmhvM1PAb6aeys3LJFYI9Y3LzS6veRHj
+   a1.sources.twitterS.accessTokenSecret      = 8w69uDRm9PPA9iv3fNtkHPKP4FIq5SFtVbcE28wtcY5qx
+   a1.sources.twitterS.keywords               = hadoop, kafka, spark, flume, storm, sqoop, yarn, mapr, mesos, hbase, hive, pig
+   a1.sources.twitterS.maxBatchSize           = 10
+   a1.sources.twitterS.maxBatchDurationMillis = 200
+    
+   # sink : kafka
+   a1.sinks.kafkaD.type                            = org.apache.flume.sink.kafka.KafkaSink
+   a1.sinks.kafkaD.kafka.topic                     = flumetest 
+   a1.sinks.kafkaD.kafka.bootstrap.servers         = localhost:9092
+   a1.sinks.kafkaD.kafka.flumeBatchSize            = 20
+   a1.sinks.kafkaD.kafka.producer.acks             = 1
+   a1.sinks.kafkaD.kafka.producer.linger.ms        = 1
+   a1.sinks.kafkaD.kafka.producer.compression.type = snappy
+   
+   a1.channels.memoryC.type                = memory
+   a1.channels.memoryC.capacity            = 1000
+   a1.channels.memoryC.transactionCapacity = 100
+   
+   a1.sources.execS.channels = memoryC
+   a1.sinks.kafkaD.channel   = memoryC 
+   ```
+
+1. Execute the flume ingestion and consume from kafka command line consumer 
+
+   ```shell
+   ./flume-ng agent -n a1 -c conf -f  ~/Codes/bigdata_etl/etl_flume/config/flume-example.conf -Dflume.root.looger=DEBUG,console
+   ~/Codes/confluent-3.0.0/bin/kafka-console-consumer --zookeeper localhost:2181  --topic flumetest
+   ```
 
 # Conclusion
 
-TBD
+Extraction and loading are part of ETL operation which are very often seen when building up the industry level big data processing pipeline. In this article, we walked through some ingestion operations mostly via Sqoop and Flume. These operations aim at transfering data between file systems e.g. HDFS, noSql databases e.g. Hbase, Sql databases e.g. Hive, message queue e.g. Kafka, and other sources or sinks. 
 
 [flumepackage]: https://github.com/hongyusu/bigdata_etl/tree/master/etl_flume
 [sqooppackage]: https://github.com/hongyusu/bigdata_etl/tree/master/etl_sqoop
