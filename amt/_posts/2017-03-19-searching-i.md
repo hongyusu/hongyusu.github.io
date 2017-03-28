@@ -22,35 +22,52 @@ The following packages are required.
 
 | Packages           | Version  | Repository                                 |
 |:-------------------|---------:|-------------------------------------------:|
-| mvn                | 3.3.9    |                                            | 
-| gradle             | 3.3      |                                            |
-| storm              | 1.0.3    | git@github.com:hongyusu/storm.git          |
+| solr               | 6.3.0    |                                            |
+| logstash           |          |                                            |
+| elasticsearch      |          |                                            |
+| kibana             |          |                                            |
+| banana             |          |                                            |
 
 
-# Storm build and installation
+# Installation
 
-1. Download the source code of *storm* from [repo](git@github.com:hongyusu/storm.git), enter the source directory, and build the code with *maven* 
+## Solr
 
-   ```shell
-   mvn clean install -DskipTests=true
-   cd storm-dist/binary/
-   mvn package -Dgpg.skip -Dtest.skip
-   ```
-
-1. Find the release package and unpack the tar ball 
+1. As a OsX user, I install *solr* using *home brew* 
 
    ```shell
-   cd target
-   tar xvvf apache-storm-1.0.3.tar.gz
-   ```
+   sudo brew install solr
+   ``` 
 
-1. Run from the *bin/* folder inside the release package and you are ready to go.
+## Elasticsearch
+
+## Logstash
+
+## Kibana
+
+## Banana
+
+
+
 
 # Conclusion
 
 
 [stormnativeapi]: https://github.com/hongyusu/bigdata_etl/tree/master/etl_spark/src/main/etl_storm/WordCountTopology.java
 [stormtridentapi]: https://github.com/hongyusu/bigdata_etl/tree/master/etl_spark/src/main/etl_storm/TridentKafkaWordCount.java
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
