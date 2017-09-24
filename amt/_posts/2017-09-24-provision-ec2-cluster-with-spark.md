@@ -7,6 +7,10 @@ tags: [Streaming]
 
 This article is to provision a EC2 cluster with Spark and Hadoop. As a result, one should be able to run Spark applications utilizing HDFS file system. 
 
+# Table of content
+* auto-gen TOC:
+{:toc}
+
 # Quick and dirty
 
 For impatient reader, run the following script in a quick and dirty way. Remeber to replace access key and key pair with your own.
