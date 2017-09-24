@@ -9,18 +9,18 @@ This article is to provision a EC2 cluster with Spark and Hadoop. As a result, o
 
 # Quick and dirty
 
-  For impatient reader, run the following script in a quick and dirty way. Remeber to replace access key and key pair with your own.
+For impatient reader, run the following script in a quick and dirty way. Remeber to replace access key and key pair with your own.
 
-  ```bash
-  export AWS_SECRET_ACCESS_KEY=U/y3rO1/wwwzbyUe6wkzNwVG9Qb3uBdxBqiHsmcT
-  export AWS_ACCESS_KEY_ID=ABCAJKKNPJJRL74RPY4A
-  /Users/hongyusu/Codes/Packages/spark-ec2/spark-ec2 -k g1euwest -i g1euwest.pem \
-          --region=eu-west-1 \
-          --instance-type=t2.micro \
-          -s 20 \
-          --hadoop-major-version=2 \
-          launch spark-cluster
-  ```
+```bash
+export AWS_SECRET_ACCESS_KEY=U/y3rO1/wwwzbyUe6wkzNwVG9Qb3uBdxBqiHsmcT
+export AWS_ACCESS_KEY_ID=ABCAJKKNPJJRL74RPY4A
+/Users/hongyusu/Codes/Packages/spark-ec2/spark-ec2 -k g1euwest -i g1euwest.pem \
+        --region=eu-west-1 \
+        --instance-type=t2.micro \
+        -s 20 \
+        --hadoop-major-version=2 \
+        launch spark-cluster
+```
 
 # Setup the Spark cluster on EC2
 
