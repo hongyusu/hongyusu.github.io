@@ -36,64 +36,64 @@ export AWS_ACCESS_KEY_ID=ABCAJKKNPJJRL74RPY4A
 
    Access key allows application to communicate the EC2 servers
 
-   1. From AWS front page, click your username on the topright corner, then choose my security credential, choose access key, click create access key. 
+   - From AWS front page, click your username on the topright corner, then choose my security credential, choose access key, click create access key. 
 
-   1. Store the access key id and access key secret as a file. 
+   - Store the access key id and access key secret as a file. 
 
 1. Key pair
 
    Key pair will essentially authenticate the applications/scripts with EC2 servers
 
-   1. From front page, choose service EC2 on the top left corner, click key pairs, choose create key pair
+   - From front page, choose service EC2 on the top left corner, click key pairs, choose create key pair
 
-   1. Name the key pair by following some pattern e.g. username+region so that key pairs from different regions will not get mixed 
+   - Name the key pair by following some pattern e.g. username+region so that key pairs from different regions will not get mixed 
 
-   1. Download the file and save as .pem file
+   - Download the file and save as .pem file
 
-   1. change permission as user can read
+   - change permission as user can read
 
-      ```bash
-      chmod 400 keypairfile.pem
-      ```
+     ```bash
+     chmod 400 keypairfile.pem
+     ```
 
 1. export access key
 
-   1. Export access key with the following command using key id and key string generated from previous step
+   - Export access key with the following command using key id and key string generated from previous step
 
-      ```bash
-      export AWS_SECRET_ACCESS_KEY=U/y3rO1/wwwzbyUe6wkzNwVG9Qb3uBdxBqiHsmcT
-      export AWS_ACCESS_KEY_ID=ABCAJKKNPJJRL74RPY4A
-      ```
+     ```bash
+     export AWS_SECRET_ACCESS_KEY=U/y3rO1/wwwzbyUe6wkzNwVG9Qb3uBdxBqiHsmcT
+     export AWS_ACCESS_KEY_ID=ABCAJKKNPJJRL74RPY4A
+     ```
 
 1. Setup a Spark cluster using spark-ec2
 
-   1. Spark-ec2 package is no longer part of Spark distribution. So we need to download spark-ec2 package from its [Github repository](https://github.com/amplab/spark-ec2).
+   - Spark-ec2 package is no longer part of Spark distribution. So we need to download spark-ec2 package from its [Github repository](https://github.com/amplab/spark-ec2).
 
-   1. Setup a spark cluster via the following command. Name the cluster as _spark-cluster_.
+   - Setup a spark cluster via the following command. Name the cluster as _spark-cluster_.
 
-      ```bash
-      /Users/hongyusu/Codes/Packages/spark-ec2/spark-ec2 -k g1euwest -i g1euwest.pem \
-      --region=eu-west-1 \
-      --instance-type=t2.micro \
-      -s 5 \
-      --hadoop-major-version=2 \
-      launch spark-cluster
-      ```
+     ```bash
+     /Users/hongyusu/Codes/Packages/spark-ec2/spark-ec2 -k g1euwest -i g1euwest.pem \
+     --region=eu-west-1 \
+     --instance-type=t2.micro \
+     -s 5 \
+     --hadoop-major-version=2 \
+     launch spark-cluster
+     ```
 
-      1. Describe key pair file via option _-i_
+     - Describe key pair file via option _-i_
 
-      1. Specify key name via option _-k_
+     - Specify key name via option _-k_
 
-      1. Give the number of Spark slave nodes via option _-s_ 
+     - Give the number of Spark slave nodes via option _-s_ 
 
-      1. Specify Hadoop version via option _--hadoop-major-version_
+     - Specify Hadoop version via option _--hadoop-major-version_
 
-   1. Spark version could also be specified as additional options to spark-ec2. Unfortuntely I haven't figure out a good way to automatically build the Spark package on the master node. 
+   - Spark version could also be specified as additional options to spark-ec2. Unfortuntely I haven't figure out a good way to automatically build the Spark package on the master node. 
 
-      ```bash
-      --spark-version=a2c7b2133cfee7fa9abfaa2bfbfb637155466783 \
-      --spark-git-repo=https://github.com/apache/spark \
-      ```
+     ```bash
+     --spark-version=a2c7b2133cfee7fa9abfaa2bfbfb637155466783 \
+     --spark-git-repo=https://github.com/apache/spark \
+     ```
 
 # Other cluster operations
 
@@ -132,26 +132,26 @@ export AWS_ACCESS_KEY_ID=ABCAJKKNPJJRL74RPY4A
 
   1. Setup event history log
      
-     1. Make a directory for event logs
+     - Make a directory for event logs
 
-        ```bash
-        cd ~
-        mkdir /tmp/spark-events
-        ```
+       ```bash
+       cd ~
+       mkdir /tmp/spark-events
+       ```
 
-     1. Start Spark event history server and restart Spark engine
+     - Start Spark event history server and restart Spark engine
      
-        ```bash
-        cd ~/spark/sbin
-        ./start-history-server.sh
-        ./stop-all.sh ;./start-all.sh 
-        ```
+       ```bash
+       cd ~/spark/sbin
+       ./start-history-server.sh
+       ./stop-all.sh ;./start-all.sh 
+       ```
 
-     1. Run a Spark application with event log enabled e.g. pySpark
+     - Run a Spark application with event log enabled e.g. pySpark
 
-        ```bash
-        spark/bin/pyspark --conf "spark.eventLog.enabled=true" spark/examples/src/main/python/wordcount.py /data/data.txt
-        ```
+       ```bash
+       spark/bin/pyspark --conf "spark.eventLog.enabled=true" spark/examples/src/main/python/wordcount.py /data/data.txt
+       ```
 
 # Run Spark application on Spark cluster
 
