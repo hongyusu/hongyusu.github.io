@@ -11,13 +11,14 @@ section: Home
 =======
 
 I'm Hongyu Su,
-a Ph.D on Machine Learning,
+a Ph.D on theoretical Machine Learning,
 downhill snowboarding unprofessional,
-scuba diver,
+licensed scuba diver (aow + nitrox),
+[manager](https://www.linkedin.com/in/hongyusu/) of a data science and engineer team in a [nordic bank](http://www.nordea.com),
 cat person,
 terrible guitar player,
-[researcher](/work/),
-[lead data scientist](http://mbmlbook.com/index.html) in a bank,
+[researcher](/work/) in machine learning,
+[lead data scientist](http://mbmlbook.com/index.html) in the company,
 [publishing papers](/work/pubs/),
 nerdy vim user,
 hiker and [photographer][flickr],
