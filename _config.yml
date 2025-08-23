@@ -12,12 +12,9 @@ markdown: kramdown
 highlighter: rouge
 permalink: pretty
 
-# Jekyll configuration
+# GitHub Pages configuration
 destination: ./_site/
 incremental: false
-plugins:
-  - jekyll-feed
-  - jekyll-sitemap
 
 # Kramdown settings
 kramdown:

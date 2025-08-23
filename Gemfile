@@ -1,11 +1,7 @@
 source "https://rubygems.org"
 
-# Use older Jekyll version for better compatibility
-gem "jekyll", "~> 3.9.0"
-gem "kramdown-parser-gfm"
+# GitHub Pages compatible setup
+gem "github-pages", group: :jekyll_plugins
 
-# Plugins
-group :jekyll_plugins do
-  gem "jekyll-feed", "~> 0.12"
-  gem "jekyll-sitemap"
-end
+# Required for GitHub Pages
+gem "webrick", "~> 1.7"
