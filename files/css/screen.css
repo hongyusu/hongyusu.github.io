@@ -248,7 +248,7 @@ body#Play #header a.play,
 body#Info #header a.info,
 body#Code #header a.code,
 body#Past #header a.past,
-body#Kith #header a.kith
+body#Blog #header a.blog
 { 
 	border-bottom: 2px solid silver; 
 }
