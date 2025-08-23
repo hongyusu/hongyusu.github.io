@@ -1,7 +1,3 @@
-.DS_Store
-._*
-**/._*
-_site
-*.save
-_drafts/
-*.tar
+vendor/
+.bundle/
+Gemfile.lock
