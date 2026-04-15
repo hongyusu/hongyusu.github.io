@@ -1,0 +1,19 @@
+---
+const { pathname } = Astro.url;
+const isActive = (path: string) => {
+  if (path === '/') return pathname === '/';
+  return pathname.startsWith(path);
+};
+---
+
+<header>
+  <a href="/" class="site-name" data-hoverchar>Hongyu Su</a>
+  <nav>
+    <a href="/" class:list={[{ active: isActive('/') }]}>Home</a>
+    <a href="/blog/" class:list={[{ active: isActive('/blog') }]}>Blog</a>
+    <a href="/code/" class:list={[{ active: isActive('/code') }]}>Portfolio</a>
+    <a href="/work/" class:list={[{ active: isActive('/work') }]}>Academic</a>
+    <button class="theme-toggle" aria-label="Toggle theme">&#9681;</button>
+  </nav>
+  <button class="mobile-toggle" aria-label="Menu">Menu</button>
+</header>

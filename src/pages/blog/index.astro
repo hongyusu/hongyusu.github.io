@@ -1,0 +1,36 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => {
+    const da = a.data.date ?? new Date(a.id.slice(0, 10));
+    const db = b.data.date ?? new Date(b.id.slice(0, 10));
+    return db.getTime() - da.getTime();
+  });
+---
+
+<Base title="Blog">
+  <div class="page-header">
+    <h1>Blog</h1>
+    <p class="subtitle">
+      {posts.length} posts on machine learning, data science, data engineering, and software development.
+      <a href="/blog/archive/">Archive &rarr;</a>
+    </p>
+  </div>
+
+  <div class="post-grid">
+    {posts.map((post) => {
+      const date = post.data.date ?? new Date(post.id.slice(0, 10));
+      return (
+        <PostCard
+          title={post.data.title}
+          date={date}
+          slug={post.id.replace(/\.md$/, '')}
+          tags={post.data.tags}
+        />
+      );
+    })}
+  </div>
+</Base>

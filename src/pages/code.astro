@@ -1,0 +1,96 @@
+---
+import Base from '../layouts/Base.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+let counter = 1;
+const num = () => `P${String(counter++).padStart(3, '0')}`;
+
+const sections = [
+  {
+    title: 'Academic',
+    projects: [
+      { name: 'Dissertation', description: 'Multilabel classification — Aalto', url: 'https://github.com/hongyusu/Dissertation', langs: 'TeX', year: '2015' },
+      { name: 'Posters & Presentations', description: 'Conference slides from ICML, NIPS', url: 'https://github.com/hongyusu/Posters_and_Presentations', langs: 'TeX', year: '2015' },
+      { name: 'Master Thesis', description: "Master's thesis — University of Helsinki", url: 'https://github.com/hongyusu/Master_thesis', langs: 'TeX, R, Perl', year: '2010' },
+    ],
+  },
+  {
+    title: 'Web Applications',
+    projects: [
+      { name: 'site-travel', description: 'Travel website', url: 'https://github.com/hongyusu/site-travel', langs: 'TypeScript, Python, Docker', year: '2026' },
+      { name: 'site-ecommerce', description: 'E-commerce site', url: 'https://github.com/hongyusu/site-ecommerce', langs: 'TypeScript, Python, Docker', year: '2026' },
+      { name: 'Sentipred', description: 'Deep learning sentiment analysis', url: 'https://github.com/hongyusu/sentiment_predictor', langs: 'Python, JavaScript', stars: 6, year: '2016' },
+      { name: 'WebApp', description: 'Sentiment analysis web application', url: 'https://github.com/hongyusu/WebApp', langs: 'Python, JavaScript', year: '2016' },
+    ],
+  },
+  {
+    title: 'Machine Learning Research',
+    projects: [
+      { name: 'SGNMF', description: 'NMF with graph Laplacian and sparsity constraints', url: 'https://github.com/hongyusu/SGNMF', langs: 'MATLAB', stars: 7, year: '2014' },
+      { name: 'RTA', description: 'Random spanning tree approximation — NIPS', url: 'https://github.com/hongyusu/RTA', langs: 'Python, R, MATLAB, C', stars: 1, year: '2014' },
+      { name: 'L2RTA', description: 'Conditional gradient optimization extending RTA', url: 'https://github.com/hongyusu/L2RTA', langs: 'MATLAB, Python, C', stars: 2, year: '2015' },
+      { name: 'SPIN', description: 'Structured prediction of network response — ICML', url: 'https://github.com/hongyusu/SPIN', langs: 'MATLAB, Python, C', stars: 1, year: '2014' },
+      { name: 'Molecular Classification', description: 'Multiple kernel learning for molecules', url: 'https://github.com/hongyusu/Molecular_Classification', langs: 'MATLAB, R, Python, Perl', year: '2013' },
+      { name: 'Protein Function', description: 'Transporter protein classification', url: 'https://github.com/hongyusu/ProteinFunctionPrediction', langs: 'Python, R, MATLAB, Java, C', stars: 1, year: '2015' },
+      { name: 'TCSOP', description: 'Structured output prediction with O(k) search space', url: 'https://github.com/hongyusu/TCSOP', year: '2014' },
+    ],
+  },
+  {
+    title: 'ML Engineering & NLP',
+    projects: [
+      { name: 'autocomplete', description: 'Autocomplete service', url: 'https://github.com/hongyusu/autocomplete', langs: 'Python', year: '2021' },
+      { name: 'template_mlserver', description: 'ML model serving template', url: 'https://github.com/hongyusu/template_mlserver', langs: 'Python, Docker', year: '2021' },
+      { name: 'embedding_service', description: 'Embedding service experiments', url: 'https://github.com/hongyusu/embedding_service_experiment', langs: 'Python', year: '2021' },
+      { name: 'chatbot', description: 'Chatbot implementation', url: 'https://github.com/hongyusu/chatbot', langs: 'Python, JavaScript', year: '2017' },
+      { name: 'BERT', description: 'BERT model experiments', url: 'https://github.com/hongyusu/BERT', year: '2019' },
+    ],
+  },
+  {
+    title: 'Data Engineering',
+    projects: [
+      { name: 'bigdata_etl', description: 'ETL pipelines with Spark, Kafka, Avro', url: 'https://github.com/hongyusu/bigdata_etl', langs: 'Java, Shell', stars: 6, year: '2017' },
+      { name: 'SparkViaPython', description: 'PySpark examples and tutorials', url: 'https://github.com/hongyusu/SparkViaPython', langs: 'Shell', year: '2015' },
+      { name: 'HadoopViaPython', description: 'Hadoop MapReduce in Python', url: 'https://github.com/hongyusu/HadoopViaPython', langs: 'Python', year: '2015' },
+      { name: 'AmazonCodes', description: 'Scripts for running workloads on AWS', url: 'https://github.com/hongyusu/AmazonCodes', langs: 'JavaScript, Shell, Python', year: '2016' },
+      { name: 'trading_gdax', description: 'Crypto trading with GDAX API', url: 'https://github.com/hongyusu/trading_gdax', langs: 'Python', year: '2020' },
+    ],
+  },
+  {
+    title: 'Hackathons & Competitions',
+    projects: [
+      { name: 'Facebook Challenge', description: 'Online fraud detection', url: 'https://github.com/hongyusu/FacebookChallenge', langs: 'Python, MATLAB', stars: 1, year: '2015' },
+      { name: 'AaltoHackathon', description: 'Route recommendation system', url: 'https://github.com/hongyusu/AaltoHackathon2015', langs: 'Python, MATLAB, JavaScript', year: '2015' },
+      { name: 'Taxi Trajectory', description: 'Predicting taxi destinations from GPS', url: 'https://github.com/hongyusu/TaxiTrajectoryPrediction', langs: 'Python', year: '2015' },
+      { name: 'Scikit Examples', description: 'Collection of scikit-learn ML examples', url: 'https://github.com/hongyusu/ScikitExamples', langs: 'Python', year: '2015' },
+    ],
+  },
+];
+---
+
+<Base title="Portfolio">
+  <div class="page-header">
+    <h1>Portfolio</h1>
+    <p class="subtitle">
+      Selected work on <a href="https://github.com/hongyusu" target="_blank">GitHub</a>
+    </p>
+  </div>
+
+  {sections.map((section) => (
+    <div class="content-section">
+      <h2>{section.title}</h2>
+      <div class="project-showcase">
+        {section.projects.map((p) => (
+          <ProjectCard
+            name={p.name}
+            description={p.description}
+            url={p.url}
+            number={num()}
+            year={p.year}
+            langs={p.langs}
+            stars={p.stars}
+          />
+        ))}
+      </div>
+    </div>
+  ))}
+</Base>

@@ -1,0 +1,69 @@
+---
+import Base from '../layouts/Base.astro';
+import PostCard from '../components/PostCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => {
+    const da = a.data.date ?? new Date(a.id.slice(0, 10));
+    const db = b.data.date ?? new Date(b.id.slice(0, 10));
+    return db.getTime() - da.getTime();
+  });
+
+const recentPosts = posts.slice(0, 8);
+---
+
+<Base title="Home">
+  <div class="hero">
+    <h1 data-typewriter="Hongyu Su">Hongyu Su</h1>
+    <div class="tagline" data-typewriter-lines>
+      <div data-line>PhD in Machine Learning from Aalto University</div>
+      <div data-line>data scientist building ML systems in production</div>
+      <div data-line>researcher in optimization and structured prediction</div>
+      <div data-line>engineer and nerdy vim user</div>
+      <div data-line>snowboarder, hiker, scuba diver</div>
+    </div>
+    <div class="links">
+      <a href="/work/">Academic</a>
+      <a href="/blog/">Blog</a>
+      <a href="/code/">Portfolio</a>
+      <a href="https://github.com/hongyusu" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/hongyusu" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <h2>Recent</h2>
+    <a href="/blog/">All posts &rarr;</a>
+  </div>
+  <div class="post-grid">
+    {recentPosts.map((post) => {
+      const date = post.data.date ?? new Date(post.id.slice(0, 10));
+      return (
+        <PostCard
+          title={post.data.title}
+          date={date}
+          slug={post.id.replace(/\.md$/, '')}
+          tags={post.data.tags}
+        />
+      );
+    })}
+  </div>
+
+  <div class="section-header">
+    <h2>Academic</h2>
+    <a href="/work/">More &rarr;</a>
+  </div>
+  <p>
+    Published at NIPS, ICML, ACML. Focus on optimization, structured output prediction, and kernel methods.
+    PostDoc at <a href="https://research.cs.aalto.fi/hiit/" target="_blank" style="border-bottom: 1px solid var(--border)">HIIT</a> / Aalto University.
+  </p>
+
+  <div class="section-header">
+    <h2>Portfolio</h2>
+    <a href="/code/">View all &rarr;</a>
+  </div>
+  <p>
+    ML research, web applications, and data engineering on <a href="https://github.com/hongyusu" target="_blank" style="border-bottom: 1px solid var(--border)">GitHub</a>.
+  </p>
+</Base>

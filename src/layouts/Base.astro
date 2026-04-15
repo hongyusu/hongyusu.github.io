@@ -1,0 +1,52 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  math?: boolean;
+}
+
+const { title, description = 'Hongyu Su — PhD in Machine Learning, data scientist, researcher, engineer.', math = false } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <link rel="canonical" href={Astro.url.href} />
+    <link rel="icon" href="/images/hongyu_su.jpg" type="image/jpeg" />
+    <title>{title} &mdash; Hongyu Su</title>
+    <ViewTransitions />
+
+    <script is:inline>
+      (function() {
+        if (localStorage.getItem('theme') === 'light') {
+          document.documentElement.classList.add('light');
+        }
+      })();
+    </script>
+
+    {math && (
+      <script is:inline id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    )}
+  </head>
+  <body>
+    <div class="grid-bg" aria-hidden="true"></div>
+    <div class="site">
+      <Header />
+      <main>
+        <slot />
+      </main>
+      <Footer />
+    </div>
+    <script src="../scripts/main.ts"></script>
+  </body>
+</html>

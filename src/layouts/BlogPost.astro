@@ -1,0 +1,55 @@
+---
+import Base from './Base.astro';
+
+interface Props {
+  title: string;
+  date: Date;
+  tags?: string[];
+  description?: string;
+  math?: boolean;
+  prevPost?: { title: string; slug: string } | null;
+  nextPost?: { title: string; slug: string } | null;
+}
+
+const { title, date, tags = [], description, math = false, prevPost, nextPost } = Astro.props;
+
+const formatted = date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<Base title={title} description={description} math={math}>
+  <article>
+    <div class="post-header">
+      <div class="meta">{formatted}</div>
+      <h1>{title}</h1>
+      {tags.length > 0 && (
+        <div class="tags">
+          {tags.map((tag) => (
+            <span class="tag">{tag}</span>
+          ))}
+        </div>
+      )}
+    </div>
+    <div class="post-content">
+      <slot />
+    </div>
+  </article>
+
+  <nav class="post-nav">
+    {prevPost ? (
+      <a href={`/blog/${prevPost.slug}/`}>
+        <span class="label">&larr; Previous</span>
+        {prevPost.title}
+      </a>
+    ) : <span />}
+    {nextPost ? (
+      <a href={`/blog/${nextPost.slug}/`} style="text-align: right;">
+        <span class="label">Next &rarr;</span>
+        {nextPost.title}
+      </a>
+    ) : <span />}
+  </nav>
+</Base>

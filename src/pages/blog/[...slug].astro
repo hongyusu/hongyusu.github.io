@@ -1,0 +1,45 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = (await getCollection('blog'))
+    .sort((a, b) => {
+      const da = a.data.date ?? new Date(a.id.slice(0, 10));
+      const db = b.data.date ?? new Date(b.id.slice(0, 10));
+      return da.getTime() - db.getTime(); // ascending for prev/next
+    });
+
+  return posts.map((post, i) => {
+    const prev = i > 0 ? posts[i - 1] : null;
+    const next = i < posts.length - 1 ? posts[i + 1] : null;
+    return {
+      params: { slug: post.id.replace(/\.md$/, '') },
+      props: {
+        post,
+        prevPost: prev ? { title: prev.data.title, slug: prev.id.replace(/\.md$/, '') } : null,
+        nextPost: next ? { title: next.data.title, slug: next.id.replace(/\.md$/, '') } : null,
+      },
+    };
+  });
+}
+
+const { post, prevPost, nextPost } = Astro.props;
+const { Content } = await post.render();
+const date = post.data.date ?? new Date(post.id.slice(0, 10));
+
+// Detect if post likely uses LaTeX
+const hasMath = post.body?.includes('$$') ?? false;
+---
+
+<BlogPost
+  title={post.data.title}
+  date={date}
+  tags={post.data.tags}
+  description={post.data.description}
+  math={hasMath}
+  prevPost={prevPost}
+  nextPost={nextPost}
+>
+  <Content />
+</BlogPost>

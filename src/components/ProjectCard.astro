@@ -1,0 +1,24 @@
+---
+interface Props {
+  name: string;
+  description: string;
+  url: string;
+  number?: string;
+  langs?: string;
+  stars?: number;
+  year?: string;
+}
+
+const { name, description, url, number, langs, stars, year } = Astro.props;
+---
+
+<a href={url} target="_blank" rel="noopener" class="project-row fadein">
+  <span class="project-number">{number}</span>
+  <span class="project-name">{name}</span>
+  {year && <span class="project-year">{year}</span>}
+  <span class="project-meta">
+    {stars ? <span class="project-stars">{`${'*'.repeat(stars)}`}</span> : null}
+    {langs && <span class="project-langs">{langs}</span>}
+  </span>
+  <span class="project-desc">{description}</span>
+</a>

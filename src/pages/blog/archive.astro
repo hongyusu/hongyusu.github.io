@@ -1,0 +1,45 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => {
+    const da = a.data.date ?? new Date(a.id.slice(0, 10));
+    const db = b.data.date ?? new Date(b.id.slice(0, 10));
+    return db.getTime() - da.getTime();
+  });
+
+// Group by year
+const byYear = new Map<number, typeof posts>();
+for (const post of posts) {
+  const date = post.data.date ?? new Date(post.id.slice(0, 10));
+  const year = date.getFullYear();
+  if (!byYear.has(year)) byYear.set(year, []);
+  byYear.get(year)!.push(post);
+}
+---
+
+<Base title="Archive">
+  <div class="page-header">
+    <h1>Archive</h1>
+    <p class="subtitle">{posts.length} posts</p>
+  </div>
+
+  {[...byYear.entries()].map(([year, yearPosts]) => (
+    <div>
+      <h2 class="archive-year">{year}</h2>
+      <ul class="archive-list">
+        {yearPosts.map((post) => {
+          const date = post.data.date ?? new Date(post.id.slice(0, 10));
+          const formatted = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+          return (
+            <li>
+              <span class="date">{formatted}</span>
+              <a href={`/blog/${post.id.replace(/\.md$/, '')}/`}>{post.data.title}</a>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  ))}
+</Base>
