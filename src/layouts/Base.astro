@@ -26,6 +26,15 @@ const { title, description = 'Hongyu Su — PhD in Machine Learning, data scient
     <title>{title} &mdash; Hongyu Su</title>
     <ViewTransitions />
 
+    <!-- Google Analytics 4 -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-HSNQ1ZDBH2"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-HSNQ1ZDBH2');
+    </script>
+
     <script is:inline>
       (function() {
         if (localStorage.getItem('theme') === 'light') {
