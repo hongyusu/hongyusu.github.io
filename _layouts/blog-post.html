@@ -1,0 +1,35 @@
+---
+layout: default
+top: Blog
+feed: /blog/atom.xml
+---
+
+<div id="header">
+  {% include nav-blog.html %}
+</div>
+
+<div id="page">
+
+  <h1 class="emphnext">{{ page.title }}</h1>
+
+{{ content }}
+
+  <address class="signature">
+    <a class="author" href="/">Hongyu Su</a>
+    <span class="date">{{ page.date | date_to_long_string }}</span>
+    {% if page.tags.size > 0 %}
+    <span class="tags">{{ page.tags | join: ", " }}</span>
+    {% endif %}
+  </address>
+</div>
+
+<div id="disqus_thread"></div>
+<script>
+(function() {
+  var d = document, s = d.createElement('script');
+  s.src = '//www-hongyusu-com.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>

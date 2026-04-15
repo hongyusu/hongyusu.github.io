@@ -45,14 +45,14 @@ Here are some slides about my research on Machine Learning and Artificial Intell
 [xidian]:http://xidian.edu.cn
 
 <div class="section" markdown="1">
-[Blog](/iem/)
+[Blog](/blog/)
 ====
-I maintain a technical blog called [_Informatica_](/iem) on machine learning and data science. Here are some recent posts:
-{% for post in site.categories.iem limit:3 %}
+I write about machine learning, data science, data engineering, and software development. Recent posts:
+{% for post in site.categories.blog limit:3 %}
 <ul class="compact recent">
 <li>
 	<a href="{{ post.url }}" title="{{ post.excerpt }}">{{ post.title }}</a>
-	<span class="date">{{ post.date | date_to_string }}</span> 
+	<span class="date">{{ post.date | date_to_string }}</span>
 </li>
 </ul>
 {% endfor %}

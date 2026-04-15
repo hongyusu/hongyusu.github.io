@@ -8,109 +8,118 @@ title: Code
 
 Code
 ====
-Eventually this page will contain links to most of the research and non-research
-related programming I've done.
+A selection of projects from my [GitHub](https://github.com/hongyusu).
 
 <div class="section" markdown="1">
-Hackthon
+Web Applications
 =====
-[_Xplanner_](http://tripassistant.herokuapp.com)
-:       A trip planner organising everything for your holiday [Github](https://github.com/czli/Junction2015).
 
-[_Personalised route recommendation system_](http://hongyusu.github.io/AaltoHackathon2015/)
-:       Graph based recommendation system developed during Aalto Data Science Hackathon 2015 [Github](http://hongyusu.github.io/AaltoHackathon2015/). 
+[_site-travel_](https://github.com/hongyusu/site-travel)
+:       Travel website built with TypeScript.
+
+[_site-ecommerce_](https://github.com/hongyusu/site-ecommerce)
+:       E-commerce site built with TypeScript.
+
+[_Sentipred_](https://github.com/hongyusu/sentiment_predictor)
+:       Sentiment analysis web service powered by deep learning.
+
+[_WebApp_](https://github.com/hongyusu/WebApp)
+:       Sentiment analysis web application (SentimentX).
 </div>
 
-
 <div class="section" markdown="1">
-Other Codes
+Machine Learning Research
 =====
 
-[_Sentipred_](http://sentipred.heroku.com)
-:      A web service that does sentiment analysis based on deep learning for Tweeter [Github](http://hongyusu.github.io/sentiment_predictor/).
-
-[_Transporter Protein Classification_](http://hongyusu.github.io/ProteinFunctionPrediction/)
-:      A research project aims to prediction the classification of transporter proteins [Github](http://hongyusu.github.io/ProteinFunctionPrediction/).
-
-[_Online Fraud Detection_](http://hongyusu.github.io/FacebookChallenge)
-:      _Facebook challenge_ of **fraud detection** in online bidding platform [Github](http://hongyusu.github.io/FacebookChallenge).
-
-[_L2RTA_](https://github.com/hongyusu/RTA)
-:      Conditional gradient optimization with convex combination of multiple update directions (_L2RTA_) in random spanning tree approximation algorithm [Github](https://github.com/hongyusu/RTA).
+[_SGNMF_](https://github.com/hongyusu/SGNMF)
+:       Non-negative matrix factorization with graph Laplacian and sparsity constraints.
 
 [_RTA_](https://github.com/hongyusu/RTA)
-:      Random spanning tree approximation (_RTA_) for structured output learning on complete output graph [Github](https://github.com/hongyusu/RTA).
+:       Random spanning tree approximation for structured output learning on complete output graphs. Published at NIPS 2014.
+
+[_L2RTA_](https://github.com/hongyusu/L2RTA)
+:       Conditional gradient optimization with convex combination of multiple update directions, extending RTA.
 
 [_SPIN_](https://github.com/hongyusu/SPIN)
-:      Structured output prediction of network response (_SPIN_) for social network analysis [Github](https://github.com/hongyusu/SPIN).
+:       Structured prediction of network response for social network analysis. Published at ICML 2014.
 
-[_MKL_](http://hongyusu.github.io/Molecular_Classification)
-:      _Multiple kernel learning_ for classifying small graph structured in molecular classification problem [Github](http://hongyusu.github.io/Molecular_Classification).
+[_Molecular Classification_](https://github.com/hongyusu/Molecular_Classification)
+:       Multiple kernel learning for classifying small graph structures in molecular activity prediction.
 
-[_Dissertation_](http://hongyusu.github.io/Dissertation/)
-:      Template I used for writing my doctoral dissertation. The template included cover page, abstract page, copy right statement, as well as main part of so called article dissertation of Aalto University [Github](http://hongyusu.github.io/Dissertation/).
+[_Protein Function Prediction_](https://github.com/hongyusu/ProteinFunctionPrediction)
+:       Transporter protein classification using structured output learning.
+
+[_TCSOP_](https://github.com/hongyusu/TCSOP)
+:       Structured output prediction for transporter protein classification with O(k) search space instead of O(2^k).
 </div>
 
-<!-- 
-
-
 <div class="section" markdown="1">
-Demos
+ML Engineering & NLP
 =====
-[Mutli-armed Bandits](/code/bandits/)
-:	This JavaScript demo allows you to configure and run a multi-armed bandit game
-    and plot the resulting rewards for a variety of agents.
+
+[_autocomplete_](https://github.com/hongyusu/autocomplete)
+:       Autocomplete service built with Python.
+
+[_template\_mlserver_](https://github.com/hongyusu/template_mlserver)
+:       Template for deploying ML models as a server.
+
+[_embedding\_service\_experiment_](https://github.com/hongyusu/embedding_service_experiment)
+:       Experiments with embedding services for NLP.
+
+[_chatbot_](https://github.com/hongyusu/chatbot)
+:       Chatbot implementation in Python.
+
+[_BERT_](https://github.com/hongyusu/BERT)
+:       BERT model experiments.
 </div>
 
 <div class="section" markdown="1">
-Tools
+Data Engineering
 =====
-[Feed Bag](/code/feed-bag.html)
-:	This is a simple ruby script that parses and normalises RSS feeds, storing 
-	the resulting entries in an SQL database.
+
+[_bigdata\_etl_](https://github.com/hongyusu/bigdata_etl)
+:       Big data ETL pipeline examples with Spark, Kafka, and Avro.
+
+[_SparkViaPython_](https://github.com/hongyusu/SparkViaPython)
+:       PySpark examples and tutorials.
+
+[_HadoopViaPython_](https://github.com/hongyusu/HadoopViaPython)
+:       Hadoop MapReduce examples in Python.
+
+[_AmazonCodes_](https://github.com/hongyusu/AmazonCodes)
+:       Scripts and utilities for running workloads on Amazon AWS.
+
+[_trading\_gdax_](https://github.com/hongyusu/trading_gdax)
+:       Cryptocurrency trading experiments with GDAX API.
 </div>
 
 <div class="section" markdown="1">
-Other Hacking
-=====================
-[Plain Text Wiki](/code/plain-text-wiki.html)
-:	I extended Matt Webb's original [Plain Text Wiki][] with a few 
-	modifications of my own. I use it to manage the content on this
-	site.
+Hackathons & Competitions
+=====
 
-[ICML Trends][icml]
-:	I wrote some ruby scripts to scrape, stem and analyse the last 20
-	years of ICML paper titles. Some [interesting trends][icml] turned up. 
+[_Facebook Challenge_](https://github.com/hongyusu/FacebookChallenge)
+:       Online fraud detection for bidding platforms.
 
-[PhD Thesis Template for LyX][lyxthesis]
-:	I used the excellent LaTeX front-end [LyX][] to write my PhD dissertation.
-	To have the result conform to [UNSW][] standards I wrote a LyX layout that
-	adds a UNSW title page, copyright and originality statements as well as
-	ensuring that margins, _etc._ are correct. 
+[_Aalto Hackathon 2015_](https://github.com/hongyusu/AaltoHackathon2015)
+:       Graph-based personalised route recommendation system, Aalto Data Science Hackathon.
 
-[Bibdesk To LyX][bibdesktolyx]
-:	To help integrate LyX and the excellent (and free!) Mac OS X BibTeX manager 
-	[BibDesk][] I wrote a small amount of AppleScript to push selected 
-	citations in the latter to the former.
+[_Taxi Trajectory Prediction_](https://github.com/hongyusu/TaxiTrajectoryPrediction)
+:       Predicting taxi destinations from partial GPS trajectories.
 
-[Jekyll][]
-:	I have contributed some minor improvements (Maruku markup, categories,
-	permalink options) to the static blog engine [Jekyll][] which,
-	coincidentally, I use to run this site.
-
-[Instiki][]
-:	I was one of the contributors to the [Instiki][] codebase. I helped
-	streamline and extend the parser that handles the wiki markup.
+[_Scikit Examples_](https://github.com/hongyusu/ScikitExamples)
+:       Collection of scikit-learn machine learning examples.
 </div>
 
-[icml]: http://threewordslong.com/blog/entry/60/ICML_Trends
-[unsw]: http://www.unsw.edu.au/
-[lyx]: http://lyx.org
-[lyxthesis]: http://threewordslong.com/blog/entry/63/A_LyX_Thesis_Layout_for_UNSW_T
-[Plain Text Wiki]: http://interconnected.org/home/2007/05/20/plain_text_wiki
-[Instiki]: http://instiki.org
-[bibdesktolyx]: http://threewordslong.com/projects/bibdesk_to_lyx
-[bibdesk]: http://bibdesk.sourceforge.net/
-[Jekyll]: http://github.com/mojombo/jekyll/tree/master
+<div class="section" markdown="1">
+Academic
+=====
 
--->
+[_Dissertation_](https://github.com/hongyusu/Dissertation)
+:       Doctoral dissertation: "Multilabel classification through structured output learning -- methods and applications." Aalto University, 2015.
+
+[_Posters and Presentations_](https://github.com/hongyusu/Posters_and_Presentations)
+:       Conference posters and presentation slides from ICML, NIPS, and other venues.
+
+[_Master Thesis_](https://github.com/hongyusu/Master_thesis)
+:       Master's thesis from University of Helsinki.
+</div>
