@@ -1,46 +1,11 @@
-# Site settings
-title: Hongyu Su
-email: hongyu.su@example.com
-description: >-
-  Ph.D in Machine Learning, R&D team manager, data scientist, 
-  researcher, and engineer sharing insights on ML and data science.
-baseurl: ""
-url: "https://hongyusu.github.io"
-
-# Build settings
-markdown: kramdown
+# Basic Jekyll configuration for GitHub Pages
+destination: ./_site/ 
+auto: false
+lsi: false
 highlighter: rouge
-permalink: pretty
+permalink: none
+markdown: kramdown
 
-# Jekyll configuration
-destination: ./_site/
-incremental: false
-plugins:
-  - jekyll-feed
-  - jekyll-sitemap
-
-# Kramdown settings
+# GitHub Pages safe settings
 kramdown:
   input: GFM
-  syntax_highlighter: rouge
-
-# Pagination
-paginate: 10
-paginate_path: "/page:num/"
-
-# Collections
-collections:
-  posts:
-    output: true
-    permalink: /:categories/:year/:month/:day/:title/
-
-# Exclude from processing
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - node_modules
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
-  - README.md
