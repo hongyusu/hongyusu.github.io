@@ -9,31 +9,56 @@ import '../styles/global.css';
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Play &mdash; Hongyu Su</title>
     <style>
-      html, body { margin: 0; padding: 0; overflow: hidden; background: #181818; }
+      html, body { margin: 0; padding: 0; overflow: hidden; background: #181818; color: #e8e8e3; font-family: 'mono', 'JetBrains Mono', monospace; }
       canvas { display: block; width: 100vw; height: 100vh; cursor: crosshair; }
-      .back { position: fixed; top: 1.5em; left: 1.5em; z-index: 10; color: rgba(232,232,227,0.3); font-family: 'mono', monospace; font-size: 14px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.08em; }
-      .back:hover { color: rgb(232,232,227); }
+      .play-nav {
+        position: fixed; top: 0; left: 0; right: 0; z-index: 10;
+        display: flex; align-items: baseline; gap: 3ch; padding: 1.5em 1.5em;
+        font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em;
+      }
+      .play-nav a { color: rgba(232,232,227,0.3); text-decoration: none; }
+      .play-nav a:hover { color: #e8e8e3; }
+      .play-nav .game-btn { color: rgba(232,232,227,0.3); background: none; border: none; font: inherit; text-transform: inherit; letter-spacing: inherit; cursor: pointer; padding: 0; }
+      .play-nav .game-btn:hover, .play-nav .game-btn.active { color: #e8e8e3; }
+      .play-nav .sep { color: rgba(232,232,227,0.15); }
+      /* Typing rain UI */
+      #typing-ui {
+        position: fixed; bottom: 2em; left: 50%; transform: translateX(-50%); z-index: 10;
+        display: none; text-align: center;
+      }
+      #typing-input {
+        background: rgba(232,232,227,0.08); border: 1px solid rgba(232,232,227,0.15);
+        color: #e8e8e3; font: inherit; font-size: 1.2em; padding: 0.4em 1em;
+        text-align: center; outline: none; width: 3ch; letter-spacing: 0.1em;
+      }
+      #typing-input:focus { border-color: rgba(232,232,227,0.4); }
+      #score { position: fixed; top: 1.5em; right: 1.5em; z-index: 10; color: rgba(232,232,227,0.4); font-size: 14px; display: none; text-transform: uppercase; letter-spacing: 0.08em; }
     </style>
   </head>
   <body>
-    <a href="/" class="back">&larr; Back</a>
-    <canvas id="matrix"></canvas>
+    <div class="play-nav">
+      <a href="/">&larr; Back</a>
+      <span class="sep">|</span>
+      <button class="game-btn active" id="btn-matrix">Matrix</button>
+      <button class="game-btn" id="btn-typing">Typing Rain</button>
+    </div>
+    <div id="score">Score: <span id="score-val">0</span></div>
+    <div id="typing-ui"><input id="typing-input" maxlength="1" autocomplete="off" autofocus /></div>
+    <canvas id="game"></canvas>
 
     <script is:inline>
     (function() {
-      const canvas = document.getElementById('matrix');
-      if (!canvas) return;
+      const canvas = document.getElementById('game');
       const ctx = canvas.getContext('2d');
-
-      const chars = '$MBNQOW@&R8GD6S9H#E5UK0A2XP34ZC%VIF17YTJL*[]?}{()<>|=+/^!;:~,-.';
+      const CHARS = '$MBNQOW@&R8GD6S9H#E5UK0A2XP34ZC%VIF17YTJL*';
+      const ALL_CHARS = CHARS + '[]?}{()<>|=+/^!;:~,-.';
       const fontSize = 14;
       const colWidth = fontSize * 0.6;
-
       let cols, rows;
-      let streams = [];
-      let mouseX = -1, mouseY = -1;
-      let hue = 120;
+      let currentGame = 'matrix';
+      let animFrame;
 
+      // ==================== SHARED ====================
       function resize() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
@@ -41,137 +66,255 @@ import '../styles/global.css';
         rows = Math.floor(canvas.height / fontSize);
       }
 
-      function spawnStream(col) {
-        streams.push({
-          col: col,
-          y: 0,
+      function clearCanvas() {
+        ctx.fillStyle = 'rgb(24, 24, 24)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      }
+
+      // ==================== MATRIX RAIN ====================
+      let mStreams = [];
+      let mMouseX = -1, mMouseY = -1, mHue = 120;
+
+      function mSpawn(col) {
+        mStreams.push({
+          col: col, y: 0,
           speed: 0.3 + Math.random() * 0.7,
           length: 8 + Math.floor(Math.random() * 20),
-          chars: Array.from({ length: 30 }, () => chars[Math.floor(Math.random() * chars.length)]),
-          hue: hue + Math.random() * 30 - 15,
+          chars: Array.from({ length: 30 }, () => ALL_CHARS[Math.floor(Math.random() * ALL_CHARS.length)]),
+          hue: mHue + Math.random() * 30 - 15,
         });
       }
 
-      function spawnBurst(x, y) {
+      function mBurst(x, y) {
         const col = Math.floor(x / colWidth);
-        const count = 3 + Math.floor(Math.random() * 5);
-        for (let i = 0; i < count; i++) {
+        for (let i = 0; i < 3 + Math.floor(Math.random() * 5); i++) {
           const c = col + Math.floor(Math.random() * 7) - 3;
           if (c >= 0 && c < cols) {
-            streams.push({
-              col: c,
-              y: y / fontSize,
+            mStreams.push({
+              col: c, y: y / fontSize,
               speed: 0.4 + Math.random() * 0.8,
               length: 6 + Math.floor(Math.random() * 16),
-              chars: Array.from({ length: 30 }, () => chars[Math.floor(Math.random() * chars.length)]),
-              hue: hue + Math.random() * 40 - 20,
+              chars: Array.from({ length: 30 }, () => ALL_CHARS[Math.floor(Math.random() * ALL_CHARS.length)]),
+              hue: mHue + Math.random() * 40 - 20,
             });
           }
         }
       }
 
-      function draw() {
+      function matrixDraw() {
         ctx.fillStyle = 'rgba(24, 24, 24, 0.12)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.font = fontSize + 'px "JetBrains Mono", monospace';
+        const mc = mMouseX >= 0 ? Math.floor(mMouseX / colWidth) : -1;
 
-        const mouseCol = mouseX >= 0 ? Math.floor(mouseX / colWidth) : -1;
-
-        for (let i = streams.length - 1; i >= 0; i--) {
-          const s = streams[i];
-
+        for (let i = mStreams.length - 1; i >= 0; i--) {
+          const s = mStreams[i];
           for (let j = 0; j < s.length; j++) {
             const row = Math.floor(s.y) - j;
             if (row < 0 || row >= rows + 5) continue;
-
-            const charIdx = (Math.floor(s.y) - j + Math.floor(performance.now() / 100)) % s.chars.length;
-            const ch = s.chars[Math.abs(charIdx) % s.chars.length];
-
-            const fade = 1 - (j / s.length);
+            const ch = s.chars[Math.abs((Math.floor(s.y) - j + Math.floor(performance.now() / 100)) % s.chars.length)];
+            const fade = 1 - j / s.length;
             const alpha = fade * fade;
-
-            let drawCol = s.col;
-            if (mouseCol >= 0) {
-              const dist = Math.abs(s.col - mouseCol);
-              if (dist < 8 && dist > 0) {
-                drawCol += (mouseCol > s.col ? 1 : -1) * (1 - dist / 8) * 0.5;
-              }
-            }
-
-            const x = drawCol * colWidth;
-            const y = row * fontSize;
-
-            if (j === 0) {
-              ctx.fillStyle = 'rgba(255, 255, 255, ' + (alpha * 0.9) + ')';
-            } else {
-              ctx.fillStyle = 'hsla(' + s.hue + ', 70%, ' + (40 + fade * 20) + '%, ' + (alpha * 0.8) + ')';
-            }
-            ctx.fillText(ch, x, y);
+            let dc = s.col;
+            if (mc >= 0) { const d = Math.abs(s.col - mc); if (d < 8 && d > 0) dc += (mc > s.col ? 1 : -1) * (1 - d / 8) * 0.5; }
+            ctx.fillStyle = j === 0 ? 'rgba(255,255,255,' + alpha * 0.9 + ')' : 'hsla(' + s.hue + ',70%,' + (40 + fade * 20) + '%,' + alpha * 0.8 + ')';
+            ctx.fillText(ch, dc * colWidth, row * fontSize);
           }
-
           s.y += s.speed;
-
-          if (Math.random() < 0.1) {
-            s.chars[Math.floor(Math.random() * s.chars.length)] = chars[Math.floor(Math.random() * chars.length)];
-          }
-
-          if (Math.floor(s.y) - s.length > rows + 5) {
-            streams.splice(i, 1);
-          }
+          if (Math.random() < 0.1) s.chars[Math.floor(Math.random() * s.chars.length)] = ALL_CHARS[Math.floor(Math.random() * ALL_CHARS.length)];
+          if (Math.floor(s.y) - s.length > rows + 5) mStreams.splice(i, 1);
         }
-
-        // Random spawns
-        if (streams.length < cols * 0.3 && Math.random() < 0.3) {
-          spawnStream(Math.floor(Math.random() * cols));
-        }
-
-        hue = (hue + 0.05) % 360;
-        requestAnimationFrame(draw);
+        if (mStreams.length < cols * 0.3 && Math.random() < 0.3) mSpawn(Math.floor(Math.random() * cols));
+        mHue = (mHue + 0.05) % 360;
+        animFrame = requestAnimationFrame(matrixDraw);
       }
 
-      canvas.addEventListener('click', function(e) {
-        spawnBurst(e.clientX, e.clientY);
-      });
+      function matrixClick(e) { mBurst(e.clientX, e.clientY); }
+      function matrixMove(e) {
+        mMouseX = e.clientX; mMouseY = e.clientY;
+        if (Math.random() < 0.15) { const c = Math.floor(mMouseX / colWidth); if (c >= 0 && c < cols) mSpawn(c); }
+      }
+      function matrixLeave() { mMouseX = -1; mMouseY = -1; }
+      function matrixTouch(e) { e.preventDefault(); mBurst(e.touches[0].clientX, e.touches[0].clientY); }
+      function matrixTouchMove(e) {
+        e.preventDefault(); mMouseX = e.touches[0].clientX; mMouseY = e.touches[0].clientY;
+        if (Math.random() < 0.3) { const c = Math.floor(mMouseX / colWidth); if (c >= 0 && c < cols) mSpawn(c); }
+      }
 
-      canvas.addEventListener('mousemove', function(e) {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        if (Math.random() < 0.15) {
-          var col = Math.floor(mouseX / colWidth);
-          if (col >= 0 && col < cols) spawnStream(col);
+      // ==================== TYPING RAIN ====================
+      let tDrops = [];
+      let tScore = 0;
+      let tHue = 180;
+      let tSpawnRate = 0;
+
+      function tSpawn() {
+        const ch = CHARS[Math.floor(Math.random() * CHARS.length)];
+        tDrops.push({
+          char: ch,
+          col: Math.floor(Math.random() * cols),
+          y: 0,
+          speed: 0.15 + Math.random() * 0.25 + Math.min(tScore * 0.003, 0.4),
+          alive: true,
+          flash: 0,
+        });
+      }
+
+      function tKill(drop) {
+        drop.alive = false;
+        drop.flash = 1;
+      }
+
+      function typingDraw() {
+        ctx.fillStyle = 'rgba(24, 24, 24, 0.15)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.font = fontSize + 'px "JetBrains Mono", monospace';
+
+        // Draw danger zone at bottom
+        const dangerY = (rows - 2) * fontSize;
+        ctx.fillStyle = 'rgba(255, 60, 60, 0.03)';
+        ctx.fillRect(0, dangerY, canvas.width, canvas.height - dangerY);
+
+        for (let i = tDrops.length - 1; i >= 0; i--) {
+          const d = tDrops[i];
+
+          if (!d.alive) {
+            // Flash and expand on kill
+            d.flash -= 0.05;
+            if (d.flash <= 0) { tDrops.splice(i, 1); continue; }
+            ctx.fillStyle = 'rgba(255,255,255,' + d.flash + ')';
+            ctx.font = (fontSize * (1 + (1 - d.flash) * 2)) + 'px "JetBrains Mono", monospace';
+            ctx.fillText(d.char, d.col * colWidth, Math.floor(d.y) * fontSize);
+            ctx.font = fontSize + 'px "JetBrains Mono", monospace';
+            continue;
+          }
+
+          d.y += d.speed;
+          const row = Math.floor(d.y);
+
+          // Missed — hit bottom
+          if (row >= rows) {
+            tDrops.splice(i, 1);
+            tScore = Math.max(0, tScore - 5);
+            document.getElementById('score-val').textContent = tScore;
+            // Red flash
+            ctx.fillStyle = 'rgba(255, 40, 40, 0.15)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            continue;
+          }
+
+          // Color: closer to bottom = more red
+          const urgency = d.y / rows;
+          const h = (1 - urgency) * 120; // green to red
+          ctx.fillStyle = 'hsla(' + h + ', 80%, 55%, 0.9)';
+          ctx.fillText(d.char, d.col * colWidth, row * fontSize);
+
+          // Shadow/trail
+          for (let t = 1; t <= 3; t++) {
+            const ty = row - t;
+            if (ty < 0) break;
+            ctx.fillStyle = 'hsla(' + h + ', 70%, 45%, ' + (0.3 - t * 0.1) + ')';
+            ctx.fillText(d.char, d.col * colWidth, ty * fontSize);
+          }
         }
-      });
 
-      canvas.addEventListener('mouseleave', function() {
-        mouseX = -1;
-        mouseY = -1;
-      });
-
-      canvas.addEventListener('touchstart', function(e) {
-        e.preventDefault();
-        var t = e.touches[0];
-        spawnBurst(t.clientX, t.clientY);
-      }, { passive: false });
-
-      canvas.addEventListener('touchmove', function(e) {
-        e.preventDefault();
-        var t = e.touches[0];
-        mouseX = t.clientX;
-        mouseY = t.clientY;
-        if (Math.random() < 0.3) {
-          var col = Math.floor(mouseX / colWidth);
-          if (col >= 0 && col < cols) spawnStream(col);
+        // Spawn
+        tSpawnRate++;
+        const rate = Math.max(15, 40 - Math.floor(tScore / 10));
+        if (tSpawnRate >= rate) {
+          tSpawn();
+          tSpawnRate = 0;
         }
-      }, { passive: false });
+
+        animFrame = requestAnimationFrame(typingDraw);
+      }
+
+      function typingKeydown(e) {
+        if (e.key.length !== 1) return;
+        const typed = e.key.toUpperCase();
+        // Find the lowest (closest to bottom) matching alive drop
+        let best = null, bestY = -1;
+        for (const d of tDrops) {
+          if (d.alive && d.char === typed && d.y > bestY) {
+            best = d; bestY = d.y;
+          }
+        }
+        if (best) {
+          tKill(best);
+          tScore++;
+          document.getElementById('score-val').textContent = tScore;
+        }
+        // Clear the input
+        const inp = document.getElementById('typing-input');
+        if (inp) inp.value = '';
+      }
+
+      // ==================== GAME SWITCHING ====================
+      const btnMatrix = document.getElementById('btn-matrix');
+      const btnTyping = document.getElementById('btn-typing');
+      const typingUI = document.getElementById('typing-ui');
+      const scoreUI = document.getElementById('score');
+      const typingInput = document.getElementById('typing-input');
+
+      function stopCurrentGame() {
+        if (animFrame) cancelAnimationFrame(animFrame);
+        canvas.removeEventListener('click', matrixClick);
+        canvas.removeEventListener('mousemove', matrixMove);
+        canvas.removeEventListener('mouseleave', matrixLeave);
+        canvas.removeEventListener('touchstart', matrixTouch);
+        canvas.removeEventListener('touchmove', matrixTouchMove);
+        document.removeEventListener('keydown', typingKeydown);
+      }
+
+      function startMatrix() {
+        stopCurrentGame();
+        currentGame = 'matrix';
+        btnMatrix.classList.add('active');
+        btnTyping.classList.remove('active');
+        typingUI.style.display = 'none';
+        scoreUI.style.display = 'none';
+        canvas.style.cursor = 'crosshair';
+        mStreams = [];
+        clearCanvas();
+        for (let i = 0; i < 15; i++) mSpawn(Math.floor(Math.random() * cols));
+        canvas.addEventListener('click', matrixClick);
+        canvas.addEventListener('mousemove', matrixMove);
+        canvas.addEventListener('mouseleave', matrixLeave);
+        canvas.addEventListener('touchstart', matrixTouch, { passive: false });
+        canvas.addEventListener('touchmove', matrixTouchMove, { passive: false });
+        matrixDraw();
+      }
+
+      function startTyping() {
+        stopCurrentGame();
+        currentGame = 'typing';
+        btnTyping.classList.add('active');
+        btnMatrix.classList.remove('active');
+        typingUI.style.display = 'block';
+        scoreUI.style.display = 'block';
+        canvas.style.cursor = 'default';
+        tDrops = [];
+        tScore = 0;
+        tSpawnRate = 0;
+        document.getElementById('score-val').textContent = '0';
+        clearCanvas();
+        document.addEventListener('keydown', typingKeydown);
+        if (typingInput) typingInput.focus();
+        typingDraw();
+      }
+
+      btnMatrix.addEventListener('click', startMatrix);
+      btnTyping.addEventListener('click', startTyping);
+
+      // Keep focus on input for mobile
+      canvas.addEventListener('click', function() {
+        if (currentGame === 'typing' && typingInput) typingInput.focus();
+      });
 
       window.addEventListener('resize', resize);
       resize();
 
-      for (var i = 0; i < 15; i++) spawnStream(Math.floor(Math.random() * cols));
-
-      ctx.fillStyle = 'rgb(24, 24, 24)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      draw();
+      // Random start
+      if (Math.random() < 0.5) { startMatrix(); } else { startTyping(); }
     })();
     </script>
   </body>
