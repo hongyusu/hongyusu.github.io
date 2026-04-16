@@ -231,7 +231,9 @@ function initTaglineTypewriter() {
     }
     typeChar();
   }
-  setTimeout(typeLine, 900);
+  // Wait for h1 typewriter on home page, start immediately on other pages
+  const hasH1Typewriter = document.querySelector('[data-typewriter]');
+  setTimeout(typeLine, hasH1Typewriter ? 900 : 200);
 }
 
 // ============================================
