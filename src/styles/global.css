@@ -21,7 +21,7 @@ html {
   background: var(--bg);
   color: var(--fg);
   font-family: 'mono', monospace;
-  font-size: clamp(14px, 1.3vw, 17px);
+  font-size: clamp(13px, 1.2vw, 16px);
   line-height: var(--line);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -76,7 +76,7 @@ header nav a:hover { color: var(--fg); }
 
 header nav a.active {
   color: var(--fg);
-  animation: blinker 0.16s linear infinite;
+  animation: blinker 0.6s linear infinite;
 }
 
 @keyframes blinker {
