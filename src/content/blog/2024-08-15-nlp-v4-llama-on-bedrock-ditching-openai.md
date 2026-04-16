@@ -18,15 +18,15 @@ AWS Bedrock provides managed access to foundation models without managing infras
 
 ### Classification Service (LLaMA 3 70B)
 
-Multi-label text classification across many dimensions:
+Multi-label text classification across around 25 dimensions — covering aspects like sentiment polarity, visual appeal, credibility, perceived quality, purchase likelihood, eco-consciousness, and more:
 
 - **Model**: LLaMA 3 70B via AWS Bedrock
+- **Batch processing**: Texts grouped into batches of 40-60, processed with high concurrency
 - **Temperature**: 0.5 with top-p sampling
 - **Output**: Structured JSON with label assignments per text
-- **Prompts**: Detailed label definitions with examples and edge cases, versioned per environment
+- **Prompts**: Extensive label definitions (~30KB of prompt engineering) with examples and edge cases, versioned per environment
 - Pydantic validation on every response
-- Caching layer for repeat classifications
-- Batch processing with concurrent Bedrock invocations
+- DynamoDB caching layer for repeat classifications
 
 ## Prompt Engineering for LLaMA vs GPT
 

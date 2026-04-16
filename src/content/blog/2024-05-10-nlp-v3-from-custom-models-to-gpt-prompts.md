@@ -29,9 +29,18 @@ We built a dual-purpose interface supporting both OpenAI and AWS Bedrock:
 
 ## The Prompt Is the Model
 
-The biggest mindset shift: **the prompt IS the model**. Instead of training a classifier, we wrote detailed label definitions with examples and edge cases. Updating the "model" meant editing a prompt — no data collection, no training, no deployment.
+The biggest mindset shift: **the prompt IS the model**. Instead of training a classifier, we wrote detailed label definitions with examples and edge cases. A typical prompt looked like:
 
-The prompt defined the classification task, provided label definitions with examples, and specified the output format. Updating the "model" meant editing a prompt — no data collection, no training, no deployment. This reduced our iteration cycle from weeks to hours.
+```
+You are an expert text analyst. Given the following customer feedback,
+classify the overall credibility perception as:
+- "high" if the text conveys strong trust or believability
+- "low" if the text expresses skepticism or doubt
+- "neutral" if the text does not address credibility
+Respond with a JSON object: {"label": "high"|"low"|"neutral"}
+```
+
+Updating the "model" meant editing a prompt — no data collection, no training, no deployment. This reduced our iteration cycle from weeks to hours.
 
 ## Challenges
 

@@ -19,7 +19,7 @@ LoRA fine-tunes a pre-trained model by injecting small trainable matrices into t
 - **Composable**: Multiple LoRA adapters can share the same base model
 - **Small artifacts**: Each adapter is a few hundred MB, not tens of GB
 
-For our use case, we trained a separate LoRA adapter for each classification dimension — dozens of adapters in total, all sharing the same LLaMA 3.1 8B base.
+For our use case, we trained a separate LoRA adapter for each classification dimension — around 25 adapters covering things like sentiment polarity, visual appeal, credibility, purchase likelihood, eco-consciousness, and more — all sharing the same LLaMA 3.1 8B base.
 
 ## System Architecture
 
@@ -65,10 +65,11 @@ Each LoRA adapter is versioned in MLflow with environment tags:
 
 ```
 MLflow Registry:
-├── label_a    (v12, prod=approved)
-├── label_b    (v8, prod=approved)
-├── label_c    (v5, dev=approved)
-└── ... (dozens of labels)
+├── sentiment_polarity   (v12, prod=approved)
+├── visual_appeal        (v8, prod=approved)
+├── credibility          (v5, dev=approved)
+├── purchase_likelihood  (v3, prod=approved)
+└── ... (~25 labels total)
 ```
 
 The model runner queries MLflow for the latest approved adapter per environment. This decouples training from deployment — a new adapter is deployed simply by tagging it as approved.

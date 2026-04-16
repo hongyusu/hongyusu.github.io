@@ -28,19 +28,30 @@ We added Claude Sonnet as a secondary model, selectable at runtime. Some analysi
 
 ## The 11 Analysis Types
 
-The summarizer isn't one prompt — it's a suite of specialized analyses covering:
+The summarizer isn't one prompt — it's a suite of around 10 specialized analyses:
 
-- **Theme extraction** — identifying positive and negative themes with response proportions
-- **Differentiation analysis** — what makes the product unique vs competitors
-- **Question-level summaries** — topics from specific survey questions
-- **Per-label analysis** — sentiment breakdowns per classification dimension
-- **Value proposition generation** — synthesizing insights into actionable positioning statements
+**Theme Extraction:**
+- **Strengths** — top 3 positive themes with response proportions
+- **Weaknesses** — top 3 negative themes
+- **Differentiators** — up to 5 ways the product stands out vs competitors
+
+**Question-Level:**
+- **Topic extraction** — key themes from specific survey questions
+
+**Per-Label Analysis:**
+- **Label Strengths/Weaknesses** — sentiment breakdown per classification dimension (e.g., per "visual appeal" or "credibility")
+- **Key driver analysis** — what drives positive or negative perception per attribute
+
+**Value Proposition:**
+- **Generate** — synthesize a positioning statement from label summaries
+- **Condense** — compress to a short-form version
+- **Highlight extraction** — pull key phrases tied to specific attributes
 
 Each analysis type has its own prompt template, output schema, and validation rules.
 
 ## Prompt Management
 
-Managing many prompt templates across environments was a challenge. We built a dual-repository system:
+Managing a dozen prompt templates across environments was a challenge. We built a dual-repository system:
 
 **MLflow (primary):** Prompts stored as model artifacts, versioned and tagged per environment (dev/prod). Updating a prompt means registering a new model version and tagging it as approved.
 
@@ -56,7 +67,7 @@ The biggest engineering challenge: getting LLMs to consistently produce valid, p
 
 **JSON repair.** Despite instructions, LLaMA occasionally produces trailing commas, missing brackets, or unquoted keys. We use automated JSON repair as a post-processing step rather than failing.
 
-**Generous retry logic.** Bedrock throttling and transient errors are common at high concurrency. Exponential backoff with many retry attempts ensures batch completion.
+**Aggressive retry logic.** Bedrock throttling and transient errors are common at high concurrency. We use exponential backoff (1s, 2s, 4s... capped at 30s) with up to 20 retry attempts to ensure batch completion.
 
 **Validation.** Every response is validated against a Pydantic schema. Invalid responses trigger a retry with the error message fed back to the model.
 

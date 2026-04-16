@@ -18,7 +18,7 @@ This isn't a standard regression problem. The challenges:
 
 **High-dimensional inputs.** A single survey produces 100+ features: structured ratings (appearance, taste, quality), NLP-derived labels from open-ended text (sentiment, believability, differentiation), KPI metrics (willingness-to-buy, uniqueness), and product attributes (category, region, price tier).
 
-**Multi-client, multi-category.** The system serves many organizations across food, beverages, personal care, and other categories. Each has different baselines, survey formats, and success metrics.
+**Multi-client, multi-category.** The system serves a dozen organizations across food, beverages, personal care, and other categories. Each has different baselines, survey formats, and success metrics.
 
 **Explainability is mandatory.** A prediction alone isn't useful. Clients need to know *why* — which drivers are pushing the score up or down, and what to improve.
 
@@ -43,11 +43,20 @@ Prediction + Drivers (JSON)
 
 ## Feature Engineering: From Surveys to Drivers
 
-The raw survey data is transformed through a multi-step sklearn pipeline before it reaches the model. The key transformation: mapping 100+ raw features into **9 strategic drivers** that business users understand.
+The raw survey data is transformed through a 12-step sklearn pipeline before it reaches the model. The key transformation: mapping 100+ raw features into **9 strategic drivers** that business users understand.
 
-**Example drivers** include categories like taste appeal, packaging perception, purchase intent, and product differentiation — groupings that business stakeholders can act on directly.
+**The drivers** (illustrative):
+- Sensory Appeal (flavor, aroma, texture)
+- Visual Design (packaging, color, shelf presence)
+- Perceived Quality (materials, craftsmanship, durability)
+- Price Sensitivity (value for money, affordability)
+- Innovation (newness, differentiation, uniqueness)
+- Health & Wellness (nutritional value, ingredient transparency)
+- Convenience (ease of use, portability, accessibility)
+- Brand Affinity (trust, loyalty, awareness)
+- Environmental Impact (sustainability, eco-friendliness)
 
-Each raw feature maps to exactly one driver. This mapping is defined in code and applies consistently across training and inference.
+Each raw feature (like `flavor.positive`, `credibility.high`, `eco_friendly.positive`) maps to exactly one driver. This mapping is defined in code and applies consistently across training and inference.
 
 **Statistical features:**
 - **Beta-medians** — Bayesian aggregation of Likert-scale responses (handles small sample sizes better than raw means)
@@ -113,8 +122,8 @@ Each step is containerized and reproducible. The pipeline produces a complete au
 
 ## Infrastructure
 
-- **Training**: Metaflow + AWS Batch
-- **Inference**: AWS Lambda (VPC-connected)
+- **Training**: Metaflow + AWS Batch (multi-CPU instances)
+- **Inference**: AWS Lambda (VPC-connected, generous memory/timeout)
 - **Model Registry**: MLflow on dedicated service (cross-account IAM)
 - **Data**: Athena queries on S3 data lake
 - **IaC**: Pulumi (TypeScript) for all AWS resources
@@ -128,7 +137,7 @@ Each step is containerized and reproducible. The pipeline produces a complete au
 
 **Multi-client ML is a versioning problem.** Managing many model versions across organizations, categories, and environments requires disciplined tagging and routing. MLflow's tag system made this manageable.
 
-**Preprocessing is the model.** The sklearn pipeline does more heavy lifting than XGBoost itself. Beta-medians, Wilson scores, and driver mappings encode domain knowledge that no amount of gradient boosting can learn from 50 samples.
+**Preprocessing is the model.** The 12-step sklearn pipeline does more heavy lifting than XGBoost itself. Beta-medians, Wilson scores, and driver mappings encode domain knowledge that no amount of gradient boosting can learn from 50 samples.
 
 ## Technical Stack
 
@@ -141,4 +150,4 @@ Each step is containerized and reproducible. The pipeline produces a complete au
 - AWS Batch — distributed training compute
 - Athena — data lake queries
 - Pulumi — infrastructure as code
-- sklearn — custom preprocessing pipeline
+- sklearn — 12-step preprocessing pipeline with custom transformers
