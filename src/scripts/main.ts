@@ -174,7 +174,7 @@ function initScrollAnimations() {
 // TYPEWRITER (home hero)
 // ============================================
 function initTypewriter() {
-  const el = document.querySelector<HTMLElement>('.hero h1[data-typewriter]');
+  const el = document.querySelector<HTMLElement>('[data-typewriter]');
   if (!el) return;
   const text = el.dataset.typewriter || el.textContent || '';
   el.textContent = '';
