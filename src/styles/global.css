@@ -52,12 +52,6 @@ body { min-height: 100vh; overflow-x: hidden; }
   .cursor-glow { display: none; }
 }
 
-/* GRID BACKGROUND */
-.grid-bg {
-  position: fixed; inset: 0; z-index: -2; pointer-events: none;
-  background-image: linear-gradient(rgba(var(--black-rgb), 0.04) 1px, transparent 1px);
-  background-size: 100% var(--line);
-}
 
 /* HEADER — fixed position like aino */
 header {
