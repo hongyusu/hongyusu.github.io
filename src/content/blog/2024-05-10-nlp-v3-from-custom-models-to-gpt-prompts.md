@@ -31,19 +31,11 @@ We built a dual-purpose interface supporting both OpenAI and AWS Bedrock:
 
 The biggest mindset shift: **the prompt IS the model**. Instead of training a classifier, we wrote detailed label definitions with examples and edge cases. Updating the "model" meant editing a prompt — no data collection, no training, no deployment.
 
-```
-You are a professional data labeler for consumer research.
-Given the following text, classify it as:
-- "High" if the text expresses strong positive sentiment
-- "Low" if the text expresses negative sentiment  
-- "nan" if the text is irrelevant or neutral
-```
-
-This prompt-as-model approach reduced our iteration cycle from weeks to hours.
+The prompt defined the classification task, provided label definitions with examples, and specified the output format. Updating the "model" meant editing a prompt — no data collection, no training, no deployment. This reduced our iteration cycle from weeks to hours.
 
 ## Challenges
 
-**Cost at scale.** GPT-3.5-turbo is cheap per call, but classifying 50,000 texts across 20+ dimensions adds up. We needed batching and caching strategies to keep costs manageable.
+**Cost at scale.** GPT-3.5-turbo is cheap per call, but classifying large volumes of texts across many dimensions adds up. We needed batching and caching strategies to keep costs manageable.
 
 **Latency variance.** OpenAI API response times were unpredictable — sometimes 200ms, sometimes 10 seconds. Rate limiting and retry logic became essential.
 

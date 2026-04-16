@@ -8,7 +8,7 @@ description: "How we built a production summarization system that extracts theme
 
 Survey data is messy. Thousands of open-ended responses that need to be distilled into actionable insights: what do customers love, what do they hate, what makes the product unique, and what's the value proposition. Manual analysis doesn't scale.
 
-We needed a system that could perform 11 distinct types of analysis on survey text — from simple positive/negative extraction to complex value proposition generation — reliably, at scale, and with structured output.
+We needed a system that could perform multiple types of analysis on survey text — from simple positive/negative extraction to complex value proposition generation — reliably, at scale, and with structured output.
 
 ## Evolution: GPT to Bedrock
 
@@ -28,32 +28,21 @@ We added Claude Sonnet as a secondary model, selectable at runtime. Some analysi
 
 ## The 11 Analysis Types
 
-The summarizer isn't one prompt — it's a suite of specialized analyses:
+The summarizer isn't one prompt — it's a suite of specialized analyses covering:
 
-**Theme Extraction:**
-- **Positives** — top 3 positive themes with response percentages
-- **Negatives** — top 3 negative themes
-- **Uniqueness** — up to 5 differentiators vs competitors
+- **Theme extraction** — identifying positive and negative themes with response proportions
+- **Differentiation analysis** — what makes the product unique vs competitors
+- **Question-level summaries** — topics from specific survey questions
+- **Per-label analysis** — sentiment breakdowns per classification dimension
+- **Value proposition generation** — synthesizing insights into actionable positioning statements
 
-**Question-Level:**
-- **Question Summary** — topics from a specific survey question
-
-**Per-Label Analysis:**
-- **Label Positives/Negatives** — sentiment per classification label
-- **Driver Positives/Negatives** — analysis of brand perception drivers
-
-**Value Proposition:**
-- **Generate** — create a 4-sentence value proposition from label summaries
-- **Shorten** — compress to 120 tokens
-- **Highlights** — extract key phrases related to specific labels
-
-Each type has its own prompt template, output schema, and validation rules.
+Each analysis type has its own prompt template, output schema, and validation rules.
 
 ## Prompt Management
 
-Managing 12 prompt templates across environments was a challenge. We built a dual-repository system:
+Managing many prompt templates across environments was a challenge. We built a dual-repository system:
 
-**MLflow (primary):** Prompts stored as model artifacts, versioned and tagged per environment (`dsdev`/`dsprod`). Updating a prompt means registering a new model version and tagging it as approved.
+**MLflow (primary):** Prompts stored as model artifacts, versioned and tagged per environment (dev/prod). Updating a prompt means registering a new model version and tagging it as approved.
 
 **LangSmith (added later):** For faster iteration. Prompts can be updated without code deploys, fetched at runtime by name and environment. This decoupled prompt engineering from the deployment cycle.
 
@@ -67,18 +56,18 @@ The biggest engineering challenge: getting LLMs to consistently produce valid, p
 
 **JSON repair.** Despite instructions, LLaMA occasionally produces trailing commas, missing brackets, or unquoted keys. We use automated JSON repair as a post-processing step rather than failing.
 
-**25 retries with exponential backoff.** Bedrock throttling and transient errors are common at high concurrency. Generous retry logic with backoff (1s, 2s, 4s... up to 30s) ensures batch completion.
+**Generous retry logic.** Bedrock throttling and transient errors are common at high concurrency. Exponential backoff with many retry attempts ensures batch completion.
 
 **Validation.** Every response is validated against a Pydantic schema. Invalid responses trigger a retry with the error message fed back to the model.
 
-**Temperature tuning.** We increased temperature from the default to 0.5 — counter-intuitively, slightly higher temperature produced more diverse (and less repetitively malformed) outputs on retries.
+**Temperature tuning.** Counter-intuitively, slightly higher temperature produced more diverse (and less repetitively malformed) outputs on retries.
 
 ## Token Management
 
 Survey batches can contain thousands of responses. We handle large inputs through:
 
-- **Token counting** with tiktoken (cl100k_base encoding)
-- **Deterministic sampling** — when inputs exceed 100K tokens, we randomly sample a subset using a fixed seed for reproducibility
+- **Token counting** with tiktoken
+- **Deterministic sampling** — when inputs exceed the token limit, we randomly sample a subset using a fixed seed for reproducibility
 - **Automatic label selection** — top 5 labels by response volume, excluding system labels
 - **Per-label processing** — each label's responses are analyzed independently
 
@@ -103,9 +92,9 @@ Request and response payloads are logged to S3 for debugging and audit.
 
 ## Results
 
-The Bedrock summarizer processes hundreds of surveys monthly with:
+The Bedrock summarizer processes surveys at scale with:
 - **Sub-second latency** for individual analyses
-- **11 analysis types** from a single endpoint
+- **Multiple analysis types** from a single endpoint
 - **Dual model support** (LLaMA for speed, Claude for nuance)
 - **Zero vendor lock-in** — runs entirely within AWS
 - **Prompt iteration without deploys** via LangSmith

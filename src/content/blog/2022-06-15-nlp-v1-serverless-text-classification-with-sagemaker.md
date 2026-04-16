@@ -18,15 +18,7 @@ But spaCy doesn't do multi-label classification out of the box. For that, we nee
 
 The classification system was built around two AWS primitives: **Lambda** for orchestration and **SageMaker serverless endpoints** for model inference.
 
-The Lambda function acted as a state machine, managing a **13-stage pipeline**:
-
-1. **Ingestion** — receive survey data, validate, store to S3
-2. **Translation** — handle multilingual inputs
-3. **Prediction** — invoke SageMaker endpoints for classification
-4. **Update** — persist results
-5. **Wordcloud** — generate text visualizations via spaCy
-6. **Statistics** — compute aggregates
-7-12. **Post-processing** — various downstream tasks
+The Lambda function acted as a state machine, managing a multi-stage pipeline covering ingestion, translation, prediction, post-processing, and reporting.
 
 SageMaker serverless endpoints gave us pay-per-invocation pricing without managing infrastructure. We deployed traditional ML models (trained separately) via the SageMaker Model Registry, with automatic endpoint updates when new model versions were approved.
 

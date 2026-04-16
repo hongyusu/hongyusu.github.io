@@ -8,26 +8,25 @@ description: "Moving from OpenAI GPT to Meta's LLaMA 3 on AWS Bedrock for produc
 
 Three reasons pushed us from OpenAI to AWS Bedrock with LLaMA:
 
-1. **Cost** — At our scale (hundreds of thousands of classifications per month), OpenAI API costs were significant. Bedrock's pricing for LLaMA was substantially lower.
+1. **Cost** — At our scale, OpenAI API costs were significant. Bedrock's pricing for LLaMA was substantially lower.
 2. **Data residency** — Our data stayed within our AWS environment. No external API calls, no data leaving our VPC.
 3. **Control** — No dependency on OpenAI's model deprecation schedule, rate limits, or availability.
 
 ## The Bedrock Setup
 
-AWS Bedrock provides managed access to foundation models without managing infrastructure. We focused first on the **labeler** — the core classification engine. The summarizer followed as a separate system (covered in a [dedicated post](/blog/2024-10-01-building-an-llm-summarizer-for-survey-analytics/)).
+AWS Bedrock provides managed access to foundation models without managing infrastructure. We focused first on the **classification service** — the core engine for multi-label text analysis. The summarizer followed as a separate system (covered in a [dedicated post](/blog/2024-10-01-building-an-llm-summarizer-for-survey-analytics/)).
 
-### Labeler (LLaMA 3 70B)
+### Classification Service (LLaMA 3 70B)
 
-Multi-label text classification across 30+ dimensions (sentiment, appearance, believability, brand perception, price, sustainability, etc.):
+Multi-label text classification across many dimensions:
 
-- **Batch processing**: 50 texts per request, 320 concurrent connections
-- **Model**: `meta.llama3-70b-instruct-v1:0` (LLaMA 3, not 3.1)
+- **Model**: LLaMA 3 70B via AWS Bedrock
 - **Temperature**: 0.5 with top-p sampling
-- **Output**: Structured JSON manifest with label IDs and value scales
-- **Prompts**: 39KB of carefully engineered label definitions with examples and edge cases
+- **Output**: Structured JSON with label assignments per text
+- **Prompts**: Detailed label definitions with examples and edge cases, versioned per environment
 - Pydantic validation on every response
-- DynamoDB caching for repeat classifications
-- MLflow integration for prompt versioning per environment (dev/prod)
+- Caching layer for repeat classifications
+- Batch processing with concurrent Bedrock invocations
 
 ## Prompt Engineering for LLaMA vs GPT
 

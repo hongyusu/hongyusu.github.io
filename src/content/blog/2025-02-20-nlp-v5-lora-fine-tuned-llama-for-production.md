@@ -19,7 +19,7 @@ LoRA fine-tunes a pre-trained model by injecting small trainable matrices into t
 - **Composable**: Multiple LoRA adapters can share the same base model
 - **Small artifacts**: Each adapter is a few hundred MB, not tens of GB
 
-For our use case, we trained a separate LoRA adapter for each classification dimension (sentiment, appearance, price perception, etc.) — 31 adapters total, all sharing the same LLaMA 3.1 8B base.
+For our use case, we trained a separate LoRA adapter for each classification dimension — dozens of adapters in total, all sharing the same LLaMA 3.1 8B base.
 
 ## System Architecture
 
@@ -35,7 +35,7 @@ Each EC2 instance runs a Docker container with:
 
 For each batch of texts:
 1. Query queued texts from the database
-2. For each label (31 total), spawn a model runner subprocess
+2. For each label , spawn a model runner subprocess
 3. Load the base model + merge the label's LoRA adapter
 4. Generate predictions in batches
 5. Write results to parquet, update database
@@ -65,10 +65,10 @@ Each LoRA adapter is versioned in MLflow with environment tags:
 
 ```
 MLflow Registry:
-├── sentiment      (v12, prod=approved)
-├── appearance     (v8, prod=approved)
-├── brand_funnel   (v5, dev=approved)
-└── ... (31 labels total)
+├── label_a    (v12, prod=approved)
+├── label_b    (v8, prod=approved)
+├── label_c    (v5, dev=approved)
+└── ... (dozens of labels)
 ```
 
 The model runner queries MLflow for the latest approved adapter per environment. This decouples training from deployment — a new adapter is deployed simply by tagging it as approved.
