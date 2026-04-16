@@ -14,12 +14,6 @@
   --fg: rgb(var(--black-rgb));
 }
 
-html.light {
-  --black-rgb: 26, 26, 26;
-  --white-rgb: 245, 245, 240;
-  --bg: rgb(var(--white-rgb));
-  --fg: rgb(var(--black-rgb));
-}
 
 /* BASE */
 html {
@@ -99,13 +93,10 @@ header nav a.active {
   0% { opacity: 0; } 49% { opacity: 0; } 50% { opacity: 1; } 99% { opacity: 1; }
 }
 
-header .theme-toggle {
-  appearance: none; background: none; border: none;
-  color: rgba(var(--black-rgb), 0.4); font-family: inherit; font-size: 1.2em;
-  cursor: pointer; padding: 0; transition: color 0.15s;
+header .nav-play {
+  color: rgba(var(--black-rgb), 0.4); transition: color 0.15s;
 }
-
-header .theme-toggle:hover { color: var(--fg); }
+header .nav-play:hover { color: var(--fg); }
 
 header .mobile-toggle {
   display: none; appearance: none; background: none; border: none;
@@ -271,11 +262,6 @@ footer .footer-time { white-space: nowrap; }
 .post-grid .fadein:nth-child(7) { transition-delay: 0.36s; }
 .post-grid .fadein:nth-child(8) { transition-delay: 0.42s; }
 
-/* VIEW TRANSITIONS */
-::view-transition-old(root) { animation: vt-out 0.15s ease-in; }
-::view-transition-new(root) { animation: vt-in 0.25s ease-out; }
-@keyframes vt-out { to { opacity: 0; } }
-@keyframes vt-in { from { opacity: 0; } }
 
 /* TYPEWRITER CURSOR */
 @keyframes blink-cursor { 0%, 100% { border-color: var(--fg); } 50% { border-color: transparent; } }

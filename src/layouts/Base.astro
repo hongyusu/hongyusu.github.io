@@ -1,5 +1,4 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
@@ -24,8 +23,6 @@ const { title, description = 'Hongyu Su — PhD in Machine Learning, data scient
     <link rel="canonical" href={Astro.url.href} />
     <link rel="icon" href="/images/hongyu_su.jpg" type="image/jpeg" />
     <title>{title} &mdash; Hongyu Su</title>
-    <ViewTransitions />
-
     <!-- Google Analytics 4 -->
     <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-HSNQ1ZDBH2"></script>
     <script is:inline>
@@ -33,14 +30,6 @@ const { title, description = 'Hongyu Su — PhD in Machine Learning, data scient
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-HSNQ1ZDBH2');
-    </script>
-
-    <script is:inline>
-      (function() {
-        if (localStorage.getItem('theme') === 'light') {
-          document.documentElement.classList.add('light');
-        }
-      })();
     </script>
 
     {math && (

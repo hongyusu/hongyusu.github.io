@@ -321,21 +321,6 @@ function initStaggeredReveal() {
   document.querySelectorAll('.project-showcase, .archive-list').forEach((el) => observer.observe(el));
 }
 
-// ============================================
-// THEME
-// ============================================
-function initTheme() {
-  if (localStorage.getItem('theme') === 'light') {
-    document.documentElement.classList.add('light');
-  } else {
-    document.documentElement.classList.remove('light');
-  }
-}
-
-function toggleTheme() {
-  const isLight = document.documentElement.classList.toggle('light');
-  localStorage.setItem('theme', isLight ? 'light' : 'dark');
-}
 
 // ============================================
 // MOBILE MENU
@@ -364,11 +349,6 @@ function init() {
   initCursorGlow();
   initScrollProgress();
   initStaggeredReveal();
-  const btn = document.querySelector('.theme-toggle');
-  if (btn) btn.addEventListener('click', toggleTheme);
 }
 
-initTheme();
 document.addEventListener('DOMContentLoaded', init);
-document.addEventListener('astro:after-swap', initTheme);
-document.addEventListener('astro:page-load', init);
