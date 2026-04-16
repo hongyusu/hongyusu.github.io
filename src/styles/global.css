@@ -210,8 +210,9 @@ th { font-weight: 700; }
 .archive-list { list-style: none; padding: 0; }
 .archive-list li { display: flex; gap: 2ch; padding: 0.25em 0; border-bottom: 1px solid rgba(var(--black-rgb), 0.08); }
 .archive-list .date { color: rgba(var(--black-rgb), 0.3); font-size: 0.85em; white-space: nowrap; min-width: 8ch; }
-.archive-list a { color: var(--fg); transition: padding-left 0.2s; }
+.archive-list a { color: var(--fg); transition: padding-left 0.2s; flex: 1; }
 .archive-list a:hover { padding-left: 1ch; }
+.archive-tags { color: rgba(var(--black-rgb), 0.2); font-size: 0.8em; white-space: nowrap; margin-left: auto; }
 
 /* CONTENT SECTIONS */
 .content-section { margin-top: calc(var(--line) * 3); padding-top: var(--line); border-top: 1px solid rgba(var(--black-rgb), 0.08); }

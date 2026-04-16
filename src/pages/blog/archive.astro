@@ -32,10 +32,14 @@ for (const post of posts) {
         {yearPosts.map((post) => {
           const date = post.data.date ?? new Date(post.id.slice(0, 10));
           const formatted = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+          const tags = post.data.tags || [];
           return (
             <li>
               <span class="date">{formatted}</span>
               <a href={`/blog/${post.id.replace(/\.md$/, '')}/`}>{post.data.title}</a>
+              {tags.length > 0 && (
+                <span class="archive-tags">{tags.slice(0, 3).join(', ')}</span>
+              )}
             </li>
           );
         })}
