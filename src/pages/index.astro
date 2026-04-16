@@ -15,7 +15,15 @@ const recentPosts = posts.slice(0, 8);
 
 <Base title="Home">
   <div class="hero">
+    <div class="greeting" id="greeting"></div>
     <h1 data-typewriter="Hongyu Su">Hongyu Su</h1>
+    <script is:inline>
+      (function() {
+        const h = new Date().getHours();
+        const g = h < 6 ? 'Good night' : h < 12 ? 'Good morning' : h < 18 ? 'Good afternoon' : 'Good evening';
+        document.getElementById('greeting').textContent = g;
+      })();
+    </script>
     <div class="tagline" data-typewriter-lines>
       <div data-line>PhD in Machine Learning from Aalto University</div>
       <div data-line>data scientist building ML systems in production</div>

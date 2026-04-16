@@ -253,6 +253,75 @@ function initClock() {
 }
 
 // ============================================
+// CURSOR GLOW — radial gradient follows mouse
+// ============================================
+function initCursorGlow() {
+  const glow = document.querySelector<HTMLElement>('.cursor-glow');
+  if (!glow) return;
+  let mx = 0, my = 0, cx = 0, cy = 0;
+
+  document.addEventListener('mousemove', (e) => {
+    mx = e.clientX;
+    my = e.clientY;
+  });
+
+  function animate() {
+    // Smooth interpolation (lag behind the cursor)
+    cx += (mx - cx) * 0.08;
+    cy += (my - cy) * 0.08;
+    glow.style.background = `radial-gradient(600px circle at ${cx}px ${cy}px, rgba(var(--black-rgb), 0.04), transparent 60%)`;
+    requestAnimationFrame(animate);
+  }
+  requestAnimationFrame(animate);
+}
+
+// ============================================
+// SCROLL PROGRESS BAR (blog posts)
+// ============================================
+function initScrollProgress() {
+  const bar = document.querySelector<HTMLElement>('.scroll-progress');
+  if (!bar) return;
+
+  function update() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    bar.style.width = `${progress}%`;
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+}
+
+// ============================================
+// STAGGERED LIST REVEAL
+// ============================================
+function initStaggeredReveal() {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const items = entry.target.querySelectorAll<HTMLElement>('.project-row, .archive-list li');
+          items.forEach((item, i) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(6px)';
+            item.style.transition = `opacity 0.4s ease ${i * 0.03}s, transform 0.4s ease ${i * 0.03}s`;
+            requestAnimationFrame(() => {
+              item.style.opacity = '1';
+              item.style.transform = 'translateY(0)';
+            });
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  document.querySelectorAll('.project-showcase, .archive-list').forEach((el) => observer.observe(el));
+}
+
+// ============================================
 // THEME
 // ============================================
 function initTheme() {
@@ -292,6 +361,9 @@ function init() {
   initTypewriter();
   initTaglineTypewriter();
   initClock();
+  initCursorGlow();
+  initScrollProgress();
+  initStaggeredReveal();
   const btn = document.querySelector('.theme-toggle');
   if (btn) btn.addEventListener('click', toggleTheme);
 }
