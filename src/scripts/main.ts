@@ -253,26 +253,50 @@ function initClock() {
 }
 
 // ============================================
-// CURSOR GLOW — radial gradient follows mouse
+// CHARACTER TRAIL — monospace chars spawn at cursor and dissolve
 // ============================================
-function initCursorGlow() {
-  const glow = document.querySelector<HTMLElement>('.cursor-glow');
-  if (!glow) return;
-  let mx = 0, my = 0, cx = 0, cy = 0;
+function initCharTrail() {
+  if (window.innerWidth < 641) return; // skip on mobile
+
+  const chars = '$MBNQOW@&R8GD6S9H#E5UK0A2XP34ZC%VIF17YTJL*';
+  const container = document.querySelector<HTMLElement>('.cursor-trail');
+  if (!container) return;
+
+  let lastX = 0, lastY = 0;
+  const minDist = 30; // minimum px between spawns
 
   document.addEventListener('mousemove', (e) => {
-    mx = e.clientX;
-    my = e.clientY;
-  });
+    const dx = e.clientX - lastX;
+    const dy = e.clientY - lastY;
+    if (dx * dx + dy * dy < minDist * minDist) return;
 
-  function animate() {
-    // Smooth interpolation (lag behind the cursor)
-    cx += (mx - cx) * 0.08;
-    cy += (my - cy) * 0.08;
-    glow.style.background = `radial-gradient(600px circle at ${cx}px ${cy}px, rgba(var(--black-rgb), 0.04), transparent 60%)`;
-    requestAnimationFrame(animate);
-  }
-  requestAnimationFrame(animate);
+    lastX = e.clientX;
+    lastY = e.clientY;
+
+    const span = document.createElement('span');
+    span.textContent = chars[Math.floor(Math.random() * chars.length)];
+    span.style.cssText = `
+      position: fixed;
+      left: ${e.clientX}px;
+      top: ${e.clientY}px;
+      pointer-events: none;
+      color: var(--fg);
+      font-family: inherit;
+      font-size: 0.85em;
+      opacity: 0.5;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      z-index: 9999;
+    `;
+    container.appendChild(span);
+
+    requestAnimationFrame(() => {
+      span.style.opacity = '0';
+      span.style.transform = `translate(-50%, ${-20 - Math.random() * 20}px)`;
+    });
+
+    setTimeout(() => span.remove(), 800);
+  });
 }
 
 // ============================================
@@ -346,7 +370,7 @@ function init() {
   initTypewriter();
   initTaglineTypewriter();
   initClock();
-  initCursorGlow();
+  initCharTrail();
   initScrollProgress();
   initStaggeredReveal();
 }

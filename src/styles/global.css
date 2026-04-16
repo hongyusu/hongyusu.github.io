@@ -43,13 +43,9 @@ body { min-height: 100vh; overflow-x: hidden; }
   transition: width 0.05s linear;
 }
 
-/* CURSOR GLOW */
-.cursor-glow {
-  position: fixed; inset: 0; z-index: -1; pointer-events: none;
-}
-
-@media (max-width: 640px) {
-  .cursor-glow { display: none; }
+/* CURSOR TRAIL */
+.cursor-trail {
+  position: fixed; inset: 0; z-index: 9999; pointer-events: none; overflow: hidden;
 }
 
 
