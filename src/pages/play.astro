@@ -1,223 +1,178 @@
 ---
-import Base from '../layouts/Base.astro';
+import '../styles/global.css';
 ---
 
-<Base title="Play">
-  <div class="page-header">
-    <h1>Play</h1>
-    <div class="tagline" data-typewriter-lines>
-      <div data-line>Click to spawn. Move to guide.</div>
-    </div>
-  </div>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Play &mdash; Hongyu Su</title>
+    <style>
+      html, body { margin: 0; padding: 0; overflow: hidden; background: #181818; }
+      canvas { display: block; width: 100vw; height: 100vh; cursor: crosshair; }
+      .back { position: fixed; top: 1.5em; left: 1.5em; z-index: 10; color: rgba(232,232,227,0.3); font-family: 'mono', monospace; font-size: 14px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.08em; }
+      .back:hover { color: rgb(232,232,227); }
+    </style>
+  </head>
+  <body>
+    <a href="/" class="back">&larr; Back</a>
+    <canvas id="matrix"></canvas>
 
-  <canvas id="matrix" class="matrix-canvas"></canvas>
+    <script is:inline>
+    (function() {
+      const canvas = document.getElementById('matrix');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
 
-  <script is:inline>
-  (function() {
-    const canvas = document.getElementById('matrix');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
+      const chars = '$MBNQOW@&R8GD6S9H#E5UK0A2XP34ZC%VIF17YTJL*[]?}{()<>|=+/^!;:~,-.';
+      const fontSize = 14;
+      const colWidth = fontSize * 0.6;
 
-    const chars = '$MBNQOW@&R8GD6S9H#E5UK0A2XP34ZC%VIF17YTJL*[]?}{()<>|=+/^!;:~,-.';
-    const fontSize = 14;
-    const colWidth = fontSize * 0.6;
+      let cols, rows;
+      let streams = [];
+      let mouseX = -1, mouseY = -1;
+      let hue = 120;
 
-    let cols, rows;
-    let streams = [];
-    let mouseX = -1, mouseY = -1;
-    let hue = 120; // start green
+      function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        cols = Math.floor(canvas.width / colWidth);
+        rows = Math.floor(canvas.height / fontSize);
+      }
 
-    function resize() {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
-      cols = Math.floor(canvas.width / colWidth);
-      rows = Math.floor(canvas.height / fontSize);
-    }
+      function spawnStream(col) {
+        streams.push({
+          col: col,
+          y: 0,
+          speed: 0.3 + Math.random() * 0.7,
+          length: 8 + Math.floor(Math.random() * 20),
+          chars: Array.from({ length: 30 }, () => chars[Math.floor(Math.random() * chars.length)]),
+          hue: hue + Math.random() * 30 - 15,
+        });
+      }
 
-    function spawnStream(col) {
-      streams.push({
-        col: col,
-        y: 0,
-        speed: 0.3 + Math.random() * 0.7,
-        length: 8 + Math.floor(Math.random() * 20),
-        chars: Array.from({ length: 30 }, () => chars[Math.floor(Math.random() * chars.length)]),
-        hue: hue + Math.random() * 30 - 15,
-      });
-    }
-
-    function spawnBurst(x, y) {
-      const col = Math.floor(x / colWidth);
-      const count = 3 + Math.floor(Math.random() * 5);
-      for (let i = 0; i < count; i++) {
-        const c = col + Math.floor(Math.random() * 7) - 3;
-        if (c >= 0 && c < cols) {
-          const s = {
-            col: c,
-            y: y / fontSize,
-            speed: 0.4 + Math.random() * 0.8,
-            length: 6 + Math.floor(Math.random() * 16),
-            chars: Array.from({ length: 30 }, () => chars[Math.floor(Math.random() * chars.length)]),
-            hue: hue + Math.random() * 40 - 20,
-          };
-          streams.push(s);
+      function spawnBurst(x, y) {
+        const col = Math.floor(x / colWidth);
+        const count = 3 + Math.floor(Math.random() * 5);
+        for (let i = 0; i < count; i++) {
+          const c = col + Math.floor(Math.random() * 7) - 3;
+          if (c >= 0 && c < cols) {
+            streams.push({
+              col: c,
+              y: y / fontSize,
+              speed: 0.4 + Math.random() * 0.8,
+              length: 6 + Math.floor(Math.random() * 16),
+              chars: Array.from({ length: 30 }, () => chars[Math.floor(Math.random() * chars.length)]),
+              hue: hue + Math.random() * 40 - 20,
+            });
+          }
         }
       }
-    }
 
-    // Random spawns
-    let spawnTimer = 0;
-    function randomSpawn() {
-      if (streams.length < cols * 0.3) {
-        const count = 1 + Math.floor(Math.random() * 2);
-        for (let i = 0; i < count; i++) {
+      function draw() {
+        ctx.fillStyle = 'rgba(24, 24, 24, 0.12)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.font = fontSize + 'px "JetBrains Mono", monospace';
+
+        const mouseCol = mouseX >= 0 ? Math.floor(mouseX / colWidth) : -1;
+
+        for (let i = streams.length - 1; i >= 0; i--) {
+          const s = streams[i];
+
+          for (let j = 0; j < s.length; j++) {
+            const row = Math.floor(s.y) - j;
+            if (row < 0 || row >= rows + 5) continue;
+
+            const charIdx = (Math.floor(s.y) - j + Math.floor(performance.now() / 100)) % s.chars.length;
+            const ch = s.chars[Math.abs(charIdx) % s.chars.length];
+
+            const fade = 1 - (j / s.length);
+            const alpha = fade * fade;
+
+            let drawCol = s.col;
+            if (mouseCol >= 0) {
+              const dist = Math.abs(s.col - mouseCol);
+              if (dist < 8 && dist > 0) {
+                drawCol += (mouseCol > s.col ? 1 : -1) * (1 - dist / 8) * 0.5;
+              }
+            }
+
+            const x = drawCol * colWidth;
+            const y = row * fontSize;
+
+            if (j === 0) {
+              ctx.fillStyle = 'rgba(255, 255, 255, ' + (alpha * 0.9) + ')';
+            } else {
+              ctx.fillStyle = 'hsla(' + s.hue + ', 70%, ' + (40 + fade * 20) + '%, ' + (alpha * 0.8) + ')';
+            }
+            ctx.fillText(ch, x, y);
+          }
+
+          s.y += s.speed;
+
+          if (Math.random() < 0.1) {
+            s.chars[Math.floor(Math.random() * s.chars.length)] = chars[Math.floor(Math.random() * chars.length)];
+          }
+
+          if (Math.floor(s.y) - s.length > rows + 5) {
+            streams.splice(i, 1);
+          }
+        }
+
+        // Random spawns
+        if (streams.length < cols * 0.3 && Math.random() < 0.3) {
           spawnStream(Math.floor(Math.random() * cols));
         }
-      }
-    }
 
-    function draw() {
-      // Fade effect
-      ctx.fillStyle = 'rgba(24, 24, 24, 0.12)';
+        hue = (hue + 0.05) % 360;
+        requestAnimationFrame(draw);
+      }
+
+      canvas.addEventListener('click', function(e) {
+        spawnBurst(e.clientX, e.clientY);
+      });
+
+      canvas.addEventListener('mousemove', function(e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        if (Math.random() < 0.15) {
+          var col = Math.floor(mouseX / colWidth);
+          if (col >= 0 && col < cols) spawnStream(col);
+        }
+      });
+
+      canvas.addEventListener('mouseleave', function() {
+        mouseX = -1;
+        mouseY = -1;
+      });
+
+      canvas.addEventListener('touchstart', function(e) {
+        e.preventDefault();
+        var t = e.touches[0];
+        spawnBurst(t.clientX, t.clientY);
+      }, { passive: false });
+
+      canvas.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+        var t = e.touches[0];
+        mouseX = t.clientX;
+        mouseY = t.clientY;
+        if (Math.random() < 0.3) {
+          var col = Math.floor(mouseX / colWidth);
+          if (col >= 0 && col < cols) spawnStream(col);
+        }
+      }, { passive: false });
+
+      window.addEventListener('resize', resize);
+      resize();
+
+      for (var i = 0; i < 15; i++) spawnStream(Math.floor(Math.random() * cols));
+
+      ctx.fillStyle = 'rgb(24, 24, 24)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      ctx.font = `${fontSize}px "JetBrains Mono", monospace`;
-
-      // Mouse influence: bend nearby streams
-      const mouseCol = mouseX >= 0 ? Math.floor(mouseX / colWidth) : -1;
-      const mouseRow = mouseY >= 0 ? mouseY / fontSize : -1;
-
-      for (let i = streams.length - 1; i >= 0; i--) {
-        const s = streams[i];
-
-        // Draw each visible character in the stream
-        for (let j = 0; j < s.length; j++) {
-          const row = Math.floor(s.y) - j;
-          if (row < 0 || row >= rows + 5) continue;
-
-          const charIdx = (Math.floor(s.y) - j + Math.floor(performance.now() / 100)) % s.chars.length;
-          const ch = s.chars[Math.abs(charIdx) % s.chars.length];
-
-          // Brightness: head is bright, tail fades
-          const fade = 1 - (j / s.length);
-          const alpha = fade * fade;
-
-          // Slight horizontal drift toward mouse
-          let drawCol = s.col;
-          if (mouseCol >= 0) {
-            const dist = Math.abs(s.col - mouseCol);
-            if (dist < 8 && dist > 0) {
-              const pull = (1 - dist / 8) * 0.5;
-              drawCol += (mouseCol > s.col ? pull : -pull);
-            }
-          }
-
-          const x = drawCol * colWidth;
-          const y = row * fontSize;
-
-          if (j === 0) {
-            // Head character: white/bright
-            ctx.fillStyle = `rgba(255, 255, 255, ${alpha * 0.9})`;
-          } else {
-            // Trail: colored
-            ctx.fillStyle = `hsla(${s.hue}, 70%, ${40 + fade * 20}%, ${alpha * 0.8})`;
-          }
-
-          ctx.fillText(ch, x, y);
-        }
-
-        // Advance
-        s.y += s.speed;
-
-        // Randomly change a character
-        if (Math.random() < 0.1) {
-          const idx = Math.floor(Math.random() * s.chars.length);
-          s.chars[idx] = chars[Math.floor(Math.random() * chars.length)];
-        }
-
-        // Remove when fully off screen
-        if (Math.floor(s.y) - s.length > rows + 5) {
-          streams.splice(i, 1);
-        }
-      }
-
-      // Random spawns
-      spawnTimer++;
-      if (spawnTimer % 8 === 0) randomSpawn();
-
-      // Slowly cycle hue
-      hue = (hue + 0.05) % 360;
-
-      requestAnimationFrame(draw);
-    }
-
-    // Events
-    canvas.addEventListener('click', (e) => {
-      const rect = canvas.getBoundingClientRect();
-      spawnBurst(e.clientX - rect.left, e.clientY - rect.top);
-    });
-
-    canvas.addEventListener('mousemove', (e) => {
-      const rect = canvas.getBoundingClientRect();
-      mouseX = e.clientX - rect.left;
-      mouseY = e.clientY - rect.top;
-
-      // Spawn a stream at mouse occasionally
-      if (Math.random() < 0.15) {
-        const col = Math.floor(mouseX / colWidth);
-        if (col >= 0 && col < cols) {
-          spawnStream(col);
-        }
-      }
-    });
-
-    canvas.addEventListener('mouseleave', () => {
-      mouseX = -1;
-      mouseY = -1;
-    });
-
-    // Touch support
-    canvas.addEventListener('touchstart', (e) => {
-      e.preventDefault();
-      const rect = canvas.getBoundingClientRect();
-      const touch = e.touches[0];
-      spawnBurst(touch.clientX - rect.left, touch.clientY - rect.top);
-    }, { passive: false });
-
-    canvas.addEventListener('touchmove', (e) => {
-      e.preventDefault();
-      const rect = canvas.getBoundingClientRect();
-      const touch = e.touches[0];
-      mouseX = touch.clientX - rect.left;
-      mouseY = touch.clientY - rect.top;
-      if (Math.random() < 0.3) {
-        const col = Math.floor(mouseX / colWidth);
-        if (col >= 0 && col < cols) spawnStream(col);
-      }
-    }, { passive: false });
-
-    window.addEventListener('resize', resize);
-    resize();
-
-    // Initial burst
-    for (let i = 0; i < 15; i++) {
-      spawnStream(Math.floor(Math.random() * cols));
-    }
-
-    // Clear canvas to black first
-    ctx.fillStyle = 'rgb(24, 24, 24)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    draw();
-  })();
-  </script>
-
-  <style>
-    .matrix-canvas {
-      width: 100%;
-      height: 70vh;
-      display: block;
-      cursor: crosshair;
-      margin-top: var(--line);
-    }
-  </style>
-</Base>
+      draw();
+    })();
+    </script>
+  </body>
+</html>
