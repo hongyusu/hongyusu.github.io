@@ -14,28 +14,20 @@ Three reasons pushed us from OpenAI to AWS Bedrock with LLaMA:
 
 ## The Bedrock Setup
 
-AWS Bedrock provides managed access to foundation models without managing infrastructure. We deployed two systems:
+AWS Bedrock provides managed access to foundation models without managing infrastructure. We focused first on the **labeler** — the core classification engine. The summarizer followed as a separate system (covered in a [dedicated post](/blog/2024-10-01-building-an-llm-summarizer-for-survey-analytics/)).
 
 ### Labeler (LLaMA 3 70B)
 
-Multi-label text classification across 20+ dimensions:
+Multi-label text classification across 30+ dimensions (sentiment, appearance, believability, brand perception, price, sustainability, etc.):
 
 - **Batch processing**: 50 texts per request, 320 concurrent connections
-- **Model**: `meta.llama3-70b-instruct-v1:0`
+- **Model**: `meta.llama3-70b-instruct-v1:0` (LLaMA 3, not 3.1)
 - **Temperature**: 0.5 with top-p sampling
-- **Output**: Structured JSON with label assignments per text
+- **Output**: Structured JSON manifest with label IDs and value scales
+- **Prompts**: 39KB of carefully engineered label definitions with examples and edge cases
 - Pydantic validation on every response
 - DynamoDB caching for repeat classifications
-
-### Summarizer (LLaMA 3.1 70B + Claude as fallback)
-
-Theme extraction and summarization from survey responses:
-
-- **Primary model**: `meta.llama3-1-70b-instruct-v1:0`
-- **Fallback**: Claude Sonnet for complex analyses
-- Analysis types: positive/negative themes, uniqueness vs competitors, driver analysis, value propositions
-- JSON response with automatic repair for malformed outputs
-- Prompt versioning via MLflow artifacts
+- MLflow integration for prompt versioning per environment (dev/prod)
 
 ## Prompt Engineering for LLaMA vs GPT
 

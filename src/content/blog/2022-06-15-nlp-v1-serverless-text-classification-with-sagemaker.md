@@ -8,16 +8,25 @@ description: "How we built our first production NLP system for survey text class
 
 We needed to classify open-ended survey responses at scale — tens of thousands of texts across multiple dimensions like sentiment, brand perception, and product attributes. Manual labeling was too slow and expensive. We needed an automated pipeline that could process batches reliably and scale to zero when idle.
 
+## The Starting Point: spaCy for NER and Text Processing
+
+Before any ML classification, we had a basic NLP layer built on **spaCy** — using transformer-based models (`en_core_web_trf`) for Named Entity Recognition and the large language model (`en_core_web_lg`) for tokenization, POS tagging, and lemmatization. This handled the fundamentals: extracting organization names, product mentions, and generating wordclouds from survey text.
+
+But spaCy doesn't do multi-label classification out of the box. For that, we needed trained models and a serving infrastructure.
+
 ## Architecture: Lambda Orchestration + SageMaker Inference
 
-The first version was built around two AWS primitives: **Lambda** for orchestration and **SageMaker serverless endpoints** for model inference.
+The classification system was built around two AWS primitives: **Lambda** for orchestration and **SageMaker serverless endpoints** for model inference.
 
-The Lambda function acted as a state machine, managing a multi-stage pipeline:
+The Lambda function acted as a state machine, managing a **13-stage pipeline**:
 
 1. **Ingestion** — receive survey data, validate, store to S3
 2. **Translation** — handle multilingual inputs
 3. **Prediction** — invoke SageMaker endpoints for classification
-4. **Post-processing** — aggregate results, generate statistics and wordclouds
+4. **Update** — persist results
+5. **Wordcloud** — generate text visualizations via spaCy
+6. **Statistics** — compute aggregates
+7-12. **Post-processing** — various downstream tasks
 
 SageMaker serverless endpoints gave us pay-per-invocation pricing without managing infrastructure. We deployed traditional ML models (trained separately) via the SageMaker Model Registry, with automatic endpoint updates when new model versions were approved.
 
