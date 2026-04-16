@@ -14,10 +14,7 @@ const posts = (await getCollection('blog'))
 <Base title="Blog">
   <div class="page-header">
     <h1>Blog</h1>
-    <div class="tagline" data-typewriter-lines>
-      <div data-line>{posts.length} posts</div>
-    </div>
-    <p class="subtitle"><a href="/blog/archive/">Archive &rarr;</a></p>
+    <p class="subtitle">{posts.length} posts. <a href="/blog/archive/">Archive &rarr;</a></p>
   </div>
 
   <div class="post-grid">
