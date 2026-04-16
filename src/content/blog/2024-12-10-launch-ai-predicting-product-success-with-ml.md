@@ -8,7 +8,7 @@ description: "How we built a predictive analytics system that forecasts product 
 
 ## The Problem
 
-Before a consumer goods company launches a new product, they run concept testing surveys. Hundreds of consumers evaluate the product concept across dimensions like taste appeal, packaging attractiveness, price perception, and purchase intent. The question: **will this product succeed in market?**
+Before a consumer goods company launches a new product, they run concept testing surveys. Hundreds of consumers evaluate the product concept across dimensions like sensory appeal, visual design, price perception, and purchase intent. The question: **will this product succeed in market?**
 
 We built a system that takes these survey responses and predicts the product's likely sales performance — expressed as a percentile ranking against historical launches in the same category. A score of 80 means the concept is predicted to outperform 80% of similar product launches.
 
@@ -18,7 +18,7 @@ This isn't a standard regression problem. The challenges:
 
 **Small datasets.** Each organization might have 10-100 historical product launches with known outcomes. You're training ML models on dozens of samples, not millions.
 
-**High-dimensional inputs.** A single survey produces 100+ features: structured ratings (appearance, taste, quality), NLP-derived labels from open-ended text (sentiment, believability, differentiation), KPI metrics (willingness-to-buy, uniqueness), and product attributes (category, region, price tier).
+**High-dimensional inputs.** A single survey produces 100+ features: structured ratings (visual design, sensory appeal, perceived quality), NLP-derived labels from open-ended text (sentiment polarity, credibility, innovation perception), KPI metrics (purchase intent, differentiation score), and product attributes (category, region, price tier).
 
 **Multi-client, multi-category.** The system serves a dozen organizations across food, beverages, personal care, and other categories. Each has different baselines, survey formats, and success metrics.
 
@@ -63,16 +63,16 @@ Each raw feature (like `flavor.positive`, `credibility.high`, `eco_friendly.posi
 **Statistical features:**
 - **Beta-medians** — Bayesian aggregation of Likert-scale responses (handles small sample sizes better than raw means)
 - **Wilson scores** — Confidence-interval adjusted sentiment metrics
-- **KPI ratios** — Willingness-to-buy and uniqueness normalized against category benchmarks
+- **KPI ratios** — Purchase intent and differentiation normalized against category benchmarks
 - **Z-scores** — Benchmark comparisons with statistical significance
 
 ## The Model: Constrained XGBoost
 
 We use **XGBoost regression** with two important constraints:
 
-**Driver interaction constraints.** By default, XGBoost can learn arbitrary feature interactions. But a taste feature interacting with an appearance feature doesn't make business sense — it produces unexplainable predictions. We constrain the model so features can only interact within their driver group.
+**Driver interaction constraints.** By default, XGBoost can learn arbitrary feature interactions. But a sensory feature interacting with a visual design feature doesn't make business sense — it produces unexplainable predictions. We constrain the model so features can only interact within their driver group.
 
-**Monotonic constraints.** Higher taste scores should never *decrease* the prediction. We enforce directional relationships where the business logic is clear (positive sentiment → higher score).
+**Monotonic constraints.** Higher sensory scores should never *decrease* the prediction. We enforce directional relationships where the business logic is clear (positive sentiment → higher score).
 
 These constraints slightly reduce raw accuracy but dramatically improve interpretability and client trust.
 
@@ -91,13 +91,13 @@ All tuning uses **20-fold cross-validation** — aggressive given the dataset si
 
 ### SHAP (SHapley Additive exPlanations)
 
-For detailed analysis, we compute TreeSHAP values for every prediction. This gives the exact contribution of each feature to the score. We aggregate SHAP values by driver to produce the business-level explanation: "Taste is driving +12 points, but Value Perception is dragging -8 points."
+For detailed analysis, we compute TreeSHAP values for every prediction. This gives the exact contribution of each feature to the score. We aggregate SHAP values by driver to produce the business-level explanation: "Sensory Appeal is driving +12 points, but Price Sensitivity is dragging -8 points."
 
-Quality checks catch direction violations — if SHAP says higher taste hurts the score, something's wrong with the model or data.
+Quality checks catch direction violations — if SHAP says higher sensory appeal hurts the score, something's wrong with the model or data.
 
 ### Proportional Drivers
 
-For real-time inference where SHAP computation would add latency, we use a simpler approach: proportionally allocate the willingness-to-buy and uniqueness scores across drivers based on their underlying feature values. This is faster, more stable, and directly interpretable.
+For real-time inference where SHAP computation would add latency, we use a simpler approach: proportionally allocate the purchase intent and differentiation scores across drivers based on their underlying feature values. This is faster, more stable, and directly interpretable.
 
 ## Multi-Level Model Routing
 

@@ -8,7 +8,7 @@ description: "How we built our first production NLP system for survey text class
 
 ## The Problem
 
-We needed to classify open-ended survey responses at scale — tens of thousands of texts across multiple dimensions like sentiment, brand perception, and product attributes. Manual labeling was too slow and expensive. We needed an automated pipeline that could process batches reliably and scale to zero when idle.
+We needed to classify open-ended survey responses at scale — tens of thousands of texts across multiple dimensions like sentiment polarity, credibility, and product perception. Manual labeling was too slow and expensive. We needed an automated pipeline that could process batches reliably and scale to zero when idle.
 
 ## The Starting Point: spaCy for NER and Text Processing
 

@@ -23,7 +23,7 @@ This gave us a declarative model: define which models should be deployed, and th
 
 ## Multi-Endpoint Architecture
 
-Each classification dimension (sentiment, brand perception, product attributes, etc.) got its own SageMaker endpoint. This isolation meant:
+Each classification dimension (sentiment polarity, credibility, product perception, etc.) got its own SageMaker endpoint. This isolation meant:
 
 - Independent scaling per task
 - Independent model updates without affecting others
