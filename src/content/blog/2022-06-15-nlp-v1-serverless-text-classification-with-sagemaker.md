@@ -4,6 +4,8 @@ tags: [NLP, AWS, SageMaker, Lambda, MLOps]
 description: "How we built our first production NLP system for survey text classification using SageMaker serverless endpoints and Lambda orchestration."
 ---
 
+> *Note: To protect proprietary details, specific names, labels, and configurations in this post have been adapted into a similar but fictional context. The architectural decisions, trade-offs, and lessons learned are real.*
+
 ## The Problem
 
 We needed to classify open-ended survey responses at scale — tens of thousands of texts across multiple dimensions like sentiment, brand perception, and product attributes. Manual labeling was too slow and expensive. We needed an automated pipeline that could process batches reliably and scale to zero when idle.

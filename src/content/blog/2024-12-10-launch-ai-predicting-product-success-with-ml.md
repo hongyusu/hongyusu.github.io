@@ -4,6 +4,8 @@ tags: [ML, XGBoost, Metaflow, SHAP, ProductAnalytics, MLOps]
 description: "How we built a predictive analytics system that forecasts product launch performance from consumer survey data — training pipeline, feature engineering, and real-time inference."
 ---
 
+> *Note: To protect proprietary details, specific names, labels, and configurations in this post have been adapted into a similar but fictional context. The architectural decisions, trade-offs, and lessons learned are real.*
+
 ## The Problem
 
 Before a consumer goods company launches a new product, they run concept testing surveys. Hundreds of consumers evaluate the product concept across dimensions like taste appeal, packaging attractiveness, price perception, and purchase intent. The question: **will this product succeed in market?**

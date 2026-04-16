@@ -4,6 +4,8 @@ tags: [NLP, LLaMA, AWSBedrock, LLM, Infrastructure]
 description: "Moving from OpenAI GPT to Meta's LLaMA 3 on AWS Bedrock for production text classification and summarization — cost, performance, and architecture."
 ---
 
+> *Note: To protect proprietary details, specific names, labels, and configurations in this post have been adapted into a similar but fictional context. The architectural decisions, trade-offs, and lessons learned are real.*
+
 ## Why Move Away from OpenAI
 
 Three reasons pushed us from OpenAI to AWS Bedrock with LLaMA:

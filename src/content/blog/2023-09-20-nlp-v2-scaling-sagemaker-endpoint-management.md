@@ -4,6 +4,8 @@ tags: [NLP, AWS, SageMaker, MLOps, Infrastructure]
 description: "The second iteration of our NLP system focused on better endpoint management, model versioning, and multi-endpoint orchestration."
 ---
 
+> *Note: To protect proprietary details, specific names, labels, and configurations in this post have been adapted into a similar but fictional context. The architectural decisions, trade-offs, and lessons learned are real.*
+
 ## Why a Second Iteration
 
 The first version worked but had friction points. Updating models required manual intervention. Managing multiple endpoints (one per classification task) was error-prone. We needed a system that could track model freshness, auto-deploy approved versions, and handle endpoint lifecycle without babysitting.

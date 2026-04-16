@@ -4,6 +4,8 @@ tags: [NLP, LoRA, LLaMA, FineTuning, MLOps, AWS]
 description: "Building a production system for multi-label text classification using LoRA-adapted LLaMA 3.1 8B on autoscaling EC2 — from training to deployment."
 ---
 
+> *Note: To protect proprietary details, specific names, labels, and configurations in this post have been adapted into a similar but fictional context. The architectural decisions, trade-offs, and lessons learned are real.*
+
 ## The Motivation
 
 Our [Bedrock-based LLaMA 70B labeler](/blog/2024-08-15-nlp-v4-llama-on-bedrock-ditching-openai/) worked well for classification but had a fundamental inefficiency: we were using a 70-billion parameter model to output a single label per text. That's like using a rocket engine to power a bicycle. Meanwhile, the [summarizer](/blog/2024-10-01-building-an-llm-summarizer-for-survey-analytics/) stayed on Bedrock (where the 70B model's language generation strength was actually needed).

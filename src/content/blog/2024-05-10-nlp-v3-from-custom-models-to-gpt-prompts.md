@@ -4,6 +4,8 @@ tags: [NLP, GPT, OpenAI, LLM, PromptEngineering]
 description: "How we replaced task-specific ML models with GPT-3.5/4 prompts for text classification and summarization — and what surprised us."
 ---
 
+> *Note: To protect proprietary details, specific names, labels, and configurations in this post have been adapted into a similar but fictional context. The architectural decisions, trade-offs, and lessons learned are real.*
+
 ## The Shift
 
 For two years, our NLP pipeline relied on custom-trained classification models. Each new label required collecting training data, training a model, validating it, and deploying it through the SageMaker pipeline. Adding a new classification dimension took weeks.

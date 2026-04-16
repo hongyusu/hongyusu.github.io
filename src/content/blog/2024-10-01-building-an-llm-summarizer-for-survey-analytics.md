@@ -4,6 +4,8 @@ tags: [NLP, LLM, AWSBedrock, LLaMA, Claude, Summarization]
 description: "How we built a production summarization system that extracts themes, sentiment, and value propositions from survey responses using LLaMA and Claude on AWS Bedrock."
 ---
 
+> *Note: To protect proprietary details, specific names, labels, and configurations in this post have been adapted into a similar but fictional context. The architectural decisions, trade-offs, and lessons learned are real.*
+
 ## The Problem
 
 Survey data is messy. Thousands of open-ended responses that need to be distilled into actionable insights: what do customers love, what do they hate, what makes the product unique, and what's the value proposition. Manual analysis doesn't scale.
