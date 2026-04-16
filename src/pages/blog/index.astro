@@ -14,9 +14,14 @@ const posts = (await getCollection('blog'))
 <Base title="Blog">
   <div class="page-header">
     <h1>Blog</h1>
+    <div class="tagline" data-typewriter-lines>
+      <div data-line>machine learning</div>
+      <div data-line>data science</div>
+      <div data-line>data engineering</div>
+      <div data-line>software development</div>
+    </div>
     <p class="subtitle">
-      {posts.length} posts on machine learning, data science, data engineering, and software development.
-      <a href="/blog/archive/">Archive &rarr;</a>
+      {posts.length} posts. <a href="/blog/archive/">Archive &rarr;</a>
     </p>
   </div>
 
