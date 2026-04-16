@@ -206,6 +206,23 @@ th { font-weight: 700; }
 .post-nav .label { font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.05em; color: rgba(var(--black-rgb), 0.3); display: block; margin-bottom: 2px; }
 
 /* ARCHIVE */
+/* ARCHIVE SEARCH */
+.archive-search { margin-bottom: calc(var(--line) * 2); }
+.archive-search input {
+  width: 100%; background: rgba(var(--black-rgb), 0.06); border: 1px solid rgba(var(--black-rgb), 0.08);
+  color: var(--fg); font: inherit; padding: 0.5em 1ch; outline: none;
+}
+.archive-search input:focus { border-color: rgba(var(--black-rgb), 0.3); }
+.archive-search input::placeholder { color: rgba(var(--black-rgb), 0.25); }
+.archive-tag-filters { display: flex; flex-wrap: wrap; gap: 0.5ch; margin-top: 0.5em; }
+.tag-btn {
+  appearance: none; background: none; border: 1px solid rgba(var(--black-rgb), 0.08);
+  color: rgba(var(--black-rgb), 0.3); font: inherit; font-size: 0.75em; padding: 0.15em 0.8ch;
+  cursor: pointer; transition: color 0.15s, border-color 0.15s;
+}
+.tag-btn:hover { color: var(--fg); border-color: rgba(var(--black-rgb), 0.3); }
+.tag-btn.active { color: var(--fg); border-color: var(--fg); }
+
 .archive-year { margin-top: calc(var(--line) * 2); margin-bottom: 0.5em; color: rgba(var(--black-rgb), 0.5); }
 .archive-list { list-style: none; padding: 0; }
 .archive-list li { display: flex; gap: 2ch; padding: 0.25em 0; border-bottom: 1px solid rgba(var(--black-rgb), 0.08); }

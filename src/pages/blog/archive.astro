@@ -17,33 +17,99 @@ for (const post of posts) {
   if (!byYear.has(year)) byYear.set(year, []);
   byYear.get(year)!.push(post);
 }
+
+// Collect all unique tags
+const allTags = [...new Set(posts.flatMap((p) => p.data.tags || []))].sort();
 ---
 
 <Base title="Archive">
   <div class="page-header">
     <h1>Archive</h1>
-    <p class="subtitle">{posts.length} posts</p>
+    <p class="subtitle"><span id="match-count">{posts.length}</span> posts</p>
   </div>
 
-  {[...byYear.entries()].map(([year, yearPosts]) => (
-    <div>
-      <h2 class="archive-year">{year}</h2>
-      <ul class="archive-list">
-        {yearPosts.map((post) => {
-          const date = post.data.date ?? new Date(post.id.slice(0, 10));
-          const formatted = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-          const tags = post.data.tags || [];
-          return (
-            <li>
-              <span class="date">{formatted}</span>
-              <a href={`/blog/${post.id.replace(/\.md$/, '')}/`}>{post.data.title}</a>
-              {tags.length > 0 && (
-                <span class="archive-tags">{tags.slice(0, 3).join(', ')}</span>
-              )}
-            </li>
-          );
-        })}
-      </ul>
+  <div class="archive-search">
+    <input type="text" id="search" placeholder="Search titles, tags..." autocomplete="off" />
+    <div class="archive-tag-filters" id="tag-filters">
+      {allTags.map((tag) => (
+        <button class="tag-btn" data-tag={tag}>{tag}</button>
+      ))}
     </div>
-  ))}
+  </div>
+
+  <div id="archive-content">
+    {[...byYear.entries()].map(([year, yearPosts]) => (
+      <div class="archive-year-group" data-year={year}>
+        <h2 class="archive-year">{year}</h2>
+        <ul class="archive-list">
+          {yearPosts.map((post) => {
+            const date = post.data.date ?? new Date(post.id.slice(0, 10));
+            const formatted = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+            const tags = post.data.tags || [];
+            return (
+              <li data-title={post.data.title.toLowerCase()} data-tags={tags.join(',').toLowerCase()}>
+                <span class="date">{formatted}</span>
+                <a href={`/blog/${post.id.replace(/\.md$/, '')}/`}>{post.data.title}</a>
+                {tags.length > 0 && (
+                  <span class="archive-tags">{tags.slice(0, 3).join(', ')}</span>
+                )}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    ))}
+  </div>
+
+  <script is:inline>
+  (function() {
+    const input = document.getElementById('search');
+    const countEl = document.getElementById('match-count');
+    const groups = document.querySelectorAll('.archive-year-group');
+    const tagBtns = document.querySelectorAll('.tag-btn');
+    let activeTag = '';
+
+    function filter() {
+      const q = (input.value || '').toLowerCase().trim();
+      let total = 0;
+
+      groups.forEach(function(group) {
+        const items = group.querySelectorAll('li');
+        let groupVisible = 0;
+
+        items.forEach(function(li) {
+          const title = li.dataset.title || '';
+          const tags = li.dataset.tags || '';
+          const matchesSearch = !q || title.includes(q) || tags.includes(q);
+          const matchesTag = !activeTag || tags.split(',').indexOf(activeTag) >= 0;
+          const show = matchesSearch && matchesTag;
+          li.style.display = show ? '' : 'none';
+          if (show) groupVisible++;
+        });
+
+        group.style.display = groupVisible > 0 ? '' : 'none';
+        total += groupVisible;
+      });
+
+      countEl.textContent = total;
+    }
+
+    input.addEventListener('input', filter);
+
+    tagBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        const tag = btn.dataset.tag.toLowerCase();
+        if (activeTag === tag) {
+          activeTag = '';
+          btn.classList.remove('active');
+        } else {
+          activeTag = tag;
+          tagBtns.forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+        }
+        filter();
+      });
+    });
+  })();
+  </script>
 </Base>
