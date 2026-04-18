@@ -127,7 +127,7 @@ function addScrambleOnParent(el: HTMLElement, parent: HTMLElement) {
 
 function initHoverChar() {
   // All links except compound components
-  document.querySelectorAll<HTMLElement>('a:not(.project-row):not(.post-card)').forEach(addScramble);
+  document.querySelectorAll<HTMLElement>('a:not(.project-row):not(.post-card):not(.project-demo)').forEach(addScramble);
   // Headings
   document.querySelectorAll<HTMLElement>('h1, h2, h3').forEach(addScramble);
   // Explicit elements
@@ -325,7 +325,7 @@ function initStaggeredReveal() {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const items = entry.target.querySelectorAll<HTMLElement>('.project-row, .archive-list li');
+          const items = entry.target.querySelectorAll<HTMLElement>('.project-row-wrap, .archive-list li');
           items.forEach((item, i) => {
             item.style.opacity = '0';
             item.style.transform = 'translateY(6px)';

@@ -7,18 +7,22 @@ interface Props {
   langs?: string;
   stars?: number;
   year?: string;
+  demo?: string;
 }
 
-const { name, description, url, number, langs, stars, year } = Astro.props;
+const { name, description, url, number, langs, stars, year, demo } = Astro.props;
 ---
 
-<a href={url} target="_blank" rel="noopener" class="project-row fadein">
-  <span class="project-number">{number}</span>
-  <span class="project-name">{name}</span>
-  {year && <span class="project-year">{year}</span>}
-  <span class="project-meta">
-    {stars ? <span class="project-stars">{`${'*'.repeat(stars)}`}</span> : null}
-    {langs && <span class="project-langs">{langs}</span>}
-  </span>
-  <span class="project-desc">{description}</span>
-</a>
+<div class="project-row-wrap fadein">
+  <a href={url} target="_blank" rel="noopener" class="project-row">
+    <span class="project-number">{number}</span>
+    <span class="project-name">{name}</span>
+    {year && <span class="project-year">{year}</span>}
+    <span class="project-meta">
+      {stars ? <span class="project-stars">{`${'*'.repeat(stars)}`}</span> : null}
+      {langs && <span class="project-langs">{langs}</span>}
+    </span>
+    <span class="project-desc">{description}</span>
+  </a>
+  {demo && <a href={demo} target="_blank" rel="noopener" class="project-demo">live demo &#8599;</a>}
+</div>

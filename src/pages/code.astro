@@ -18,8 +18,9 @@ const sections = [
     title: 'Web Applications',
     projects: [
       { name: 'site-finuo', description: 'Nordic travel & education agency — magazine-style premium design', url: 'https://github.com/hongyusu/site-finuo', langs: 'React, MUI, Framer Motion', year: '2026' },
-      { name: 'site-travel', description: 'Travel website', url: 'https://github.com/hongyusu/site-travel', langs: 'TypeScript, Python, Docker', year: '2026' },
-      { name: 'site-ecommerce', description: 'E-commerce site', url: 'https://github.com/hongyusu/site-ecommerce', langs: 'TypeScript, Python, Docker', year: '2026' },
+      { name: 'site-travel', description: 'Travel website with destination guides and booking', url: 'https://github.com/hongyusu/site-travel', langs: 'TypeScript, Python, Docker', year: '2026', demo: 'http://178.104.206.21:8083' },
+      { name: 'site-ecommerce', description: 'E-commerce storefront with product catalog', url: 'https://github.com/hongyusu/site-ecommerce', langs: 'TypeScript, Python, Docker', year: '2026', demo: 'http://178.104.206.21:8081' },
+      { name: 'site-photo', description: 'Photography portfolio and gallery', url: 'https://github.com/hongyusu/site-photo', langs: 'TypeScript, Python, Docker', year: '2026', demo: 'http://178.104.206.21:8082' },
     ],
   },
   {
@@ -63,6 +64,7 @@ const sections = [
             year={p.year}
             langs={p.langs}
             stars={p.stars}
+            demo={p.demo}
           />
         ))}
       </div>
